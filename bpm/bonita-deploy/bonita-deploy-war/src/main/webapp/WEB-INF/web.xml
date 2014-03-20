@@ -17,6 +17,4 @@
 		<servlet-name>HttpAPIServlet</servlet-name>
 		<url-pattern>/serverAPI/*</url-pattern>
 	</servlet-mapping>
-
-
 </web-app>
