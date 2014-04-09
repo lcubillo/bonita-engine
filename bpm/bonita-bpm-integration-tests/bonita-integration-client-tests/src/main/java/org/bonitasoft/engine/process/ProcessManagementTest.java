@@ -21,7 +21,6 @@ import java.util.Set;
 
 import org.bonitasoft.engine.CommonAPITest;
 import org.bonitasoft.engine.api.ProcessAPI;
-import org.bonitasoft.engine.api.ProcessManagementAPI;
 import org.bonitasoft.engine.bpm.bar.BarResource;
 import org.bonitasoft.engine.bpm.bar.BusinessArchive;
 import org.bonitasoft.engine.bpm.bar.BusinessArchiveBuilder;
@@ -286,8 +285,8 @@ public class ProcessManagementTest extends CommonAPITest {
         // one archive for each change in the activity state. For automatic tasks we have initializingAndexecuting, completed
         checkNbOfArchivedActivityInstances(processInstance1, 2 * 2);
         checkNbOfArchivedActivityInstances(processInstance2, 3 * 2);
-        assertTrue(waitProcessToFinishAndBeArchived(processInstance1));
-        assertTrue(waitProcessToFinishAndBeArchived(processInstance2));
+        assertTrue(waitForProcessToFinishAndBeArchived(processInstance1));
+        assertTrue(waitForProcessToFinishAndBeArchived(processInstance2));
         disableAndDeleteProcess(processDefinition1);
         disableAndDeleteProcess(processDefinition2);
     }
@@ -348,7 +347,7 @@ public class ProcessManagementTest extends CommonAPITest {
                 assertEquals("task3", archivedActivityInstances.get(desc3 * nbOfStates + i).getName());
             }
         }
-        assertTrue(waitProcessToFinishAndBeArchived(processInstance2));
+        assertTrue(waitForProcessToFinishAndBeArchived(processInstance2));
         disableAndDeleteProcess(processDefinition2);
     }
 
@@ -814,19 +813,17 @@ public class ProcessManagementTest extends CommonAPITest {
         final User user = createUser(USERNAME, PASSWORD);
         final long userId = user.getId();
 
-        final DesignProcessDefinition designProcessDefinition = APITestUtil.createProcessDefinitionWithHumanAndAutomaticSteps(Arrays.asList("stepX", "stepXX"),
-                Arrays.asList(true, true));
+        final DesignProcessDefinition designProcessDefinition = APITestUtil.createProcessDefinitionWithHumanAndAutomaticSteps(Arrays.asList("step1"),
+                Arrays.asList(true));
         final ProcessDefinition processDefinition = deployAndEnableWithActor(designProcessDefinition, ACTOR_NAME, user);
-        final ProcessInstance pi0 = getProcessAPI().startProcess(processDefinition.getId());
-        final List<ActivityInstance> activityInstances = getProcessAPI().getActivities(pi0.getId(), 0, 10);
-        final long activityInstanceId = activityInstances.get(0).getId();
-        Thread.sleep(100);
-        boolean boo = getProcessAPI().canExecuteTask(activityInstanceId, userId);
-        assertFalse(boo);
+        final ProcessInstance processInstance = getProcessAPI().startProcess(processDefinition.getId());
+        final long activityInstanceId = waitForUserTask("step1", processInstance).getId();
+        assertFalse("The user " + USERNAME + " shouldn't be able to execute the task step1.", getProcessAPI().canExecuteTask(activityInstanceId, userId));
 
-        getProcessAPI().assignUserTask(activityInstanceId, user.getId());
-        boo = getProcessAPI().canExecuteTask(activityInstanceId, userId);
-        assertTrue(boo);
+        getProcessAPI().assignUserTask(activityInstanceId, userId);
+        Thread.sleep(100);
+        assertTrue("The user " + USERNAME + " should be able to execute the task step1.", getProcessAPI().canExecuteTask(activityInstanceId, userId));
+
         disableAndDeleteProcess(processDefinition);
         deleteUser(user);
     }
