@@ -80,11 +80,10 @@ public class HibernateConfigurationProviderImpl implements HibernateConfiguratio
     }
 
     private Properties buildProperties(final Properties properties) {
-        final String propertyName = "org.bonitasoft.ehCachePath";
-        final String property = properties.getProperty(propertyName);
+        final String property = properties.getProperty("org.bonitasoft.ehCachePath");
         if (property != null && !property.isEmpty()) {
             properties.remove(property);
-            properties.put(propertyName, new File(property));
+            properties.put("net.sf.ehcache.configurationResourceName", new File(property));
         }
         return properties;
     }
