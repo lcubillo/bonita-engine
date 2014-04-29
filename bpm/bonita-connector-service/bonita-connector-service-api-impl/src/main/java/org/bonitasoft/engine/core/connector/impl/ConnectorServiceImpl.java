@@ -531,9 +531,8 @@ public class ConnectorServiceImpl implements ConnectorService {
                     }
                     zipEntry = zipInputstream.getNextEntry();
                     continue;
-                } else {
-                    newFile.getParentFile().mkdirs();
                 }
+                newFile.getParentFile().mkdirs();
                 IOUtil.copyFile(zipInputstream, newFile);
 
                 zipInputstream.closeEntry();
