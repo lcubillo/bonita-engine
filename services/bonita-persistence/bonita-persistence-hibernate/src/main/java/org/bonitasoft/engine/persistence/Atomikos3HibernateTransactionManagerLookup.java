@@ -34,7 +34,7 @@ public class Atomikos3HibernateTransactionManagerLookup implements TransactionMa
         // WARNING: this is hard coded and should not.
         // java:com/env/UserTransaction is the standard value but it may defer from one App Server to another
         // this value is compliant with the default Tomcat jndi binding
-        this.userTransactionJndiName = "java:com/env/UserTransaction";
+        this.userTransactionJndiName = "java:comp/env/UserTransaction";
 
         // System.err.println("Configured userTransactionJndiName:" + userTransactionJndiName);
         // System.err.println("Configured transactionManager:" + transactionManager);
