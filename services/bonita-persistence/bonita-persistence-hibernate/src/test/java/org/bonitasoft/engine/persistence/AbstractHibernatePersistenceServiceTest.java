@@ -40,6 +40,8 @@ public class AbstractHibernatePersistenceServiceTest {
     @Before
     public void setUp() throws Exception {
         doReturn("#").when(persistenceService).getLikeEscapeCharacter();
+        given(persistenceService.getClassAliasMappings()).willReturn(
+                Collections.singletonMap("org.bonitasoft.engine.persistence.DummyPersistentObject", "DummyPersistentObject"));
     }
 
     @Test
@@ -64,17 +66,12 @@ public class AbstractHibernatePersistenceServiceTest {
 
     @Test
     public void should_filter_the_request_for_each_field_term_couple() throws Exception {
-        given(persistenceService.getClassAliasMappings()).willReturn(
-                Collections.singletonMap("org.bonitasoft.engine.persistence.DummyPersistentObject", "DummyPersistentObject"));
         StringBuilder builder = new StringBuilder();
+        SearchFields searchFields = new SearchFields(
+                Arrays.asList("term 1", "term 2"),
+                createFields(DummyPersistentObject.class, Arrays.asList("field 1", "field 2")));
 
-        persistenceService.handleMultipleFilters(
-                builder,
-                new SearchFields(
-                        Arrays.asList("term 1", "term 2"),
-                        createFields(DummyPersistentObject.class, Arrays.asList("field 1", "field 2"))),
-                new HashSet<String>(),
-                false);
+        persistenceService.handleMultipleFilters(builder, searchFields, new HashSet<String>(), false);
 
         assertEquals(" WHERE (" +
                 "DummyPersistentObject.field 2 LIKE 'term 1%' ESCAPE '#' OR " +
@@ -85,28 +82,48 @@ public class AbstractHibernatePersistenceServiceTest {
 
     @Test
     public void should_include_word_search_in_the_filter() throws Exception {
-        given(persistenceService.getClassAliasMappings()).willReturn(
-                Collections.singletonMap("org.bonitasoft.engine.persistence.DummyPersistentObject", "DummyPersistentObject"));
         StringBuilder builder = new StringBuilder();
+        SearchFields searchFields = new SearchFields(
+                Arrays.asList("term"),
+                createFields(DummyPersistentObject.class, Arrays.asList("field")));
 
-        persistenceService.handleMultipleFilters(
-                builder,
-                new SearchFields(Arrays.asList("term"), createFields(
-                        DummyPersistentObject.class, Arrays.asList("field"))),
-                new HashSet<String>(),
-                true);
+        persistenceService.handleMultipleFilters(builder, searchFields, new HashSet<String>(), true);
 
         assertEquals(" WHERE (" +
                 "DummyPersistentObject.field LIKE 'term%' ESCAPE '#' OR " +
                 "DummyPersistentObject.field LIKE '% term%' ESCAPE '#')", builder.toString());
     }
 
+    @Test
+    public void should_start_search_where_clause_with_an_end_when_the_request_already_contains_a_where() throws Exception {
+        StringBuilder builder = new StringBuilder("WHERE whatever");
+        SearchFields searchFields = new SearchFields(
+                Arrays.asList("term"),
+                createFields(DummyPersistentObject.class, Arrays.asList("field")));
+
+        persistenceService.handleMultipleFilters(builder, searchFields, new HashSet<String>(), false);
+
+        assertEquals(
+                "WHERE whatever AND (DummyPersistentObject.field LIKE 'term%' ESCAPE '#')",
+                builder.toString());
+    }
+
+    @Test
+    public void should_escape_search_term() throws Exception {
+        StringBuilder builder = new StringBuilder();
+        SearchFields searchFields = new SearchFields(
+                Arrays.asList(" 'term' # % _"),
+                createFields(DummyPersistentObject.class, Arrays.asList("field")));
+
+        persistenceService.handleMultipleFilters(builder, searchFields, new HashSet<String>(), false);
+
+        assertEquals(
+                " WHERE (DummyPersistentObject.field LIKE ' ''term'' ## #% #_%' ESCAPE '#')",
+                builder.toString());
+    }
+
     private Map<Class<? extends PersistentObject>, Set<String>> createFields(Class<DummyPersistentObject> clazz, List<String> fields) {
         return Collections.
                 <Class<? extends PersistentObject>, Set<String>> singletonMap(clazz, new HashSet<String>(fields));
     }
-
-    // buildLikeEscapeClause
-    // isWordSearchEnabled
-
 }
