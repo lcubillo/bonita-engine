@@ -498,29 +498,22 @@ public abstract class AbstractHibernatePersistenceService extends AbstractDBPers
             }
         }
         fields.removeAll(specificFilters);
-
         if (!fields.isEmpty()) {
-            applyFiltersOnQuery(builder, fields, multipleFilter.getTerms(), enableWordSearch);
-        }
-    }
-
-    protected void applyFiltersOnQuery(final StringBuilder queryBuilder, final Set<String> fields, final List<String> terms, final boolean enableWordSearch) {
-        if (!queryBuilder.toString().contains("WHERE")) {
-            queryBuilder.append(" WHERE ");
-        } else {
-            queryBuilder.append(" AND ");
-        }
-        queryBuilder.append("(");
-
-        final Iterator<String> fieldIterator = fields.iterator();
-        while (fieldIterator.hasNext()) {
-            buildLikeClauseForOneFieldMultipleTerms(queryBuilder, fieldIterator.next(), terms, enableWordSearch);
-            if (fieldIterator.hasNext()) {
-                queryBuilder.append(" OR ");
+            if (!builder.toString().contains("WHERE")) {
+                builder.append(" WHERE ");
+            } else {
+                builder.append(" AND ");
             }
+            builder.append("(");
+            final Iterator<String> fieldIterator = fields.iterator();
+            while (fieldIterator.hasNext()) {
+                buildLikeClauseForOneFieldMultipleTerms(builder, fieldIterator.next(), multipleFilter.getTerms(), enableWordSearch);
+                if (fieldIterator.hasNext()) {
+                    builder.append(" OR ");
+                }
+            }
+            builder.append(")");
         }
-
-        queryBuilder.append(")");
     }
 
     /**
