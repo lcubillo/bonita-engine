@@ -81,6 +81,47 @@ public class AbstractHibernatePersistenceServiceTest {
     }
 
     @Test
+    public void should_not_add_anything_to_the_query_when_there_is_no_term() throws Exception {
+        StringBuilder builder = new StringBuilder();
+        SearchFields searchFields = new SearchFields(
+                Collections.<String> emptyList(),
+                createFields(DummyPersistentObject.class, Arrays.asList("field 1", "field 2")));
+
+        persistenceService.handleMultipleFilters(builder, searchFields, new HashSet<String>(), false);
+
+        assertEquals(" WHERE ( OR )", builder.toString());
+    }
+
+    @Test
+    public void should_remove_specific_filters_from_the_query() throws Exception {
+        StringBuilder builder = new StringBuilder();
+        SearchFields searchFields = new SearchFields(
+                Arrays.asList("term"),
+                createFields(DummyPersistentObject.class, Arrays.asList("field 1", "field 2")));
+
+        persistenceService.handleMultipleFilters(
+                builder,
+                searchFields,
+                new HashSet<String>(Arrays.asList("DummyPersistentObject.field 1")), false);
+
+        assertEquals(
+                " WHERE (DummyPersistentObject.field 2 LIKE 'term%' ESCAPE '#')",
+                builder.toString());
+    }
+
+    @Test
+    public void should_not_add_anything_to_the_query_when_there_is_no_fields() throws Exception {
+        StringBuilder builder = new StringBuilder();
+        SearchFields searchFields = new SearchFields(
+                Arrays.asList("term"),
+                createFields(DummyPersistentObject.class, Collections.<String> emptyList()));
+
+        persistenceService.handleMultipleFilters(builder, searchFields, new HashSet<String>(), false);
+
+        assertEquals("", builder.toString());
+    }
+
+    @Test
     public void should_include_word_search_in_the_filter() throws Exception {
         StringBuilder builder = new StringBuilder();
         SearchFields searchFields = new SearchFields(

@@ -15,6 +15,7 @@ package org.bonitasoft.engine.search.descriptor;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
@@ -53,14 +54,7 @@ public abstract class SearchEntityDescriptor {
     }
 
     public SearchFields getEntitySearchTerm(final String searchString) {
-        final StringTokenizer tokens = new StringTokenizer(searchString, " ");
-        final ArrayList<String> terms = new ArrayList<String>(tokens.countTokens());
-        while (tokens.hasMoreTokens()) {
-            final String term = tokens.nextToken();
-            terms.add(term);
-        }
-
-        return new SearchFields(terms, getAllFields());
+        return new SearchFields(Arrays.asList(searchString.split(" ")), getAllFields());
     }
 
     protected abstract Map<String, FieldDescriptor> getEntityKeys();
@@ -68,7 +62,7 @@ public abstract class SearchEntityDescriptor {
     protected abstract Map<Class<? extends PersistentObject>, Set<String>> getAllFields();
 
     /**
-     * Override this method to have specific convertion behaviour from client filter value to server filter value .
+     * Override this method to have specific conversion behaviour from client filter value to server filter value .
      * 
      * @param filterValue
      *            the initial value

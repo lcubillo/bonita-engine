@@ -494,16 +494,13 @@ public abstract class AbstractHibernatePersistenceService extends AbstractDBPers
         for (final Entry<Class<? extends PersistentObject>, Set<String>> entry : allTextFields.entrySet()) {
             final String alias = getClassAliasMappings().get(entry.getKey().getName());
             for (final String field : entry.getValue()) {
-                final StringBuilder aliasBuilder = new StringBuilder(alias);
-                aliasBuilder.append('.').append(field);
-                fields.add(aliasBuilder.toString());
+                fields.add(alias + '.' + field);
             }
         }
         fields.removeAll(specificFilters);
 
         if (!fields.isEmpty()) {
-            final List<String> terms = multipleFilter.getTerms();
-            applyFiltersOnQuery(builder, fields, terms, enableWordSearch);
+            applyFiltersOnQuery(builder, fields, multipleFilter.getTerms(), enableWordSearch);
         }
     }
 
