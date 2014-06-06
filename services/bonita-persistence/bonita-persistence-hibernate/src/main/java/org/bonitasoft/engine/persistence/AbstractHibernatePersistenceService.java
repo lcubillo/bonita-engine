@@ -526,31 +526,18 @@ public abstract class AbstractHibernatePersistenceService extends AbstractDBPers
             final boolean enableWordSearch) {
         final Iterator<String> termIterator = terms.iterator();
         while (termIterator.hasNext()) {
-            final String currentTerm = termIterator.next();
+            String currentTerm = termIterator.next();
+            // Search if a sentence starts with the term
+            queryBuilder.append(currentField).append(buildLikeEscapeClause(currentTerm, "", "%"));
 
-            buildLikeClauseForOneFieldOneTerm(queryBuilder, currentField, currentTerm, enableWordSearch);
-
+            if (enableWordSearch) {
+                // Search also if a word starts with the term
+                // We do not want to search for %currentTerm% to ensure we can use Lucene-like library.
+                queryBuilder.append(" OR ").append(currentField).append(buildLikeEscapeClause(currentTerm, "% ", "%"));
+            }
             if (termIterator.hasNext()) {
                 queryBuilder.append(" OR ");
             }
-        }
-    }
-
-    /**
-     * @param queryBuilder
-     * @param currentField
-     * @param currentTerm
-     * @param enableWordSearch
-     */
-    protected void buildLikeClauseForOneFieldOneTerm(final StringBuilder queryBuilder, final String currentField, final String currentTerm,
-            final boolean enableWordSearch) {
-        // Search if a sentence starts with the term
-        queryBuilder.append(currentField).append(buildLikeEscapeClause(currentTerm, "", "%"));
-
-        if (enableWordSearch) {
-            // Search also if a word starts with the term
-            // We do not want to search for %currentTerm% to ensure we can use Lucene-like library.
-            queryBuilder.append(" OR ").append(currentField).append(buildLikeEscapeClause(currentTerm, "% ", "%"));
         }
     }
 

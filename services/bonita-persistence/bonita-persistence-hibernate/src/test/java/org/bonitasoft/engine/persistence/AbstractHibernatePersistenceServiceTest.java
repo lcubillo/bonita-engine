@@ -45,26 +45,6 @@ public class AbstractHibernatePersistenceServiceTest {
     }
 
     @Test
-    public void should_getQueryFilters_append_OR_clause_when_wordSearch_is_enabled() throws Exception {
-        StringBuilder queryBuilder = new StringBuilder();
-
-        persistenceService.buildLikeClauseForOneFieldOneTerm(queryBuilder, "myField", "foo", true);
-
-        assertThat(queryBuilder.toString(), CoreMatchers.containsString("LIKE 'foo%'"));
-        assertThat(queryBuilder.toString(), CoreMatchers.containsString("LIKE '% foo%'"));
-    }
-
-    @Test
-    public void should_getQueryFilters_append_OR_clause_when_wordSearch_is_not_enabled() throws Exception {
-        StringBuilder queryBuilder = new StringBuilder();
-
-        persistenceService.buildLikeClauseForOneFieldOneTerm(queryBuilder, "myField", "foo", false);
-
-        assertThat(queryBuilder.toString(), CoreMatchers.containsString("LIKE 'foo%'"));
-        assertThat(queryBuilder.toString(), CoreMatchers.not(CoreMatchers.containsString("LIKE '% foo%'")));
-    }
-
-    @Test
     public void should_filter_the_request_for_each_field_term_couple() throws Exception {
         StringBuilder builder = new StringBuilder();
         SearchFields searchFields = new SearchFields(
