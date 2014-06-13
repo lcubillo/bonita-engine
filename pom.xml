@@ -358,6 +358,7 @@
 			<id>deploy</id>
 			<modules>
 				<module>bpm</module>
+				<module>services</module>
 			</modules>
 			<build>
 				<plugins>
