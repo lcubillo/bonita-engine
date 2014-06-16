@@ -197,20 +197,21 @@ public class TransientDataInstanceDataSource implements DataInstanceDataSource {
     @Override
     public List<SDataInstance> getDataInstances(final long containerId, final String containerType, final int fromIndex, final int numberOfResults)
             throws SDataInstanceException {
-        final String matchingKey = containerId + ":" + containerType;
-        final List<SDataInstance> dataInstances = new ArrayList<SDataInstance>();
+        final String matchingKey = ":" + containerId + ":" + containerType;
+        List<SDataInstance> dataInstances = new ArrayList<SDataInstance>();
         try {
             final List<?> cacheKeys = getCacheKeys(TRANSIENT_DATA_CACHE_NAME);
-            for (int i = fromIndex; i < cacheKeys.size() && i < numberOfResults; i++) {
+            for (int i = 0; i < cacheKeys.size(); i++) {
                 final Object key = cacheKeys.get(i);
-                if (((String) key).contains(matchingKey)) {
-                    final SDataInstance dataInstance = getDataInstance(((String) key).substring(0, ((String) key).indexOf(":")), containerId, containerType);
+                if (((String) key).endsWith(matchingKey)) {
+                    final SDataInstance dataInstance = (SDataInstance) cacheService.get(TRANSIENT_DATA_CACHE_NAME, key);
                     if (dataInstance != null) {
                         dataInstances.add(dataInstance);
                     }
                 }
             }
-
+            int allTransientDataSize = dataInstances.size();
+            dataInstances = dataInstances.subList(Math.min(fromIndex, allTransientDataSize), Math.min(fromIndex + numberOfResults, allTransientDataSize));
             if (!dataInstances.isEmpty()) {
                 return dataInstances;
             } else {
