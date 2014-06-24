@@ -29,23 +29,7 @@
 	<profile name="Administrator" isDefault="true">
 		<description>The administrator can install an app, manage the organization, and handle some errors (for example, by replaying a task).</description>
 		<profileEntries>
-            <parentProfileEntry name="NG Users" isCustom="false">
-                <parentName>NULL</parentName>
-                <index>0</index>
-                <description>Manage users</description>
-                <type>link</type>
-                <page>ng-users</page>
-            </parentProfileEntry>
-
-            <parentProfileEntry name="NG Cases" isCustom="false">
-                <parentName>NULL</parentName>
-                <index>2</index>
-                <description>Manage cases</description>
-                <type>link</type>
-                <page>ng-cases</page>
-            </parentProfileEntry>
-
-			<parentProfileEntry name="Apps management"
+            <parentProfileEntry name="Apps management"
 				isCustom="false">
 				<parentName>NULL</parentName>
 				<index>4</index>
