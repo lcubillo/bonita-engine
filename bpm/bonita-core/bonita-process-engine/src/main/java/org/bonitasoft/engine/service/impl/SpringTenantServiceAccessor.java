@@ -55,6 +55,7 @@ import org.bonitasoft.engine.core.process.document.mapping.DocumentMappingServic
 import org.bonitasoft.engine.core.process.document.mapping.model.builder.SDocumentMappingBuilderAccessor;
 import org.bonitasoft.engine.core.process.document.model.builder.SProcessDocumentBuilders;
 import org.bonitasoft.engine.core.process.instance.api.ActivityInstanceService;
+import org.bonitasoft.engine.core.process.instance.api.GatewayInstanceService;
 import org.bonitasoft.engine.core.process.instance.api.ProcessInstanceService;
 import org.bonitasoft.engine.core.process.instance.api.TokenService;
 import org.bonitasoft.engine.core.process.instance.api.TransitionService;
@@ -277,6 +278,8 @@ public class SpringTenantServiceAccessor implements TenantServiceAccessor {
     private SchedulerService schedulerService;
 
     private JobService jobService;
+
+    private GatewayInstanceService gatewayInstanceService;
 
     public SpringTenantServiceAccessor(final Long tenantId) {
         beanAccessor = new SpringTenantFileSystemBeanAccessor(tenantId);
@@ -957,6 +960,14 @@ public class SpringTenantServiceAccessor implements TenantServiceAccessor {
             jobService = beanAccessor.getService(JobService.class);
         }
         return jobService;
+    }
+
+    @Override
+    public GatewayInstanceService getGatewayInstanceService() {
+        if (gatewayInstanceService == null) {
+            gatewayInstanceService = beanAccessor.getService(GatewayInstanceService.class);
+        }
+        return gatewayInstanceService;
     }
 
     @Override

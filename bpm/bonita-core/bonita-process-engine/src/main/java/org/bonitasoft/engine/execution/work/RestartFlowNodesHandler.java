@@ -16,8 +16,12 @@ package org.bonitasoft.engine.execution.work;
 import java.util.List;
 
 import org.bonitasoft.engine.commons.exceptions.SBonitaException;
+import org.bonitasoft.engine.core.process.definition.model.SFlowNodeType;
+import org.bonitasoft.engine.core.process.definition.model.SProcessDefinition;
 import org.bonitasoft.engine.core.process.instance.api.ActivityInstanceService;
+import org.bonitasoft.engine.core.process.instance.api.GatewayInstanceService;
 import org.bonitasoft.engine.core.process.instance.model.SFlowNodeInstance;
+import org.bonitasoft.engine.core.process.instance.model.SGatewayInstance;
 import org.bonitasoft.engine.log.technical.TechnicalLogSeverity;
 import org.bonitasoft.engine.log.technical.TechnicalLoggerService;
 import org.bonitasoft.engine.persistence.QueryOptions;
@@ -28,7 +32,7 @@ import org.bonitasoft.engine.work.WorkService;
 
 /**
  * Restart flow nodes for works: {@link ExecuteFlowNodeWork} {@link ExecuteConnectorOfActivity} {@link NotifyChildFinishedWork}
- * 
+ *
  * @author Baptiste Mesta
  * @author Celine Souchet
  * @author Matthieu Chaffotte
@@ -62,13 +66,20 @@ public class RestartFlowNodesHandler implements TenantRestartHandler {
                                 sFlowNodeInstance.getParentProcessInstanceId(), sFlowNodeInstance.getId(), sFlowNodeInstance.getParentContainerId(),
                                 sFlowNodeInstance.getParentContainerType().name(), sFlowNodeInstance.getStateId()));
                     } else {
-                        if (info) {
-                            logger.log(getClass(), TechnicalLogSeverity.INFO, "restarting flow node (Execute..) " + sFlowNodeInstance.getName() + ":"
-                                    + sFlowNodeInstance.getId());
+                        if (shouldExecuteFlownode(tenantServiceAccessor, logger, sFlowNodeInstance)) {
+                            if (info) {
+                                logger.log(getClass(), TechnicalLogSeverity.INFO, "restarting flow node (Execute..) " + sFlowNodeInstance.getName() + ":"
+                                        + sFlowNodeInstance.getId());
+                            }
+                            // ExecuteFlowNodeWork and ExecuteConnectorOfActivityWork
+                            workService.registerWork(WorkFactory.createExecuteFlowNodeWork(sFlowNodeInstance.getId(), null, null,
+                                    sFlowNodeInstance.getParentProcessInstanceId()));
+                        } else {
+                            if (logger.isLoggable(getClass(), TechnicalLogSeverity.TRACE)) {
+                                logger.log(getClass(), TechnicalLogSeverity.TRACE, "Found flow node which execution should not be restored: "
+                                        + sFlowNodeInstance.getName() + ":" + sFlowNodeInstance.getId());
+                            }
                         }
-                        // ExecuteFlowNodeWork and ExecuteConnectorOfActivityWork
-                        workService.registerWork(WorkFactory.createExecuteFlowNodeWork(sFlowNodeInstance.getId(), null, null,
-                                sFlowNodeInstance.getParentProcessInstanceId()));
                     }
                 }
             } while (sFlowNodeInstances.size() == queryOptions.getNumberOfResults());
@@ -78,6 +89,50 @@ public class RestartFlowNodesHandler implements TenantRestartHandler {
             handleException(e, "Unable to restart flowNodes: can't read flow nodes");
         }
 
+    }
+
+    /**
+     * Determines if the found flownode should be relaunched at restart or not. For now, only Gateways must not always be restarted under certain conditions.
+     *
+     * @param logger
+     *            TechnicalLoggerService to log errors if necessary
+     * @param sFlowNodeInstance
+     *            the flownode to check
+     * @return true if the flownode should be relaunched because it has not finished its work in progress, false otherwise.
+     * @throws SBonitaException
+     *             in case of error.
+     */
+    protected boolean shouldExecuteFlownode(final TenantServiceAccessor tenantServiceAccessor, final TechnicalLoggerService logger,
+            final SFlowNodeInstance sFlowNodeInstance) throws SBonitaException {
+        // final long parentProcessInstanceId = sFlowNodeInstance.getParentProcessInstanceId();
+        // long rootProcessInstanceId = flowNodeThatTriggeredTheTransition.getRootProcessInstanceId();
+        // final SFlowNodeDefinition sFlowNodeDefinition = tenantServiceAccessor.getProcessDefinitionService().getNextFlowNode(sProcessDefinition,
+        // sTransitionDefinition.getName());
+        // final Long processDefinitionId = sProcessDefinition.getId();
+
+        // final Long nextFlowNodeInstanceId;
+        try {
+            // ProcessInstanceService processInstanceService = tenantServiceAccessor.getProcessInstanceService();
+            // final SProcessInstance parentProcessInstance = processInstanceService.getProcessInstance(parentProcessInstanceId);
+            // final SStateCategory stateCategory = parentProcessInstance.getStateCategory();
+            final boolean isGateway = SFlowNodeType.GATEWAY.equals(sFlowNodeInstance.getType());
+            if (isGateway) {
+                final SGatewayInstance gatewayInstance = (SGatewayInstance) sFlowNodeInstance;
+                GatewayInstanceService gatewayInstanceService = tenantServiceAccessor.getGatewayInstanceService();
+                // gatewayInstanceService.hitTransition(gatewayInstance, sFlowNodeDefinition.getTransitionIndex(sTransitionDefinition.getName()));
+                // nextFlowNodeInstanceId = gatewayInstance.getId();
+                long processDefinitionId = gatewayInstance.getProcessDefinitionId();
+                SProcessDefinition processDefinition = tenantServiceAccessor.getProcessDefinitionService().getProcessDefinition(processDefinitionId);
+                return gatewayInstanceService.checkMergingCondition(processDefinition, gatewayInstance);
+                // gatewayInstanceService.setFinish(gatewayInstance);
+            }
+            return true;
+        } catch (final SBonitaException e) {
+            if (logger.isLoggable(this.getClass(), TechnicalLogSeverity.ERROR)) {
+                logger.log(this.getClass(), TechnicalLogSeverity.ERROR, e);
+            }
+            throw e;
+        }
     }
 
     private void handleException(final Exception e, final String message) throws RestartException {
