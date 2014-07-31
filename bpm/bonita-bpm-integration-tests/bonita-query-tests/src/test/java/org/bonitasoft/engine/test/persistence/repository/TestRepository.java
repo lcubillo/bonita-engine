@@ -4,6 +4,7 @@ import org.bonitasoft.engine.actor.mapping.model.SActor;
 import org.bonitasoft.engine.actor.mapping.model.SActorMember;
 import org.bonitasoft.engine.actor.mapping.model.impl.SActorImpl;
 import org.bonitasoft.engine.actor.mapping.model.impl.SActorMemberImpl;
+import org.bonitasoft.engine.core.process.definition.model.impl.SProcessDefinitionDeployInfoImpl;
 import org.bonitasoft.engine.core.process.instance.model.SConnectorInstance;
 import org.bonitasoft.engine.core.process.instance.model.SFlowNodeInstance;
 import org.bonitasoft.engine.core.process.instance.model.SPendingActivityMapping;
@@ -13,6 +14,7 @@ import org.bonitasoft.engine.core.process.instance.model.event.handling.impl.SMe
 import org.bonitasoft.engine.core.process.instance.model.event.handling.impl.SWaitingMessageEventImpl;
 import org.bonitasoft.engine.core.process.instance.model.impl.SConnectorInstanceImpl;
 import org.bonitasoft.engine.core.process.instance.model.impl.SFlowNodeInstanceImpl;
+import org.bonitasoft.engine.core.process.instance.model.impl.SHiddenTaskInstanceImpl;
 import org.bonitasoft.engine.core.process.instance.model.impl.SPendingActivityMappingImpl;
 import org.bonitasoft.engine.core.process.instance.model.impl.SProcessInstanceImpl;
 import org.bonitasoft.engine.identity.model.SCustomUserInfoDefinition;
@@ -28,6 +30,10 @@ import org.bonitasoft.engine.identity.model.impl.SRoleImpl;
 import org.bonitasoft.engine.identity.model.impl.SUserImpl;
 import org.bonitasoft.engine.identity.model.impl.SUserMembershipImpl;
 import org.bonitasoft.engine.persistence.PersistentObjectId;
+import org.bonitasoft.engine.scheduler.model.SJobDescriptor;
+import org.bonitasoft.engine.scheduler.model.SJobLog;
+import org.bonitasoft.engine.scheduler.model.impl.SJobDescriptorImpl;
+import org.bonitasoft.engine.scheduler.model.impl.SJobLogImpl;
 import org.bonitasoft.engine.supervisor.mapping.model.SProcessSupervisor;
 import org.bonitasoft.engine.supervisor.mapping.model.impl.SProcessSupervisorImpl;
 import org.bonitasoft.engine.test.persistence.builder.PersistentObjectBuilder;
@@ -50,7 +56,7 @@ public class TestRepository {
     protected Session getSession() {
         return sessionFactory.getCurrentSession();
     }
-    
+
     protected Session getSessionWithTenantFilter() {
         Session session = getSession();
         session.enableFilter("tenantFilter").setParameter("tenantId", PersistentObjectBuilder.DEFAULT_TENANT_ID);
@@ -122,6 +128,12 @@ public class TestRepository {
                 new PersistentObjectId(sProcessSupervisor.getId(), sProcessSupervisor.getTenantId()));
     }
 
+    public SProcessDefinitionDeployInfoImpl add(final SProcessDefinitionDeployInfoImpl sProcessDefinitionDeployInfoImpl) {
+        getSession().save(sProcessDefinitionDeployInfoImpl);
+        return (SProcessDefinitionDeployInfoImpl) getSession().get(sProcessDefinitionDeployInfoImpl.getClass(),
+                new PersistentObjectId(sProcessDefinitionDeployInfoImpl.getId(), sProcessDefinitionDeployInfoImpl.getTenantId()));
+    }
+
     public SProcessInstanceImpl add(final SProcessInstanceImpl sProcessInstance) {
         getSession().save(sProcessInstance);
         return (SProcessInstanceImpl) getSession().get(sProcessInstance.getClass(),
@@ -130,18 +142,33 @@ public class TestRepository {
 
     public SFlowNodeInstance add(final SFlowNodeInstanceImpl sFlowNode) {
         getSession().save(sFlowNode);
-        return (SFlowNodeInstance) getSession().get(sFlowNode.getClass(),
-                new PersistentObjectId(sFlowNode.getId(), sFlowNode.getTenantId()));
+        return (SFlowNodeInstance) getSession().get(sFlowNode.getClass(), new PersistentObjectId(sFlowNode.getId(), sFlowNode.getTenantId()));
     }
-    
+
+    public SHiddenTaskInstanceImpl add(final SHiddenTaskInstanceImpl sHiddenTaskInstanceImpl) {
+        getSession().save(sHiddenTaskInstanceImpl);
+        return (SHiddenTaskInstanceImpl) getSession().get(sHiddenTaskInstanceImpl.getClass(),
+                new PersistentObjectId(sHiddenTaskInstanceImpl.getId(), sHiddenTaskInstanceImpl.getTenantId()));
+    }
+
     public SCustomUserInfoDefinition add(final SCustomUserInfoDefinitionImpl infoDef) {
         getSession().save(infoDef);
         return (SCustomUserInfoDefinition) getSession().get(infoDef.getClass(), new PersistentObjectId(infoDef.getId(), infoDef.getTenantId()));
     }
-    
+
     public SCustomUserInfoValue add(final SCustomUserInfoValueImpl infoValue) {
         getSession().save(infoValue);
         return (SCustomUserInfoValue) getSession().get(infoValue.getClass(), new PersistentObjectId(infoValue.getId(), infoValue.getTenantId()));
     }
-    
+
+    public SJobLog addJobLog(final SJobLogImpl jobLog) {
+        getSession().save(jobLog);
+        return (SJobLog) getSession().get(jobLog.getClass(), new PersistentObjectId(jobLog.getId(), jobLog.getTenantId()));
+    }
+
+    public SJobDescriptor addJobDescriptor(final SJobDescriptorImpl jobDescriptor) {
+        getSession().save(jobDescriptor);
+        return (SJobDescriptor) getSession().get(jobDescriptor.getClass(), new PersistentObjectId(jobDescriptor.getId(), jobDescriptor.getTenantId()));
+    }
+
 }

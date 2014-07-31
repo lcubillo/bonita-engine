@@ -24,7 +24,6 @@ import org.bonitasoft.engine.bpm.bar.BusinessArchiveBuilder;
 import org.bonitasoft.engine.bpm.data.DataInstance;
 import org.bonitasoft.engine.bpm.flownode.ActivityInstance;
 import org.bonitasoft.engine.bpm.flownode.ActivityStates;
-import org.bonitasoft.engine.bpm.flownode.ArchivedHumanTaskInstanceSearchDescriptor;
 import org.bonitasoft.engine.bpm.flownode.AutomaticTaskInstance;
 import org.bonitasoft.engine.bpm.process.DesignProcessDefinition;
 import org.bonitasoft.engine.bpm.process.ProcessDefinition;
@@ -40,8 +39,6 @@ import org.bonitasoft.engine.expression.XPathReturnType;
 import org.bonitasoft.engine.identity.User;
 import org.bonitasoft.engine.operation.LeftOperandBuilder;
 import org.bonitasoft.engine.operation.OperatorType;
-import org.bonitasoft.engine.search.Order;
-import org.bonitasoft.engine.search.SearchOptionsBuilder;
 import org.bonitasoft.engine.test.annotation.Cover;
 import org.bonitasoft.engine.test.annotation.Cover.BPMNConcept;
 import org.junit.After;
@@ -63,7 +60,7 @@ public class ProcessWithExpressionTest extends CommonAPITest {
 
     @Before
     public void beforeTest() throws BonitaException {
-         loginOnDefaultTenantWithDefaultTechnicalLogger();
+        loginOnDefaultTenantWithDefaultTechnicalLogger();
         john = createUser(USERNAME, PASSWORD);
         logoutOnTenant();
         loginOnDefaultTenantWith(USERNAME, PASSWORD);
@@ -606,13 +603,9 @@ public class ProcessWithExpressionTest extends CommonAPITest {
         // Start process
         final ProcessDefinition processDefinition = deployAndEnableProcessWithActor(designProcessDefinition.done(), ACTOR_NAME, john);
         getProcessAPI().startProcess(processDefinition.getId());
-        Thread.sleep(2000);
 
         // Test if step1 state is FAILED
-        final SearchOptionsBuilder searchOptionsBuilder = new SearchOptionsBuilder(0, 10);
-        searchOptionsBuilder.sort(ArchivedHumanTaskInstanceSearchDescriptor.NAME, Order.DESC);
-        final List<ActivityInstance> activities = getProcessAPI().searchActivities(searchOptionsBuilder.done()).getResult();
-        assertEquals("Step1 must be failed, but was <" + activities.get(0).getState() + ">", ActivityStates.FAILED_STATE, activities.get(0).getState());
+        waitForFlowNodeInFailedState("step1");
 
         disableAndDeleteProcess(processDefinition);
     }
