@@ -47,6 +47,7 @@ import org.bonitasoft.engine.core.process.definition.ProcessDefinitionService;
 import org.bonitasoft.engine.core.process.document.api.ProcessDocumentService;
 import org.bonitasoft.engine.core.process.document.mapping.DocumentMappingService;
 import org.bonitasoft.engine.core.process.instance.api.ActivityInstanceService;
+import org.bonitasoft.engine.core.process.instance.api.GatewayInstanceService;
 import org.bonitasoft.engine.core.process.instance.api.ProcessInstanceService;
 import org.bonitasoft.engine.core.process.instance.api.TokenService;
 import org.bonitasoft.engine.core.process.instance.api.TransitionService;
@@ -222,6 +223,8 @@ public class SpringTenantServiceAccessor implements TenantServiceAccessor {
 
     private ThemeService themeService;
 
+    private GatewayInstanceService gatewayInstanceService;
+
     public SpringTenantServiceAccessor(final Long tenantId) {
         beanAccessor = new SpringTenantFileSystemBeanAccessor(tenantId);
         this.tenantId = tenantId;
@@ -293,7 +296,7 @@ public class SpringTenantServiceAccessor implements TenantServiceAccessor {
     @Override
     public UserTransactionService getUserTransactionService() {
         return getTransactionService();
-    }
+        }
 
     @Override
     public ProcessDefinitionService getProcessDefinitionService() {
@@ -753,6 +756,14 @@ public class SpringTenantServiceAccessor implements TenantServiceAccessor {
             themeService = beanAccessor.getService(ThemeService.class);
         }
         return themeService;
+    }
+
+    @Override
+    public GatewayInstanceService getGatewayInstanceService() {
+        if (gatewayInstanceService == null) {
+            gatewayInstanceService = beanAccessor.getService(GatewayInstanceService.class);
+        }
+        return gatewayInstanceService;
     }
 
     @Override

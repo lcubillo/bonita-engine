@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.Set;
 
 import org.bonitasoft.engine.CommonAPITest;
+import org.bonitasoft.engine.api.PlatformAPI;
+import org.bonitasoft.engine.api.PlatformAPIAccessor;
 import org.bonitasoft.engine.bpm.flownode.ActivityInstance;
 import org.bonitasoft.engine.bpm.flownode.ActivityInstanceCriterion;
 import org.bonitasoft.engine.bpm.flownode.ActivityInstanceSearchDescriptor;
@@ -37,6 +39,7 @@ import org.bonitasoft.engine.identity.User;
 import org.bonitasoft.engine.search.SearchOptions;
 import org.bonitasoft.engine.search.SearchOptionsBuilder;
 import org.bonitasoft.engine.search.SearchResult;
+import org.bonitasoft.engine.session.PlatformSession;
 import org.bonitasoft.engine.test.TestStates;
 import org.bonitasoft.engine.test.WaitUntil;
 import org.bonitasoft.engine.test.annotation.Cover;
@@ -1071,6 +1074,43 @@ public class GatewayExecutionTest extends CommonAPITest {
         waitForUserTaskAndExecuteIt("Step3", processInstance, user.getId());
         waitForTaskToFail(processInstance);
         // should also get the exception...not yet in the task
+        disableAndDeleteProcess(processDefinition);
+    }
+
+    @Test
+    @Cover(classes = {}, concept = BPMNConcept.GATEWAY, keywords = { "restart", "Gateway", "Failed" }, jira = "BS-9367")
+    public void restartNodeShouldNotRestartGatewaysWithNotFullfilledMergingCondition() throws Exception {
+        final ProcessDefinitionBuilder processDesignBuilder = new ProcessDefinitionBuilder().createNewInstance("process_with_join_gateway", PROCESS_VERSION);
+        processDesignBuilder.addStartEvent("goForIt");
+        processDesignBuilder.addEndEvent("terminated");
+        final DesignProcessDefinition designProcessDefinition = processDesignBuilder.addActor(ACTOR_NAME).addGateway("split", GatewayType.PARALLEL)
+                .addAutomaticTask("autoTask").addUserTask("manualTask", ACTOR_NAME).addGateway("join", GatewayType.PARALLEL).addTransition("goForIt", "split")
+                .addTransition("split", "autoTask").addTransition("split", "manualTask").addTransition("autoTask", "join").addTransition("manualTask", "join")
+                .addTransition("join", "terminated").getProcess();
+
+        loginWith(USERNAME, PASSWORD);
+
+        final ProcessDefinition processDefinition = deployAndEnableWithActor(designProcessDefinition, ACTOR_NAME, user);
+        final ProcessInstance processInstance = getProcessAPI().startProcess(processDefinition.getId());
+
+        final long flowNodeInstanceId = waitForFlowNodeInState(processInstance, "join", TestStates.getExecutingState(), false);
+
+        logout();
+        final PlatformSession loginPlatform = loginPlatform();
+        final PlatformAPI platformAPI = PlatformAPIAccessor.getPlatformAPI(loginPlatform);
+        System.out.println("stopping node");
+        platformAPI.stopNode();
+        System.out.println("starting node");
+        platformAPI.startNode();
+        logoutPlatform(loginPlatform);
+
+        // To be sure asynchronous restart works have been executed:
+        Thread.sleep(200);
+
+        loginWith(USERNAME, PASSWORD);
+        final FlowNodeInstance joinGateway = getProcessAPI().getFlowNodeInstance(flowNodeInstanceId);
+        assertEquals(TestStates.getExecutingState(), joinGateway.getState());
+
         disableAndDeleteProcess(processDefinition);
     }
 }

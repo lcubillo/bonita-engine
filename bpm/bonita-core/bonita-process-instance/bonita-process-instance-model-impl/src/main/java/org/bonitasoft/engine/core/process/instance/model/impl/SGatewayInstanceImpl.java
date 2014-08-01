@@ -96,4 +96,16 @@ public class SGatewayInstanceImpl extends SFlowNodeInstanceImpl implements SGate
         return true;
     }
 
+    @Override
+    public String toString() {
+        return "SGatewayInstanceImpl [gatewayType=" + gatewayType + ", hitBys=" + hitBys + ", stateId=" + getStateId() + ", stateName=" + getStateName()
+                + ", previousStateId=" + getPreviousStateId() + ", reachedStateDate="
+                + getReachedStateDate() + ", lastUpdateDate=" + getLastUpdateDate() + ", displayName=" + getDisplayName() + ", displayDescription="
+                + getDisplayDescription()
+                + ", tokenCount=" + getTokenCount() + ", loopCounter=" + getLoopCounter() + ", executedBy=" + getExecutedBy() + ", deleted=" + isDeleted()
+                + ", stateExecuting="
+                + isStateExecuting() + ", flownodeDefinitionId=" + getFlowNodeDefinitionId() + "]";
+    }
+
+
 }

@@ -880,9 +880,9 @@ public class APITestUtil {
         return getFlowNodeInstance(activityId);
     }
 
-    public void waitForFlowNodeInState(final ProcessInstance processInstance, final String flowNodeName, final String state,
+    public long waitForFlowNodeInState(final ProcessInstance processInstance, final String flowNodeName, final String state,
             final boolean useRootProcessInstance) throws Exception {
-        waitForFlowNode(processInstance.getId(), state, flowNodeName, useRootProcessInstance, DEFAULT_TIMEOUT);
+        return waitForFlowNode(processInstance.getId(), state, flowNodeName, useRootProcessInstance, DEFAULT_TIMEOUT);
     }
 
     public ActivityInstance waitForTaskInState(final ProcessInstance processInstance, final String flowNodeName, final String state) throws Exception {
