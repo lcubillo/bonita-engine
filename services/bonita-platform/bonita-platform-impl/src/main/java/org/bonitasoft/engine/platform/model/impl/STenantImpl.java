@@ -43,7 +43,7 @@ public class STenantImpl implements STenant {
 
     private boolean defaultTenant;
 
-    private boolean isSecurityActivated;
+    private boolean securityActivated = true;
 
     private STenantImpl() {
     }
@@ -160,17 +160,17 @@ public class STenantImpl implements STenant {
 
     @Override
     public boolean isSecurityActivated() {
-        return isSecurityActivated;
+        return securityActivated;
     }
 
-    public void setSecurityActivated(boolean isSecurityActivated) {
-        this.isSecurityActivated = isSecurityActivated;
+    public void setSecurityActivated(boolean securityActivated) {
+        this.securityActivated = securityActivated;
     }
 
     @Override
     public String toString() {
         return "STenantImpl [tenantId=" + tenantId + ", id=" + id + ", name=" + name + ", description=" + description + ", iconName=" + iconName
-                + ", iconPath=" + iconPath + ", status=" + status + ", isSecurityActivated=" + isSecurityActivated + ", created=" + created + ", createdBy="
+                + ", iconPath=" + iconPath + ", status=" + status + ", securityActivated=" + securityActivated + ", created=" + created + ", createdBy="
                 + createdBy + ", defaultTenant=" + defaultTenant + "]";
     }
 }

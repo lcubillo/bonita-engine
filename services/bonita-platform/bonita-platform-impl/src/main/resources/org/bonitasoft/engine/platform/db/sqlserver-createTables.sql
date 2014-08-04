@@ -19,7 +19,7 @@ CREATE TABLE tenant (
   	iconpath NVARCHAR(255),
   	name NVARCHAR(50) NOT NULL,
   	status NVARCHAR(15) NOT NULL,
-  	isSecurityActivated BIT NOT NULL DEFAULT 'True',
+  	securityActivated BIT NOT NULL DEFAULT 'True',
   	PRIMARY KEY (id)
 )
 GO
