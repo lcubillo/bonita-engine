@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2011 BonitaSoft S.A.
+ * Copyright (C) 2011, 2014 BonitaSoft S.A.
  * BonitaSoft, 32 rue Gustave Eiffel - 38000 Grenoble
  * This library is free software; you can redistribute it and/or modify it under the terms
  * of the GNU Lesser General Public License as published by the Free Software Foundation
@@ -17,6 +17,7 @@ import org.bonitasoft.engine.platform.model.STenant;
 
 /**
  * @author Charles Souillard
+ * @author Celine Souchet
  */
 public class STenantImpl implements STenant {
 
@@ -41,6 +42,8 @@ public class STenantImpl implements STenant {
     private String createdBy;
 
     private boolean defaultTenant;
+
+    private boolean isSecurityActivated;
 
     private STenantImpl() {
     }
@@ -156,9 +159,18 @@ public class STenantImpl implements STenant {
     }
 
     @Override
+    public boolean isSecurityActivated() {
+        return isSecurityActivated;
+    }
+
+    public void setSecurityActivated(boolean isSecurityActivated) {
+        this.isSecurityActivated = isSecurityActivated;
+    }
+
+    @Override
     public String toString() {
         return "STenantImpl [tenantId=" + tenantId + ", id=" + id + ", name=" + name + ", description=" + description + ", iconName=" + iconName
-                + ", iconPath=" + iconPath + ", status=" + status + ", created=" + created + ", createdBy=" + createdBy + ", defaultTenant=" + defaultTenant
-                + "]";
+                + ", iconPath=" + iconPath + ", status=" + status + ", isSecurityActivated=" + isSecurityActivated + ", created=" + created + ", createdBy="
+                + createdBy + ", defaultTenant=" + defaultTenant + "]";
     }
 }

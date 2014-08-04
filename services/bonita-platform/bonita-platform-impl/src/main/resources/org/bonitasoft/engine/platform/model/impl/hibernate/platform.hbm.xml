@@ -22,6 +22,7 @@
     <property name="iconPath" column="iconpath" type="java.lang.String"/>
     <property name="name" column="name" type="java.lang.String"/>
 	<property name="status" column="status" type="java.lang.String"/>
+	<property name="isSecurityActivated" column="isSecurityActivated" type="java.lang.Boolean"/>
   </class>
 
 </hibernate-mapping>
