@@ -39,6 +39,6 @@ public interface STenantBuilderFactory {
 
     String getDefaultTenantKey();
 
-    String getIsSecurityActivatedKey();
+    String getSecurityActivatedKey();
 
 }

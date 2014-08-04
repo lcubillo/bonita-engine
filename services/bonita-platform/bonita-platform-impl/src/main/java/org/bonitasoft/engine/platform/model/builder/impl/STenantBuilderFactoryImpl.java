@@ -76,8 +76,8 @@ public class STenantBuilderFactoryImpl implements STenantBuilderFactory {
     }
 
     @Override
-    public String getIsSecurityActivatedKey() {
-        return "isSecurityActivated";
+    public String getSecurityActivatedKey() {
+        return "securityActivated";
     }
 
 }
