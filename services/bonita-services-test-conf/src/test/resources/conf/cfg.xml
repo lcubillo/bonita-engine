@@ -14,7 +14,7 @@
 
 	<bean id="queriableLogSessionProvider" class="org.bonitasoft.engine.MockQueriableLogSessionProviderImpl" />
 
-	<bean id="recorderSync" class="org.bonitasoft.engine.recorder.impl.RecorderImpl">
+	<bean id="platformRecorderSync" class="org.bonitasoft.engine.recorder.impl.RecorderImpl">
 		<constructor-arg name="persistenceService" ref="persistenceService" />
 		<constructor-arg name="eventService" ref="eventService" />
 		<constructor-arg name="logger" ref="platformTechnicalLoggerService" />

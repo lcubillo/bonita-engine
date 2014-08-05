@@ -12,5 +12,7 @@
 		<constructor-arg ref="platformCacheService" />
 		<constructor-arg ref="platformProperties" />
 	</bean>
+	
+	<bean id="platformProperties" class="org.bonitasoft.engine.platform.model.impl.SPlatformPropertiesImpl" />
 
 </beans>
