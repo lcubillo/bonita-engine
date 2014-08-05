@@ -18,5 +18,6 @@ CREATE TABLE tenant (
   iconpath VARCHAR(255),
   name VARCHAR(50) NOT NULL,
   status VARCHAR(15) NOT NULL,
+  securityActivated BOOLEAN NOT NULL DEFAULT TRUE,
   PRIMARY KEY (id)
 );

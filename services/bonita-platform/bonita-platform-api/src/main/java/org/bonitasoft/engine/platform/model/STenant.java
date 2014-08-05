@@ -44,4 +44,6 @@ public interface STenant extends PersistentObject {
 
     boolean isPaused();
 
+    boolean isSecurityActivated();
+
 }

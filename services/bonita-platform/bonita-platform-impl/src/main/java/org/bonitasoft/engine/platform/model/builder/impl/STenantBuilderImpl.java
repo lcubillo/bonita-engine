@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2011 BonitaSoft S.A.
+ * Copyright (C) 2011, 2014 BonitaSoft S.A.
  * BonitaSoft, 32 rue Gustave Eiffel - 38000 Grenoble
  * This library is free software; you can redistribute it and/or modify it under the terms
  * of the GNU Lesser General Public License as published by the Free Software Foundation
@@ -20,11 +20,12 @@ import org.bonitasoft.engine.platform.model.impl.STenantImpl;
 /**
  * @author Charles Souillard
  * @author Yanyan Liu
+ * @author Celine Souchet
  */
 public class STenantBuilderImpl implements STenantBuilder {
 
     private final STenantImpl object;
-    
+
     public STenantBuilderImpl(final STenantImpl object) {
         super();
         this.object = object;
@@ -56,6 +57,12 @@ public class STenantBuilderImpl implements STenantBuilder {
     @Override
     public STenantBuilder setDefaultTenant(final boolean defaultTenant) {
         this.object.setDefaultTenant(defaultTenant);
+        return this;
+    }
+
+    @Override
+    public STenantBuilder setSecurityActivated(final boolean securityActivated) {
+        this.object.setSecurityActivated(securityActivated);
         return this;
     }
 

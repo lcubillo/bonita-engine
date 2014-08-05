@@ -17,7 +17,7 @@
         <constructor-arg name="technicalLoggerService" ref="platformTechnicalLoggerService" />
     </bean>
 
-    <bean id="recorderSync" class="org.bonitasoft.engine.recorder.impl.RecorderImpl">
+    <bean id="platformRecorderSync" class="org.bonitasoft.engine.recorder.impl.RecorderImpl">
         <constructor-arg name="persistenceService" ref="persistenceService" />
         <constructor-arg name="logger" ref="platformTechnicalLoggerService" />
         <constructor-arg name="eventService" ref="eventService" />

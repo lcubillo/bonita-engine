@@ -90,7 +90,7 @@ public class ServicesBuilder implements ServicesResolver {
 
     public Recorder buildRecorder() {
         // The parameter sync is not used as there is now only one version of the Recorder
-        return getAccessor().getInstanceOf("recorderSync", Recorder.class);
+        return getAccessor().getInstanceOf("platformRecorderSync", Recorder.class);
     }
 
     public TransactionService buildTransactionService() {

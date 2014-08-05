@@ -604,6 +604,23 @@ public class PlatformServiceImpl implements PlatformService {
             }
             throw new STenantUpdateException("Problem while updating tenant: " + tenant, e);
         }
+
+        // if (logger.isLoggable(getClass(), TechnicalLogSeverity.DEBUG)) {
+        // logger.log(
+        // getClass(),
+        // TechnicalLogSeverity.DEBUG,
+        // MessageFormat.format("[{0} with id {1}] changed state {2}->{3}(new={4})", flowNodeInstance.getClass().getSimpleName(),
+        // flowNodeInstance.getId(), flowNodeInstance.getStateId(), state.getId(), state.getClass().getSimpleName()));
+        // }
+        //
+        // final UpdateRecord updateRecord = UpdateRecord.buildSetFields(flowNodeInstance, descriptor);
+        // final SUpdateEvent updateEvent = (SUpdateEvent) BuilderFactory.get(SEventBuilderFactory.class).createUpdateEvent(ACTIVITYINSTANCE_STATE)
+        // .setObject(flowNodeInstance).done();
+        // try {
+        // recorder.recordUpdate(updateRecord, updateEvent);
+        // } catch (final SRecorderException e) {
+        // throw new SFlowNodeModificationException(e);
+        // }
     }
 
     @Override
