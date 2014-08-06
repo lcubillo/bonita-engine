@@ -30,6 +30,11 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
+			<groupId>org.bonitasoft.engine.recorder</groupId>
+			<artifactId>bonita-recorder-api</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+        <dependency>
             <groupId>org.bonitasoft.engine.log</groupId>
             <artifactId>bonita-log-technical-api</artifactId>
             <version>${project.version}</version>
@@ -56,6 +61,13 @@
         <dependency>
             <groupId>org.powermock</groupId>
             <artifactId>powermock-module-junit4</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <!-- because we need the builderfactory impl and it does not make sense to mock them -->
+            <groupId>org.bonitasoft.engine.events</groupId>
+            <artifactId>bonita-events-model-impl</artifactId>
+            <version>${project.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
