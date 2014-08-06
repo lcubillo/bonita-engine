@@ -22,6 +22,11 @@
 		</profile>
 		<profile>
 			<id>package</id>
+            <activation>
+                <property>
+                    <name>!publishArtifacts</name>
+                </property>
+            </activation>
 			<modules>
 		        <module>bonita-jndi</module>
 		        <module>bonita-commons</module>

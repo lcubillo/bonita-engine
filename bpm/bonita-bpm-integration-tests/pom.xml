@@ -70,9 +70,11 @@
 
 		<profile>
 			<id>package</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
+            <activation>
+                <property>
+                    <name>!publishArtifacts</name>
+                </property>
+            </activation>
 			<modules>
 				<module>bonita-query-tests</module>
 			</modules>
