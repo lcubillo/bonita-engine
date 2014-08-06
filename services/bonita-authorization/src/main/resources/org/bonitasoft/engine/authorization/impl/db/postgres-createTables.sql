@@ -1,4 +1,4 @@
-CREATE TABLE authorization (
+CREATE TABLE authorized_program (
   tenantId INT8 NOT NULL,
   id INT8 NOT NULL,
   programName VARCHAR(255) NOT NULL,

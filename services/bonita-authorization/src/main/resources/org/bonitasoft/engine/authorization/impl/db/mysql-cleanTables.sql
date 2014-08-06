@@ -1,1 +1,1 @@
-DELETE FROM authorization;
+DELETE FROM authorized_program;

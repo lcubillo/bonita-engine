@@ -1,1 +1,1 @@
-authorizationDELETE FROM authorization WHERE tenantid = ${tenantid};
+DELETE FROM authorized_program WHERE tenantid = ${tenantid};

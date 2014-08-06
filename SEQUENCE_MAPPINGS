@@ -3,6 +3,7 @@
 PLATFORM
 platform -> 0
 tenant -> 1
+authorized_program -> 514
 
 DEPENDENCY
 dependency -> 10
