@@ -3,6 +3,6 @@ CREATE TABLE authorized_program (
   id INT8 NOT NULL,
   programName VARCHAR(255) NOT NULL,
   programSecurityToken VARCHAR(512) NOT NULL,
-  UNIQUE (tenantId, programName, programSecurityToken),
+  UNIQUE (tenantId, programName),
   PRIMARY KEY (tenantId, id)
 );
