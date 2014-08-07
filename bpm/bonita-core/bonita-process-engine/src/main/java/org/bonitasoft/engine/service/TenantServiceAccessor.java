@@ -79,7 +79,7 @@ import org.bonitasoft.engine.xml.XMLWriter;
  * <p>
  * All server side services of a tenant can be accessed using this class. Using server side services instead of an API might cause unexpected behaviors and
  * damage your data.
- * 
+ *
  * @author Matthieu Chaffotte
  * @author Yanyan Liu
  * @author Hongwen Zang

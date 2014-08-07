@@ -58,7 +58,7 @@ import org.powermock.api.mockito.PowerMockito;
 /**
  * @author Celine Souchet
  * @author Aurelien Pupier
- * 
+ *
  */
 @RunWith(MockitoJUnitRunner.class)
 public class ServerAPIImplTest {
@@ -78,12 +78,12 @@ public class ServerAPIImplTest {
     /**
      * Test method for
      * {@link org.bonitasoft.engine.api.impl.ServerAPIImpl#invokeMethod(java.util.Map, java.lang.String, java.lang.String, java.util.List, java.lang.Object[])}.
-     * 
+     *
      * @throws Throwable
      */
     @Test(expected = ServerWrappedException.class)
     public void invokeMethodCatchUndeclaredThrowableException() throws Throwable {
-        testCatchAndLogged((new UndeclaredThrowableException(null, "")));
+        testCatchAndLogged(new UndeclaredThrowableException(null, ""));
     }
 
     @Test(expected = ServerWrappedException.class)
@@ -97,19 +97,19 @@ public class ServerAPIImplTest {
             BonitaHomeConfigurationException, IOException,
             NoSuchMethodException, InvocationTargetException, SBonitaException,
             Throwable, ServerWrappedException {
+        final Map<String, Serializable> options = new HashMap<String, Serializable>();
         final String apiInterfaceName = "apiInterfaceName";
         final String methodName = "methodName";
         final List<String> classNameParameters = new ArrayList<String>();
         final Object[] parametersValues = null;
 
         ServerAPIImpl serverAPIImpl = spy(new ServerAPIImpl(true, accessResolver));
-        doReturn(sessionAccessor).when(serverAPIImpl).beforeInvokeMethod(session, apiInterfaceName);
+        doReturn(sessionAccessor).when(serverAPIImpl).beforeInvokeMethod(session, apiInterfaceName, options);
         final TechnicalLoggerService technicalLogger = mock(TechnicalLoggerService.class);
         doReturn(true).when(technicalLogger).isLoggable(any(Class.class), eq(TechnicalLogSeverity.DEBUG));
         doThrow(toBeThrown).when(serverAPIImpl).invokeAPI(apiInterfaceName, apiInterfaceName, classNameParameters, parametersValues, session);
 
         serverAPIImpl.setTechnicalLogger(technicalLogger);
-        final Map<String, Serializable> options = new HashMap<String, Serializable>();
         options.put("session", session);
         try {
             serverAPIImpl.invokeMethod(options, apiInterfaceName, methodName, classNameParameters, parametersValues);
@@ -126,7 +126,7 @@ public class ServerAPIImplTest {
         final String methodName = "toString";
         final List<String> classNameParameters = new ArrayList<String>();
         final Object[] parametersValues = null;
-        Session session = new APISessionImpl(1L, new Date(), 120L, "userName", 5487L, "mon_tenant", 25L);
+        Session session = buildSession();
 
         APIAccessResolver accessResolver = mock(APIAccessResolver.class);
         when(accessResolver.getAPIImplementation(apiInterfaceName)).thenReturn(new Object());
@@ -150,7 +150,7 @@ public class ServerAPIImplTest {
         final String methodName = "customTxAPIMethod";
         final List<String> classNameParameters = new ArrayList<String>();
         final Object[] parametersValues = null;
-        Session session = new APISessionImpl(1L, new Date(), 120L, "userName", 5487L, "mon_tenant", 25L);
+        Session session = buildSession();
 
         APIAccessResolver accessResolver = mock(APIAccessResolver.class);
         FakeAPI apiImpl = new FakeAPI();
@@ -175,7 +175,7 @@ public class ServerAPIImplTest {
         final String methodName = "noSessionRequiredMethod";
         final List<String> classNameParameters = new ArrayList<String>();
         final Object[] parametersValues = null;
-        Session session = new APISessionImpl(1L, new Date(), 120L, "userName", 5487L, "mon_tenant", 25L);
+        Session session = buildSession();
 
         APIAccessResolver accessResolver = mock(APIAccessResolver.class);
         FakeAPI apiImpl = new FakeAPI();
@@ -194,6 +194,10 @@ public class ServerAPIImplTest {
         }
     }
 
+    protected APISessionImpl buildSession() {
+        return new APISessionImpl(1L, new Date(), 120L, "userName", 5487L, "mon_tenant", 25L, "UNDEFINED_PROGRAM_NAME");
+    }
+
     @Test
     public void invokeAPIWithValidChecksAndNoAnnotationshouldCallTransactionalInvokeAPI() throws Throwable {
         // given:
@@ -201,7 +205,7 @@ public class ServerAPIImplTest {
         final String methodName = "notAnnotatedMethod";
         final List<String> classNameParameters = new ArrayList<String>();
         final Object[] parametersValues = null;
-        Session session = new APISessionImpl(1L, new Date(), 120L, "userName", 5487L, "mon_tenant", 25L);
+        Session session = buildSession();
 
         APIAccessResolver accessResolver = mock(APIAccessResolver.class);
         FakeAPI apiImpl = new FakeAPI();

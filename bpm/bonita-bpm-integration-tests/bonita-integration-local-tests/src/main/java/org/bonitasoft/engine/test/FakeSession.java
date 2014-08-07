@@ -28,33 +28,33 @@ public class FakeSession implements APISession {
     private boolean technicalUser = false;
 
     public FakeSession(final APISession session) {
-        this.id = session.getId();
-        this.creationDate = session.getCreationDate();
-        this.duration = session.getDuration();
-        this.userName = session.getUserName();
-        this.tenant = session.getTenantName();
-        this.tenantId = session.getTenantId();
-        this.userId = session.getUserId();
+        id = session.getId();
+        creationDate = session.getCreationDate();
+        duration = session.getDuration();
+        userName = session.getUserName();
+        tenant = session.getTenantName();
+        tenantId = session.getTenantId();
+        userId = session.getUserId();
     }
 
     @Override
     public long getId() {
-        return this.id;
+        return id;
     }
 
     @Override
     public Date getCreationDate() {
-        return this.creationDate;
+        return creationDate;
     }
 
     @Override
     public long getDuration() {
-        return this.duration;
+        return duration;
     }
 
     @Override
     public String getUserName() {
-        return this.userName;
+        return userName;
     }
 
     @Override
@@ -63,21 +63,21 @@ public class FakeSession implements APISession {
     }
 
     public void setDuration(final long newDuration) {
-        this.duration = newDuration;
+        duration = newDuration;
     }
 
     public void setId(final long identifier) {
-        this.id = identifier;
+        id = identifier;
     }
 
     @Override
     public String getTenantName() {
-        return this.tenant;
+        return tenant;
     }
 
     @Override
     public long getTenantId() {
-        return this.tenantId;
+        return tenantId;
     }
 
     @Override
@@ -87,6 +87,11 @@ public class FakeSession implements APISession {
 
     public void setTechnicalUser(final boolean technicalUser) {
         this.technicalUser = technicalUser;
+    }
+
+    @Override
+    public String getProgramName() {
+        return "UNTRUSTED_APPLICATION";
     }
 
 }

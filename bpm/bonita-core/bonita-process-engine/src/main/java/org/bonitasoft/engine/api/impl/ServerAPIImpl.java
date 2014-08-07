@@ -31,7 +31,6 @@ import org.bonitasoft.engine.classloader.ClassLoaderService;
 import org.bonitasoft.engine.classloader.SClassLoaderException;
 import org.bonitasoft.engine.commons.ClassReflector;
 import org.bonitasoft.engine.commons.exceptions.SBonitaException;
-import org.bonitasoft.engine.core.login.LoginService;
 import org.bonitasoft.engine.core.platform.login.PlatformLoginService;
 import org.bonitasoft.engine.dependency.model.ScopeType;
 import org.bonitasoft.engine.exception.BonitaContextException;
@@ -45,7 +44,6 @@ import org.bonitasoft.engine.platform.NodeNotStartedException;
 import org.bonitasoft.engine.platform.PlatformService;
 import org.bonitasoft.engine.platform.session.PlatformSessionService;
 import org.bonitasoft.engine.platform.session.SSessionException;
-import org.bonitasoft.engine.scheduler.SchedulerService;
 import org.bonitasoft.engine.scheduler.exception.SSchedulerException;
 import org.bonitasoft.engine.service.APIAccessResolver;
 import org.bonitasoft.engine.service.PlatformServiceAccessor;
@@ -78,6 +76,8 @@ public class ServerAPIImpl implements ServerAPI {
 
     private TechnicalLoggerService technicalLogger;
 
+    private APISessionChecker apiSessionChecker;
+
     private enum SessionType {
         PLATFORM, API;
     }
@@ -89,6 +89,7 @@ public class ServerAPIImpl implements ServerAPI {
     public ServerAPIImpl(final boolean cleanSession) {
         try {
             this.cleanSession = cleanSession;
+            apiSessionChecker = new APISessionChecker();
             accessResolver = getServiceAccessorFactoryInstance().createAPIAccessResolver();
         } catch (final Exception e) {
             throw new BonitaRuntimeException(e);
@@ -97,13 +98,14 @@ public class ServerAPIImpl implements ServerAPI {
 
     /**
      * For Test Mock usage
-     * 
+     *
      * @param cleanSession
      * @param accessResolver
      */
-    public ServerAPIImpl(boolean cleanSession, APIAccessResolver accessResolver) {
+    public ServerAPIImpl(final boolean cleanSession, final APIAccessResolver accessResolver) {
         this.cleanSession = cleanSession;
         this.accessResolver = accessResolver;
+        apiSessionChecker = new APISessionChecker();
     }
 
     void setTechnicalLogger(final TechnicalLoggerService technicalLoggerService) {
@@ -124,7 +126,7 @@ public class ServerAPIImpl implements ServerAPI {
         try {
             try {
                 session = (Session) options.get(SESSION);
-                sessionAccessor = beforeInvokeMethod(session, apiInterfaceName);
+                sessionAccessor = beforeInvokeMethod(session, apiInterfaceName, options);
                 return invokeAPI(apiInterfaceName, methodName, classNameParameters, parametersValues, session);
             } catch (final ServerAPIRuntimeException sapire) {
                 throw sapire.getCause();
@@ -168,7 +170,7 @@ public class ServerAPIImpl implements ServerAPI {
         }
     }
 
-    private void cleanSessionIfNeeded(SessionAccessor sessionAccessor) {
+    protected void cleanSessionIfNeeded(final SessionAccessor sessionAccessor) {
         if (cleanSession) {
             // clean session id
             if (sessionAccessor != null) {
@@ -183,7 +185,7 @@ public class ServerAPIImpl implements ServerAPI {
         }
     }
 
-    private void technicalTraceLog(String prefix, String apiInterfaceName, String methodName) {
+    private void technicalTraceLog(final String prefix, final String apiInterfaceName, final String methodName) {
         if (technicalLogger != null && technicalLogger.isLoggable(this.getClass(), TechnicalLogSeverity.TRACE)) {
             technicalLogger.log(this.getClass(), TechnicalLogSeverity.TRACE, prefix + "Server API call " + apiInterfaceName + " " + methodName);
         }
@@ -199,9 +201,9 @@ public class ServerAPIImpl implements ServerAPI {
         }
     }
 
-    SessionAccessor beforeInvokeMethod(final Session session, final String apiInterfaceName) throws BonitaHomeNotSetException,
-            InstantiationException, IllegalAccessException, ClassNotFoundException, BonitaHomeConfigurationException, IOException, NoSuchMethodException,
-            InvocationTargetException, SBonitaException {
+    protected SessionAccessor beforeInvokeMethod(final Session session, final String apiInterfaceName, final Map<String, Serializable> options)
+            throws BonitaHomeNotSetException, InstantiationException, IllegalAccessException, ClassNotFoundException, BonitaHomeConfigurationException,
+            IOException, NoSuchMethodException, InvocationTargetException, SBonitaException {
         SessionAccessor sessionAccessor = null;
 
         final ServiceAccessorFactory serviceAccessorFactory = getServiceAccessorFactoryInstance();
@@ -217,13 +219,14 @@ public class ServerAPIImpl implements ServerAPI {
                     break;
 
                 case API:
-                    serverClassLoader = beforeInvokeMethodForAPISession(sessionAccessor, serviceAccessorFactory, platformServiceAccessor, session);
+                    serverClassLoader = beforeInvokeMethodForTenantSession(sessionAccessor, serviceAccessorFactory, platformServiceAccessor,
+                            (APISession) session, options);
                     break;
 
                 default:
                     throw new InvalidSessionException("Unknown session type: " + session.getClass().getName());
             }
-        } else if (accessResolver.needSession(apiInterfaceName)) {
+        } else if (checkAPICallForNullSession(apiInterfaceName, options)) {
             throw new InvalidSessionException("Session is null!");
         }
         if (serverClassLoader != null) {
@@ -233,17 +236,21 @@ public class ServerAPIImpl implements ServerAPI {
         return sessionAccessor;
     }
 
-    private ClassLoader beforeInvokeMethodForAPISession(final SessionAccessor sessionAccessor, final ServiceAccessorFactory serviceAccessorFactory,
-            final PlatformServiceAccessor platformServiceAccessor, final Session session) throws SSchedulerException,
-            org.bonitasoft.engine.session.SSessionException, SClassLoaderException, SBonitaException, BonitaHomeNotSetException, IOException,
-            BonitaHomeConfigurationException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
+    protected boolean checkAPICallForNullSession(final String apiInterfaceName, final Map<String, Serializable> options) {
+        return accessResolver.needSession(apiInterfaceName);
+    }
+
+    protected ClassLoader beforeInvokeMethodForTenantSession(final SessionAccessor sessionAccessor, final ServiceAccessorFactory serviceAccessorFactory,
+            final PlatformServiceAccessor platformServiceAccessor, final APISession session, final Map<String, Serializable> options)
+                    throws SSchedulerException, org.bonitasoft.engine.session.SSessionException, SClassLoaderException, SBonitaException, BonitaHomeNotSetException,
+                    IOException, BonitaHomeConfigurationException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
         final SessionService sessionService = platformServiceAccessor.getSessionService();
 
-        checkTenantSession(platformServiceAccessor, session);
+        apiSessionChecker.checkTenantSession(platformServiceAccessor, session, technicalLogger);
         sessionService.renewSession(session.getId());
-        sessionAccessor.setSessionInfo(session.getId(), ((APISession) session).getTenantId());
+        sessionAccessor.setSessionInfo(session.getId(), session.getTenantId());
         final ClassLoader serverClassLoader = getTenantClassLoader(platformServiceAccessor, session);
-        setTechnicalLogger(serviceAccessorFactory.createTenantServiceAccessor(((APISession) session).getTenantId()).getTechnicalLoggerService());
+        setTechnicalLogger(serviceAccessorFactory.createTenantServiceAccessor(session.getTenantId()).getTechnicalLoggerService());
         return serverClassLoader;
     }
 
@@ -345,7 +352,7 @@ public class ServerAPIImpl implements ServerAPI {
     }
 
     protected UserTransactionService selectUserTransactionService(final Session session, final SessionType sessionType) throws BonitaHomeNotSetException,
-            InstantiationException, IllegalAccessException, ClassNotFoundException, IOException, BonitaHomeConfigurationException {
+    InstantiationException, IllegalAccessException, ClassNotFoundException, IOException, BonitaHomeConfigurationException {
         UserTransactionService transactionService = null;
         final ServiceAccessorFactory serviceAccessorFactory = getServiceAccessorFactoryInstance();
         final PlatformServiceAccessor platformServiceAccessor = serviceAccessorFactory.createPlatformServiceAccessor();
@@ -393,25 +400,12 @@ public class ServerAPIImpl implements ServerAPI {
         return parameterTypes;
     }
 
-    private void checkTenantSession(final PlatformServiceAccessor platformAccessor, final Session session) throws SSchedulerException {
-        final SchedulerService schedulerService = platformAccessor.getSchedulerService();
-        final TechnicalLoggerService logger = platformAccessor.getTechnicalLoggerService();
-        if (!schedulerService.isStarted() && logger.isLoggable(this.getClass(), TechnicalLogSeverity.DEBUG)) {
-            logger.log(this.getClass(), TechnicalLogSeverity.DEBUG, "The scheduler is not started!");
-        }
-        final APISession apiSession = (APISession) session;
-        final TenantServiceAccessor tenantAccessor = platformAccessor.getTenantServiceAccessor(apiSession.getTenantId());
-        final LoginService tenantLoginService = tenantAccessor.getLoginService();
-        if (!tenantLoginService.isValid(apiSession.getId())) {
-            throw new InvalidSessionException("Invalid session");
-        }
-    }
 
-    private ClassLoader getTenantClassLoader(final PlatformServiceAccessor platformServiceAccessor, final Session session) throws SClassLoaderException {
-        final APISession apiSession = (APISession) session;
-        final TenantServiceAccessor tenantAccessor = platformServiceAccessor.getTenantServiceAccessor(apiSession.getTenantId());
+
+    private ClassLoader getTenantClassLoader(final PlatformServiceAccessor platformServiceAccessor, final APISession session) throws SClassLoaderException {
+        final TenantServiceAccessor tenantAccessor = platformServiceAccessor.getTenantServiceAccessor(session.getTenantId());
         final ClassLoaderService classLoaderService = tenantAccessor.getClassLoaderService();
-        return classLoaderService.getLocalClassLoader(ScopeType.TENANT.name(), apiSession.getTenantId());
+        return classLoaderService.getLocalClassLoader(ScopeType.TENANT.name(), session.getTenantId());
     }
 
     private ClassLoader getPlatformClassLoader(final PlatformServiceAccessor platformServiceAccessor) throws SClassLoaderException {
@@ -438,6 +432,13 @@ public class ServerAPIImpl implements ServerAPI {
             classLoader = classLoaderService.getGlobalClassLoader();
         }
         return classLoader;
+    }
+
+    /**
+     * @param apiSessionChecker the apiSessionChecker to set
+     */
+    public void setApiSessionChecker(final APISessionChecker apiSessionChecker) {
+        this.apiSessionChecker = apiSessionChecker;
     }
 
 }

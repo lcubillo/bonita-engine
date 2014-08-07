@@ -292,7 +292,7 @@ public class ModelConvertor {
         final Date creationDate = session.getCreationDate();
         final long duration = session.getDuration();
         final boolean technicalUser = session.isTechnicalUser();
-        final APISessionImpl apiSession = new APISessionImpl(id, creationDate, duration, userName, userId, tenant, tenantId);
+        final APISessionImpl apiSession = new APISessionImpl(id, creationDate, duration, userName, userId, tenant, tenantId, "UNDEFINED_PROGRAM_NAME");
         apiSession.setTechnicalUser(technicalUser);
         return apiSession;
     }
@@ -1653,7 +1653,7 @@ public class ModelConvertor {
                 .setRightOperand(ServerModelConvertor.convertExpression(operation.getRightOperand()))
                 .setLeftOperand(
                         BuilderFactory.get(SLeftOperandBuilderFactory.class).createNewInstance().setName(operation.getLeftOperand().getName())
-                                .setType(operation.getLeftOperand().getType()).done()).done();
+                        .setType(operation.getLeftOperand().getType()).done()).done();
     }
 
     public static List<SOperation> convertOperations(final List<Operation> operations) {

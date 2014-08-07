@@ -27,13 +27,16 @@ public class APISessionImpl extends SessionImpl implements APISession {
 
     private String tenantName;
 
+    private final String programName;
+
     private long tenantId;
 
     public APISessionImpl(final long id, final Date creationDate, final long duration, final String userName, final long userId, final String tenantName,
-            final long tenantId) {
+            final long tenantId, final String programName) {
         super(id, creationDate, duration, userName, userId);
         this.tenantName = tenantName;
         this.tenantId = tenantId;
+        this.programName = programName;
     }
 
     @Override
@@ -62,8 +65,9 @@ public class APISessionImpl extends SessionImpl implements APISession {
     public int hashCode() {
         final int prime = 31;
         int result = super.hashCode();
-        result = prime * result + ((tenantName == null) ? 0 : tenantName.hashCode());
-        result = prime * result + (int) (tenantId ^ (tenantId >>> 32));
+        result = prime * result + (tenantName == null ? 0 : tenantName.hashCode());
+        result = prime * result + (programName == null ? 0 : programName.hashCode());
+        result = prime * result + (int) (tenantId ^ tenantId >>> 32);
         return result;
     }
 
@@ -84,6 +88,13 @@ public class APISessionImpl extends SessionImpl implements APISession {
                 return false;
             }
         } else if (!tenantName.equals(other.tenantName)) {
+            return false;
+        }
+        if (programName == null) {
+            if (other.programName != null) {
+                return false;
+            }
+        } else if (!programName.equals(other.programName)) {
             return false;
         }
         if (tenantId != other.tenantId) {
@@ -111,8 +122,15 @@ public class APISessionImpl extends SessionImpl implements APISession {
         builder.append(getUserId());
         builder.append(", isTechnicalUser()=");
         builder.append(isTechnicalUser());
+        builder.append(", programName()=");
+        builder.append(getProgramName());
         builder.append("]");
         return builder.toString();
+    }
+
+    @Override
+    public String getProgramName() {
+        return programName;
     }
 
 }

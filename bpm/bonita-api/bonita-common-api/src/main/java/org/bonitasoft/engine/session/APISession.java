@@ -15,7 +15,7 @@ package org.bonitasoft.engine.session;
 
 /**
  * Informations concerning the connected tenant to the APIs
- * 
+ *
  * @author Elias Ricken de Medeiros
  * @author Matthieu Chaffotte
  * @author Celine Souchet
@@ -31,5 +31,10 @@ public interface APISession extends Session {
      * @return The identifier of the connected tenant
      */
     long getTenantId();
+
+    /**
+     * @return The name of the client application logged in on the Engine.
+     */
+    String getProgramName();
 
 }
