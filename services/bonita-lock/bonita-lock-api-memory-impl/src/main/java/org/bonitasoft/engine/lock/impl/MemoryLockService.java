@@ -77,12 +77,6 @@ public class MemoryLockService implements LockService {
 
     }
 
-    private static final class MemoryLockServiceReentrantLock extends ReentrantLock {
-
-        private static final long serialVersionUID = -4360812005753126401L;
-
-    }
-
     private Object getMutex(final long objectToLockId) {
         final int poolKeyForThisObjectId = Long.valueOf(objectToLockId % lockPoolSize).intValue();
         if (!mutexs.containsKey(poolKeyForThisObjectId)) {

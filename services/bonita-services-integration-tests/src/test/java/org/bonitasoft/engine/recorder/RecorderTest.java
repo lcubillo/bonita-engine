@@ -313,7 +313,7 @@ public class RecorderTest extends CommonServiceTest {
         assertNotNull(humanToUpdate);
         final SUpdateEvent updateEvent = (SUpdateEvent) BuilderFactory.get(SEventBuilderFactory.class).createUpdateEvent(HUMAN).setObject(human).done();
         recorder.recordUpdate(
-                UpdateRecord.buildSetField(humanToUpdate, "firstName", "firstName", "firstNameUpdate", "Update human", HumanRecordType.updateHuman),
+                UpdateRecord.buildSetField(humanToUpdate, "firstName", "firstName", "firstNameUpdate"),
                 updateEvent);
         getTransactionService().setRollbackOnly();
         getTransactionService().complete();
