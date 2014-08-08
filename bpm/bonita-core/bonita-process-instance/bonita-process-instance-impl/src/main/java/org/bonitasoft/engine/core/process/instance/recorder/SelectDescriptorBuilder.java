@@ -38,7 +38,7 @@ import org.bonitasoft.engine.core.process.instance.model.event.handling.SWaiting
 import org.bonitasoft.engine.core.process.instance.model.event.handling.SWaitingSignalEvent;
 import org.bonitasoft.engine.core.process.instance.model.event.trigger.SEventTriggerInstance;
 import org.bonitasoft.engine.persistence.OrderByType;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 import org.bonitasoft.engine.persistence.QueryOptions;
 import org.bonitasoft.engine.persistence.SelectByIdDescriptor;
 import org.bonitasoft.engine.persistence.SelectListDescriptor;
@@ -53,7 +53,7 @@ import org.bonitasoft.engine.persistence.SelectOneDescriptor;
 public class SelectDescriptorBuilder {
 
     // FIXME put in a common model
-    public static <T extends PersistentObject> SelectByIdDescriptor<T> getElementById(final Class<T> clazz, final String elementName, final long id) {
+    public static <T extends TenantPersistentObject> SelectByIdDescriptor<T> getElementById(final Class<T> clazz, final String elementName, final long id) {
         return new SelectByIdDescriptor<T>("get" + elementName + "ById", clazz, id);
     }
 
@@ -94,13 +94,13 @@ public class SelectDescriptorBuilder {
         return new SelectListDescriptor<Long>("getSourceProcessInstanceIdsByProcessDefinitionId", parameters, SAProcessInstance.class, queryOptions);
     }
 
-    public static <T extends PersistentObject> SelectListDescriptor<T> getElements(final Class<T> clazz, final String elementName,
+    public static <T extends TenantPersistentObject> SelectListDescriptor<T> getElements(final Class<T> clazz, final String elementName,
             final QueryOptions queryOptions) {
         final Map<String, Object> parameters = Collections.emptyMap();
         return new SelectListDescriptor<T>("get" + elementName + "s", parameters, clazz, queryOptions);
     }
 
-    public static <T extends PersistentObject> SelectListDescriptor<T> getElements(final Class<T> clazz, final String elementName, final int fromIndex,
+    public static <T extends TenantPersistentObject> SelectListDescriptor<T> getElements(final Class<T> clazz, final String elementName, final int fromIndex,
             final int numberOfElements) {
         final Map<String, Object> map = Collections.emptyMap();
         return new SelectListDescriptor<T>("get" + elementName + "s", map, clazz, new QueryOptions(fromIndex, numberOfElements));
@@ -117,7 +117,7 @@ public class SelectDescriptorBuilder {
      * @param queryOptions
      * @return
      */
-    public static <T extends PersistentObject> SelectListDescriptor<T> getActivitiesWithStates(final Class<T> clazz, final long processInstanceId,
+    public static <T extends TenantPersistentObject> SelectListDescriptor<T> getActivitiesWithStates(final Class<T> clazz, final long processInstanceId,
             final Set<Integer> stateIds, final QueryOptions queryOptions) {
         final Map<String, Object> parameters = new HashMap<String, Object>(2);
         parameters.put("stateIds", stateIds);
@@ -125,7 +125,7 @@ public class SelectDescriptorBuilder {
         return new SelectListDescriptor<T>("getActivitiesWithStates", parameters, clazz, queryOptions);
     }
 
-    public static <T extends PersistentObject> SelectListDescriptor<T> getSpecificQueryWithParameters(final Class<T> clazz, final String queryName,
+    public static <T extends TenantPersistentObject> SelectListDescriptor<T> getSpecificQueryWithParameters(final Class<T> clazz, final String queryName,
             final Map<String, Object> parameters, final QueryOptions queryOptions) {
         return new SelectListDescriptor<T>(queryName, parameters, clazz, queryOptions);
     }

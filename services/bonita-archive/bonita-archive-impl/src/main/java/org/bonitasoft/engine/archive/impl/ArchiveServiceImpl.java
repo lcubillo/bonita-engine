@@ -24,8 +24,8 @@ import org.bonitasoft.engine.commons.ClassReflector;
 import org.bonitasoft.engine.commons.LogUtil;
 import org.bonitasoft.engine.log.technical.TechnicalLogSeverity;
 import org.bonitasoft.engine.log.technical.TechnicalLoggerService;
-import org.bonitasoft.engine.persistence.ArchivedPersistentObject;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.ArchivedTenantPersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 import org.bonitasoft.engine.persistence.ReadPersistenceService;
 import org.bonitasoft.engine.recorder.SRecorderException;
 import org.bonitasoft.engine.recorder.model.DeleteRecord;
@@ -73,9 +73,9 @@ public class ArchiveServiceImpl implements ArchiveService {
         final String methodName = "recordInserts";
         logBeforeMethod(TechnicalLogSeverity.TRACE, methodName);
         if (records != null) {
-            final List<ArchivedPersistentObject> archivedObjects = new ArrayList<ArchivedPersistentObject>();
+            final List<ArchivedTenantPersistentObject> archivedObjects = new ArrayList<ArchivedTenantPersistentObject>();
             for (final ArchiveInsertRecord record : records) {
-                final ArchivedPersistentObject entity = record.getEntity();
+                final ArchivedTenantPersistentObject entity = record.getEntity();
                 setArchiveDate(entity, time);
                 archivedObjects.add(entity);
             }
@@ -96,7 +96,7 @@ public class ArchiveServiceImpl implements ArchiveService {
         logAfterMethod(TechnicalLogSeverity.TRACE, methodName);
     }
 
-    private void setArchiveDate(final ArchivedPersistentObject entity, final long time) throws SRecorderException {
+    private void setArchiveDate(final ArchivedTenantPersistentObject entity, final long time) throws SRecorderException {
         if (entity.getArchiveDate() <= 0) {
             try {
                 ClassReflector.invokeSetter(entity, "setArchiveDate", long.class, time);
@@ -143,7 +143,7 @@ public class ArchiveServiceImpl implements ArchiveService {
     }
 
     @Override
-    public boolean isArchivable(final Class<? extends PersistentObject> sourceObjectClass) {
+    public boolean isArchivable(final Class<? extends TenantPersistentObject> sourceObjectClass) {
         return archivingStrategy.isArchivable(sourceObjectClass);
     }
 

@@ -16,7 +16,7 @@ package org.bonitasoft.engine.scheduler.recorder;
 import java.util.Collections;
 import java.util.Map;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 import org.bonitasoft.engine.persistence.QueryOptions;
 import org.bonitasoft.engine.persistence.SelectByIdDescriptor;
 import org.bonitasoft.engine.persistence.SelectListDescriptor;
@@ -29,7 +29,7 @@ import org.bonitasoft.engine.scheduler.model.SJobDescriptor;
 public class SelectDescriptorBuilder {
 
     // FIXME put in a common model
-    public static <T extends PersistentObject> SelectByIdDescriptor<T> getElementById(final Class<T> clazz, final String elementName, final long id) {
+    public static <T extends TenantPersistentObject> SelectByIdDescriptor<T> getElementById(final Class<T> clazz, final String elementName, final long id) {
         return new SelectByIdDescriptor<T>("get" + elementName + "ById", clazz, id);
     }
 

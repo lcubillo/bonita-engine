@@ -21,7 +21,7 @@ import org.bonitasoft.engine.commons.transaction.TransactionContentWithResult;
 import org.bonitasoft.engine.core.process.instance.api.FlowNodeInstanceService;
 import org.bonitasoft.engine.core.process.instance.model.SFlowNodeInstance;
 import org.bonitasoft.engine.persistence.OrderByOption;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 import org.bonitasoft.engine.persistence.QueryOptions;
 
 /**
@@ -33,14 +33,14 @@ public class SearchFlowNodeInstances implements TransactionContentWithResult<Lis
 
     private final QueryOptions queryOptions;
 
-    private final Class<? extends PersistentObject> entityClass;
+    private final Class<? extends TenantPersistentObject> entityClass;
 
     private List<SFlowNodeInstance> result;
 
     private long count;
 
     public SearchFlowNodeInstances(final FlowNodeInstanceService flowNodeInstanceService, final QueryOptions queryOptions,
-            final Class<? extends PersistentObject> entityClass) {
+            final Class<? extends TenantPersistentObject> entityClass) {
         super();
         this.flowNodeInstanceService = flowNodeInstanceService;
         this.queryOptions = queryOptions;

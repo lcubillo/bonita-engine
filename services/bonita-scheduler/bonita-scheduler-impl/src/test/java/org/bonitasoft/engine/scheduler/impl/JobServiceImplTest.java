@@ -25,7 +25,7 @@ import org.bonitasoft.engine.events.model.SDeleteEvent;
 import org.bonitasoft.engine.events.model.SInsertEvent;
 import org.bonitasoft.engine.events.model.builders.SEventBuilder;
 import org.bonitasoft.engine.events.model.builders.SEventBuilderFactory;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 import org.bonitasoft.engine.persistence.QueryOptions;
 import org.bonitasoft.engine.persistence.ReadPersistenceService;
 import org.bonitasoft.engine.persistence.SBonitaReadException;
@@ -208,13 +208,13 @@ public class JobServiceImplTest {
     public void createJobDescriptor_with_eventHandlers() throws Exception {
         //given
         doReturn(true).when(eventService).hasHandlers(anyString(), any(EventActionType.class));
-        doReturn(sInsertEvent).when(jobService).createInsertEvent(any(PersistentObject.class), anyString());
+        doReturn(sInsertEvent).when(jobService).createInsertEvent(any(TenantPersistentObject.class), anyString());
 
         //when
         jobService.createJobDescriptor(sJobDescriptor, TENANT_ID);
 
         //then
-        verify(jobService, times(1)).createInsertEvent(any(PersistentObject.class), anyString());
+        verify(jobService, times(1)).createInsertEvent(any(TenantPersistentObject.class), anyString());
 
     }
 
@@ -295,13 +295,13 @@ public class JobServiceImplTest {
     public void deleteJobDescriptor_withHandlers() throws Exception {
         //given
         doReturn(true).when(eventService).hasHandlers(anyString(), any(EventActionType.class));
-        doReturn(sDeleteEvent).when(jobService).createDeleteEvent(any(PersistentObject.class), anyString());
+        doReturn(sDeleteEvent).when(jobService).createDeleteEvent(any(TenantPersistentObject.class), anyString());
 
         //when
         jobService.deleteJobDescriptor(sJobDescriptor);
 
         //then
-        verify(jobService, times(1)).createDeleteEvent(any(PersistentObject.class), anyString());
+        verify(jobService, times(1)).createDeleteEvent(any(TenantPersistentObject.class), anyString());
 
     }
 

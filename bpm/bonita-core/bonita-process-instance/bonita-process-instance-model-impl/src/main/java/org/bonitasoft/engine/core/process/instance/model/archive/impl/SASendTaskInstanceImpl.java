@@ -17,7 +17,7 @@ import org.bonitasoft.engine.core.process.definition.model.SFlowNodeType;
 import org.bonitasoft.engine.core.process.instance.model.SReceiveTaskInstance;
 import org.bonitasoft.engine.core.process.instance.model.SSendTaskInstance;
 import org.bonitasoft.engine.core.process.instance.model.archive.SASendTaskInstance;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Baptiste Mesta
@@ -50,7 +50,7 @@ public class SASendTaskInstanceImpl extends SAActivityInstanceImpl implements SA
     }
 
     @Override
-    public Class<? extends PersistentObject> getPersistentObjectInterface() {
+    public Class<? extends TenantPersistentObject> getPersistentObjectInterface() {
         return SReceiveTaskInstance.class;
     }
 

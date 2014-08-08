@@ -120,7 +120,7 @@ import org.bonitasoft.engine.expression.model.SExpression;
 import org.bonitasoft.engine.log.LogMessageBuilder;
 import org.bonitasoft.engine.log.technical.TechnicalLogSeverity;
 import org.bonitasoft.engine.log.technical.TechnicalLoggerService;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Baptiste Mesta
@@ -508,7 +508,7 @@ public class BPMInstancesCreator {
         return builder;
     }
 
-    public void createConnectorInstances(final PersistentObject container, final List<SConnectorDefinition> connectors, final String containerType)
+    public void createConnectorInstances(final TenantPersistentObject container, final List<SConnectorDefinition> connectors, final String containerType)
             throws SBonitaException {
         final List<SConnectorInstance> connectorInstances = new ArrayList<SConnectorInstance>(connectors.size());
         int executionOrder = 0;

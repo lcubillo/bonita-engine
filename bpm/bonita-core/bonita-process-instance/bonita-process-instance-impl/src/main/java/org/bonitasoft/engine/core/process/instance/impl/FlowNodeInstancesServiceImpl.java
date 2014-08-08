@@ -49,7 +49,7 @@ import org.bonitasoft.engine.log.technical.TechnicalLoggerService;
 import org.bonitasoft.engine.persistence.FilterOption;
 import org.bonitasoft.engine.persistence.OrderByOption;
 import org.bonitasoft.engine.persistence.OrderByType;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 import org.bonitasoft.engine.persistence.QueryOptions;
 import org.bonitasoft.engine.persistence.ReadPersistenceService;
 import org.bonitasoft.engine.persistence.SBonitaReadException;
@@ -383,7 +383,7 @@ public abstract class FlowNodeInstancesServiceImpl implements FlowNodeInstanceSe
     }
 
     @Override
-    public long getNumberOfFlowNodeInstances(final Class<? extends PersistentObject> entityClass, final QueryOptions countOptions)
+    public long getNumberOfFlowNodeInstances(final Class<? extends TenantPersistentObject> entityClass, final QueryOptions countOptions)
             throws SBonitaSearchException {
         try {
             return getPersistenceService().getNumberOfEntities(entityClass, countOptions, null);
@@ -394,7 +394,7 @@ public abstract class FlowNodeInstancesServiceImpl implements FlowNodeInstanceSe
 
     @SuppressWarnings("unchecked")
     @Override
-    public List<SFlowNodeInstance> searchFlowNodeInstances(final Class<? extends PersistentObject> entityClass, final QueryOptions searchOptions)
+    public List<SFlowNodeInstance> searchFlowNodeInstances(final Class<? extends TenantPersistentObject> entityClass, final QueryOptions searchOptions)
             throws SBonitaSearchException {
         try {
             return (List<SFlowNodeInstance>) getPersistenceService().searchEntity(entityClass, searchOptions, null);
@@ -404,7 +404,7 @@ public abstract class FlowNodeInstancesServiceImpl implements FlowNodeInstanceSe
     }
 
     @Override
-    public long getNumberOfFlowNodeInstancesSupervisedBy(final Long supervisorId, final Class<? extends PersistentObject> entityClass,
+    public long getNumberOfFlowNodeInstancesSupervisedBy(final Long supervisorId, final Class<? extends TenantPersistentObject> entityClass,
             final QueryOptions queryOptions) throws SBonitaSearchException {
         try {
             final Map<String, Object> parameters = Collections.singletonMap("supervisorId", (Object) supervisorId);
@@ -415,7 +415,7 @@ public abstract class FlowNodeInstancesServiceImpl implements FlowNodeInstanceSe
     }
 
     @Override
-    public List<SFlowNodeInstance> searchFlowNodeInstancesSupervisedBy(final Long supervisorId, final Class<? extends PersistentObject> entityClass,
+    public List<SFlowNodeInstance> searchFlowNodeInstancesSupervisedBy(final Long supervisorId, final Class<? extends TenantPersistentObject> entityClass,
             final QueryOptions queryOptions) throws SBonitaSearchException {
         try {
             final Map<String, Object> parameters = Collections.singletonMap("supervisorId", (Object) supervisorId);

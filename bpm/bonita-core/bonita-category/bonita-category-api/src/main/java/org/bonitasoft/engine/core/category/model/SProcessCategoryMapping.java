@@ -13,12 +13,12 @@
  **/
 package org.bonitasoft.engine.core.category.model;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Matthieu Chaffotte
  */
-public interface SProcessCategoryMapping extends PersistentObject {
+public interface SProcessCategoryMapping extends TenantPersistentObject {
 
     long getCategoryId();
 

@@ -13,12 +13,12 @@
  **/
 package org.bonitasoft.engine.actor.mapping.model;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Matthieu Chaffotte
  */
-public interface SActor extends PersistentObject {
+public interface SActor extends TenantPersistentObject {
 
     long getScopeId();
 

@@ -21,7 +21,7 @@ import java.util.Map;
 
 import org.bonitasoft.engine.archive.ArchivingStrategy;
 import org.bonitasoft.engine.commons.exceptions.SBonitaRuntimeException;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Celine Souchet
@@ -40,7 +40,7 @@ public abstract class AbstractArchivingStrategy implements ArchivingStrategy {
     }
 
     @Override
-    public boolean isArchivable(final Class<? extends PersistentObject> srcClass) {
+    public boolean isArchivable(final Class<? extends TenantPersistentObject> srcClass) {
         final Boolean isArchivable = archives.get(srcClass.getName());
         if (isArchivable == null) {
             throw new SBonitaRuntimeException("The class '" + srcClass.getName() + "' is not known as archivable");

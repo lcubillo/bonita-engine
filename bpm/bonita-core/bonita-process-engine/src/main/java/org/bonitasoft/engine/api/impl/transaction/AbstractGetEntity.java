@@ -20,7 +20,7 @@ import java.util.List;
 import org.bonitasoft.engine.commons.exceptions.SBonitaException;
 import org.bonitasoft.engine.commons.transaction.TransactionContentWithResult;
 import org.bonitasoft.engine.persistence.OrderByOption;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 import org.bonitasoft.engine.persistence.QueryOptions;
 import org.bonitasoft.engine.persistence.SBonitaReadException;
 import org.bonitasoft.engine.search.Sort;
@@ -35,7 +35,7 @@ import org.bonitasoft.engine.search.descriptor.SearchEntityDescriptor;
  * @param <S>
  *            The server object
  */
-public abstract class AbstractGetEntity<C extends Serializable, S extends PersistentObject> implements TransactionContentWithResult<List<C>> {
+public abstract class AbstractGetEntity<C extends Serializable, S extends TenantPersistentObject> implements TransactionContentWithResult<List<C>> {
 
     private final SearchEntityDescriptor searchDescriptor;
 

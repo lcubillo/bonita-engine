@@ -17,7 +17,7 @@ import java.io.Serializable;
 
 import org.bonitasoft.engine.data.instance.model.SDataInstance;
 import org.bonitasoft.engine.data.instance.model.archive.SADataInstance;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Feng Hui
@@ -159,7 +159,7 @@ public abstract class SADataInstanceImpl implements SADataInstance {
     }
 
     @Override
-    public Class<? extends PersistentObject> getPersistentObjectInterface() {
+    public Class<? extends TenantPersistentObject> getPersistentObjectInterface() {
         return SDataInstance.class;
     }
 

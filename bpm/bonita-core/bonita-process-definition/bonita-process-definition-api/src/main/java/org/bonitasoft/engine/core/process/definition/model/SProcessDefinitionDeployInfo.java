@@ -13,7 +13,7 @@
  **/
 package org.bonitasoft.engine.core.process.definition.model;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Baptiste Mesta
@@ -21,7 +21,7 @@ import org.bonitasoft.engine.persistence.PersistentObject;
  * @author Hongwen Zang
  * @author Celine Souchet
  */
-public interface SProcessDefinitionDeployInfo extends PersistentObject {
+public interface SProcessDefinitionDeployInfo extends TenantPersistentObject {
 
     long getProcessId();
 

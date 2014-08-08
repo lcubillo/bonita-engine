@@ -42,7 +42,7 @@ import org.bonitasoft.engine.core.process.definition.model.SConnectorDefinition;
 import org.bonitasoft.engine.core.process.instance.model.SConnectorInstance;
 import org.bonitasoft.engine.core.process.instance.model.builder.SConnectorInstanceBuilder;
 import org.bonitasoft.engine.core.process.instance.model.builder.SConnectorInstanceBuilderFactory;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -86,7 +86,7 @@ public class BPMInstancesCreatorTest {
                 .thenReturn(connectorBuilder);
         when(connectorBuilder.done()).thenReturn(connectorInstance);
 
-        final PersistentObject container = mock(PersistentObject.class);
+        final TenantPersistentObject container = mock(TenantPersistentObject.class);
         final List<SConnectorDefinition> connectors = getConnectorList();
 
         bpmInstancesCreator.createConnectorInstances(container, connectors, SConnectorInstance.FLOWNODE_TYPE);

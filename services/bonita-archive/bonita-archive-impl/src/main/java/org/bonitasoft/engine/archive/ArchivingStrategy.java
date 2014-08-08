@@ -13,13 +13,13 @@
  **/
 package org.bonitasoft.engine.archive;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Matthieu Chaffotte
  */
 public interface ArchivingStrategy {
 
-    boolean isArchivable(Class<? extends PersistentObject> srcClass);
+    boolean isArchivable(Class<? extends TenantPersistentObject> srcClass);
 
 }

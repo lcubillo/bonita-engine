@@ -26,7 +26,7 @@ import org.bonitasoft.engine.core.process.instance.model.archive.SAReceiveTaskIn
 import org.bonitasoft.engine.core.process.instance.model.archive.SASendTaskInstance;
 import org.bonitasoft.engine.core.process.instance.model.archive.SAUserTaskInstance;
 import org.bonitasoft.engine.execution.state.FlowNodeStateManager;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 import org.bonitasoft.engine.search.descriptor.SearchArchivedActivityInstanceDescriptor;
 import org.bonitasoft.engine.search.impl.SearchFilter;
 import org.bonitasoft.engine.service.ModelConvertor;
@@ -39,7 +39,7 @@ public abstract class AbstractArchiveActivityInstanceSearchEntity extends Abstra
 
     private final FlowNodeStateManager flowNodeStateManager;
 
-    private final Class<? extends PersistentObject> entityClass;
+    private final Class<? extends TenantPersistentObject> entityClass;
 
     public AbstractArchiveActivityInstanceSearchEntity(final SearchArchivedActivityInstanceDescriptor searchDescriptor, final SearchOptions searchOptions,
             final FlowNodeStateManager flowNodeStateManager) {
@@ -53,8 +53,8 @@ public abstract class AbstractArchiveActivityInstanceSearchEntity extends Abstra
         return ModelConvertor.toArchivedActivityInstances(serverObjects, flowNodeStateManager);
     }
 
-    protected Class<? extends PersistentObject> getEntityClass(final SearchOptions searchOptions) {
-        Class<? extends PersistentObject> entityClass = SAActivityInstance.class;
+    protected Class<? extends TenantPersistentObject> getEntityClass(final SearchOptions searchOptions) {
+        Class<? extends TenantPersistentObject> entityClass = SAActivityInstance.class;
         final SearchFilter searchFilter = getSearchFilter(searchOptions, ArchivedActivityInstanceSearchDescriptor.ACTIVITY_TYPE);
         if (searchFilter != null) {
             final FlowNodeType activityType = (FlowNodeType) searchFilter.getValue();
@@ -88,7 +88,7 @@ public abstract class AbstractArchiveActivityInstanceSearchEntity extends Abstra
         return entityClass;
     }
 
-    protected Class<? extends PersistentObject> getEntityClass() {
+    protected Class<? extends TenantPersistentObject> getEntityClass() {
         return entityClass;
     }
 }

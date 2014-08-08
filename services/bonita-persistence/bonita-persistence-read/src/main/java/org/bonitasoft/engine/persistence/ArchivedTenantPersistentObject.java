@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2012-2013 BonitaSoft S.A.
+ * Copyright (C) 2012-2014 BonitaSoft S.A.
  * BonitaSoft, 32 rue Gustave Eiffel - 38000 Grenoble
  * This library is free software; you can redistribute it and/or modify it under the terms
  * of the GNU Lesser General Public License as published by the Free Software Foundation
@@ -14,13 +14,23 @@
 package org.bonitasoft.engine.persistence;
 
 /**
+ * All archived SObjects must implement this interface.
+ * 
  * @author Baptiste Mesta
  * @author Matthieu Chaffotte
+ * @author Celine Souchet
  */
-public interface PersistentObjectWithFlag extends PersistentObject {
+public interface ArchivedTenantPersistentObject extends TenantPersistentObject {
 
-    boolean isDeleted();
+    long getArchiveDate();
 
-    void setDeleted(boolean deleted);
+    /**
+     * Get the source object id from which this <code>ArchivedPersistentObject</code> originates.
+     * 
+     * @return the id of the source object
+     */
+    long getSourceObjectId();
+
+    Class<? extends TenantPersistentObject> getPersistentObjectInterface();
 
 }

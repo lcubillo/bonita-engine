@@ -13,7 +13,7 @@
  **/
 package org.bonitasoft.engine.identity.model;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Anthony Birembaut
@@ -22,7 +22,7 @@ import org.bonitasoft.engine.persistence.PersistentObject;
  * @author Emmanuel Duchastenier
  * @author Celine Souchet
  */
-public interface SUser extends PersistentObject {
+public interface SUser extends TenantPersistentObject {
 
     String getUserName();
 

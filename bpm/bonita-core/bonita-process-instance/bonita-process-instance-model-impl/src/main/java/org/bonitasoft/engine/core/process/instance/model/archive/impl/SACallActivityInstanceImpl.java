@@ -16,7 +16,7 @@ package org.bonitasoft.engine.core.process.instance.model.archive.impl;
 import org.bonitasoft.engine.core.process.definition.model.SFlowNodeType;
 import org.bonitasoft.engine.core.process.instance.model.SCallActivityInstance;
 import org.bonitasoft.engine.core.process.instance.model.archive.SACallActivityInstance;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Elias Ricken de Medeiros
@@ -50,7 +50,7 @@ public class SACallActivityInstanceImpl extends SAActivityInstanceImpl implement
     }
 
     @Override
-    public Class<? extends PersistentObject> getPersistentObjectInterface() {
+    public Class<? extends TenantPersistentObject> getPersistentObjectInterface() {
         return SCallActivityInstance.class;
     }
 

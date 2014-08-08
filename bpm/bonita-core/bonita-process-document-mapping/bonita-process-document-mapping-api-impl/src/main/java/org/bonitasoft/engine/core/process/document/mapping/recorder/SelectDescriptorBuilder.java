@@ -20,7 +20,7 @@ import java.util.Map;
 import org.bonitasoft.engine.core.process.document.mapping.model.SDocumentMapping;
 import org.bonitasoft.engine.core.process.document.mapping.model.archive.SADocumentMapping;
 import org.bonitasoft.engine.persistence.OrderByType;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 import org.bonitasoft.engine.persistence.QueryOptions;
 import org.bonitasoft.engine.persistence.SelectByIdDescriptor;
 import org.bonitasoft.engine.persistence.SelectListDescriptor;
@@ -32,7 +32,7 @@ import org.bonitasoft.engine.persistence.SelectOneDescriptor;
  */
 public class SelectDescriptorBuilder {
 
-    public static <T extends PersistentObject> SelectByIdDescriptor<T> getElementById(final Class<T> clazz, final String elementName, final long id) {
+    public static <T extends TenantPersistentObject> SelectByIdDescriptor<T> getElementById(final Class<T> clazz, final String elementName, final long id) {
         return new SelectByIdDescriptor<T>("get" + elementName + "ById", clazz, id);
     }
 
@@ -51,7 +51,7 @@ public class SelectDescriptorBuilder {
         return new SelectListDescriptor<SDocumentMapping>(queryName, parameters, SDocumentMapping.class, queryOptions);
     }
 
-    public static SelectOneDescriptor<Long> getNumberOfElement(final String elementName, final Class<? extends PersistentObject> clazz) {
+    public static SelectOneDescriptor<Long> getNumberOfElement(final String elementName, final Class<? extends TenantPersistentObject> clazz) {
         final Map<String, Object> emptyMap = Collections.emptyMap();
         return new SelectOneDescriptor<Long>("getNumberOf" + elementName, emptyMap, clazz, Long.class);
     }

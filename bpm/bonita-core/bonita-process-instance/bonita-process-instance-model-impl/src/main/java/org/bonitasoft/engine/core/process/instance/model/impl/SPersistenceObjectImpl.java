@@ -13,12 +13,12 @@
  **/
 package org.bonitasoft.engine.core.process.instance.model.impl;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Elias Ricken de Medeiros
  */
-public abstract class SPersistenceObjectImpl implements PersistentObject {
+public abstract class SPersistenceObjectImpl implements TenantPersistentObject {
 
     private static final long serialVersionUID = 1963528483109540503L;
 

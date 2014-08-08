@@ -13,9 +13,9 @@
  **/
 package org.bonitasoft.engine.scheduler.model.impl;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
-public abstract class SPersistentObjectImpl implements PersistentObject {
+public abstract class SPersistentObjectImpl implements TenantPersistentObject {
 
     private static final long serialVersionUID = 1L;
 

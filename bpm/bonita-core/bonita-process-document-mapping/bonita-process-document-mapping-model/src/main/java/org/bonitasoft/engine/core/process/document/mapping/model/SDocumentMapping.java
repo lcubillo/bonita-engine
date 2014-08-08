@@ -13,13 +13,13 @@
  **/
 package org.bonitasoft.engine.core.process.document.mapping.model;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Nicolas Chabanoles
  * @author Matthieu Chaffotte
  */
-public interface SDocumentMapping extends PersistentObject {
+public interface SDocumentMapping extends TenantPersistentObject {
 
     long getTenantId();
 

@@ -32,7 +32,7 @@ public class AbstractDBPersistenceServiceTest {
         public DummyDBPersistenceService(final String name, final DBConfigurationsProvider dbConfigurationsProvider, final String statementDelimiter,
                 final String likeEscapeCharacter, final SequenceManager sequenceManager,
                 final DataSource datasource, final boolean enableWordSearch, final Set<String> wordSearchExclusionMappings, final TechnicalLoggerService logger)
-                        throws ClassNotFoundException {
+                throws ClassNotFoundException {
             super(name, dbConfigurationsProvider, statementDelimiter, likeEscapeCharacter, sequenceManager, datasource, enableWordSearch,
                     wordSearchExclusionMappings, logger);
         }
@@ -129,7 +129,7 @@ public class AbstractDBPersistenceServiceTest {
         }
     }
 
-    class ParentDummyPersistentObject implements PersistentObject {
+    class ParentDummyPersistentObject implements TenantPersistentObject {
 
         private static final long serialVersionUID = 1L;
 
@@ -167,7 +167,7 @@ public class AbstractDBPersistenceServiceTest {
 
     }
 
-    class DummyPersistentObject2 implements PersistentObject {
+    class DummyPersistentObject2 implements TenantPersistentObject {
 
         private static final long serialVersionUID = 1L;
 
@@ -275,7 +275,7 @@ public class AbstractDBPersistenceServiceTest {
 
     private void executeIsWordSearchEnabled(final boolean enableWordSearch, final Set<String> wordSearchExclusionMappings,
             final Class<? extends PersistentObject> entityClass, final boolean expectedResult)
-                    throws ClassNotFoundException {
+            throws ClassNotFoundException {
         DBConfigurationsProvider dbConfigurationsProvider = mock(DBConfigurationsProvider.class);
         SequenceManager sequenceManager = mock(SequenceManager.class);
         DataSource datasource = mock(DataSource.class);

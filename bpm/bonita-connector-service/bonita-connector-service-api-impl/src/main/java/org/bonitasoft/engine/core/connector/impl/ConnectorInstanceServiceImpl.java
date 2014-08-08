@@ -51,7 +51,7 @@ import org.bonitasoft.engine.events.model.builders.SEventBuilderFactory;
 import org.bonitasoft.engine.persistence.FilterOption;
 import org.bonitasoft.engine.persistence.OrderByOption;
 import org.bonitasoft.engine.persistence.OrderByType;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 import org.bonitasoft.engine.persistence.QueryOptions;
 import org.bonitasoft.engine.persistence.ReadPersistenceService;
 import org.bonitasoft.engine.persistence.SBonitaReadException;
@@ -441,7 +441,7 @@ public class ConnectorInstanceServiceImpl implements ConnectorInstanceService {
 
     private List<FilterOption> buildFiltersForConnectors(final long containerId, final String containerType, final boolean archived) {
         final List<FilterOption> filters = new ArrayList<FilterOption>(2);
-        Class<? extends PersistentObject> persistentClass;
+        Class<? extends TenantPersistentObject> persistentClass;
         if (archived) {
             persistentClass = SAConnectorInstance.class;
         } else {

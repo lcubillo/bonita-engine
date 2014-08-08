@@ -15,6 +15,7 @@ package org.bonitasoft.engine.search.descriptor;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
@@ -54,7 +55,7 @@ public abstract class SearchEntityDescriptor {
 
     public SearchFields getEntitySearchTerm(final String searchString) {
         final StringTokenizer tokens = new StringTokenizer(searchString, " ");
-        final ArrayList<String> terms = new ArrayList<String>(tokens.countTokens());
+        final List<String> terms = new ArrayList<String>(tokens.countTokens());
         while (tokens.hasMoreTokens()) {
             final String term = tokens.nextToken();
             terms.add(term);

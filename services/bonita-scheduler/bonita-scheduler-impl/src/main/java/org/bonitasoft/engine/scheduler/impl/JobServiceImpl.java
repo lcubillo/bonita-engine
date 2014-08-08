@@ -27,7 +27,7 @@ import org.bonitasoft.engine.events.model.builders.SEventBuilderFactory;
 import org.bonitasoft.engine.persistence.FilterOption;
 import org.bonitasoft.engine.persistence.OrderByOption;
 import org.bonitasoft.engine.persistence.OrderByType;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 import org.bonitasoft.engine.persistence.QueryOptions;
 import org.bonitasoft.engine.persistence.ReadPersistenceService;
 import org.bonitasoft.engine.persistence.SBonitaReadException;
@@ -301,7 +301,7 @@ public class JobServiceImpl implements JobService {
         }
     }
 
-    private void delete(final PersistentObject persistentObject, final String eventType) throws SRecorderException {
+    private void delete(final TenantPersistentObject persistentObject, final String eventType) throws SRecorderException {
         final DeleteRecord deleteRecord = new DeleteRecord(persistentObject);
         SDeleteEvent deleteEvent = null;
         if (eventService.hasHandlers(eventType, EventActionType.DELETED)) {
@@ -310,11 +310,11 @@ public class JobServiceImpl implements JobService {
         recorder.recordDelete(deleteRecord, deleteEvent);
     }
 
-    protected SDeleteEvent createDeleteEvent(final PersistentObject persistentObject, final String eventType) {
+    protected SDeleteEvent createDeleteEvent(final TenantPersistentObject persistentObject, final String eventType) {
         return (SDeleteEvent) getEventBuilderFactory().createDeleteEvent(eventType).setObject(persistentObject).done();
     }
 
-    private void create(final PersistentObject persistentObject, final String eventType) throws SRecorderException {
+    private void create(final TenantPersistentObject persistentObject, final String eventType) throws SRecorderException {
         final InsertRecord insertRecord = new InsertRecord(persistentObject);
         SInsertEvent insertEvent = null;
         if (eventService.hasHandlers(eventType, EventActionType.CREATED)) {
@@ -323,7 +323,7 @@ public class JobServiceImpl implements JobService {
         recorder.recordInsert(insertRecord, insertEvent);
     }
 
-    protected SInsertEvent createInsertEvent(final PersistentObject persistentObject, final String eventType) {
+    protected SInsertEvent createInsertEvent(final TenantPersistentObject persistentObject, final String eventType) {
         return (SInsertEvent) getEventBuilderFactory().createInsertEvent(eventType).setObject(persistentObject).done();
     }
 

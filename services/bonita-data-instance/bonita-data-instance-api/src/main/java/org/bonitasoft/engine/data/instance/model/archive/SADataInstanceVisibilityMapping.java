@@ -13,12 +13,12 @@
  **/
 package org.bonitasoft.engine.data.instance.model.archive;
 
-import org.bonitasoft.engine.persistence.ArchivedPersistentObject;
+import org.bonitasoft.engine.persistence.ArchivedTenantPersistentObject;
 
 /**
  * @author Baptiste Mesta
  */
-public interface SADataInstanceVisibilityMapping extends ArchivedPersistentObject {
+public interface SADataInstanceVisibilityMapping extends ArchivedTenantPersistentObject {
 
     long getContainerId();
 

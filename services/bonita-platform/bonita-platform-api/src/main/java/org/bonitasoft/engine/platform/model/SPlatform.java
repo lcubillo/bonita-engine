@@ -13,12 +13,12 @@
  **/
 package org.bonitasoft.engine.platform.model;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Charles Souillard
  */
-public interface SPlatform extends PersistentObject {
+public interface SPlatform extends TenantPersistentObject {
 
     String getVersion();
 

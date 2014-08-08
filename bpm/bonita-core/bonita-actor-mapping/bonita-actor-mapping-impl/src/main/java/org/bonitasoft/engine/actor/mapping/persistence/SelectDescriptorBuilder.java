@@ -22,7 +22,7 @@ import java.util.Set;
 import org.bonitasoft.engine.actor.mapping.model.SActor;
 import org.bonitasoft.engine.actor.mapping.model.SActorMember;
 import org.bonitasoft.engine.persistence.OrderByType;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 import org.bonitasoft.engine.persistence.QueryOptions;
 import org.bonitasoft.engine.persistence.SelectByIdDescriptor;
 import org.bonitasoft.engine.persistence.SelectListDescriptor;
@@ -114,7 +114,7 @@ public class SelectDescriptorBuilder {
         return new SelectListDescriptor<SActor>("getActorsOfUserCanStartProcessDefinition", parameters, SActor.class, queryOptions);
     }
 
-    public static <T extends PersistentObject> SelectListDescriptor<T> getElementsByIds(final Class<T> clazz, final String elementName,
+    public static <T extends TenantPersistentObject> SelectListDescriptor<T> getElementsByIds(final Class<T> clazz, final String elementName,
             final Collection<Long> ids) {
         final QueryOptions queryOptions = new QueryOptions(0, ids.size(), clazz, "id", OrderByType.ASC);
         final Map<String, Object> parameters = Collections.singletonMap("ids", (Object) ids);

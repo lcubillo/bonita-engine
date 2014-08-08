@@ -7,7 +7,7 @@
 	</filter-def>
 
 	<class name="SDataInstanceImpl" abstract="true" table="data_instance">
-		<composite-id class="org.bonitasoft.engine.persistence.PersistentObjectId" mapped="true">
+		<composite-id class="org.bonitasoft.engine.persistence.TenantPersistentObjectId" mapped="true">
 			<key-property name="tenantId" column="tenantid" type="long" />
 			<key-property name="id" column="id" type="long" />
 		</composite-id>
@@ -22,7 +22,7 @@
 	</class>
 
 	<class name="SDataInstanceVisibilityMappingImpl" table="data_mapping">
-		<composite-id class="org.bonitasoft.engine.persistence.PersistentObjectId" mapped="true">
+		<composite-id class="org.bonitasoft.engine.persistence.TenantPersistentObjectId" mapped="true">
 			<key-property name="tenantId" column="tenantid" type="long" />
 			<key-property name="id" column="id" type="long" />
 		</composite-id>

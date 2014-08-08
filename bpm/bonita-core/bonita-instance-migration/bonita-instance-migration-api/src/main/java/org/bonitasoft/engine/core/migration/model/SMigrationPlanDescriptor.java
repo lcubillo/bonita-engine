@@ -13,12 +13,12 @@
  **/
 package org.bonitasoft.engine.core.migration.model;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Baptiste Mesta
  */
-public interface SMigrationPlanDescriptor extends PersistentObject {
+public interface SMigrationPlanDescriptor extends TenantPersistentObject {
 
     String getDescription();
 

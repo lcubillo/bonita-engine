@@ -14,7 +14,7 @@
  */
 package org.bonitasoft.engine.core.process.instance.model;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * A token is an element that allows the tracking of active branch of the process.<br/>
@@ -25,7 +25,7 @@ import org.bonitasoft.engine.persistence.PersistentObject;
  * @author Celine Souchet
  * @author Baptiste Mesta
  */
-public interface SToken extends PersistentObject {
+public interface SToken extends TenantPersistentObject {
 
     long getProcessInstanceId();
 

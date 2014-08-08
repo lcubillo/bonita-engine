@@ -15,7 +15,7 @@ package org.bonitasoft.engine.data.instance.model.archive.impl;
 
 import org.bonitasoft.engine.data.instance.model.SDataInstanceVisibilityMapping;
 import org.bonitasoft.engine.data.instance.model.archive.SADataInstanceVisibilityMapping;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Baptiste Mesta
@@ -201,7 +201,7 @@ public class SADataInstanceVisibilityMappingImpl implements SADataInstanceVisibi
     }
 
     @Override
-    public Class<? extends PersistentObject> getPersistentObjectInterface() {
+    public Class<? extends TenantPersistentObject> getPersistentObjectInterface() {
         return SDataInstanceVisibilityMapping.class;
     }
 

@@ -13,13 +13,13 @@
  **/
 package org.bonitasoft.engine.core.process.instance.model;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 // FIXME put in a common module
 /**
  * @author Matthieu Chaffotte
  */
-public interface SNamedElement extends PersistentObject {
+public interface SNamedElement extends TenantPersistentObject {
 
     /**
      * Gets the name of the element.

@@ -64,7 +64,7 @@ import org.bonitasoft.engine.log.technical.TechnicalLogSeverity;
 import org.bonitasoft.engine.log.technical.TechnicalLoggerService;
 import org.bonitasoft.engine.persistence.FilterOption;
 import org.bonitasoft.engine.persistence.OrderByType;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 import org.bonitasoft.engine.persistence.QueryOptions;
 import org.bonitasoft.engine.persistence.ReadPersistenceService;
 import org.bonitasoft.engine.persistence.SBonitaReadException;
@@ -781,7 +781,7 @@ public class ActivityInstanceServiceImpl extends FlowNodeInstancesServiceImpl im
     }
 
     @Override
-    public long getNumberOfActivityInstances(final Class<? extends PersistentObject> entityClass, final QueryOptions searchOptions)
+    public long getNumberOfActivityInstances(final Class<? extends TenantPersistentObject> entityClass, final QueryOptions searchOptions)
             throws SBonitaSearchException {
         try {
             return getPersistenceService().getNumberOfEntities(entityClass, searchOptions, null);
@@ -792,7 +792,7 @@ public class ActivityInstanceServiceImpl extends FlowNodeInstancesServiceImpl im
 
     @SuppressWarnings("unchecked")
     @Override
-    public List<SActivityInstance> searchActivityInstances(final Class<? extends PersistentObject> entityClass, final QueryOptions searchOptions)
+    public List<SActivityInstance> searchActivityInstances(final Class<? extends TenantPersistentObject> entityClass, final QueryOptions searchOptions)
             throws SBonitaSearchException {
         try {
             return (List<SActivityInstance>) getPersistenceService().searchEntity(entityClass, searchOptions, null);
@@ -802,7 +802,7 @@ public class ActivityInstanceServiceImpl extends FlowNodeInstancesServiceImpl im
     }
 
     @Override
-    public long getNumberOfArchivedActivityInstances(final Class<? extends PersistentObject> entityClass, final QueryOptions searchOptions)
+    public long getNumberOfArchivedActivityInstances(final Class<? extends TenantPersistentObject> entityClass, final QueryOptions searchOptions)
             throws SBonitaSearchException {
         final ReadPersistenceService persistenceService = getArchiveService().getDefinitiveArchiveReadPersistenceService();
         try {
@@ -814,7 +814,7 @@ public class ActivityInstanceServiceImpl extends FlowNodeInstancesServiceImpl im
 
     @SuppressWarnings("unchecked")
     @Override
-    public List<SAActivityInstance> searchArchivedActivityInstances(final Class<? extends PersistentObject> entityClass, final QueryOptions searchOptions)
+    public List<SAActivityInstance> searchArchivedActivityInstances(final Class<? extends TenantPersistentObject> entityClass, final QueryOptions searchOptions)
             throws SBonitaSearchException {
         final ReadPersistenceService persistenceService = getArchiveService().getDefinitiveArchiveReadPersistenceService();
         try {

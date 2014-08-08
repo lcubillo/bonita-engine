@@ -25,7 +25,7 @@ import org.bonitasoft.engine.core.process.instance.model.SManualTaskInstance;
 import org.bonitasoft.engine.core.process.instance.model.SReceiveTaskInstance;
 import org.bonitasoft.engine.core.process.instance.model.SUserTaskInstance;
 import org.bonitasoft.engine.execution.state.FlowNodeStateManager;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 import org.bonitasoft.engine.search.descriptor.SearchEntityDescriptor;
 import org.bonitasoft.engine.search.impl.SearchFilter;
 import org.bonitasoft.engine.service.ModelConvertor;
@@ -38,7 +38,7 @@ public abstract class AbstractActivityInstanceSearchEntity extends AbstractSearc
 
     private final FlowNodeStateManager flowNodeStateManager;
 
-    private final Class<? extends PersistentObject> entityClass;
+    private final Class<? extends TenantPersistentObject> entityClass;
 
     public AbstractActivityInstanceSearchEntity(final SearchEntityDescriptor searchDescriptor, final SearchOptions options,
             final FlowNodeStateManager flowNodeStateManager) {
@@ -53,8 +53,8 @@ public abstract class AbstractActivityInstanceSearchEntity extends AbstractSearc
         return ModelConvertor.toActivityInstances(serverObjects, flowNodeStateManager);
     }
 
-    protected Class<? extends PersistentObject> getEntityClass(final SearchOptions searchOptions) {
-        Class<? extends PersistentObject> entityClass = SActivityInstance.class;
+    protected Class<? extends TenantPersistentObject> getEntityClass(final SearchOptions searchOptions) {
+        Class<? extends TenantPersistentObject> entityClass = SActivityInstance.class;
         final SearchFilter searchFilter = getSearchFilter(searchOptions, ActivityInstanceSearchDescriptor.ACTIVITY_TYPE);
         if (searchFilter != null) {
             final FlowNodeType activityType = (FlowNodeType) searchFilter.getValue();
@@ -85,7 +85,7 @@ public abstract class AbstractActivityInstanceSearchEntity extends AbstractSearc
         return entityClass;
     }
 
-    protected Class<? extends PersistentObject> getEntityClass() {
+    protected Class<? extends TenantPersistentObject> getEntityClass() {
         return entityClass;
     }
 

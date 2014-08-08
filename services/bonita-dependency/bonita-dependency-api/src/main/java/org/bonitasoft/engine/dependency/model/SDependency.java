@@ -13,12 +13,12 @@
  **/
 package org.bonitasoft.engine.dependency.model;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Matthieu Chaffotte
  */
-public interface SDependency extends PersistentObject {
+public interface SDependency extends TenantPersistentObject {
 
     String getName();
 

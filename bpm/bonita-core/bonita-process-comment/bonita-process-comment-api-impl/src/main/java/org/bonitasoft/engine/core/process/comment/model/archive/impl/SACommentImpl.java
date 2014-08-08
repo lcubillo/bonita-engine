@@ -15,7 +15,7 @@ package org.bonitasoft.engine.core.process.comment.model.archive.impl;
 
 import org.bonitasoft.engine.core.process.comment.model.SComment;
 import org.bonitasoft.engine.core.process.comment.model.archive.SAComment;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Zhang Bole
@@ -202,7 +202,7 @@ public class SACommentImpl implements SAComment {
     }
 
     @Override
-    public Class<? extends PersistentObject> getPersistentObjectInterface() {
+    public Class<? extends TenantPersistentObject> getPersistentObjectInterface() {
         return SComment.class;
     }
 

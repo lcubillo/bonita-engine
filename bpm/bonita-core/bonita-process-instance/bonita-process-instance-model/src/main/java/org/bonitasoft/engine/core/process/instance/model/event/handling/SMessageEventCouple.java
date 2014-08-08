@@ -13,13 +13,13 @@
  **/
 package org.bonitasoft.engine.core.process.instance.model.event.handling;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Elias Ricken de Medeiros
  *
  */
-public interface SMessageEventCouple extends PersistentObject {
+public interface SMessageEventCouple extends TenantPersistentObject {
 
     long getWaitingMessageId();
 

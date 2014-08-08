@@ -15,14 +15,14 @@ package org.bonitasoft.engine.theme.model.impl;
 
 import java.util.Arrays;
 
-import org.bonitasoft.engine.persistence.PersistentObjectId;
+import org.bonitasoft.engine.persistence.TenantPersistentObjectId;
 import org.bonitasoft.engine.theme.model.STheme;
 import org.bonitasoft.engine.theme.model.SThemeType;
 
 /**
  * @author Celine Souchet
  */
-public class SThemeImpl extends PersistentObjectId implements STheme {
+public class SThemeImpl extends TenantPersistentObjectId implements STheme {
 
     private static final long serialVersionUID = -7340761293800942582L;
 

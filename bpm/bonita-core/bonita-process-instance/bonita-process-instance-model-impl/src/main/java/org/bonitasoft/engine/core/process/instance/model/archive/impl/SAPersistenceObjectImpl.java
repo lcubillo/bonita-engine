@@ -13,13 +13,13 @@
  **/
 package org.bonitasoft.engine.core.process.instance.model.archive.impl;
 
-import org.bonitasoft.engine.persistence.ArchivedPersistentObject;
+import org.bonitasoft.engine.persistence.ArchivedTenantPersistentObject;
 
 /**
  * @author Elias Ricken de Medeiros
  * @author Matthieu Chaffotte
  */
-public abstract class SAPersistenceObjectImpl implements ArchivedPersistentObject {
+public abstract class SAPersistenceObjectImpl implements ArchivedTenantPersistentObject {
 
     private static final long serialVersionUID = 1963528483109540503L;
 

@@ -15,7 +15,7 @@ package org.bonitasoft.engine.core.process.instance.model.archive.impl;
 
 import org.bonitasoft.engine.core.process.instance.model.SProcessInstance;
 import org.bonitasoft.engine.core.process.instance.model.archive.SAProcessInstance;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Elias Ricken de Medeiros
@@ -329,7 +329,7 @@ public class SAProcessInstanceImpl extends SANamedElementImpl implements SAProce
     }
 
     @Override
-    public Class<? extends PersistentObject> getPersistentObjectInterface() {
+    public Class<? extends TenantPersistentObject> getPersistentObjectInterface() {
         return SProcessInstance.class;
     }
 

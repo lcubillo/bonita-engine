@@ -13,12 +13,12 @@
  **/
 package org.bonitasoft.engine.theme.model;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Celine Souchet
  */
-public interface STheme extends PersistentObject {
+public interface STheme extends TenantPersistentObject {
 
     /**
      * @return The zip file associated with this theme, as a binary content.

@@ -1,6 +1,6 @@
 package org.bonitasoft.engine.persistence;
 
-public class Book implements PersistentObject {
+public class Book implements TenantPersistentObject {
 
     /**
      * 

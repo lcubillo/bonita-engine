@@ -264,13 +264,13 @@ public abstract class AbstractDBPersistenceService implements TenantPersistenceS
             final boolean useDataSourceConnection) throws SPersistenceException, IOException;
 
     @Override
-    public <T extends PersistentObject> long getNumberOfEntities(final Class<T> entityClass, final QueryOptions options, final Map<String, Object> parameters)
-            throws SBonitaReadException {
+    public long getNumberOfEntities(final Class<? extends PersistentObject> entityClass, final QueryOptions options,
+            final Map<String, Object> parameters) throws SBonitaReadException {
         return getNumberOfEntities(entityClass, null, options, parameters);
     }
 
     @Override
-    public <T extends PersistentObject> long getNumberOfEntities(final Class<T> entityClass, final String querySuffix, final QueryOptions options,
+    public long getNumberOfEntities(final Class<? extends PersistentObject> entityClass, final String querySuffix, final QueryOptions options,
             final Map<String, Object> parameters) throws SBonitaReadException {
         List<FilterOption> filters;
         if (options == null) {

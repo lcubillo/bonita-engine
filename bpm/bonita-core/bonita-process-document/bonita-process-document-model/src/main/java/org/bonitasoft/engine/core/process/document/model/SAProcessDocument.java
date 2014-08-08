@@ -14,13 +14,13 @@
  */
 package org.bonitasoft.engine.core.process.document.model;
 
-import org.bonitasoft.engine.persistence.ArchivedPersistentObject;
+import org.bonitasoft.engine.persistence.ArchivedTenantPersistentObject;
 
 /**
  * @author Zhang Bole
  * @author Matthieu Chaffotte
  */
-public interface SAProcessDocument extends ArchivedPersistentObject {
+public interface SAProcessDocument extends ArchivedTenantPersistentObject {
 
     long getProcessInstanceId();
 

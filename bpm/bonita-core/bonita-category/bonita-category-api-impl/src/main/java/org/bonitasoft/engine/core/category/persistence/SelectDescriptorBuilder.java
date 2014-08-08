@@ -21,7 +21,7 @@ import java.util.Map;
 import org.bonitasoft.engine.core.category.model.SCategory;
 import org.bonitasoft.engine.core.category.model.SProcessCategoryMapping;
 import org.bonitasoft.engine.persistence.OrderByType;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 import org.bonitasoft.engine.persistence.QueryOptions;
 import org.bonitasoft.engine.persistence.SelectByIdDescriptor;
 import org.bonitasoft.engine.persistence.SelectListDescriptor;
@@ -45,7 +45,7 @@ public class SelectDescriptorBuilder {
         return new SelectOneDescriptor<SCategory>("getCategoryByName", parameters, SCategory.class);
     }
 
-    public static SelectOneDescriptor<Long> getNumberOfElement(final String elementName, final Class<? extends PersistentObject> clazz) {
+    public static SelectOneDescriptor<Long> getNumberOfElement(final String elementName, final Class<? extends TenantPersistentObject> clazz) {
         final Map<String, Object> parameters = Collections.emptyMap();
         return new SelectOneDescriptor<Long>("getNumberOf" + elementName, parameters, clazz, Long.class);
     }

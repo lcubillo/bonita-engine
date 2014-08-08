@@ -15,12 +15,12 @@ package org.bonitasoft.engine.data.instance.model.archive;
 
 import java.io.Serializable;
 
-import org.bonitasoft.engine.persistence.ArchivedPersistentObject;
+import org.bonitasoft.engine.persistence.ArchivedTenantPersistentObject;
 
 /**
  * @author Feng Hui
  */
-public interface SADataInstance extends ArchivedPersistentObject {
+public interface SADataInstance extends ArchivedTenantPersistentObject {
 
     long getTenantId();
 

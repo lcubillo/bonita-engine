@@ -13,9 +13,9 @@
  **/
 package org.bonitasoft.engine.core.process.instance.model.archive;
 
-import org.bonitasoft.engine.persistence.ArchivedPersistentObject;
+import org.bonitasoft.engine.persistence.ArchivedTenantPersistentObject;
 
-public interface SANamedElement extends ArchivedPersistentObject {
+public interface SANamedElement extends ArchivedTenantPersistentObject {
 
     /**
      * Gets the name of the element.

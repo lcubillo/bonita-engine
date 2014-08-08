@@ -13,14 +13,14 @@
  **/
 package org.bonitasoft.engine.identity.model;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * User contact info: can be personal or professional contact information.
  * 
  * @author Emmanuel Duchastenier
  */
-public interface SContactInfo extends PersistentObject {
+public interface SContactInfo extends TenantPersistentObject {
 
     Long getUserId();
 

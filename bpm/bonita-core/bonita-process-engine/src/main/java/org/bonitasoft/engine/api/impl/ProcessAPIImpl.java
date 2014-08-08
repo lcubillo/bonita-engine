@@ -4225,7 +4225,7 @@ public class ProcessAPIImpl implements ProcessAPI {
 
     /**
      * @param orAssignedToUser
-     *        do we also want to retrieve tasks directly assigned to this user ?
+     *            do we also want to retrieve tasks directly assigned to this user ?
      * @throws SearchException
      */
     private SearchResult<HumanTaskInstance> searchTasksForUser(final long userId, final SearchOptions searchOptions, final boolean orAssignedToUser)
@@ -5602,7 +5602,8 @@ public class ProcessAPIImpl implements ProcessAPI {
         final TenantServiceAccessor tenantAccessor = getTenantAccessor();
         final ExpressionResolverService expressionResolverService = tenantAccessor.getExpressionResolverService();
         final ProcessDefinitionService processDefinitionService = tenantAccessor.getProcessDefinitionService();
-        final EvaluateExpressionsDefinitionLevel evaluations = createDefinitionLevelExpressionEvaluator(expressionsAndTheirPartialContext, processDefinitionId, expressionResolverService, processDefinitionService);
+        final EvaluateExpressionsDefinitionLevel evaluations = createDefinitionLevelExpressionEvaluator(expressionsAndTheirPartialContext, processDefinitionId,
+                expressionResolverService, processDefinitionService);
         evaluations.execute();
         return evaluations.getResult();
     }
@@ -5619,7 +5620,8 @@ public class ProcessAPIImpl implements ProcessAPI {
         final TenantServiceAccessor tenantAccessor = getTenantAccessor();
         final ExpressionResolverService expressionService = tenantAccessor.getExpressionResolverService();
 
-        final EvaluateExpressionsInstanceLevel evaluations = createInstanceLevelExpressionEvaluator(expressions, containerId, containerType, processDefinitionId, expressionService);
+        final EvaluateExpressionsInstanceLevel evaluations = createInstanceLevelExpressionEvaluator(expressions, containerId, containerType,
+                processDefinitionId, expressionService);
         evaluations.execute();
         return evaluations.getResult();
     }
@@ -5634,7 +5636,8 @@ public class ProcessAPIImpl implements ProcessAPI {
             final long containerId, final String containerType, final long processDefinitionId, final long time) throws SBonitaException {
         final TenantServiceAccessor tenantAccessor = getTenantAccessor();
         final ExpressionResolverService expressionService = tenantAccessor.getExpressionResolverService();
-        final EvaluateExpressionsInstanceLevelAndArchived evaluations = createInstanceAndArchivedLevelExpressionEvaluator(expressions, containerId, containerType, processDefinitionId, time, expressionService);
+        final EvaluateExpressionsInstanceLevelAndArchived evaluations = createInstanceAndArchivedLevelExpressionEvaluator(expressions, containerId,
+                containerType, processDefinitionId, time, expressionService);
         evaluations.execute();
         return evaluations.getResult();
     }

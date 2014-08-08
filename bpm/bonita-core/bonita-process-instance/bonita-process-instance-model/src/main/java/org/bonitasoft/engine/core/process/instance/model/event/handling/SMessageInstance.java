@@ -13,12 +13,12 @@
  **/
 package org.bonitasoft.engine.core.process.instance.model.event.handling;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Elias Ricken de Medeiros
  */
-public interface SMessageInstance extends PersistentObject {
+public interface SMessageInstance extends TenantPersistentObject {
 
     String getMessageName();
 

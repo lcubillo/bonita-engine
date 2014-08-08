@@ -13,12 +13,12 @@
  **/
 package org.bonitasoft.engine.core.process.comment.model.archive;
 
-import org.bonitasoft.engine.persistence.ArchivedPersistentObject;
+import org.bonitasoft.engine.persistence.ArchivedTenantPersistentObject;
 
 /**
  * @author Zhang Bole
  */
-public interface SAComment extends ArchivedPersistentObject {
+public interface SAComment extends ArchivedTenantPersistentObject {
 
     long getTenantId();
 

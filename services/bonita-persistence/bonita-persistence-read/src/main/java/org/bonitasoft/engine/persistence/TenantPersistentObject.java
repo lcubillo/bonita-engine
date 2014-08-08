@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2012 BonitaSoft S.A.
+ * Copyright (C) 2011-2014 BonitaSoft S.A.
  * BonitaSoft, 32 rue Gustave Eiffel - 38000 Grenoble
  * This library is free software; you can redistribute it and/or modify it under the terms
  * of the GNU Lesser General Public License as published by the Free Software Foundation
@@ -11,23 +11,16 @@
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
  **/
-package org.bonitasoft.engine.core.process.comment.model.archive;
+package org.bonitasoft.engine.persistence;
 
-import org.bonitasoft.engine.persistence.ArchivedTenantPersistentObject;
 
 /**
- * @author Zhang Bole
+ * @author Charles Souillard
+ * @author Matthieu Chaffotte
+ * @author Celine Souchet
  */
-public interface SAComment extends ArchivedTenantPersistentObject {
+public interface TenantPersistentObject extends PersistentObject {
 
-    long getTenantId();
-
-    Long getUserId();
-
-    long getProcessInstanceId();
-
-    long getPostDate();
-
-    String getContent();
+    void setTenantId(long id);
 
 }

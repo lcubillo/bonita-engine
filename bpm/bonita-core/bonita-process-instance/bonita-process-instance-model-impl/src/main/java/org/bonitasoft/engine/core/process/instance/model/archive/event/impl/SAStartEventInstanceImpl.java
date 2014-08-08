@@ -16,7 +16,7 @@ package org.bonitasoft.engine.core.process.instance.model.archive.event.impl;
 import org.bonitasoft.engine.core.process.definition.model.SFlowNodeType;
 import org.bonitasoft.engine.core.process.instance.model.archive.event.SAStartEventInstance;
 import org.bonitasoft.engine.core.process.instance.model.event.SStartEventInstance;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Elias Ricken de Medeiros
@@ -50,7 +50,7 @@ public class SAStartEventInstanceImpl extends SACatchEventInstanceImpl implement
     }
 
     @Override
-    public Class<? extends PersistentObject> getPersistentObjectInterface() {
+    public Class<? extends TenantPersistentObject> getPersistentObjectInterface() {
         return SStartEventInstance.class;
     }
 

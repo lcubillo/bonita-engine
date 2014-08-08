@@ -13,14 +13,14 @@
  **/
 package org.bonitasoft.engine.identity.model;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Anthony Birembaut
  * @author Baptiste Mesta
  * @author Elias Ricken de Medeiros
  */
-public interface SCustomUserInfoValue extends PersistentObject {
+public interface SCustomUserInfoValue extends TenantPersistentObject {
 
     long getUserId();
     

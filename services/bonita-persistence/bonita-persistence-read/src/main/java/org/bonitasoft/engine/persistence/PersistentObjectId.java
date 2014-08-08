@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2012-2013 BonitaSoft S.A.
+ * Copyright (C) 2012-2014 BonitaSoft S.A.
  * BonitaSoft, 32 rue Gustave Eiffel - 38000 Grenoble
  * This library is free software; you can redistribute it and/or modify it under the terms
  * of the GNU Lesser General Public License as published by the Free Software Foundation
@@ -21,6 +21,7 @@ import java.io.Serializable;
  * 
  * @author Emmanuel Duchastenier
  * @author Matthieu Chaffotte
+ * @author Celine Souchet
  */
 public class PersistentObjectId implements Serializable {
 
@@ -28,16 +29,13 @@ public class PersistentObjectId implements Serializable {
 
     private long id;
 
-    private long tenantId;
-
     public PersistentObjectId() {
         super();
     }
 
-    public PersistentObjectId(final long id, final long tenantId) {
+    public PersistentObjectId(final long id) {
         super();
         this.id = id;
-        this.tenantId = tenantId;
     }
 
     public long getId() {
@@ -48,20 +46,11 @@ public class PersistentObjectId implements Serializable {
         this.id = id;
     }
 
-    public long getTenantId() {
-        return tenantId;
-    }
-
-    public void setTenantId(final long tenantId) {
-        this.tenantId = tenantId;
-    }
-
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
         result = prime * result + (int) (id ^ id >>> 32);
-        result = prime * result + (int) (tenantId ^ tenantId >>> 32);
         return result;
     }
 
@@ -78,9 +67,6 @@ public class PersistentObjectId implements Serializable {
         }
         final PersistentObjectId other = (PersistentObjectId) obj;
         if (id != other.id) {
-            return false;
-        }
-        if (tenantId != other.tenantId) {
             return false;
         }
         return true;

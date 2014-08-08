@@ -38,7 +38,8 @@ public class SearchCustomUserInfoValueDescriptor extends SearchEntityDescriptor 
         final SCustomUserInfoValueBuilderFactory keyprovider = BuilderFactory.get(SCustomUserInfoValueBuilderFactory.class);
 
         searchableKeys = new HashMap<String, FieldDescriptor>(3);
-        searchableKeys.put(CustomUserInfoValueSearchDescriptor.DEFINITION_ID, new FieldDescriptor(SCustomUserInfoValue.class, keyprovider.getDefinitionIdKey()));
+        searchableKeys
+                .put(CustomUserInfoValueSearchDescriptor.DEFINITION_ID, new FieldDescriptor(SCustomUserInfoValue.class, keyprovider.getDefinitionIdKey()));
         searchableKeys.put(CustomUserInfoValueSearchDescriptor.USER_ID, new FieldDescriptor(SCustomUserInfoValue.class, keyprovider.getUserIdKey()));
         searchableKeys.put(CustomUserInfoValueSearchDescriptor.VALUE, new FieldDescriptor(SCustomUserInfoValue.class, keyprovider.getValueKey()));
 

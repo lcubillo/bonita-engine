@@ -13,14 +13,14 @@
  **/
 package org.bonitasoft.engine.core.process.instance.model;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * Represent a Task hidden from a specific user.
  * 
  * @author Emmanuel Duchastenier
  */
-public interface SHiddenTask extends PersistentObject {
+public interface SHiddenTask extends TenantPersistentObject {
 
     /**
      * the id of the activity marked as hidden by the user

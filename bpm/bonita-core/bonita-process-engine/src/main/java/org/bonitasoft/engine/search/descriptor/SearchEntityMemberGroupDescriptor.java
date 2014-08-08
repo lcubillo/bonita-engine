@@ -34,8 +34,10 @@ public class SearchEntityMemberGroupDescriptor extends SearchEntityMemberDescrip
 
     public SearchEntityMemberGroupDescriptor() {
         super();
-        putField(EntityMemberSearchDescriptor.DISPLAY_NAME_PART1, new FieldDescriptor(SGroup.class, BuilderFactory.get(SGroupBuilderFactory.class).getNameKey()));
-        putField(EntityMemberSearchDescriptor.DISPLAY_NAME_PART2, new FieldDescriptor(SGroup.class, BuilderFactory.get(SGroupBuilderFactory.class).getParentPathKey()));
+        putField(EntityMemberSearchDescriptor.DISPLAY_NAME_PART1,
+                new FieldDescriptor(SGroup.class, BuilderFactory.get(SGroupBuilderFactory.class).getNameKey()));
+        putField(EntityMemberSearchDescriptor.DISPLAY_NAME_PART2, new FieldDescriptor(SGroup.class, BuilderFactory.get(SGroupBuilderFactory.class)
+                .getParentPathKey()));
 
         entityMemberAllFields = new HashMap<Class<? extends PersistentObject>, Set<String>>(1);
         final Set<String> groupFields = new HashSet<String>(2);

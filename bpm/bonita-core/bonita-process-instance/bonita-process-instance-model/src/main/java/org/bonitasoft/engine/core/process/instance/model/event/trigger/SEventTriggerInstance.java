@@ -14,12 +14,12 @@
 package org.bonitasoft.engine.core.process.instance.model.event.trigger;
 
 import org.bonitasoft.engine.core.process.definition.model.event.trigger.SEventTriggerType;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Elias Ricken de Medeiros
  */
-public interface SEventTriggerInstance extends PersistentObject {
+public interface SEventTriggerInstance extends TenantPersistentObject {
 
     long getEventInstanceId();
 

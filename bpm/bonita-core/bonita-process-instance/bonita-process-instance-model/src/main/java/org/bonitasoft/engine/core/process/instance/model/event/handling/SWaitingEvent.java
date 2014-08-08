@@ -14,14 +14,14 @@
 package org.bonitasoft.engine.core.process.instance.model.event.handling;
 
 import org.bonitasoft.engine.core.process.definition.model.event.trigger.SEventTriggerType;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Zhao Na
  * @author Elias Ricken de Medeiros
  * @author Celine Souchet
  */
-public interface SWaitingEvent extends PersistentObject {
+public interface SWaitingEvent extends TenantPersistentObject {
 
     SBPMEventType getEventType();
 

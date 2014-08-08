@@ -29,7 +29,7 @@ import org.bonitasoft.engine.identity.model.impl.SGroupImpl;
 import org.bonitasoft.engine.identity.model.impl.SRoleImpl;
 import org.bonitasoft.engine.identity.model.impl.SUserImpl;
 import org.bonitasoft.engine.identity.model.impl.SUserMembershipImpl;
-import org.bonitasoft.engine.persistence.PersistentObjectId;
+import org.bonitasoft.engine.persistence.TenantPersistentObjectId;
 import org.bonitasoft.engine.scheduler.model.SJobDescriptor;
 import org.bonitasoft.engine.scheduler.model.SJobLog;
 import org.bonitasoft.engine.scheduler.model.impl.SJobDescriptorImpl;
@@ -72,103 +72,103 @@ public class TestRepository {
      */
     public SUser add(final SUserImpl user) {
         getSession().save(user);
-        return (SUser) getSession().get(user.getClass(), new PersistentObjectId(user.getId(), user.getTenantId()));
+        return (SUser) getSession().get(user.getClass(), new TenantPersistentObjectId(user.getId(), user.getTenantId()));
     }
 
     public SRole add(final SRoleImpl role) {
         getSession().save(role);
-        return (SRole) getSession().get(role.getClass(), new PersistentObjectId(role.getId(), role.getTenantId()));
+        return (SRole) getSession().get(role.getClass(), new TenantPersistentObjectId(role.getId(), role.getTenantId()));
     }
 
     public SGroup add(final SGroupImpl sGroup) {
         getSession().save(sGroup);
-        return (SGroup) getSession().get(sGroup.getClass(), new PersistentObjectId(sGroup.getId(), sGroup.getTenantId()));
+        return (SGroup) getSession().get(sGroup.getClass(), new TenantPersistentObjectId(sGroup.getId(), sGroup.getTenantId()));
     }
 
     public SConnectorInstance add(final SConnectorInstanceImpl sConnectorInstance) {
         getSession().save(sConnectorInstance);
         return (SConnectorInstance) getSession().get(sConnectorInstance.getClass(),
-                new PersistentObjectId(sConnectorInstance.getId(), sConnectorInstance.getTenantId()));
+                new TenantPersistentObjectId(sConnectorInstance.getId(), sConnectorInstance.getTenantId()));
     }
 
     public SPendingActivityMapping add(final SPendingActivityMappingImpl pendingActivityMapping) {
         getSession().save(pendingActivityMapping);
         return (SPendingActivityMapping) getSession().get(pendingActivityMapping.getClass(),
-                new PersistentObjectId(pendingActivityMapping.getId(), pendingActivityMapping.getTenantId()));
+                new TenantPersistentObjectId(pendingActivityMapping.getId(), pendingActivityMapping.getTenantId()));
     }
 
     public SActorMember add(final SActorMemberImpl actorMember) {
         getSession().save(actorMember);
-        return (SActorMember) getSession().get(actorMember.getClass(), new PersistentObjectId(actorMember.getId(), actorMember.getTenantId()));
+        return (SActorMember) getSession().get(actorMember.getClass(), new TenantPersistentObjectId(actorMember.getId(), actorMember.getTenantId()));
     }
 
     public SActor add(final SActorImpl actor) {
         getSession().save(actor);
-        return (SActor) getSession().get(actor.getClass(), new PersistentObjectId(actor.getId(), actor.getTenantId()));
+        return (SActor) getSession().get(actor.getClass(), new TenantPersistentObjectId(actor.getId(), actor.getTenantId()));
     }
 
     public SUserMembership add(final SUserMembershipImpl membership) {
         getSession().save(membership);
-        return (SUserMembership) getSession().get(membership.getClass(), new PersistentObjectId(membership.getId(), membership.getTenantId()));
+        return (SUserMembership) getSession().get(membership.getClass(), new TenantPersistentObjectId(membership.getId(), membership.getTenantId()));
     }
 
     public SMessageInstance add(final SMessageInstanceImpl message) {
         getSession().save(message);
-        return (SMessageInstance) getSession().get(message.getClass(), new PersistentObjectId(message.getId(), message.getTenantId()));
+        return (SMessageInstance) getSession().get(message.getClass(), new TenantPersistentObjectId(message.getId(), message.getTenantId()));
     }
 
     public SWaitingMessageEvent add(final SWaitingMessageEventImpl waitingEvent) {
         getSession().save(waitingEvent);
-        return (SWaitingMessageEvent) getSession().get(waitingEvent.getClass(), new PersistentObjectId(waitingEvent.getId(), waitingEvent.getTenantId()));
+        return (SWaitingMessageEvent) getSession().get(waitingEvent.getClass(), new TenantPersistentObjectId(waitingEvent.getId(), waitingEvent.getTenantId()));
     }
 
     public SProcessSupervisor add(final SProcessSupervisorImpl sProcessSupervisor) {
         getSession().save(sProcessSupervisor);
         return (SProcessSupervisor) getSession().get(sProcessSupervisor.getClass(),
-                new PersistentObjectId(sProcessSupervisor.getId(), sProcessSupervisor.getTenantId()));
+                new TenantPersistentObjectId(sProcessSupervisor.getId(), sProcessSupervisor.getTenantId()));
     }
 
     public SProcessDefinitionDeployInfoImpl add(final SProcessDefinitionDeployInfoImpl sProcessDefinitionDeployInfoImpl) {
         getSession().save(sProcessDefinitionDeployInfoImpl);
         return (SProcessDefinitionDeployInfoImpl) getSession().get(sProcessDefinitionDeployInfoImpl.getClass(),
-                new PersistentObjectId(sProcessDefinitionDeployInfoImpl.getId(), sProcessDefinitionDeployInfoImpl.getTenantId()));
+                new TenantPersistentObjectId(sProcessDefinitionDeployInfoImpl.getId(), sProcessDefinitionDeployInfoImpl.getTenantId()));
     }
 
     public SProcessInstanceImpl add(final SProcessInstanceImpl sProcessInstance) {
         getSession().save(sProcessInstance);
         return (SProcessInstanceImpl) getSession().get(sProcessInstance.getClass(),
-                new PersistentObjectId(sProcessInstance.getId(), sProcessInstance.getTenantId()));
+                new TenantPersistentObjectId(sProcessInstance.getId(), sProcessInstance.getTenantId()));
     }
 
     public SFlowNodeInstance add(final SFlowNodeInstanceImpl sFlowNode) {
         getSession().save(sFlowNode);
-        return (SFlowNodeInstance) getSession().get(sFlowNode.getClass(), new PersistentObjectId(sFlowNode.getId(), sFlowNode.getTenantId()));
+        return (SFlowNodeInstance) getSession().get(sFlowNode.getClass(), new TenantPersistentObjectId(sFlowNode.getId(), sFlowNode.getTenantId()));
     }
 
     public SHiddenTaskInstanceImpl add(final SHiddenTaskInstanceImpl sHiddenTaskInstanceImpl) {
         getSession().save(sHiddenTaskInstanceImpl);
         return (SHiddenTaskInstanceImpl) getSession().get(sHiddenTaskInstanceImpl.getClass(),
-                new PersistentObjectId(sHiddenTaskInstanceImpl.getId(), sHiddenTaskInstanceImpl.getTenantId()));
+                new TenantPersistentObjectId(sHiddenTaskInstanceImpl.getId(), sHiddenTaskInstanceImpl.getTenantId()));
     }
 
     public SCustomUserInfoDefinition add(final SCustomUserInfoDefinitionImpl infoDef) {
         getSession().save(infoDef);
-        return (SCustomUserInfoDefinition) getSession().get(infoDef.getClass(), new PersistentObjectId(infoDef.getId(), infoDef.getTenantId()));
+        return (SCustomUserInfoDefinition) getSession().get(infoDef.getClass(), new TenantPersistentObjectId(infoDef.getId(), infoDef.getTenantId()));
     }
 
     public SCustomUserInfoValue add(final SCustomUserInfoValueImpl infoValue) {
         getSession().save(infoValue);
-        return (SCustomUserInfoValue) getSession().get(infoValue.getClass(), new PersistentObjectId(infoValue.getId(), infoValue.getTenantId()));
+        return (SCustomUserInfoValue) getSession().get(infoValue.getClass(), new TenantPersistentObjectId(infoValue.getId(), infoValue.getTenantId()));
     }
 
     public SJobLog addJobLog(final SJobLogImpl jobLog) {
         getSession().save(jobLog);
-        return (SJobLog) getSession().get(jobLog.getClass(), new PersistentObjectId(jobLog.getId(), jobLog.getTenantId()));
+        return (SJobLog) getSession().get(jobLog.getClass(), new TenantPersistentObjectId(jobLog.getId(), jobLog.getTenantId()));
     }
 
     public SJobDescriptor addJobDescriptor(final SJobDescriptorImpl jobDescriptor) {
         getSession().save(jobDescriptor);
-        return (SJobDescriptor) getSession().get(jobDescriptor.getClass(), new PersistentObjectId(jobDescriptor.getId(), jobDescriptor.getTenantId()));
+        return (SJobDescriptor) getSession().get(jobDescriptor.getClass(), new TenantPersistentObjectId(jobDescriptor.getId(), jobDescriptor.getTenantId()));
     }
 
 }

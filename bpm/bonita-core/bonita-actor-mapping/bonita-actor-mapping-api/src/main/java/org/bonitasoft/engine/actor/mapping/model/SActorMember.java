@@ -13,13 +13,13 @@
  **/
 package org.bonitasoft.engine.actor.mapping.model;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Matthieu Chaffotte
  * @author Elias Ricken de Medeiros
  */
-public interface SActorMember extends PersistentObject {
+public interface SActorMember extends TenantPersistentObject {
 
     long getActorId();
 

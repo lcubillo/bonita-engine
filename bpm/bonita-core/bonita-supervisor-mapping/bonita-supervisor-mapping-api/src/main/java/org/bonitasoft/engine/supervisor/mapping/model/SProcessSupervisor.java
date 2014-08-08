@@ -13,14 +13,14 @@
  **/
 package org.bonitasoft.engine.supervisor.mapping.model;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Yanyan Liu
  * @author Elias Ricken de Medeiros
  * @author Celine Souchet
  */
-public interface SProcessSupervisor extends PersistentObject {
+public interface SProcessSupervisor extends TenantPersistentObject {
 
     long getProcessDefId();
 

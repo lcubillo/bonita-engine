@@ -25,7 +25,7 @@ import org.bonitasoft.engine.core.process.instance.model.SFlowNodeInstance;
 import org.bonitasoft.engine.core.process.instance.model.SStateCategory;
 import org.bonitasoft.engine.core.process.instance.model.STaskPriority;
 import org.bonitasoft.engine.core.process.instance.model.archive.SAFlowNodeInstance;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 import org.bonitasoft.engine.persistence.QueryOptions;
 import org.bonitasoft.engine.persistence.SBonitaSearchException;
 
@@ -131,7 +131,7 @@ public interface FlowNodeInstanceService {
      * @throws SBonitaSearchException
      * @since 6.0
      */
-    long getNumberOfFlowNodeInstances(Class<? extends PersistentObject> entityClass, QueryOptions countOptions) throws SBonitaSearchException;
+    long getNumberOfFlowNodeInstances(Class<? extends TenantPersistentObject> entityClass, QueryOptions countOptions) throws SBonitaSearchException;
 
     /**
      * @param entityClass
@@ -140,7 +140,7 @@ public interface FlowNodeInstanceService {
      * @throws SBonitaSearchException
      * @since 6.0
      */
-    long getNumberOfFlowNodeInstancesSupervisedBy(Long supervisorId, Class<? extends PersistentObject> entityClass, QueryOptions countOptions)
+    long getNumberOfFlowNodeInstancesSupervisedBy(Long supervisorId, Class<? extends TenantPersistentObject> entityClass, QueryOptions countOptions)
             throws SBonitaSearchException;
 
     /**
@@ -150,7 +150,7 @@ public interface FlowNodeInstanceService {
      * @throws SBonitaSearchException
      * @since 6.0
      */
-    List<SFlowNodeInstance> searchFlowNodeInstances(Class<? extends PersistentObject> entityClass, QueryOptions searchOptions) throws SBonitaSearchException;
+    List<SFlowNodeInstance> searchFlowNodeInstances(Class<? extends TenantPersistentObject> entityClass, QueryOptions searchOptions) throws SBonitaSearchException;
 
     /**
      * @param entityClass
@@ -159,7 +159,7 @@ public interface FlowNodeInstanceService {
      * @throws SBonitaSearchException
      * @since 6.0
      */
-    List<SFlowNodeInstance> searchFlowNodeInstancesSupervisedBy(Long supervisorId, Class<? extends PersistentObject> entityClass, QueryOptions searchOptions)
+    List<SFlowNodeInstance> searchFlowNodeInstancesSupervisedBy(Long supervisorId, Class<? extends TenantPersistentObject> entityClass, QueryOptions searchOptions)
             throws SBonitaSearchException;
 
     /**

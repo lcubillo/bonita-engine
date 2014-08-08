@@ -16,7 +16,7 @@ package org.bonitasoft.engine.core.process.instance.model.archive.impl;
 import org.bonitasoft.engine.bpm.connector.ConnectorEvent;
 import org.bonitasoft.engine.core.process.instance.model.SConnectorInstance;
 import org.bonitasoft.engine.core.process.instance.model.archive.SAConnectorInstance;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Elias Ricken de Medeiros
@@ -52,7 +52,7 @@ public class SAConnectorInstanceImpl extends SANamedElementImpl implements SACon
     }
 
     @Override
-    public Class<? extends PersistentObject> getPersistentObjectInterface() {
+    public Class<? extends TenantPersistentObject> getPersistentObjectInterface() {
         return SConnectorInstance.class;
     }
 

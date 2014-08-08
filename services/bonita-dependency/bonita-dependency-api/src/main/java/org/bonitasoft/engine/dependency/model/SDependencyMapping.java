@@ -13,13 +13,13 @@
  **/
 package org.bonitasoft.engine.dependency.model;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Matthieu Chaffotte
  * @author Celine Souchet
  */
-public interface SDependencyMapping extends PersistentObject {
+public interface SDependencyMapping extends TenantPersistentObject {
 
     long getDependencyId();
 

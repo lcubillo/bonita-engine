@@ -1,11 +1,11 @@
 package org.bonitasoft.engine.identity.model;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Vincent Elcrin
  */
-public interface SSingleNamedElement extends PersistentObject {
+public interface SSingleNamedElement extends TenantPersistentObject {
 
     /**
      * Gets the name of the element.

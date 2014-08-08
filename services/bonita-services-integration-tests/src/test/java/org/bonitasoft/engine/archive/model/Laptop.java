@@ -1,6 +1,6 @@
 package org.bonitasoft.engine.archive.model;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 public class Laptop extends SPersistentObjectImpl {
 
@@ -45,7 +45,7 @@ public class Laptop extends SPersistentObjectImpl {
     }
 
     @Override
-    public Class<? extends PersistentObject> getPersistentObjectInterface() {
+    public Class<? extends TenantPersistentObject> getPersistentObjectInterface() {
         return Laptop.class;
     }
 

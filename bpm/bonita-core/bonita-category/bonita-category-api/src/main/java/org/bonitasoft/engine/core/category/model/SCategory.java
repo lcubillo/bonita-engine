@@ -13,14 +13,14 @@
  **/
 package org.bonitasoft.engine.core.category.model;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Yanyan Liu
  * @author Matthieu Chaffotte
  * @author Celine Souchet
  */
-public interface SCategory extends PersistentObject {
+public interface SCategory extends TenantPersistentObject {
 
     String getName();
 

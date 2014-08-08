@@ -32,7 +32,7 @@ public class HibernatePersistenceIT {
         allFields.put(Book.class, fields);
         QueryOptions queryOptions = new QueryOptions(0,
                 10,
-                Collections.<OrderByOption>emptyList(),
+                Collections.<OrderByOption> emptyList(),
                 new ArrayList<FilterOption>(0),
                 new SearchFields(Arrays.asList(searchTerms), allFields));
         return queryOptions;
@@ -47,7 +47,6 @@ public class HibernatePersistenceIT {
 
     }
 
-
     @Test
     public void should_return_more_results_when_wordsearch_enabled() throws Exception {
         boolean enableWordSearch = true;
@@ -57,9 +56,6 @@ public class HibernatePersistenceIT {
 
     }
 
-
-
-
     /**
      * @param enableWordSearch
      * @param expectedResults
@@ -67,7 +63,8 @@ public class HibernatePersistenceIT {
      * @throws SPersistenceException
      * @throws SBonitaReadException
      */
-    protected void executeSearch(final boolean enableWordSearch, final int expectedResults) throws ClassNotFoundException, SPersistenceException, SBonitaReadException {
+    protected void executeSearch(final boolean enableWordSearch, final int expectedResults) throws ClassNotFoundException, SPersistenceException,
+            SBonitaReadException {
         // Setup Hibernate and extract SessionFactory
         Configuration configuration = new Configuration().configure();
         ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
@@ -75,9 +72,10 @@ public class HibernatePersistenceIT {
         sessionFactory = configuration.buildSessionFactory(serviceRegistry);
 
         //
-        final List<Class<? extends PersistentObject>> classMapping = Arrays.<Class<? extends PersistentObject>>asList(Book.class);
+        final List<Class<? extends PersistentObject>> classMapping = Arrays.<Class<? extends PersistentObject>> asList(Book.class);
         final Map<String, String> classAliasMappings = Collections.singletonMap(Book.class.getName(), "book");
-        PlatformHibernatePersistenceService persistenceService = new PlatformHibernatePersistenceService(sessionFactory, classMapping, classAliasMappings, enableWordSearch, Collections.<String>emptySet(), mock(TechnicalLoggerService.class));
+        PlatformHibernatePersistenceService persistenceService = new PlatformHibernatePersistenceService(sessionFactory, classMapping, classAliasMappings,
+                enableWordSearch, Collections.<String> emptySet(), mock(TechnicalLoggerService.class));
 
         Session session;
         session = persistenceService.getSession(true);

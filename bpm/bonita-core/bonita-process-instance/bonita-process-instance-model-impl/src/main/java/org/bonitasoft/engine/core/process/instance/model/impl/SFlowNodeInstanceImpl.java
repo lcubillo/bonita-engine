@@ -17,7 +17,7 @@ import org.bonitasoft.engine.core.process.instance.model.SActivityInstance;
 import org.bonitasoft.engine.core.process.instance.model.SFlowElementsContainer;
 import org.bonitasoft.engine.core.process.instance.model.SFlowElementsContainerType;
 import org.bonitasoft.engine.core.process.instance.model.SFlowNodeInstance;
-import org.bonitasoft.engine.persistence.PersistentObjectWithFlag;
+import org.bonitasoft.engine.persistence.TenantPersistentObjectWithFlag;
 
 /**
  * @author Feng Hui
@@ -27,7 +27,7 @@ import org.bonitasoft.engine.persistence.PersistentObjectWithFlag;
  * @author Matthieu Chaffotte
  * @author Celine Souchet
  */
-public abstract class SFlowNodeInstanceImpl extends SFlowElementInstanceImpl implements SFlowNodeInstance, SFlowElementsContainer, PersistentObjectWithFlag {
+public abstract class SFlowNodeInstanceImpl extends SFlowElementInstanceImpl implements SFlowNodeInstance, SFlowElementsContainer, TenantPersistentObjectWithFlag {
 
     private static final long serialVersionUID = -699008235249779931L;
 

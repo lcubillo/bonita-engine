@@ -13,7 +13,7 @@
  **/
 package org.bonitasoft.engine.core.process.instance.model;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * Used to get pending activities of a user.
@@ -26,7 +26,7 @@ import org.bonitasoft.engine.persistence.PersistentObject;
  * 
  * @author Baptiste Mesta
  */
-public interface SPendingActivityMapping extends PersistentObject {
+public interface SPendingActivityMapping extends TenantPersistentObject {
 
     /**
      * the id of the activity

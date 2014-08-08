@@ -13,16 +13,16 @@
  **/
 package org.bonitasoft.engine.search.descriptor;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 import org.bonitasoft.engine.bpm.flownode.ArchivedHumanTaskInstanceSearchDescriptor;
 import org.bonitasoft.engine.builder.BuilderFactory;
 import org.bonitasoft.engine.core.process.instance.model.archive.SAHumanTaskInstance;
 import org.bonitasoft.engine.core.process.instance.model.archive.builder.SAUserTaskInstanceBuilderFactory;
 import org.bonitasoft.engine.persistence.PersistentObject;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
 
 /**
  * @author Julien Mege
@@ -55,7 +55,8 @@ public class SearchArchivedHumanTaskInstanceDescriptor extends SearchEntityDescr
         entityKeys.put(ArchivedHumanTaskInstanceSearchDescriptor.REACHED_STATE_DATE,
                 new FieldDescriptor(SAHumanTaskInstance.class, keyProvider.getReachedStateDateKey()));
         entityKeys.put(ArchivedHumanTaskInstanceSearchDescriptor.TERMINAL, new FieldDescriptor(SAHumanTaskInstance.class, keyProvider.getTerminalKey()));
-        entityKeys.put(ArchivedHumanTaskInstanceSearchDescriptor.ARCHIVE_DATE, new FieldDescriptor(SAHumanTaskInstance.class, keyProvider.getArchivedDateKey()));
+        entityKeys
+                .put(ArchivedHumanTaskInstanceSearchDescriptor.ARCHIVE_DATE, new FieldDescriptor(SAHumanTaskInstance.class, keyProvider.getArchivedDateKey()));
 
         humanTaskInstanceAllFields = new HashMap<Class<? extends PersistentObject>, Set<String>>(1);
         final Set<String> humanFields = new HashSet<String>(2);

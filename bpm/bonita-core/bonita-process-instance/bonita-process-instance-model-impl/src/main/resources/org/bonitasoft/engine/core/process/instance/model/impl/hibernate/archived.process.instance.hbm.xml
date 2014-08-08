@@ -7,7 +7,7 @@
 	</filter-def>
 
 	<class name="SAProcessInstanceImpl" table="arch_process_instance">
-		<composite-id class="org.bonitasoft.engine.persistence.PersistentObjectId" mapped="true">
+		<composite-id class="org.bonitasoft.engine.persistence.TenantPersistentObjectId" mapped="true">
 			<key-property name="tenantId" column="tenantid" type="long" />
 			<key-property name="id" column="id" type="long" />
 		</composite-id>
@@ -34,7 +34,7 @@
 	</class>
 
 	<class name="SAFlowNodeInstanceImpl" abstract="true" table="arch_flownode_instance">
-		<composite-id class="org.bonitasoft.engine.persistence.PersistentObjectId" mapped="true">
+		<composite-id class="org.bonitasoft.engine.persistence.TenantPersistentObjectId" mapped="true">
 			<key-property name="tenantId" column="tenantid" type="long" />
 			<key-property name="id" column="id" type="long" />
 		</composite-id>
@@ -109,7 +109,7 @@
 	</subclass>
 
 	<class name="SAConnectorInstanceImpl" table="arch_connector_instance">
-		<composite-id class="org.bonitasoft.engine.persistence.PersistentObjectId" mapped="true">
+		<composite-id class="org.bonitasoft.engine.persistence.TenantPersistentObjectId" mapped="true">
 			<key-property name="tenantId" column="tenantid" type="long" />
 			<key-property name="id" column="id" type="long" />
 		</composite-id>
@@ -170,7 +170,7 @@
 	<subclass name="org.bonitasoft.engine.core.process.instance.model.archive.event.impl.SAEndEventInstanceImpl" discriminator-value="endEvent" extends="org.bonitasoft.engine.core.process.instance.model.archive.event.impl.SAThrowEventInstanceImpl" />
 
 	<class name="SATransitionInstanceImpl" table="arch_transition_instance">
-		<composite-id class="org.bonitasoft.engine.persistence.PersistentObjectId" mapped="true">
+		<composite-id class="org.bonitasoft.engine.persistence.TenantPersistentObjectId" mapped="true">
 			<key-property name="tenantId" column="tenantid" type="long" />
 			<key-property name="id" column="id" type="long" />
 		</composite-id>

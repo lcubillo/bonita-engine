@@ -233,7 +233,7 @@ public abstract class AbstractHibernatePersistenceService extends AbstractDBPers
                 session.delete(entity);
             } else {
                 // Deletion must be performed on the session entity and not on a potential transitional entity.
-                final Object pe = session.get(mappedClass, new PersistentObjectId(entity.getId(), 0));
+                final Object pe = session.get(mappedClass, new PersistentObjectId(entity.getId()));
                 session.delete(pe);
             }
         } catch (final AssertionFailure af) {

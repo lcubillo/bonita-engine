@@ -14,13 +14,13 @@
  */
 package org.bonitasoft.engine.document.model;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Zhao Na
  * @author Matthieu Chaffotte
  */
-public interface SDocumentContent extends PersistentObject {
+public interface SDocumentContent extends TenantPersistentObject {
 
     String getStorageId();
 

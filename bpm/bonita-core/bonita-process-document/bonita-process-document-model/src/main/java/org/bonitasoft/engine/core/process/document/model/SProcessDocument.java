@@ -14,13 +14,13 @@
  */
 package org.bonitasoft.engine.core.process.document.model;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Nicolas Chabanoles
  * @author Matthieu Chaffotte
  */
-public interface SProcessDocument extends PersistentObject {
+public interface SProcessDocument extends TenantPersistentObject {
 
     long getProcessInstanceId();
 

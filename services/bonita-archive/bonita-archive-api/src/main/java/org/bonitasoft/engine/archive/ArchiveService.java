@@ -13,7 +13,7 @@
  */
 package org.bonitasoft.engine.archive;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 import org.bonitasoft.engine.persistence.ReadPersistenceService;
 import org.bonitasoft.engine.recorder.SRecorderException;
 import org.bonitasoft.engine.recorder.model.DeleteRecord;
@@ -77,6 +77,6 @@ public interface ArchiveService {
      *            Persistent object to be judged achievable or not
      * @return Return true if the objects of the given class can be archived.
      */
-    boolean isArchivable(Class<? extends PersistentObject> sourceObjectClass);
+    boolean isArchivable(Class<? extends TenantPersistentObject> sourceObjectClass);
 
 }

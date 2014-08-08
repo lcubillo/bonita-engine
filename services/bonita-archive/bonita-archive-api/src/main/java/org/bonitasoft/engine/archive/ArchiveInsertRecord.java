@@ -13,7 +13,7 @@
  **/
 package org.bonitasoft.engine.archive;
 
-import org.bonitasoft.engine.persistence.ArchivedPersistentObject;
+import org.bonitasoft.engine.persistence.ArchivedTenantPersistentObject;
 import org.bonitasoft.engine.recorder.model.InsertRecord;
 
 /**
@@ -21,13 +21,13 @@ import org.bonitasoft.engine.recorder.model.InsertRecord;
  */
 public class ArchiveInsertRecord extends InsertRecord {
 
-    public ArchiveInsertRecord(final ArchivedPersistentObject entity) {
+    public ArchiveInsertRecord(final ArchivedTenantPersistentObject entity) {
         super(entity);
     }
 
     @Override
-    public ArchivedPersistentObject getEntity() {
-        return (ArchivedPersistentObject) super.getEntity();
+    public ArchivedTenantPersistentObject getEntity() {
+        return (ArchivedTenantPersistentObject) super.getEntity();
     }
 
 }

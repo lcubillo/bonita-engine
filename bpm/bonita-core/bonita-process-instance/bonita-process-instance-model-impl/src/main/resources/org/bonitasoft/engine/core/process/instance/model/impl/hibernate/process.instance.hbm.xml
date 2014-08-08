@@ -10,7 +10,7 @@
 	</filter-def>
 
 	<class name="org.bonitasoft.engine.core.process.instance.model.impl.SProcessInstanceImpl" table="process_instance">
-		<composite-id class="org.bonitasoft.engine.persistence.PersistentObjectId" mapped="true">
+		<composite-id class="org.bonitasoft.engine.persistence.TenantPersistentObjectId" mapped="true">
 			<key-property name="tenantId" column="tenantid" type="long" />
 			<key-property name="id" column="id" type="long" />
 		</composite-id>
@@ -51,7 +51,7 @@
 	</class>
 	
 	<class name="org.bonitasoft.engine.core.process.instance.model.impl.STokenImpl" table="token">
-		<composite-id class="org.bonitasoft.engine.persistence.PersistentObjectId" mapped="true">
+		<composite-id class="org.bonitasoft.engine.persistence.TenantPersistentObjectId" mapped="true">
 			<key-property name="tenantId" column="tenantid" type="long" />
 			<key-property name="id" column="id" type="long" />
 		</composite-id>
@@ -63,7 +63,7 @@
 
 
 	<class name="SFlowNodeInstanceImpl" abstract="true" table="flownode_instance">
-		<composite-id class="org.bonitasoft.engine.persistence.PersistentObjectId" mapped="true">
+		<composite-id class="org.bonitasoft.engine.persistence.TenantPersistentObjectId" mapped="true">
 			<key-property name="tenantId" column="tenantid" type="long" />
 			<key-property name="id" column="id" type="long" />
 		</composite-id>
@@ -163,7 +163,7 @@
 	</subclass>
 
 	<class name="SConnectorInstanceImpl" table="connector_instance" polymorphism="explicit">
-		<composite-id class="org.bonitasoft.engine.persistence.PersistentObjectId" mapped="true">
+		<composite-id class="org.bonitasoft.engine.persistence.TenantPersistentObjectId" mapped="true">
 			<key-property name="tenantId" column="tenantid" type="long" />
 			<key-property name="id" column="id" type="long" />
 		</composite-id>
@@ -185,7 +185,7 @@
 	</class>
 	
 	<class name="SConnectorInstanceWithFailureInfoImpl" table="connector_instance" polymorphism="explicit" >
-		<composite-id class="org.bonitasoft.engine.persistence.PersistentObjectId" mapped="true">
+		<composite-id class="org.bonitasoft.engine.persistence.TenantPersistentObjectId" mapped="true">
 			<key-property name="tenantId" column="tenantid" type="long" />
 			<key-property name="id" column="id" type="long" />
 		</composite-id>
@@ -231,7 +231,7 @@
 	<subclass name="org.bonitasoft.engine.core.process.instance.model.event.impl.SEndEventInstanceImpl" discriminator-value="endEvent" extends="org.bonitasoft.engine.core.process.instance.model.event.impl.SThrowEventInstanceImpl" />
 
 	<class name="org.bonitasoft.engine.core.process.instance.model.event.trigger.impl.SEventTriggerInstanceImpl" abstract="true" table="event_trigger_instance">
-		<composite-id class="org.bonitasoft.engine.persistence.PersistentObjectId" mapped="true">
+		<composite-id class="org.bonitasoft.engine.persistence.TenantPersistentObjectId" mapped="true">
 			<key-property name="tenantId" column="tenantid" type="long" />
 			<key-property name="id" column="id" type="long" />
 		</composite-id>
@@ -270,7 +270,7 @@
 	</subclass>
 
 	<class name="org.bonitasoft.engine.core.process.instance.model.event.handling.impl.SMessageInstanceImpl" table="message_instance">
-		<composite-id class="org.bonitasoft.engine.persistence.PersistentObjectId" mapped="true">
+		<composite-id class="org.bonitasoft.engine.persistence.TenantPersistentObjectId" mapped="true">
 			<key-property name="tenantId" column="tenantid" type="long" />
 			<key-property name="id" column="id" type="long" />
 		</composite-id>
@@ -290,7 +290,7 @@
 	</class>
 
 	<class name="org.bonitasoft.engine.core.process.instance.model.event.handling.impl.SWaitingEventImpl" abstract="true"	table="waiting_event">
-		<composite-id class="org.bonitasoft.engine.persistence.PersistentObjectId" mapped="true">
+		<composite-id class="org.bonitasoft.engine.persistence.TenantPersistentObjectId" mapped="true">
 			<key-property name="tenantId" column="tenantid" type="long" />
 			<key-property name="id" column="id" type="long" />
 		</composite-id>
@@ -336,7 +336,7 @@
 	</subclass>
 
 	<class name="org.bonitasoft.engine.core.process.instance.model.impl.SPendingActivityMappingImpl" table="pending_mapping">
-		<composite-id class="org.bonitasoft.engine.persistence.PersistentObjectId" mapped="true">
+		<composite-id class="org.bonitasoft.engine.persistence.TenantPersistentObjectId" mapped="true">
 			<key-property name="tenantId" column="tenantid" type="long" />
 			<key-property name="id" column="id" type="long" />
 		</composite-id>
@@ -347,7 +347,7 @@
 	</class>
 
 	<class name="org.bonitasoft.engine.core.process.instance.model.impl.SHiddenTaskInstanceImpl" table="hidden_activity">
-		<composite-id class="org.bonitasoft.engine.persistence.PersistentObjectId" mapped="true">
+		<composite-id class="org.bonitasoft.engine.persistence.TenantPersistentObjectId" mapped="true">
 			<key-property name="tenantId" column="tenantid" type="long" />
 			<key-property name="id" column="id" type="long" />
 		</composite-id>

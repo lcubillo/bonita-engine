@@ -23,7 +23,7 @@ import java.io.Serializable;
 
 import org.bonitasoft.engine.commons.exceptions.SBonitaRuntimeException;
 import org.bonitasoft.engine.data.instance.model.SDataInstance;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Feng Hui
@@ -60,7 +60,7 @@ public final class SABlobDataInstanceImpl extends SADataInstanceImpl {
     }
 
     @Override
-    public Class<? extends PersistentObject> getPersistentObjectInterface() {
+    public Class<? extends TenantPersistentObject> getPersistentObjectInterface() {
         return SDataInstance.class;
     }
 

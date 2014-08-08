@@ -16,7 +16,7 @@ package org.bonitasoft.engine.core.process.document.mapping.model.archive.impl;
 
 import org.bonitasoft.engine.core.process.document.mapping.model.SDocumentMapping;
 import org.bonitasoft.engine.core.process.document.mapping.model.archive.SADocumentMapping;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Nicolas Chabanoles
@@ -329,7 +329,7 @@ public class SADocumentMappingImpl implements SADocumentMapping {
     }
 
     @Override
-    public Class<? extends PersistentObject> getPersistentObjectInterface() {
+    public Class<? extends TenantPersistentObject> getPersistentObjectInterface() {
         return SDocumentMapping.class;
     }
 

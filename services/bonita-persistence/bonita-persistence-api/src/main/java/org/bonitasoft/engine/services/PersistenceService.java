@@ -20,7 +20,6 @@ import java.util.Map;
 import org.bonitasoft.engine.persistence.FilterOption;
 import org.bonitasoft.engine.persistence.PersistentObject;
 import org.bonitasoft.engine.persistence.ReadPersistenceService;
-import org.bonitasoft.engine.persistence.SRetryableException;
 
 /**
  * @author Charles Souillard
@@ -183,9 +182,9 @@ public interface PersistenceService extends ReadPersistenceService {
      * Delete all elements of a specific table for a specific tenant
      * 
      * @param entityClass
-     *        Entity class corresponding to the table to empty
+     *            Entity class corresponding to the table to empty
      * @param filters
-     *        Filters
+     *            Filters
      * @throws SPersistenceException
      * @since 6.1
      */

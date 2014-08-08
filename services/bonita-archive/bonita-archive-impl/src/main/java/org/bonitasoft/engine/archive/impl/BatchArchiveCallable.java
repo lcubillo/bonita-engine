@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
 
-import org.bonitasoft.engine.persistence.ArchivedPersistentObject;
+import org.bonitasoft.engine.persistence.ArchivedTenantPersistentObject;
 import org.bonitasoft.engine.persistence.PersistentObject;
 import org.bonitasoft.engine.services.PersistenceService;
 import org.bonitasoft.engine.services.SPersistenceException;
@@ -26,9 +26,9 @@ public class BatchArchiveCallable implements Callable<Void> {
 
     private final PersistenceService persistenceService;
 
-    private final List<? extends ArchivedPersistentObject> archivedObjects;
+    private final List<? extends ArchivedTenantPersistentObject> archivedObjects;
 
-    public BatchArchiveCallable(final PersistenceService persistenceService, final List<ArchivedPersistentObject> archivedObjects) {
+    public BatchArchiveCallable(final PersistenceService persistenceService, final List<ArchivedTenantPersistentObject> archivedObjects) {
         super();
         this.persistenceService = persistenceService;
         this.archivedObjects = archivedObjects;

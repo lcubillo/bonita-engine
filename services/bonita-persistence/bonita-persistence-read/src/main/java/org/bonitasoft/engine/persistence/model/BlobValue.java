@@ -15,14 +15,14 @@ package org.bonitasoft.engine.persistence.model;
 
 import java.io.Serializable;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * Represent a Blob value store in the persistence layer.
  * 
  * @author Emmanuel Duchastenier
  */
-public interface BlobValue extends PersistentObject {
+public interface BlobValue extends TenantPersistentObject {
 
     Serializable getValue();
 

@@ -13,13 +13,13 @@
  **/
 package org.bonitasoft.engine.profile.model;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Matthieu Chaffotte
  * @author Celine Souchet
  */
-public interface SProfile extends PersistentObject {
+public interface SProfile extends TenantPersistentObject {
 
     boolean isDefault();
 

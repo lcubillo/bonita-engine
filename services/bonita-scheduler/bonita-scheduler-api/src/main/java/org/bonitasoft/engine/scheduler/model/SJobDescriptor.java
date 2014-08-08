@@ -13,13 +13,13 @@
  **/
 package org.bonitasoft.engine.scheduler.model;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Baptiste Mesta
  * @author Celine Souchet
  */
-public interface SJobDescriptor extends PersistentObject {
+public interface SJobDescriptor extends TenantPersistentObject {
 
     String getJobClassName();
 

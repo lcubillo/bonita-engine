@@ -17,7 +17,7 @@ import java.util.List;
 
 import org.bonitasoft.engine.core.process.instance.model.SFlowElementInstance;
 import org.bonitasoft.engine.core.process.instance.model.archive.SAFlowElementInstance;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 import org.bonitasoft.engine.persistence.QueryOptions;
 import org.bonitasoft.engine.persistence.SBonitaSearchException;
 
@@ -26,7 +26,7 @@ import org.bonitasoft.engine.persistence.SBonitaSearchException;
  */
 public interface FlowElementInstanceService {
 
-    List<SFlowElementInstance> searchFlowElementInstances(Class<? extends PersistentObject> entityClass, QueryOptions searchOptions)
+    List<SFlowElementInstance> searchFlowElementInstances(Class<? extends TenantPersistentObject> entityClass, QueryOptions searchOptions)
             throws SBonitaSearchException;
 
     /**
@@ -40,9 +40,9 @@ public interface FlowElementInstanceService {
      * @throws SBonitaSearchException
      * @since 6.0
      */
-    long getNumberOfFlowElementInstances(Class<? extends PersistentObject> entityClass, QueryOptions countOptions) throws SBonitaSearchException;
+    long getNumberOfFlowElementInstances(Class<? extends TenantPersistentObject> entityClass, QueryOptions countOptions) throws SBonitaSearchException;
 
-    List<SAFlowElementInstance> searchArchivedFlowElementInstances(Class<? extends PersistentObject> entityClass, QueryOptions searchOptions)
+    List<SAFlowElementInstance> searchArchivedFlowElementInstances(Class<? extends TenantPersistentObject> entityClass, QueryOptions searchOptions)
             throws SBonitaSearchException;
 
     /**
@@ -56,5 +56,5 @@ public interface FlowElementInstanceService {
      * @throws SBonitaSearchException
      * @since 6.0
      */
-    long getNumberOfArchivedFlowElementInstances(Class<? extends PersistentObject> entityClass, QueryOptions countOptions) throws SBonitaSearchException;
+    long getNumberOfArchivedFlowElementInstances(Class<? extends TenantPersistentObject> entityClass, QueryOptions countOptions) throws SBonitaSearchException;
 }

@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2011 BonitaSoft S.A.
+ * Copyright (C) 2012-2014 BonitaSoft S.A.
  * BonitaSoft, 32 rue Gustave Eiffel - 38000 Grenoble
  * This library is free software; you can redistribute it and/or modify it under the terms
  * of the GNU Lesser General Public License as published by the Free Software Foundation
@@ -11,50 +11,44 @@
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
  **/
-package org.bonitasoft.engine.identity.model.impl;
-
-import org.bonitasoft.engine.persistence.TenantPersistentObject;
+package org.bonitasoft.engine.persistence;
 
 /**
- * @author Baptiste Mesta
+ * ID for persistent objects
+ * org.bonitasoft.engine.persistence.TenantPersistentObjectId
+ * 
+ * @author Emmanuel Duchastenier
  * @author Matthieu Chaffotte
+ * @author Celine Souchet
  */
-public abstract class SPersistentObjectImpl implements TenantPersistentObject {
+public class TenantPersistentObjectId extends PersistentObjectId {
 
-    private static final long serialVersionUID = 3325381055116462634L;
-
-    private long id;
+    private static final long serialVersionUID = -850624385038853629L;
 
     private long tenantId;
 
-    public SPersistentObjectImpl() {
+    public TenantPersistentObjectId() {
         super();
     }
 
-    public long getTenantId() {
-        return this.tenantId;
+    public TenantPersistentObjectId(final long id, final long tenantId) {
+        super(id);
+        this.tenantId = tenantId;
     }
 
-    @Override
+    public long getTenantId() {
+        return tenantId;
+    }
+
     public void setTenantId(final long tenantId) {
         this.tenantId = tenantId;
     }
 
     @Override
-    public long getId() {
-        return this.id;
-    }
-
-    @Override
-    public void setId(final long id) {
-        this.id = id;
-    }
-
-    @Override
     public int hashCode() {
         final int prime = 31;
-        int result = 1;
-        result = prime * result + (int) (this.id ^ this.id >>> 32);
+        int result = super.hashCode();
+        result = prime * result + (int) (tenantId ^ tenantId >>> 32);
         return result;
     }
 
@@ -66,14 +60,14 @@ public abstract class SPersistentObjectImpl implements TenantPersistentObject {
         if (obj == null) {
             return false;
         }
-        if (this.getClass() != obj.getClass()) {
+        if (getClass() != obj.getClass()) {
             return false;
         }
-        final SPersistentObjectImpl other = (SPersistentObjectImpl) obj;
-        if (this.id != other.id) {
+        final TenantPersistentObjectId other = (TenantPersistentObjectId) obj;
+        if (tenantId != other.tenantId) {
             return false;
         }
-        return true;
+        return super.equals(obj);
     }
 
 }

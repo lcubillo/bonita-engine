@@ -13,12 +13,12 @@
  **/
 package org.bonitasoft.engine.external.identity.mapping.model;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Emmanuel Duchastenier
  */
-public interface SExternalIdentityMapping extends PersistentObject {
+public interface SExternalIdentityMapping extends TenantPersistentObject {
 
     String getExternalId();
 

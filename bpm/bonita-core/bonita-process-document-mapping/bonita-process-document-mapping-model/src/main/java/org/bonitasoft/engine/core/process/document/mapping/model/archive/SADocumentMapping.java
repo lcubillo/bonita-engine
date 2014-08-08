@@ -14,13 +14,13 @@
  */
 package org.bonitasoft.engine.core.process.document.mapping.model.archive;
 
-import org.bonitasoft.engine.persistence.ArchivedPersistentObject;
+import org.bonitasoft.engine.persistence.ArchivedTenantPersistentObject;
 
 /**
  * @author Nicolas Chabanoles
  * @author Matthieu Chaffotte
  */
-public interface SADocumentMapping extends ArchivedPersistentObject {
+public interface SADocumentMapping extends ArchivedTenantPersistentObject {
 
     long getTenantId();
 

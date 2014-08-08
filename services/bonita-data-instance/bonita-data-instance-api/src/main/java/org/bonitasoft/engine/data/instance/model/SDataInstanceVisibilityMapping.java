@@ -13,12 +13,12 @@
  **/
 package org.bonitasoft.engine.data.instance.model;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Baptiste Mesta
  */
-public interface SDataInstanceVisibilityMapping extends PersistentObject {
+public interface SDataInstanceVisibilityMapping extends TenantPersistentObject {
 
     long getContainerId();
 

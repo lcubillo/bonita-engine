@@ -38,7 +38,7 @@ import org.bonitasoft.engine.core.process.instance.model.archive.SAActivityInsta
 import org.bonitasoft.engine.core.process.instance.model.archive.SAHumanTaskInstance;
 import org.bonitasoft.engine.identity.model.SUser;
 import org.bonitasoft.engine.persistence.OrderByType;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 import org.bonitasoft.engine.persistence.QueryOptions;
 import org.bonitasoft.engine.persistence.SBonitaReadException;
 import org.bonitasoft.engine.persistence.SBonitaSearchException;
@@ -670,7 +670,7 @@ public interface ActivityInstanceService extends FlowNodeInstanceService {
      * @return number of activity instances for the specific entity class
      * @throws SBonitaSearchException
      */
-    long getNumberOfActivityInstances(Class<? extends PersistentObject> entityClass, QueryOptions searchOptions) throws SBonitaSearchException;
+    long getNumberOfActivityInstances(Class<? extends TenantPersistentObject> entityClass, QueryOptions searchOptions) throws SBonitaSearchException;
 
     /**
      * Search all activity instances for the specific entity class
@@ -682,7 +682,7 @@ public interface ActivityInstanceService extends FlowNodeInstanceService {
      * @return a list of SActivityInstance objects
      * @throws SBonitaSearchException
      */
-    List<SActivityInstance> searchActivityInstances(Class<? extends PersistentObject> entityClass, QueryOptions searchOptions) throws SBonitaSearchException;
+    List<SActivityInstance> searchActivityInstances(Class<? extends TenantPersistentObject> entityClass, QueryOptions searchOptions) throws SBonitaSearchException;
 
     /**
      * Get total number of archived activity instances for the specific entity class
@@ -694,7 +694,7 @@ public interface ActivityInstanceService extends FlowNodeInstanceService {
      * @return number of archived activity instances for the specific entity class
      * @throws SBonitaSearchException
      */
-    long getNumberOfArchivedActivityInstances(Class<? extends PersistentObject> entityClass, QueryOptions searchOptions) throws SBonitaSearchException;
+    long getNumberOfArchivedActivityInstances(Class<? extends TenantPersistentObject> entityClass, QueryOptions searchOptions) throws SBonitaSearchException;
 
     /***
      * Search all archived activity instances for the specific entity class
@@ -706,7 +706,7 @@ public interface ActivityInstanceService extends FlowNodeInstanceService {
      * @return a list of SAActivityInstance objects
      * @throws SBonitaSearchException
      */
-    List<SAActivityInstance> searchArchivedActivityInstances(Class<? extends PersistentObject> entityClass, QueryOptions searchOptions)
+    List<SAActivityInstance> searchArchivedActivityInstances(Class<? extends TenantPersistentObject> entityClass, QueryOptions searchOptions)
             throws SBonitaSearchException;
 
     /**

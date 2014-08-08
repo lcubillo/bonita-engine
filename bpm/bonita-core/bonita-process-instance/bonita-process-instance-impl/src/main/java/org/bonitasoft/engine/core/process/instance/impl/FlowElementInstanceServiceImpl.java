@@ -18,7 +18,7 @@ import java.util.List;
 import org.bonitasoft.engine.core.process.instance.api.FlowElementInstanceService;
 import org.bonitasoft.engine.core.process.instance.model.SFlowElementInstance;
 import org.bonitasoft.engine.core.process.instance.model.archive.SAFlowElementInstance;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 import org.bonitasoft.engine.persistence.QueryOptions;
 import org.bonitasoft.engine.persistence.ReadPersistenceService;
 import org.bonitasoft.engine.persistence.SBonitaReadException;
@@ -41,7 +41,7 @@ public abstract class FlowElementInstanceServiceImpl implements FlowElementInsta
     }
 
     @Override
-    public long getNumberOfFlowElementInstances(final Class<? extends PersistentObject> entityClass, final QueryOptions countOptions)
+    public long getNumberOfFlowElementInstances(final Class<? extends TenantPersistentObject> entityClass, final QueryOptions countOptions)
             throws SBonitaSearchException {
         try {
             return getPersistenceRead().getNumberOfEntities(entityClass, countOptions, null);
@@ -52,7 +52,7 @@ public abstract class FlowElementInstanceServiceImpl implements FlowElementInsta
 
     @SuppressWarnings("unchecked")
     @Override
-    public List<SFlowElementInstance> searchFlowElementInstances(final Class<? extends PersistentObject> entityClass, final QueryOptions searchOptions)
+    public List<SFlowElementInstance> searchFlowElementInstances(final Class<? extends TenantPersistentObject> entityClass, final QueryOptions searchOptions)
             throws SBonitaSearchException {
         try {
             return (List<SFlowElementInstance>) getPersistenceRead().searchEntity(entityClass, searchOptions, null);
@@ -70,13 +70,13 @@ public abstract class FlowElementInstanceServiceImpl implements FlowElementInsta
     }
 
     @Override
-    public List<SAFlowElementInstance> searchArchivedFlowElementInstances(final Class<? extends PersistentObject> entityClass, final QueryOptions searchOptions) {
+    public List<SAFlowElementInstance> searchArchivedFlowElementInstances(final Class<? extends TenantPersistentObject> entityClass, final QueryOptions searchOptions) {
         // FIXME Implement me!
         return null;
     }
 
     @Override
-    public long getNumberOfArchivedFlowElementInstances(final Class<? extends PersistentObject> entityClass, final QueryOptions countOptions) {
+    public long getNumberOfArchivedFlowElementInstances(final Class<? extends TenantPersistentObject> entityClass, final QueryOptions countOptions) {
         // FIXME Implement me!
         return 0;
     }

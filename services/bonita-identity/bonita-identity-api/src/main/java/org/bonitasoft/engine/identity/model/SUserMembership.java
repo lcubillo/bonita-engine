@@ -13,14 +13,14 @@
  **/
 package org.bonitasoft.engine.identity.model;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Anthony Birembaut
  * @author Baptiste Mesta
  * @author Matthieu Chaffotte
  */
-public interface SUserMembership extends PersistentObject {
+public interface SUserMembership extends TenantPersistentObject {
 
     long getGroupId();
 

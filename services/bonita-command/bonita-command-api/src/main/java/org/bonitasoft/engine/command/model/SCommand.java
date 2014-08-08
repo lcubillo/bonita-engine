@@ -13,12 +13,12 @@
  **/
 package org.bonitasoft.engine.command.model;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Matthieu Chaffotte
  */
-public interface SCommand extends PersistentObject {
+public interface SCommand extends TenantPersistentObject {
 
     String getName();
 

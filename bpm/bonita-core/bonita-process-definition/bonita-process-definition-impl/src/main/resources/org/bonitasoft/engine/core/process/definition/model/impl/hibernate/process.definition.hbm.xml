@@ -7,7 +7,7 @@
 	</filter-def>
 
 	<class name="SProcessDefinitionDeployInfoImpl" table="process_definition">
-		<composite-id class="org.bonitasoft.engine.persistence.PersistentObjectId" mapped="true">
+		<composite-id class="org.bonitasoft.engine.persistence.TenantPersistentObjectId" mapped="true">
 			<key-property name="tenantId" column="tenantid" type="long" />
 			<key-property name="id" column="id" type="long" />
 		</composite-id>

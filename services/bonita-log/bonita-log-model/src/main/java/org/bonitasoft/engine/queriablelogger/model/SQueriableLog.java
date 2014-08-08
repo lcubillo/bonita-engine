@@ -13,7 +13,7 @@
  **/
 package org.bonitasoft.engine.queriablelogger.model;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Nicolas Chabanoles
@@ -21,7 +21,7 @@ import org.bonitasoft.engine.persistence.PersistentObject;
  * @author Celine Souchet
  * @author Matthieu Chaffotte
  */
-public interface SQueriableLog extends PersistentObject {
+public interface SQueriableLog extends TenantPersistentObject {
 
     int STATUS_FAIL = 0;
 

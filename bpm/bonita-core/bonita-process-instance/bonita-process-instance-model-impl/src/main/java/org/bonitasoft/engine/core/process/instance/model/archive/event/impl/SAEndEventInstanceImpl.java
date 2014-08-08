@@ -16,7 +16,7 @@ package org.bonitasoft.engine.core.process.instance.model.archive.event.impl;
 import org.bonitasoft.engine.core.process.definition.model.SFlowNodeType;
 import org.bonitasoft.engine.core.process.instance.model.archive.event.SAEndEventInstance;
 import org.bonitasoft.engine.core.process.instance.model.event.SEndEventInstance;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Elias Ricken de Medeiros
@@ -51,7 +51,7 @@ public class SAEndEventInstanceImpl extends SAThrowEventInstanceImpl implements 
     }
 
     @Override
-    public Class<? extends PersistentObject> getPersistentObjectInterface() {
+    public Class<? extends TenantPersistentObject> getPersistentObjectInterface() {
         return SEndEventInstance.class;
     }
 

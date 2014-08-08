@@ -23,8 +23,6 @@ public class STenantImpl implements STenant {
 
     private static final long serialVersionUID = 1L;
 
-    private long tenantId;
-
     private long id;
 
     private String name;
@@ -43,7 +41,7 @@ public class STenantImpl implements STenant {
 
     private boolean defaultTenant;
 
-    private boolean securityActivated = true;
+    private boolean securityActivated = false;
 
     private STenantImpl() {
     }
@@ -55,15 +53,6 @@ public class STenantImpl implements STenant {
         this.created = created;
         this.status = status;
         this.defaultTenant = defaultTenant;
-    }
-
-    public long getTenantId() {
-        return tenantId;
-    }
-
-    @Override
-    public void setTenantId(final long tenantId) {
-        this.tenantId = tenantId;
     }
 
     @Override
@@ -169,7 +158,7 @@ public class STenantImpl implements STenant {
 
     @Override
     public String toString() {
-        return "STenantImpl [tenantId=" + tenantId + ", id=" + id + ", name=" + name + ", description=" + description + ", iconName=" + iconName
+        return "STenantImpl [id=" + id + ", name=" + name + ", description=" + description + ", iconName=" + iconName
                 + ", iconPath=" + iconPath + ", status=" + status + ", securityActivated=" + securityActivated + ", created=" + created + ", createdBy="
                 + createdBy + ", defaultTenant=" + defaultTenant + "]";
     }

@@ -7,7 +7,7 @@
 	</filter-def>
 
 	<class name="SCategoryImpl" table="category">
-		<composite-id class="org.bonitasoft.engine.persistence.PersistentObjectId" mapped="true">
+		<composite-id class="org.bonitasoft.engine.persistence.TenantPersistentObjectId" mapped="true">
 			<key-property name="tenantId" column="tenantid" type="long" />
 			<key-property name="id" column="ID" type="long" />
 		</composite-id>
@@ -20,7 +20,7 @@
 	</class>
 
 	<class name="SProcessCategoryMappingImpl" table="processcategorymapping">
-		<composite-id class="org.bonitasoft.engine.persistence.PersistentObjectId" mapped="true">
+		<composite-id class="org.bonitasoft.engine.persistence.TenantPersistentObjectId" mapped="true">
 			<key-property name="tenantId" column="tenantid" type="long" />
 			<key-property name="id" column="ID" type="long" />
 		</composite-id>

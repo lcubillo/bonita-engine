@@ -1,8 +1,8 @@
 package org.bonitasoft.engine.archive.model;
 
-import org.bonitasoft.engine.persistence.ArchivedPersistentObject;
+import org.bonitasoft.engine.persistence.ArchivedTenantPersistentObject;
 
-public abstract class SPersistentObjectImpl implements ArchivedPersistentObject {
+public abstract class SPersistentObjectImpl implements ArchivedTenantPersistentObject {
 
     private static final long serialVersionUID = 1L;
 

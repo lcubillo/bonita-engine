@@ -54,7 +54,7 @@ public interface ReadPersistenceService {
      * @throws SBonitaReadException
      * @throws SRetryableException
      */
-    <T extends PersistentObject> long getNumberOfEntities(Class<T> entityClass, QueryOptions options, Map<String, Object> parameters)
+    long getNumberOfEntities(Class<? extends PersistentObject> entityClass, QueryOptions options, Map<String, Object> parameters)
             throws SBonitaReadException;
 
     /**
@@ -66,7 +66,7 @@ public interface ReadPersistenceService {
      * @throws SBonitaReadException
      * @throws SRetryableException
      */
-    <T extends PersistentObject> long getNumberOfEntities(Class<T> entityClass, String querySuffix, QueryOptions options, Map<String, Object> parameters)
+    long getNumberOfEntities(Class<? extends PersistentObject> entityClass, String querySuffix, QueryOptions options, Map<String, Object> parameters)
             throws SBonitaReadException;
 
     /**

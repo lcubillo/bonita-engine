@@ -1,8 +1,8 @@
 package org.bonitasoft.engine.persistence.model;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
-public class Car implements PersistentObject {
+public class Car implements TenantPersistentObject {
 
     private static final long serialVersionUID = 1L;
 

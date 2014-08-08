@@ -15,13 +15,13 @@ package org.bonitasoft.engine.scheduler.model;
 
 import java.io.Serializable;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Baptiste Mesta
  * @author Celine Souchet
  */
-public interface SJobParameter extends PersistentObject {
+public interface SJobParameter extends TenantPersistentObject {
 
     long getJobDescriptorId();
 

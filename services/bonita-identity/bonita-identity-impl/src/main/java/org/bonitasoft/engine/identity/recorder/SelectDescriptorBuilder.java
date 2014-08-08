@@ -27,7 +27,7 @@ import org.bonitasoft.engine.identity.model.SUser;
 import org.bonitasoft.engine.identity.model.SUserMembership;
 import org.bonitasoft.engine.persistence.OrderByOption;
 import org.bonitasoft.engine.persistence.OrderByType;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 import org.bonitasoft.engine.persistence.QueryOptions;
 import org.bonitasoft.engine.persistence.SelectByIdDescriptor;
 import org.bonitasoft.engine.persistence.SelectListDescriptor;
@@ -55,29 +55,29 @@ public class SelectDescriptorBuilder {
         return getChildrenOfGroup(group, queryOptions);
     }
 
-    public static <T extends PersistentObject> SelectByIdDescriptor<T> getElementById(final Class<T> clazz, final String elementName, final long id) {
+    public static <T extends TenantPersistentObject> SelectByIdDescriptor<T> getElementById(final Class<T> clazz, final String elementName, final long id) {
         return new SelectByIdDescriptor<T>("get" + elementName + "ById", clazz, id);
     }
 
-    public static <T extends PersistentObject> SelectListDescriptor<T> getElements(final Class<T> clazz, final String elementName, final int fromIndex,
+    public static <T extends TenantPersistentObject> SelectListDescriptor<T> getElements(final Class<T> clazz, final String elementName, final int fromIndex,
             final int numberOfElements) {
         final QueryOptions queryOptions = new QueryOptions(fromIndex, numberOfElements);
         return getElements(clazz, elementName, queryOptions);
     }
 
-    public static <T extends PersistentObject> SelectListDescriptor<T> getElements(final Class<T> clazz, final String elementName,
+    public static <T extends TenantPersistentObject> SelectListDescriptor<T> getElements(final Class<T> clazz, final String elementName,
             final QueryOptions queryOptions) {
         final Map<String, Object> parameters = Collections.emptyMap();
         return new SelectListDescriptor<T>("get" + elementName + "s", parameters, clazz, queryOptions);
     }
 
-    public static <T extends PersistentObject> SelectListDescriptor<T> getElements(final Class<T> clazz, final String elementName, final String field,
+    public static <T extends TenantPersistentObject> SelectListDescriptor<T> getElements(final Class<T> clazz, final String elementName, final String field,
             final OrderByType order, final int fromIndex, final int numberOfElements) {
         final QueryOptions queryOptions = new QueryOptions(fromIndex, numberOfElements, clazz, field, order);
         return getElements(clazz, elementName, queryOptions);
     }
 
-    public static <T extends PersistentObject> SelectListDescriptor<T> getElementsByIds(final Class<T> clazz, final String elementName,
+    public static <T extends TenantPersistentObject> SelectListDescriptor<T> getElementsByIds(final Class<T> clazz, final String elementName,
             final Collection<Long> ids) {
         final Map<String, Object> parameters = Collections.singletonMap("ids", (Object) ids);
         final int maxResults = ids != null ? ids.size() : 0;
@@ -96,7 +96,7 @@ public class SelectDescriptorBuilder {
         return new SelectOneDescriptor<SGroup>("getGroupByNameAndPath", parameters, SGroup.class);
     }
 
-    public static <T extends PersistentObject> SelectByIdDescriptor<T> getLightElementById(final Class<T> clazz, final String elementName, final long id) {
+    public static <T extends TenantPersistentObject> SelectByIdDescriptor<T> getLightElementById(final Class<T> clazz, final String elementName, final long id) {
         return new SelectByIdDescriptor<T>("getLight" + elementName + "ById", clazz, id);
     }
 
@@ -113,7 +113,7 @@ public class SelectDescriptorBuilder {
         return new SelectOneDescriptor<SCustomUserInfoDefinition>("getCustomUserInfoDefinitionByName", parameters, SCustomUserInfoDefinition.class);
     }
 
-    public static SelectOneDescriptor<Long> getNumberOfElement(final String elementName, final Class<? extends PersistentObject> clazz) {
+    public static SelectOneDescriptor<Long> getNumberOfElement(final String elementName, final Class<? extends TenantPersistentObject> clazz) {
         final Map<String, Object> emptyMap = Collections.emptyMap();
         return new SelectOneDescriptor<Long>("getNumberOf" + elementName, emptyMap, clazz, Long.class);
     }

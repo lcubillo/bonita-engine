@@ -13,7 +13,7 @@
  **/
 package org.bonitasoft.engine.queriablelogger.model;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 import org.bonitasoft.engine.persistence.model.BlobValue;
 
 /**
@@ -21,7 +21,7 @@ import org.bonitasoft.engine.persistence.model.BlobValue;
  * @author Elias Ricken de Medeiros
  * @author Celine Souchet
  */
-public interface SQueriableLogParameter extends PersistentObject {
+public interface SQueriableLogParameter extends TenantPersistentObject {
 
     long getQueriableLogId();
 

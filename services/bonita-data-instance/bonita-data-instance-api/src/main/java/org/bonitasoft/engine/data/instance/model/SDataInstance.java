@@ -15,12 +15,12 @@ package org.bonitasoft.engine.data.instance.model;
 
 import java.io.Serializable;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Zhao Na
  */
-public interface SDataInstance extends PersistentObject {
+public interface SDataInstance extends TenantPersistentObject {
 
     String getName();
 

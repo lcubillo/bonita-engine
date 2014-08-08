@@ -9,7 +9,7 @@
 	</filter-def>
 
 	<class name="SGroupImpl" table="group_">
-		<composite-id class="org.bonitasoft.engine.persistence.PersistentObjectId" mapped="true">
+		<composite-id class="org.bonitasoft.engine.persistence.TenantPersistentObjectId" mapped="true">
 			<key-property name="tenantId" column="tenantid" type="long" />
 			<key-property name="id" column="ID" type="long" />
 		</composite-id>
@@ -26,7 +26,7 @@
 	</class>
 
 	<class name="SRoleImpl" table="role">
-		<composite-id class="org.bonitasoft.engine.persistence.PersistentObjectId" mapped="true">
+		<composite-id class="org.bonitasoft.engine.persistence.TenantPersistentObjectId" mapped="true">
 			<key-property name="tenantId" column="tenantid" type="long" />
 			<key-property name="id" column="ID" type="long" />
 		</composite-id>
@@ -42,7 +42,7 @@
 	</class>
 
 	<class name="SUserImpl" table="user_">
-		<composite-id class="org.bonitasoft.engine.persistence.PersistentObjectId" mapped="true">
+		<composite-id class="org.bonitasoft.engine.persistence.TenantPersistentObjectId" mapped="true">
 			<key-property name="tenantId" column="tenantid" type="long" />
 			<key-property name="id" column="ID" type="long" />
 		</composite-id>
@@ -67,7 +67,7 @@
 	</class>
 
 	<class name="SContactInfoImpl" table="user_contactinfo">
-		<composite-id class="org.bonitasoft.engine.persistence.PersistentObjectId" mapped="true">
+		<composite-id class="org.bonitasoft.engine.persistence.TenantPersistentObjectId" mapped="true">
 			<key-property name="tenantId" column="tenantid" type="long" />
 			<key-property name="id" column="ID" type="long" />
 		</composite-id>
@@ -89,7 +89,7 @@
 	</class>
 
 	<class name="SCustomUserInfoDefinitionImpl" table="custom_usr_inf_def">
-		<composite-id class="org.bonitasoft.engine.persistence.PersistentObjectId" mapped="true">
+		<composite-id class="org.bonitasoft.engine.persistence.TenantPersistentObjectId" mapped="true">
 			<key-property name="tenantId" column="tenantid" type="long" />
 			<key-property name="id" column="ID" type="long" />
 		</composite-id>
@@ -99,7 +99,7 @@
 	</class>
 
 	<class name="SCustomUserInfoValueImpl" table="custom_usr_inf_val">
-		<composite-id class="org.bonitasoft.engine.persistence.PersistentObjectId" mapped="true">
+		<composite-id class="org.bonitasoft.engine.persistence.TenantPersistentObjectId" mapped="true">
 			<key-property name="tenantId" column="tenantid" type="long" />
 			<key-property name="id" column="ID" type="long" />
 		</composite-id>
@@ -110,7 +110,7 @@
 	</class>
 
 	<class name="SUserMembershipImpl" table="user_membership">
-		<composite-id class="org.bonitasoft.engine.persistence.PersistentObjectId" mapped="true">
+		<composite-id class="org.bonitasoft.engine.persistence.TenantPersistentObjectId" mapped="true">
 			<key-property name="tenantId" column="tenantid" type="long" />
 			<key-property name="id" column="ID" type="long" />
 		</composite-id>

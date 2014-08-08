@@ -13,12 +13,12 @@
  **/
 package org.bonitasoft.engine.core.process.comment.model;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Elias Ricken de Medeiros
  */
-public interface SComment extends PersistentObject {
+public interface SComment extends TenantPersistentObject {
 
     long getTenantId();
 

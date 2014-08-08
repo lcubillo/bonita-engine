@@ -16,7 +16,7 @@ package org.bonitasoft.engine.core.process.document.model.impl;
 
 import org.bonitasoft.engine.core.process.document.model.SAProcessDocument;
 import org.bonitasoft.engine.core.process.document.model.SProcessDocument;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Zhang Bole
@@ -206,7 +206,7 @@ public class SAProcessDocumentImpl implements SAProcessDocument {
     }
 
     @Override
-    public Class<? extends PersistentObject> getPersistentObjectInterface() {
+    public Class<? extends TenantPersistentObject> getPersistentObjectInterface() {
         return SProcessDocument.class;
     }
 

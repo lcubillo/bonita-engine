@@ -70,7 +70,7 @@ public class TenantHibernatePersistenceService extends AbstractHibernatePersiste
         }
     }
 
-    protected void setTenant(final PersistentObject entity) throws SPersistenceException {
+    protected void setTenant(final TenantPersistentObject entity) throws SPersistenceException {
         if (entity == null) {
             return;
         }
@@ -86,7 +86,7 @@ public class TenantHibernatePersistenceService extends AbstractHibernatePersiste
         }
     }
 
-    private void setTenantByClassReflector(final PersistentObject entity, Long tenantId) throws SPersistenceException {
+    private void setTenantByClassReflector(final TenantPersistentObject entity, Long tenantId) throws SPersistenceException {
         try {
             tenantId = getTenantId();
             ClassReflector.invokeSetter(entity, "setTenantId", long.class, tenantId);
@@ -118,7 +118,7 @@ public class TenantHibernatePersistenceService extends AbstractHibernatePersiste
             }
             final Class<? extends PersistentObject> mappedClass = getMappedClass(entity.getClass());
             final Session session = getSession(true);
-            final Object pe = session.get(mappedClass, new PersistentObjectId(entity.getId(), getTenantId()));
+            final Object pe = session.get(mappedClass, new TenantPersistentObjectId(entity.getId(), getTenantId()));
             session.delete(pe);
         } catch (final STenantIdNotSetException e) {
             throw new SPersistenceException(e);
@@ -135,14 +135,22 @@ public class TenantHibernatePersistenceService extends AbstractHibernatePersiste
 
     @Override
     public void insert(final PersistentObject entity) throws SPersistenceException {
-        setTenant(entity);
-        super.insert(entity);
+        if (entity instanceof TenantPersistentObject) {
+            setTenant((TenantPersistentObject) entity);
+            super.insert(entity);
+        } else {
+            throw new RuntimeException("The object " + entity + " need to implement TenantPersistentObject.");
+        }
     }
 
     @Override
     public void insertInBatch(final List<PersistentObject> entities) throws SPersistenceException {
         for (final PersistentObject entity : entities) {
-            setTenant(entity);
+            if (entity instanceof TenantPersistentObject) {
+                setTenant((TenantPersistentObject) entity);
+            } else {
+                throw new RuntimeException("The object " + entity + " need to implement TenantPersistentObject.");
+            }
         }
         super.insertInBatch(entities);
     }
@@ -156,7 +164,7 @@ public class TenantHibernatePersistenceService extends AbstractHibernatePersiste
     @Override
     <T extends PersistentObject> T selectById(final Session session, final SelectByIdDescriptor<T> selectDescriptor) throws SBonitaReadException {
         try {
-            final PersistentObjectId id = new PersistentObjectId(selectDescriptor.getId(), getTenantId());
+            final TenantPersistentObjectId id = new TenantPersistentObjectId(selectDescriptor.getId(), getTenantId());
             Class<? extends PersistentObject> mappedClass = null;
             mappedClass = getMappedClass(selectDescriptor.getEntityType());
             return (T) session.get(mappedClass, id);

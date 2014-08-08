@@ -2,9 +2,9 @@ package org.bonitasoft.engine.test.persistence.builder;
 
 import java.util.Random;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
-public abstract class PersistentObjectBuilder<T extends PersistentObject, B extends PersistentObjectBuilder<T, B>> {
+public abstract class PersistentObjectBuilder<T extends TenantPersistentObject, B extends PersistentObjectBuilder<T, B>> {
 
     public static final long DEFAULT_TENANT_ID = 1L;
 

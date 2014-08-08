@@ -13,12 +13,12 @@
  **/
 package org.bonitasoft.engine.profile.model;
 
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 
 /**
  * @author Matthieu Chaffotte
  */
-public interface SProfileEntry extends PersistentObject {
+public interface SProfileEntry extends TenantPersistentObject {
 
     long getParentId();
 

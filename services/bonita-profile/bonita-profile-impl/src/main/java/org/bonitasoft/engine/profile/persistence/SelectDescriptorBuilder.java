@@ -20,7 +20,7 @@ import java.util.Map;
 
 import org.bonitasoft.engine.persistence.OrderByOption;
 import org.bonitasoft.engine.persistence.OrderByType;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 import org.bonitasoft.engine.persistence.QueryOptions;
 import org.bonitasoft.engine.persistence.SelectByIdDescriptor;
 import org.bonitasoft.engine.persistence.SelectListDescriptor;
@@ -45,34 +45,34 @@ public class SelectDescriptorBuilder {
 
     private static final String PARENT_ID = "parentId";
 
-    public static <T extends PersistentObject> SelectByIdDescriptor<T> getElementById(final Class<T> clazz, final String elementName, final long id) {
+    public static <T extends TenantPersistentObject> SelectByIdDescriptor<T> getElementById(final Class<T> clazz, final String elementName, final long id) {
         return new SelectByIdDescriptor<T>("get" + elementName + "ById", clazz, id);
     }
 
-    public static SelectOneDescriptor<Long> getNumberOfElement(final String elementName, final Class<? extends PersistentObject> clazz) {
+    public static SelectOneDescriptor<Long> getNumberOfElement(final String elementName, final Class<? extends TenantPersistentObject> clazz) {
         final Map<String, Object> parameters = Collections.emptyMap();
         return new SelectOneDescriptor<Long>("getNumberOf" + elementName, parameters, clazz, Long.class);
     }
 
-    public static <T extends PersistentObject> SelectOneDescriptor<T> getElementByNameDescriptor(final Class<T> clazz, final String elementName,
+    public static <T extends TenantPersistentObject> SelectOneDescriptor<T> getElementByNameDescriptor(final Class<T> clazz, final String elementName,
             final String name) {
         final Map<String, Object> parameters = Collections.singletonMap("name", (Object) name);
         return new SelectOneDescriptor<T>("get" + elementName + "ByName", parameters, clazz);
     }
 
-    public static <T extends PersistentObject> SelectListDescriptor<T> getElements(final Class<T> clazz, final String elementName, final int fromIndex,
+    public static <T extends TenantPersistentObject> SelectListDescriptor<T> getElements(final Class<T> clazz, final String elementName, final int fromIndex,
             final int numberOfElements) {
         final QueryOptions queryOptions = new QueryOptions(fromIndex, numberOfElements);
         return getElements(clazz, elementName, queryOptions);
     }
 
-    public static <T extends PersistentObject> SelectListDescriptor<T> getElements(final Class<T> clazz, final String elementName, final String field,
+    public static <T extends TenantPersistentObject> SelectListDescriptor<T> getElements(final Class<T> clazz, final String elementName, final String field,
             final OrderByType order, final int fromIndex, final int numberOfElements) {
         final QueryOptions queryOptions = new QueryOptions(fromIndex, numberOfElements, clazz, field, order);
         return getElements(clazz, elementName, queryOptions);
     }
 
-    public static <T extends PersistentObject> SelectListDescriptor<T> getElements(final Class<T> clazz, final String elementName,
+    public static <T extends TenantPersistentObject> SelectListDescriptor<T> getElements(final Class<T> clazz, final String elementName,
             final QueryOptions queryOptions) {
         final Map<String, Object> parameters = Collections.emptyMap();
         return new SelectListDescriptor<T>("get" + elementName + "s", parameters, clazz, queryOptions);

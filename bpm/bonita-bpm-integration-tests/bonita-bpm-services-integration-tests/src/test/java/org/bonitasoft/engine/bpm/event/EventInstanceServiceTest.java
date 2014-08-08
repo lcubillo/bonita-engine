@@ -44,7 +44,7 @@ import org.bonitasoft.engine.core.process.instance.model.event.trigger.STimerEve
 import org.bonitasoft.engine.persistence.FilterOption;
 import org.bonitasoft.engine.persistence.OrderByOption;
 import org.bonitasoft.engine.persistence.OrderByType;
-import org.bonitasoft.engine.persistence.PersistentObject;
+import org.bonitasoft.engine.persistence.TenantPersistentObject;
 import org.bonitasoft.engine.persistence.QueryOptions;
 import org.bonitasoft.engine.transaction.UserTransactionService;
 import org.junit.Test;
@@ -588,7 +588,7 @@ public class EventInstanceServiceTest extends CommonBPMServicesTest {
         assertEquals(expectedNbOfWaitingEvents, waitingErrorEvents.size());
     }
 
-    private QueryOptions getQueryOptions(final Class<? extends PersistentObject> clazz, final int fromIndex, final int maxResult, final String orderByField,
+    private QueryOptions getQueryOptions(final Class<? extends TenantPersistentObject> clazz, final int fromIndex, final int maxResult, final String orderByField,
             final OrderByType orderByType, final String filterKey, final Object filterValue) {
         final OrderByOption orderByOption = new OrderByOption(clazz, orderByField, orderByType);
         final FilterOption filterOption = new FilterOption(clazz, filterKey, filterValue);
@@ -597,7 +597,7 @@ public class EventInstanceServiceTest extends CommonBPMServicesTest {
         return boundaryQueryOptions;
     }
 
-    private QueryOptions getCountOptions(final Class<? extends PersistentObject> clazz, final String filterKey, final Object filterValue) {
+    private QueryOptions getCountOptions(final Class<? extends TenantPersistentObject> clazz, final String filterKey, final Object filterValue) {
         final FilterOption filterOption = new FilterOption(clazz, filterKey, filterValue);
         final List<OrderByOption> emptyOrderByOptions = Collections.emptyList();
         final QueryOptions countOptions = new QueryOptions(0, 1, emptyOrderByOptions, Collections.singletonList(filterOption), null);

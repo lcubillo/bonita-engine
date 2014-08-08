@@ -610,19 +610,6 @@ public class PlatformServiceImpl implements PlatformService {
                 // Ok
             }
         }
-        // final UpdateDescriptor desc = new UpdateDescriptor(tenant);
-        // desc.addFields(descriptor.getFields());
-        // try {
-        // platformPersistenceService.update(desc);
-        // if (trace) {
-        // logger.log(this.getClass(), TechnicalLogSeverity.TRACE, LogUtil.getLogAfterMethod(this.getClass(), LOG_UPDATE_TENANT));
-        // }
-        // } catch (final SPersistenceException e) {
-        // if (trace) {
-        // logger.log(this.getClass(), TechnicalLogSeverity.TRACE, LogUtil.getLogOnExceptionMethod(this.getClass(), LOG_UPDATE_TENANT, e));
-        // }
-        // throw new STenantUpdateException("Problem while updating tenant: " + tenant, e);
-        // }
 
         final UpdateRecord updateRecord = UpdateRecord.buildSetFields(tenant, descriptor);
         final SUpdateEvent updateEvent = (SUpdateEvent) BuilderFactory.get(SEventBuilderFactory.class).createUpdateEvent(TENANT).setObject(tenant).done();
