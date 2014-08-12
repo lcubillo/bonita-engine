@@ -225,6 +225,7 @@ public class SpringTenantServiceAccessor implements TenantServiceAccessor {
     private TenantConfiguration tenantConfiguration;
 
     private TransientDataService transientDataService;
+
     private TimeTracker timeTracker;
 
     public SpringTenantServiceAccessor(final Long tenantId) {
