@@ -30,265 +30,81 @@ public class SDocumentMappingImpl implements SDocumentMapping {
 
     private long processInstanceId;
 
-    private String documentName;
-
-    private long documentAuthor;
-
-    private long documentCreationDate;
-
-    private boolean documentHasContent;
-
-    private String documentContentFileName;
-
-    private String documentContentMimeType;
-
-    private String contentStorageId;
-
-    private String documentURL;
+    private long documentMetadataId;
 
     public SDocumentMappingImpl() {
     }
 
-    public SDocumentMappingImpl(final long processInstanceId, final String documentName) {
-        this.processInstanceId = processInstanceId;
-        this.documentName = documentName;
-    }
 
-    public SDocumentMappingImpl(final SDocumentMapping documentMapping) {
-        id = documentMapping.getId();
-        tenantId = documentMapping.getTenantId();
-        processInstanceId = documentMapping.getProcessInstanceId();
-        documentName = documentMapping.getDocumentName();
-        documentAuthor = documentMapping.getDocumentAuthor();
-        documentCreationDate = documentMapping.getDocumentCreationDate();
-        documentContentFileName = documentMapping.getDocumentContentFileName();
-        documentContentMimeType = documentMapping.getDocumentContentMimeType();
-        contentStorageId = documentMapping.getContentStorageId();
-    }
-
-    public void setId(final long id) {
-        this.id = id;
-    }
-
-    @Override
-    public long getId() {
-        return id;
-    }
-
-    @Override
-    public long getTenantId() {
-        return tenantId;
-    }
-
-    public void setTenantId(final long tenantId) {
-        this.tenantId = tenantId;
-    }
-
-    @Override
-    public long getProcessInstanceId() {
-        return processInstanceId;
-    }
 
     @Override
     public String getDiscriminator() {
         return SDocumentMappingImpl.class.getName();
     }
 
-    public void setProcessInstanceId(final long processInstanceId) {
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getTenantId() {
+        return tenantId;
+    }
+
+    public void setTenantId(long tenantId) {
+        this.tenantId = tenantId;
+    }
+
+    public long getProcessInstanceId() {
+        return processInstanceId;
+    }
+
+    public void setProcessInstanceId(long processInstanceId) {
         this.processInstanceId = processInstanceId;
     }
 
-    public void setDocumentStorageId(final String documentContentStorageId) {
-        contentStorageId = documentContentStorageId;
+    public long getDocumentMetadataId() {
+        return documentMetadataId;
+    }
+
+    public void setDocumentMetadataId(long documentMetadataId) {
+        this.documentMetadataId = documentMetadataId;
     }
 
     @Override
-    public String getDocumentName() {
-        return documentName;
-    }
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
-    public void setDocumentName(final String documentName) {
-        this.documentName = documentName;
+        SDocumentMappingImpl that = (SDocumentMappingImpl) o;
 
-    }
+        if (documentMetadataId != that.documentMetadataId) return false;
+        if (id != that.id) return false;
+        if (processInstanceId != that.processInstanceId) return false;
+        if (tenantId != that.tenantId) return false;
 
-    @Override
-    public String getContentStorageId() {
-        return contentStorageId;
-    }
-
-    public void setContentStorageId(final String contentStorageId) {
-        this.contentStorageId = contentStorageId;
-
-    }
-
-    @Override
-    public long getDocumentAuthor() {
-        return documentAuthor;
-    }
-
-    public void setDocumentAuthor(final long documentAuthor) {
-        this.documentAuthor = documentAuthor;
-    }
-
-    @Override
-    public long getDocumentCreationDate() {
-        return documentCreationDate;
-    }
-
-    public void setDocumentCreationDate(final long creationDate) {
-        documentCreationDate = creationDate;
-    }
-
-    @Override
-    public String getDocumentContentMimeType() {
-        return documentContentMimeType;
-    }
-
-    public void setDocumentContentMimeType(final String documentContentMimeType) {
-        this.documentContentMimeType = documentContentMimeType;
-    }
-
-    @Override
-    public String getDocumentContentFileName() {
-        return documentContentFileName;
-    }
-
-    public void setDocumentContentFileName(final String documentContentFileName) {
-        this.documentContentFileName = documentContentFileName;
-    }
-
-    public void setDocumentHasContent(final boolean hasContent) {
-        documentHasContent = hasContent;
-    }
-
-    @Override
-    public boolean documentHasContent() {
-        return documentHasContent;
-    }
-
-    @Override
-    public String getDocumentURL() {
-        return documentURL;
-    }
-
-    public void setDocumentURL(final String url) {
-        documentURL = url;
-    }
-
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + (contentStorageId == null ? 0 : contentStorageId.hashCode());
-        result = prime * result + (int) (documentAuthor ^ documentAuthor >>> 32);
-        result = prime * result + (documentContentFileName == null ? 0 : documentContentFileName.hashCode());
-        result = prime * result + (documentContentMimeType == null ? 0 : documentContentMimeType.hashCode());
-        result = prime * result + (int) (documentCreationDate ^ documentCreationDate >>> 32);
-        result = prime * result + (documentHasContent ? 1231 : 1237);
-        result = prime * result + (documentName == null ? 0 : documentName.hashCode());
-        result = prime * result + (documentURL == null ? 0 : documentURL.hashCode());
-        result = prime * result + (int) (id ^ id >>> 32);
-        result = prime * result + (int) (processInstanceId ^ processInstanceId >>> 32);
-        result = prime * result + (int) (tenantId ^ tenantId >>> 32);
-        return result;
-    }
-
-    @Override
-    public boolean equals(final Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final SDocumentMappingImpl other = (SDocumentMappingImpl) obj;
-        if (contentStorageId == null) {
-            if (other.contentStorageId != null) {
-                return false;
-            }
-        } else if (!contentStorageId.equals(other.contentStorageId)) {
-            return false;
-        }
-        if (documentAuthor != other.documentAuthor) {
-                return false;
-        }
-        if (documentContentFileName == null) {
-            if (other.documentContentFileName != null) {
-                return false;
-            }
-        } else if (!documentContentFileName.equals(other.documentContentFileName)) {
-            return false;
-        }
-        if (documentContentMimeType == null) {
-            if (other.documentContentMimeType != null) {
-                return false;
-            }
-        } else if (!documentContentMimeType.equals(other.documentContentMimeType)) {
-            return false;
-        }
-        if (documentCreationDate != other.documentCreationDate) {
-            return false;
-        }
-        if (documentHasContent != other.documentHasContent) {
-            return false;
-        }
-        if (documentName == null) {
-            if (other.documentName != null) {
-                return false;
-            }
-        } else if (!documentName.equals(other.documentName)) {
-            return false;
-        }
-        if (documentURL == null) {
-            if (other.documentURL != null) {
-                return false;
-            }
-        } else if (!documentURL.equals(other.documentURL)) {
-            return false;
-        }
-        if (id != other.id) {
-            return false;
-        }
-        if (processInstanceId != other.processInstanceId) {
-            return false;
-        }
-        if (tenantId != other.tenantId) {
-            return false;
-        }
         return true;
     }
 
     @Override
-    public String toString() {
-        final StringBuilder builder = new StringBuilder();
-        builder.append("SDocumentMappingImpl [id=");
-        builder.append(id);
-        builder.append(", tenantId=");
-        builder.append(tenantId);
-        builder.append(", processInstanceId=");
-        builder.append(processInstanceId);
-        builder.append(", documentName=");
-        builder.append(documentName);
-        builder.append(", documentAuthor=");
-        builder.append(documentAuthor);
-        builder.append(", documentCreationDate=");
-        builder.append(documentCreationDate);
-        builder.append(", documentHasContent=");
-        builder.append(documentHasContent);
-        builder.append(", documentContentFileName=");
-        builder.append(documentContentFileName);
-        builder.append(", documentContentMimeType=");
-        builder.append(documentContentMimeType);
-        builder.append(", contentStorageId=");
-        builder.append(contentStorageId);
-        builder.append(", documentURL=");
-        builder.append(documentURL);
-        builder.append("]");
-        return builder.toString();
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (int) (tenantId ^ (tenantId >>> 32));
+        result = 31 * result + (int) (processInstanceId ^ (processInstanceId >>> 32));
+        result = 31 * result + (int) (documentMetadataId ^ (documentMetadataId >>> 32));
+        return result;
     }
 
+    @Override
+    public String toString() {
+        return "SDocumentMappingImpl{" +
+                "id=" + id +
+                ", tenantId=" + tenantId +
+                ", processInstanceId=" + processInstanceId +
+                ", documentMetadataId=" + documentMetadataId +
+                '}';
+    }
 }

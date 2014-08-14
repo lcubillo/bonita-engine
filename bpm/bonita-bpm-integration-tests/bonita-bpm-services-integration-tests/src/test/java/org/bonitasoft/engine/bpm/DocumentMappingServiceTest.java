@@ -24,7 +24,7 @@ import org.bonitasoft.engine.builder.BuilderFactory;
 import org.bonitasoft.engine.commons.exceptions.SBonitaException;
 import org.bonitasoft.engine.core.document.api.DocumentMappingService;
 import org.bonitasoft.engine.core.document.model.SDocumentMapping;
-import org.bonitasoft.engine.core.document.model.builder.SDocumentMappingBuilder;
+import org.bonitasoft.engine.core.document.model.builder.SDocumentMetadataBuilder;
 import org.bonitasoft.engine.core.document.model.builder.SDocumentMappingBuilderFactory;
 import org.bonitasoft.engine.persistence.OrderByType;
 import org.bonitasoft.engine.test.annotation.Cover;
@@ -169,14 +169,14 @@ public class DocumentMappingServiceTest extends CommonBPMServicesTest {
     }
 
     private SDocumentMapping buildDocumentMapping(final int i) {
-        final SDocumentMappingBuilder builder = BuilderFactory.get(SDocumentMappingBuilderFactory.class).createNewInstance();
-        builder.setDocumentAuthor(i);
-        builder.setDocumentContentFileName("getContentTest.txt");
-        builder.setDocumentContentMimeType("text/plain");
-        builder.setDocumentCreationDate(System.currentTimeMillis());
-        builder.setDocumentName("documentName" + i);
-        builder.setDocumentStorageId(String.valueOf(i));
-        builder.setDocumentURL("url");
+        final SDocumentMetadataBuilder builder = BuilderFactory.get(SDocumentMappingBuilderFactory.class).createNewInstance();
+        builder.setAuthor(i);
+        builder.setContentFileName("getContentTest.txt");
+        builder.setContentMimeType("text/plain");
+        builder.setCreationDate(System.currentTimeMillis());
+        builder.setName("documentName" + i);
+        builder.setStorageId(String.valueOf(i));
+        builder.setURL("url");
         builder.setHasContent(true);
         builder.setProcessInstanceId(i);
         return builder.done();

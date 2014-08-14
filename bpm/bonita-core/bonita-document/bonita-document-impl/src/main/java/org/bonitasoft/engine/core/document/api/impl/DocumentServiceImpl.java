@@ -30,8 +30,9 @@ import org.bonitasoft.engine.core.document.exception.SDocumentMappingDeletionExc
 import org.bonitasoft.engine.core.document.exception.SDocumentMappingException;
 import org.bonitasoft.engine.core.document.exception.SDocumentMappingNotFoundException;
 import org.bonitasoft.engine.core.document.model.SDocumentMapping;
+import org.bonitasoft.engine.core.document.model.SDocumentMetadata;
 import org.bonitasoft.engine.core.document.model.archive.SADocumentMapping;
-import org.bonitasoft.engine.core.document.model.builder.SDocumentMappingBuilder;
+import org.bonitasoft.engine.core.document.model.builder.SDocumentMetadataBuilder;
 import org.bonitasoft.engine.core.document.model.builder.SDocumentMappingBuilderFactory;
 import org.bonitasoft.engine.core.document.DocumentContentService;
 import org.bonitasoft.engine.core.document.exception.SDocumentException;
@@ -63,7 +64,7 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
     @Override
-    public SDocumentMapping attachDocumentToProcessInstance(final SDocumentMapping document) throws SProcessDocumentCreationException {
+    public SDocumentMetadata attachDocumentToProcessInstance(final SDocumentMapping document) throws SProcessDocumentCreationException {
         try {
             return documentMappingService.create(document);
         } catch (final SBonitaException e) {
@@ -84,8 +85,8 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
     SDocumentMapping setStorageId(final SDocumentMapping document, final String storageId) {
-        final SDocumentMappingBuilder builder = initDocumentMappingBuilder(document);
-        builder.setDocumentStorageId(storageId);
+        final SDocumentMetadataBuilder builder = initDocumentMappingBuilder(document);
+        builder.setStorageId(storageId);
         builder.setHasContent(true);
         return builder.done();
     }
@@ -266,16 +267,16 @@ public class DocumentServiceImpl implements DocumentService {
         return documentMappingService.getNumberOfDocumentsSupervisedBy(userId, queryOptions);
     }
 
-    private SDocumentMappingBuilder initDocumentMappingBuilder(final SDocumentMapping document) {
-        final SDocumentMappingBuilder builder = BuilderFactory.get(SDocumentMappingBuilderFactory.class).createNewInstance();
+    private SDocumentMetadataBuilder initDocumentMappingBuilder(final SDocumentMapping document) {
+        final SDocumentMetadataBuilder builder = BuilderFactory.get(SDocumentMappingBuilderFactory.class).createNewInstance();
         builder.setProcessInstanceId(document.getProcessInstanceId());
-        builder.setDocumentName(document.getDocumentName());
-        builder.setDocumentAuthor(document.getDocumentAuthor());
-        builder.setDocumentCreationDate(document.getDocumentCreationDate());
+        builder.setName(document.getDocumentName());
+        builder.setAuthor(document.getDocumentAuthor());
+        builder.setCreationDate(document.getDocumentCreationDate());
         builder.setHasContent(document.documentHasContent());
-        builder.setDocumentContentFileName(document.getDocumentContentFileName());
-        builder.setDocumentContentMimeType(document.getDocumentContentMimeType());
-        builder.setDocumentStorageId(document.getContentStorageId());
+        builder.setContentFileName(document.getDocumentContentFileName());
+        builder.setContentMimeType(document.getDocumentContentMimeType());
+        builder.setStorageId(document.getContentStorageId());
         return builder;
     }
 

@@ -41,8 +41,8 @@ public interface SDocumentMappingBuilderFactory {
 
     String getDocumentURLKey();
 
-    SDocumentMappingBuilder createNewInstance();
+    SDocumentMetadataBuilder createNewInstance();
 
-    SDocumentMappingBuilder createNewInstance(SDocumentMapping documentMapping);
+    SDocumentMetadataBuilder createNewInstance(SDocumentMapping documentMapping);
 
 }

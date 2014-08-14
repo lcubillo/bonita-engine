@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2012-2013 BonitaSoft S.A.
+ * Copyright (C) 2014 BonitaSoft S.A.
  * BonitaSoft, 32 rue Gustave Eiffel - 38000 Grenoble
  * This library is free software; you can redistribute it and/or modify it under the terms
  * of the GNU Lesser General Public License as published by the Free Software Foundation
@@ -16,15 +16,26 @@ package org.bonitasoft.engine.core.document.model;
 import org.bonitasoft.engine.persistence.PersistentObject;
 
 /**
- * @author Nicolas Chabanoles
- * @author Matthieu Chaffotte
+ * @author Baptiste Mesta
  */
-public interface SDocumentMapping extends PersistentObject {
+public interface SDocumentMetadata extends PersistentObject {
 
     long getTenantId();
 
-    long getProcessInstanceId();
+    String getName();
 
-    long getDocumentMetadataId();
+    String getContentStorageId();
+
+    long getAuthor();
+
+    long getCreationDate();
+
+    String getContentMimeType();
+
+    String getContentFileName();
+
+    boolean hasContent();
+
+    String getURL();
 
 }

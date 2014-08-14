@@ -13,32 +13,30 @@
  **/
 package org.bonitasoft.engine.core.document.model.builder;
 
-import org.bonitasoft.engine.core.document.model.SDocumentMapping;
+import org.bonitasoft.engine.core.document.model.SDocumentMetadata;
 
 /**
  * @author Nicolas Chabanoles
  * @author Zhang Bole
  */
-public interface SDocumentMappingBuilder {
+public interface SDocumentMetadataBuilder {
 
-    SDocumentMappingBuilder setProcessInstanceId(final long processInstanceId);
+    SDocumentMetadataBuilder setName(String documentName);
 
-    SDocumentMappingBuilder setDocumentName(String documentName);
+    SDocumentMetadataBuilder setAuthor(long author);
 
-    SDocumentMappingBuilder setDocumentAuthor(long author);
+    SDocumentMetadataBuilder setCreationDate(long creationDate);
 
-    SDocumentMappingBuilder setDocumentCreationDate(long creationDate);
+    SDocumentMetadataBuilder setHasContent(boolean hasContent);
 
-    SDocumentMappingBuilder setHasContent(boolean hasContent);
+    SDocumentMetadataBuilder setContentFileName(String contentFileName);
 
-    SDocumentMappingBuilder setDocumentContentFileName(String contentFileName);
+    SDocumentMetadataBuilder setContentMimeType(String contentMimeType);
 
-    SDocumentMappingBuilder setDocumentContentMimeType(String contentMimeType);
+    SDocumentMetadataBuilder setStorageId(final String documentId);
 
-    SDocumentMappingBuilder setDocumentStorageId(final String documentId);
+    SDocumentMetadataBuilder setURL(String generateURL);
 
-    SDocumentMappingBuilder setDocumentURL(String generateURL);
-
-    SDocumentMapping done();
+    SDocumentMetadata done();
 
 }

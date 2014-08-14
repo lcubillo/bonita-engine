@@ -19,6 +19,7 @@ import java.util.List;
 import org.bonitasoft.engine.commons.exceptions.SObjectModificationException;
 import org.bonitasoft.engine.core.document.exception.*;
 import org.bonitasoft.engine.core.document.model.SDocumentMapping;
+import org.bonitasoft.engine.core.document.model.SDocumentMetadata;
 import org.bonitasoft.engine.core.document.model.archive.SADocumentMapping;
 import org.bonitasoft.engine.persistence.OrderByType;
 import org.bonitasoft.engine.persistence.QueryOptions;
@@ -40,7 +41,7 @@ public interface DocumentService {
      * @throws org.bonitasoft.engine.core.document.exception.SProcessDocumentCreationException
      *             when the storage has failed
      */
-    SDocumentMapping attachDocumentToProcessInstance(SDocumentMapping document) throws SProcessDocumentCreationException;
+    SDocumentMetadata attachDocumentToProcessInstance(SDocumentMetadata document) throws SProcessDocumentCreationException;
 
     /**
      * Modify document information
@@ -51,7 +52,7 @@ public interface DocumentService {
      * @throws SProcessDocumentCreationException
      *             when the update has failed
      */
-    SDocumentMapping updateDocumentOfProcessInstance(SDocumentMapping document) throws SProcessDocumentCreationException;
+    SDocumentMetadata updateDocumentOfProcessInstance(SDocumentMetadata document) throws SProcessDocumentCreationException;
 
     /**
      * Store a document and its content
@@ -63,7 +64,7 @@ public interface DocumentService {
      * @return The stored document
      * @throws SProcessDocumentCreationException
      */
-    SDocumentMapping attachDocumentToProcessInstance(SDocumentMapping document, byte[] documentContent) throws SProcessDocumentCreationException;
+    SDocumentMetadata attachDocumentToProcessInstance(SDocumentMetadata document, byte[] documentContent) throws SProcessDocumentCreationException;
 
     /**
      * update the specific document, set it content as the specific content
@@ -75,7 +76,7 @@ public interface DocumentService {
      * @return the updated object
      * @throws SProcessDocumentCreationException
      */
-    SDocumentMapping updateDocumentOfProcessInstance(SDocumentMapping document, byte[] documentContent) throws SProcessDocumentCreationException;
+    SDocumentMetadata updateDocumentOfProcessInstance(SDocumentMetadata document, byte[] documentContent) throws SProcessDocumentCreationException;
 
     /**
      * remove the current version of the document but archive it before
@@ -105,7 +106,7 @@ public interface DocumentService {
      * @return an SDocumentMapping object with id corresponding to the parameter
      * @throws SDocumentNotFoundException
      */
-    SDocumentMapping getDocument(long documentId) throws SDocumentNotFoundException;
+    SDocumentMetadata getDocument(long documentId) throws SDocumentNotFoundException;
 
     /**
      * Get document by its name in the specific process instance
@@ -117,7 +118,7 @@ public interface DocumentService {
      * @return the corresponding SDocumentMapping object
      * @throws SDocumentNotFoundException
      */
-    SDocumentMapping getDocument(long processInstanceId, String documentName) throws SDocumentNotFoundException;
+    SDocumentMetadata getDocument(long processInstanceId, String documentName) throws SDocumentNotFoundException;
 
     /**
      * Get a list of documents for specific process instance, this can be used for pagination
@@ -133,7 +134,7 @@ public interface DocumentService {
      * @return a list of SDocumentMapping objects
      * @throws SDocumentException
      */
-    List<SDocumentMapping> getDocumentsOfProcessInstance(long processInstanceId, int fromIndex, int numberPerPage, String field, OrderByType order)
+    List<SDocumentMetadata> getDocumentsOfProcessInstance(long processInstanceId, int fromIndex, int numberPerPage, String field, OrderByType order)
             throws SDocumentException;
 
     /**
@@ -159,7 +160,7 @@ public interface DocumentService {
      * @return an SDocumentMapping object archived in the specific time or not archived
      * @throws SDocumentNotFoundException
      */
-    SDocumentMapping getDocument(long processInstanceId, String documentName, long time) throws SDocumentNotFoundException;
+    SDocumentMetadata getDocument(long processInstanceId, String documentName, long time) throws SDocumentNotFoundException;
 
     /**
      * Get total number of document according to the query criteria
@@ -179,7 +180,7 @@ public interface DocumentService {
      * @return a list of SDocumentMapping objects
      * @throws SBonitaSearchException
      */
-    List<SDocumentMapping> searchDocuments(QueryOptions queryOptions) throws SBonitaSearchException;
+    List<SDocumentMetadata> searchDocuments(QueryOptions queryOptions) throws SBonitaSearchException;
 
     /**
      * Get total number of documents for the specific supervisor
@@ -271,7 +272,7 @@ public interface DocumentService {
      * @throws SDocumentNotFoundException
      *             when the archive does not exist
      */
-    SADocumentMapping getArchivedDocument(long archivedProcessDocumentId) throws SDocumentNotFoundException;
+    SDocumentMetadata getArchivedDocument(long archivedProcessDocumentId) throws SDocumentNotFoundException;
 
     /**
      * Remove documents
@@ -279,7 +280,7 @@ public interface DocumentService {
      * @param sProcessDocuments
      * @throws org.bonitasoft.engine.core.document.exception.SProcessDocumentDeletionException
      */
-    void removeDocuments(List<SDocumentMapping> sProcessDocuments) throws SProcessDocumentDeletionException;
+    void removeDocuments(List<SDocumentMetadata> sProcessDocuments) throws SProcessDocumentDeletionException;
 
     /**
      * Remove document
@@ -287,7 +288,7 @@ public interface DocumentService {
      * @param sProcessDocument
      * @throws SProcessDocumentDeletionException
      */
-    void removeDocument(SDocumentMapping sProcessDocument) throws SProcessDocumentDeletionException;
+    void removeDocument(SDocumentMetadata sProcessDocument) throws SProcessDocumentDeletionException;
 
     /**
      * Delete documents from a specified process instance

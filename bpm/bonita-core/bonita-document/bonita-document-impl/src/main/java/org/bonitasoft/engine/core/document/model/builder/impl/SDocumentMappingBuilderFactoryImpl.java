@@ -15,7 +15,7 @@
 package org.bonitasoft.engine.core.document.model.builder.impl;
 
 import org.bonitasoft.engine.core.document.model.SDocumentMapping;
-import org.bonitasoft.engine.core.document.model.builder.SDocumentMappingBuilder;
+import org.bonitasoft.engine.core.document.model.builder.SDocumentMetadataBuilder;
 import org.bonitasoft.engine.core.document.model.builder.SDocumentMappingBuilderFactory;
 import org.bonitasoft.engine.core.document.model.impl.SDocumentMappingImpl;
 
@@ -48,15 +48,15 @@ public class SDocumentMappingBuilderFactoryImpl implements SDocumentMappingBuild
 
 
     @Override
-    public SDocumentMappingBuilder createNewInstance() {
+    public SDocumentMetadataBuilder createNewInstance() {
         final SDocumentMappingImpl documentMapping = new SDocumentMappingImpl();
-        return new SDocumentMappingBuilderImpl(documentMapping);
+        return new SDocumentMetadataBuilderImpl(documentMapping);
     }
 
     @Override
-    public SDocumentMappingBuilder createNewInstance(final SDocumentMapping originalDocumentMapping) {
+    public SDocumentMetadataBuilder createNewInstance(final SDocumentMapping originalDocumentMapping) {
         final SDocumentMappingImpl documentMapping = new SDocumentMappingImpl(originalDocumentMapping);
-        return new SDocumentMappingBuilderImpl(documentMapping);
+        return new SDocumentMetadataBuilderImpl(documentMapping);
     }
 
     @Override

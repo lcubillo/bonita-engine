@@ -24,7 +24,7 @@ import org.bonitasoft.engine.builder.BuilderFactory;
 import org.bonitasoft.engine.commons.exceptions.SBonitaException;
 import org.bonitasoft.engine.core.document.api.DocumentService;
 import org.bonitasoft.engine.core.document.model.SDocumentMapping;
-import org.bonitasoft.engine.core.document.model.builder.SDocumentMappingBuilder;
+import org.bonitasoft.engine.core.document.model.builder.SDocumentMetadataBuilder;
 import org.bonitasoft.engine.core.document.model.builder.SDocumentMappingBuilderFactory;
 import org.bonitasoft.engine.core.document.exception.SDocumentNotFoundException;
 import org.bonitasoft.engine.persistence.OrderByType;
@@ -219,24 +219,24 @@ public class DocumentContentServiceTest extends CommonBPMServicesTest {
     }
 
     private SDocumentMapping buildProcessDocumentWithContent(final int i) {
-        final SDocumentMappingBuilder builder = BuilderFactory.get(SDocumentMappingBuilderFactory.class).createNewInstance();
-        builder.setDocumentAuthor(i);
-        builder.setDocumentCreationDate(System.currentTimeMillis());
-        builder.setDocumentContentFileName("getContentTest.txt");
+        final SDocumentMetadataBuilder builder = BuilderFactory.get(SDocumentMappingBuilderFactory.class).createNewInstance();
+        builder.setAuthor(i);
+        builder.setCreationDate(System.currentTimeMillis());
+        builder.setContentFileName("getContentTest.txt");
         builder.setHasContent(true);
-        builder.setDocumentName("documentName" + i);
-        builder.setDocumentContentMimeType("text/plain");
+        builder.setName("documentName" + i);
+        builder.setContentMimeType("text/plain");
         return builder.done();
     }
 
     private SDocumentMapping buildProcessDocument(final int i) {
-        final SDocumentMappingBuilder builder = BuilderFactory.get(SDocumentMappingBuilderFactory.class).createNewInstance();
-        builder.setDocumentAuthor(i);
-        builder.setDocumentCreationDate(System.currentTimeMillis());
-        builder.setDocumentContentFileName("getContentTest.txt");
+        final SDocumentMetadataBuilder builder = BuilderFactory.get(SDocumentMappingBuilderFactory.class).createNewInstance();
+        builder.setAuthor(i);
+        builder.setCreationDate(System.currentTimeMillis());
+        builder.setContentFileName("getContentTest.txt");
         builder.setHasContent(false);
-        builder.setDocumentName("documentName" + i);
-        builder.setDocumentContentMimeType("text/plain");
+        builder.setName("documentName" + i);
+        builder.setContentMimeType("text/plain");
         return builder.done();
     }
 

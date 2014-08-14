@@ -151,12 +151,12 @@ public interface DocumentAPI {
      *
      * @param documentId
      *            The identifier of the document to retrieve
-     * @return a document object
+     * @retura document object
      * @throws DocumentNotFoundException
      *             when the document identifier does not refer to an existing document
      * @throws InvalidSessionException
      *             when the session is not valid
-     * @since 6.4
+     * @since 6.0
      */
     Document getDocument(long documentId) throws DocumentNotFoundException;
 
@@ -170,7 +170,7 @@ public interface DocumentAPI {
      *             when the document identifier does not refer to an existing document
      * @throws InvalidSessionException
      *             when the session is not valid
-     * @since 6.0
+     * @since 6.4
      */
     Document removeDocument(long documentId) throws DocumentNotFoundException, DeletionException;
 
