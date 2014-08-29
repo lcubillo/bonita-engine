@@ -25,9 +25,7 @@
 		 factory="org.bonitasoft.tomcat.atomikos.AtomikosTomcatFactoryFactory"
 		 uniqueResourceName="bonitaDS"
 		 xaDataSourceClassName="#db.datasource.class#"
-		 xaProperties.user="#db.user#"
-		 xaProperties.password="#db.password#"
-		 xaProperties.URL="#db.url#"
+		 #ds.properties#
 		 minPoolSize="5"
 		 maxPoolSize="10"/>
 

@@ -249,6 +249,8 @@
 										<property file="tomcat/${db.vendor}/database.properties" />
 
 										<replace file="${tomcat.conf.dir}/Catalina/localhost/bonita.xml"
+											token="#ds.properties#" value="${ds.properties}" />
+										<replace file="${tomcat.conf.dir}/Catalina/localhost/bonita.xml"
 											token="#db.datasource.class#" value="${db.datasource.class}" />
 										<replace file="${tomcat.conf.dir}/Catalina/localhost/bonita.xml"
 											token="#db.driver.class#" value="${db.driver.class}" />
