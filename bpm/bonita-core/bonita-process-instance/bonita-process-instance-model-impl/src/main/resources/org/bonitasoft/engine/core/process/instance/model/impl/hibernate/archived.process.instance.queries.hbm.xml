@@ -534,7 +534,10 @@
   	<query name="getNumberOfSAProcessInstanceWithoutSubProcess">
 		SELECT COUNT(DISTINCT ap.sourceObjectId)
 		FROM org.bonitasoft.engine.core.process.instance.model.archive.impl.SAProcessInstanceImpl AS ap
-		WHERE ap.callerId = -1
+		WHERE ap.archiveDate = (
+			SELECT MAX(api.archiveDate) FROM org.bonitasoft.engine.core.process.instance.model.archive.impl.SAProcessInstanceImpl AS api
+			WHERE api.sourceObjectId = ap.sourceObjectId )
+		AND ap.callerId = -1
 		AND ap.stateId IN (6,7,3,4)
 	</query>
 	  
@@ -543,9 +546,6 @@
 		FROM org.bonitasoft.engine.core.process.instance.model.archive.impl.SAProcessInstanceImpl AS ap
 		WHERE ap.archiveDate = (
 			SELECT MAX(api.archiveDate) FROM org.bonitasoft.engine.core.process.instance.model.archive.impl.SAProcessInstanceImpl AS api
-			WHERE api.sourceObjectId = ap.sourceObjectId )
-		AND ap.id = (
-			SELECT MAX(api.id) FROM org.bonitasoft.engine.core.process.instance.model.archive.impl.SAProcessInstanceImpl AS api
 			WHERE api.sourceObjectId = ap.sourceObjectId )
 		AND ap.callerId = -1
 		AND ap.stateId IN (6,7,3,4)
