@@ -19,7 +19,6 @@ http://www.springframework.org/schema/context	http://www.springframework.org/sch
 		<property name="xaProperties" ref="driverProperties" />
 		<property name="maxPoolSize" value="7" />
 		<property name="minPoolSize" value="1"/> 
-		<property name="testQuery" value = "SELECT 1 FROM DUAL" />
 	</bean>
 
 	<bean id="bonitaSequenceManagerDataSource" class="com.jolbox.bonecp.BoneCPDataSource" destroy-method="close" depends-on="dataSourceDependency">
