@@ -595,8 +595,8 @@
 		WHERE ap.archiveDate = (
 			SELECT MAX(api.archiveDate) FROM org.bonitasoft.engine.core.process.instance.model.archive.impl.SAProcessInstanceImpl AS api
 			WHERE api.sourceObjectId = ap.sourceObjectId )
-		AND ap.id = (
-			SELECT MAX(api.id) FROM org.bonitasoft.engine.core.process.instance.model.archive.impl.SAProcessInstanceImpl AS api
+		AND ap.endDate = (
+			SELECT MAX(api.endDate) FROM org.bonitasoft.engine.core.process.instance.model.archive.impl.SAProcessInstanceImpl AS api
 			WHERE api.sourceObjectId = ap.sourceObjectId )
 		AND ap.stateId IN (6,7,3,4)
 		AND ap.processDefinitionId = supervisor.processDefId
@@ -623,8 +623,8 @@
 		WHERE ap.archiveDate = (
 			SELECT MAX(api.archiveDate) FROM org.bonitasoft.engine.core.process.instance.model.archive.impl.SAProcessInstanceImpl AS api
 			WHERE api.sourceObjectId = ap.sourceObjectId )
-		AND ap.id = (
-			SELECT MAX(api.id) FROM org.bonitasoft.engine.core.process.instance.model.archive.impl.SAProcessInstanceImpl AS api
+		AND ap.endDate = (
+			SELECT MAX(api.endDate) FROM org.bonitasoft.engine.core.process.instance.model.archive.impl.SAProcessInstanceImpl AS api
 			WHERE api.sourceObjectId = ap.sourceObjectId )
 		AND ap.stateId IN (6,7,3,4)
 		AND ap.processDefinitionId = supervisor.processDefId

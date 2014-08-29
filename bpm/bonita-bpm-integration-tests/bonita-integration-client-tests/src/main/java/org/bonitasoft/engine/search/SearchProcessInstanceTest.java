@@ -1,10 +1,7 @@
 package org.bonitasoft.engine.search;
 
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.hamcrest.core.Is.*;
+import static org.junit.Assert.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -12,16 +9,12 @@ import java.util.List;
 import org.bonitasoft.engine.CommonAPITest;
 import org.bonitasoft.engine.api.ProcessAPI;
 import org.bonitasoft.engine.bpm.flownode.ActivityInstance;
-import org.bonitasoft.engine.bpm.flownode.ArchivedFlowNodeInstance;
-import org.bonitasoft.engine.bpm.flownode.ArchivedFlowNodeInstanceSearchDescriptor;
 import org.bonitasoft.engine.bpm.flownode.HumanTaskInstance;
 import org.bonitasoft.engine.bpm.process.ArchivedProcessInstance;
 import org.bonitasoft.engine.bpm.process.ArchivedProcessInstancesSearchDescriptor;
 import org.bonitasoft.engine.bpm.process.DesignProcessDefinition;
 import org.bonitasoft.engine.bpm.process.InvalidProcessDefinitionException;
 import org.bonitasoft.engine.bpm.process.ProcessDefinition;
-import org.bonitasoft.engine.bpm.process.ProcessDeploymentInfo;
-import org.bonitasoft.engine.bpm.process.ProcessDeploymentInfoCriterion;
 import org.bonitasoft.engine.bpm.process.ProcessInstance;
 import org.bonitasoft.engine.bpm.process.ProcessInstanceSearchDescriptor;
 import org.bonitasoft.engine.bpm.process.ProcessInstanceState;
@@ -424,7 +417,7 @@ public class SearchProcessInstanceTest extends CommonAPITest {
     }
 
     @Cover(classes = { ProcessAPI.class }, concept = BPMNConcept.PROCESS, keywords = { "Search", "Managed By", "Process instance", "Open", "Involving User",
-            "User Performed Task" }, jira = "ENGINE-715")
+    "User Performed Task" }, jira = "ENGINE-715")
     @Test
     public void searchOpenProcessInstancesInvolvingUsersManagedByWithUserPerformedTask() throws Exception {
         // create user
@@ -582,7 +575,7 @@ public class SearchProcessInstanceTest extends CommonAPITest {
     }
 
     @Cover(classes = { ProcessAPI.class }, concept = BPMNConcept.PROCESS, keywords = { "Search", "Managed By", "Process instance", "Open", "Involving User",
-            "User Started Process" }, jira = "ENGINE-715")
+    "User Started Process" }, jira = "ENGINE-715")
     @Test
     public void searchOpenProcessInstancesInvolvingUsersManagedByWithUserStartedProcess() throws Exception {
         // create user
@@ -711,7 +704,7 @@ public class SearchProcessInstanceTest extends CommonAPITest {
     }
 
     @Cover(classes = { ProcessAPI.class, ArchivedProcessInstancesSearchDescriptor.class }, concept = BPMNConcept.PROCESS, keywords = { "Search", "Archived",
-            "Process Instances" }, jira = "ENGINE-998")
+    "Process Instances" }, jira = "ENGINE-998")
     @Test
     public void searchArchivedProcessInstances() throws Exception {
         final User user1 = createUser("john1", "bpm");
@@ -910,7 +903,7 @@ public class SearchProcessInstanceTest extends CommonAPITest {
     }
 
     @Cover(classes = { SearchOptionsBuilder.class, ProcessAPI.class }, concept = BPMNConcept.PROCESS, keywords = { "SearchArchivedProcessInstances",
-            "Apostrophe" }, jira = "ENGINE-366, ENGINE-589")
+    "Apostrophe" }, jira = "ENGINE-366, ENGINE-589")
     @Test
     public void searchArchivedProcessInstancesWithApostrophe() throws Exception {
         // Create process
@@ -1172,7 +1165,7 @@ public class SearchProcessInstanceTest extends CommonAPITest {
         final SearchOptionsBuilder optionsBuilder = new SearchOptionsBuilder(0, 10);
         optionsBuilder.filter(ArchivedProcessInstancesSearchDescriptor.SOURCE_OBJECT_ID, processInstanceId);
         optionsBuilder.filter(ArchivedProcessInstancesSearchDescriptor.CALLER_ID, -1L);
-        optionsBuilder.sort(ArchivedProcessInstancesSearchDescriptor.ID, Order.ASC);
+        optionsBuilder.sort(ArchivedProcessInstancesSearchDescriptor.STATE_ID, Order.ASC);
         return getProcessAPI().searchArchivedProcessInstancesInAllStates(optionsBuilder.done());
     }
 
