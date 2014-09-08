@@ -133,8 +133,8 @@ public class JTATransactionServiceImpl implements TransactionService {
             }
 
             final TransactionServiceContext txContext = txContextThreadLocal.get();
+            txContext.decrementReentrantCounter();
             if (txContext.isAlreadyManaged()) {
-                txContext.decrementReentrantCounter();
                 return; // We do not manage the transaction boundaries
             }
 
@@ -340,7 +340,7 @@ public class JTATransactionServiceImpl implements TransactionService {
 
     private static class TransactionServiceContext {
 
-        private final AtomicLong reentrantCounter = new AtomicLong();
+        private long reentrantCounter = 0L;
 
         private final boolean boundaryManagedOutside;
 
@@ -349,15 +349,18 @@ public class JTATransactionServiceImpl implements TransactionService {
         }
 
         public long incrementReentrantCounter() {
-            return reentrantCounter.getAndIncrement();
+            if (reentrantCounter > 0) {
+                System.out.println("pouet " + reentrantCounter);
+            }
+            return reentrantCounter++;
         }
 
         public long decrementReentrantCounter() {
-            return reentrantCounter.getAndDecrement();
+            return reentrantCounter--;
         }
 
         public long reentrantCounter() {
-            return reentrantCounter.get();
+            return reentrantCounter;
         }
 
         public boolean isAlreadyManaged() {
