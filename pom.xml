@@ -405,6 +405,7 @@
 			<modules>
 				<module>services</module>
 				<module>bpm</module>
+				<module>bonita-integration-tests</module>
 			</modules>
 			<properties>
 				<maven.test.skip>false</maven.test.skip>
@@ -432,6 +433,7 @@
 			<modules>
 				<module>services</module>
 				<module>bpm</module>
+				<module>bonita-integration-tests</module>
 			</modules>
 			<properties>
 				<skipTests>true</skipTests>
@@ -446,6 +448,7 @@
 			<modules>
 				<module>services</module>
 				<module>bpm</module>
+				<module>bonita-integration-tests</module>
 			</modules>
 			<build>
 				<plugins>
@@ -469,6 +472,7 @@
 			<modules>
 				<module>services</module>
 				<module>bpm</module>
+				<module>bonita-integration-tests</module>
 			</modules>
 			<properties>
 				<skipTests>true</skipTests>
@@ -498,6 +502,7 @@
 			<modules>
 				<module>services</module>
 				<module>bpm</module>
+				<module>bonita-integration-tests</module>
 			</modules>
 			<build>
 				<plugins>
