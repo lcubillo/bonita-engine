@@ -21,26 +21,21 @@ import org.hibernate.service.jta.platform.internal.AbstractJtaPlatform;
 /**
  * @author Charles Souillard
  */
-public class Atomikos3HibernateJtaPlatform extends AbstractJtaPlatform {
+public class JNDIAtomikosJtaPlatform extends AbstractJtaPlatform {
 
     private static final long serialVersionUID = 4893085097625997082L;
 
-    private final TransactionManager transactionManager;
-
-    public Atomikos3HibernateJtaPlatform() throws Exception {
-        final Class<?> userTransactionManagerClass = Class.forName("com.atomikos.icatch.jta.UserTransactionManager");
-        this.transactionManager = (TransactionManager) userTransactionManagerClass.newInstance();
-    }
-
     @Override
     protected TransactionManager locateTransactionManager() {
-        return this.transactionManager;
-
+        // Force the lookup to JNDI to find the TransactionManager : since we share it between
+        // Hibernate and Quartz, I prefer to force the JNDI lookup in order to be sure that
+        // they are using the same instance.
+        return (TransactionManager) jndiService().locate("java:comp/UserTransaction");
     }
 
     @Override
     protected UserTransaction locateUserTransaction() {
-        return (UserTransaction) this.transactionManager;
+        return (UserTransaction) jndiService().locate("java:comp/UserTransaction");
     }
 
 }
