@@ -226,10 +226,8 @@
 								<inherited>false</inherited>
 								<configuration>
 									<target>
-										<taskdef name="if" classname="${if.task}"
-											classpathref="maven.runtime.classpath" />
-										<available property="tomcat.present"
-											file="${tomcat.zip.folder}/${tomcat.name}.zip" />
+                                        <taskdef name="if" classname="${if.task}" classpathref="maven.runtime.classpath"/>
+                                        <available property="tomcat.present" file="${tomcat.zip.folder}/${tomcat.name}.zip"/>
 										<if>
 											<not>
 												<isset property="tomcat.present" />
@@ -238,8 +236,7 @@
 												<get src="${tomcat.url}" dest="${tomcat.zip.folder}/${tomcat.name}.zip" />
 											</then>
 										</if>
-										<unzip dest="${project.build.directory}" src="${tomcat.zip.folder}/${tomcat.name}.zip" />
-
+                                        <unzip dest="${project.build.directory}" src="${tomcat.zip.folder}/${tomcat.name}.zip"/>
 										<!-- override global context XML file in order to declare the datasources 
 											and the Transaction Manager -->
 										<copy todir="${tomcat.conf.dir}">
