@@ -22,7 +22,7 @@
 		 name="bonitaDS"
 		 auth="Container"
 		 type="com.atomikos.jdbc.AtomikosDataSourceBean"
-		 factory="org.bonitasoft.tomcat.atomikos.AtomikosTomcatFactoryFactory"
+		 factory="org.bonitasoft.tomcat.atomikos.EnhancedTomcatAtomikosBeanFactory"
 		 uniqueResourceName="bonitaDS"
 		 xaDataSourceClassName="#db.datasource.class#"
 		 #ds.properties#

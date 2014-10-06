@@ -25,17 +25,29 @@ public class JNDIAtomikosJtaPlatform extends AbstractJtaPlatform {
 
     private static final long serialVersionUID = 4893085097625997082L;
 
+    public static final String USER_TRANSACTION = "java:comp/UserTransaction";
+    public static final String TRANSACTION_SERVICE = "java:comp/env/TransactionManager";
+
+    private final String userTransactionJndiName;
+
+    private final String transactionServiceJndiName;
+
+    public JNDIAtomikosJtaPlatform() {
+        transactionServiceJndiName = System.getProperty("sysprop.bonita.transaction.manager", TRANSACTION_SERVICE);
+        userTransactionJndiName = System.getProperty("sysprop.bonita.userTransaction", USER_TRANSACTION);
+    }
+
     @Override
     protected TransactionManager locateTransactionManager() {
         // Force the lookup to JNDI to find the TransactionManager : since we share it between
         // Hibernate and Quartz, I prefer to force the JNDI lookup in order to be sure that
         // they are using the same instance.
-        return (TransactionManager) jndiService().locate("java:comp/UserTransaction");
+        return (TransactionManager) jndiService().locate(transactionServiceJndiName);
     }
 
     @Override
     protected UserTransaction locateUserTransaction() {
-        return (UserTransaction) jndiService().locate("java:comp/UserTransaction");
+        return (UserTransaction) jndiService().locate(userTransactionJndiName);
     }
 
 }

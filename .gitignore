@@ -9,3 +9,5 @@ Temporary*.java
 .idea
 *.orig
 engine-it.exec
+tm*.log
+*.epoch
