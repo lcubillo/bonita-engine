@@ -15,7 +15,6 @@
 
     <properties>
         <server.port>8384</server.port>
-        <server.ajp.port>8313</server.ajp.port>
         <provider.port>8184</provider.port>
         <tomcat.version>7.0.55</tomcat.version>
         <tomcat.name>apache-tomcat-${tomcat.version}</tomcat.name>
@@ -269,7 +268,6 @@
                                         <replace file="${tomcat.conf.dir}/server.xml" token="&lt;Connector port=&quot;8080&quot;" value="&lt;Connector port=&quot;${provider.port}&quot;" />
                                         <replace file="${tomcat.conf.dir}/server.xml" token="&lt;Server port=&quot;8005&quot;" value="&lt;Server port=&quot;${server.port}&quot;" />
                                         <replace file="${tomcat.conf.dir}/server.xml" token="redirectPort=&quot;8443&quot;" value="redirectPort=&quot;8443&quot; maxPostSize=&quot;-1&quot;" />
-                                        <replace file="${tomcat.conf.dir}/server.xml" token="&lt;Connector port=&quot;8009&quot;" value="&lt;Connector port=&quot;${server.ajp.port}&quot;" />
 
                                         <!-- Copy Libs -->
                                         <copy todir="${tomcat.home}/lib">
