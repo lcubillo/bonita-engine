@@ -13,7 +13,7 @@
  **/
 package org.bonitasoft.engine.test.persistence.repository;
 
-import static org.bonitasoft.engine.core.process.instance.event.impl.EventInstanceServiceImpl.*;
+import static org.bonitasoft.engine.core.process.instance.event.impl.EventInstanceServiceImpl.QUERY_RESET_IN_PROGRESS_WAITING_EVENTS;
 
 import java.util.List;
 

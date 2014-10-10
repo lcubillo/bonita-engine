@@ -13,9 +13,7 @@
  **/
 package org.bonitasoft.engine.dependency.model.builder.impl;
 
-import org.bonitasoft.engine.dependency.model.SDependencyMapping;
 import org.bonitasoft.engine.dependency.model.builder.SPlatformDependencyMappingBuilder;
-import org.bonitasoft.engine.dependency.model.impl.SDependencyMappingImpl;
 import org.bonitasoft.engine.dependency.model.impl.SPlatformDependencyMappingImpl;
 
 public class SPlatformDependencyMappingBuilderImpl implements SPlatformDependencyMappingBuilder {
