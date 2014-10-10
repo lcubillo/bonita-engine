@@ -8,7 +8,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNotSame;
-import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
@@ -240,7 +239,7 @@ public class OrganizationTest extends CommonAPITest {
     }
 
     @Cover(classes = { IdentityAPI.class, User.class }, concept = BPMNConcept.ORGANIZATION, keywords = { "Import", "Organization", "Enabled", "Disabled",
-    "User" }, jira = "ENGINE-577")
+            "User" }, jira = "ENGINE-577")
     @Test
     public void importOrganizationWithEnabledAndDisabledUsers() throws Exception {
         // create XML file
