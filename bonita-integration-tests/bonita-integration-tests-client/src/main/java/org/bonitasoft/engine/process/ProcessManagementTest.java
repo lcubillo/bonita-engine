@@ -17,6 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
@@ -33,6 +34,7 @@ import java.util.Set;
 
 import org.bonitasoft.engine.CommonAPITest;
 import org.bonitasoft.engine.api.ProcessAPI;
+import org.bonitasoft.engine.api.ProcessManagementAPI;
 import org.bonitasoft.engine.bpm.bar.BarResource;
 import org.bonitasoft.engine.bpm.bar.BusinessArchive;
 import org.bonitasoft.engine.bpm.bar.BusinessArchiveBuilder;
@@ -111,8 +113,7 @@ public class ProcessManagementTest extends CommonAPITest {
         final User user = createUser(USERNAME, PASSWORD);
         logoutThenloginAs(USERNAME, PASSWORD);
 
-        final DesignProcessDefinition designProcessDefinition = BuildTestUtil.buildProcessDefinitionWithHumanAndAutomaticSteps(
-                Arrays.asList("step1", "step2"),
+        final DesignProcessDefinition designProcessDefinition = BuildTestUtil.buildProcessDefinitionWithHumanAndAutomaticSteps(Arrays.asList("step1", "step2"),
                 Arrays.asList(true, true));
         final Date before = new Date();
         Thread.sleep(10);
@@ -140,8 +141,7 @@ public class ProcessManagementTest extends CommonAPITest {
     @Test(expected = ProcessActivationException.class)
     public void runDisabledProcess() throws Exception {
         final User user = createUser(USERNAME, PASSWORD);
-        final DesignProcessDefinition designProcessDefinition = BuildTestUtil.buildProcessDefinitionWithHumanAndAutomaticSteps(
-                Arrays.asList("step1", "step2"),
+        final DesignProcessDefinition designProcessDefinition = BuildTestUtil.buildProcessDefinitionWithHumanAndAutomaticSteps(Arrays.asList("step1", "step2"),
                 Arrays.asList(true, true));
 
         final ProcessDefinition processDefinition = getProcessAPI().deploy(
@@ -161,8 +161,7 @@ public class ProcessManagementTest extends CommonAPITest {
 
     @Test
     public void disableProcess() throws Exception {
-        final DesignProcessDefinition designProcessDefinition = BuildTestUtil.buildProcessDefinitionWithHumanAndAutomaticSteps(
-                Arrays.asList("step1", "step2"),
+        final DesignProcessDefinition designProcessDefinition = BuildTestUtil.buildProcessDefinitionWithHumanAndAutomaticSteps(Arrays.asList("step1", "step2"),
                 Arrays.asList(true, true));
         final User user = createUser(USERNAME, PASSWORD);
 
@@ -179,8 +178,7 @@ public class ProcessManagementTest extends CommonAPITest {
 
     @Test(expected = ProcessActivationException.class)
     public void disableDisabledProcess() throws Exception {
-        final DesignProcessDefinition designProcessDefinition = BuildTestUtil.buildProcessDefinitionWithHumanAndAutomaticSteps(
-                Arrays.asList("step1", "step2"),
+        final DesignProcessDefinition designProcessDefinition = BuildTestUtil.buildProcessDefinitionWithHumanAndAutomaticSteps(Arrays.asList("step1", "step2"),
                 Arrays.asList(true, true));
 
         final ProcessDefinition processDefinition = getProcessAPI().deploy(
@@ -195,8 +193,7 @@ public class ProcessManagementTest extends CommonAPITest {
 
     @Test
     public void enableEnabledProcess() throws Exception {
-        final DesignProcessDefinition designProcessDefinition = BuildTestUtil.buildProcessDefinitionWithHumanAndAutomaticSteps(
-                Arrays.asList("step1", "step2"),
+        final DesignProcessDefinition designProcessDefinition = BuildTestUtil.buildProcessDefinitionWithHumanAndAutomaticSteps(Arrays.asList("step1", "step2"),
                 Arrays.asList(true, true));
 
         final User user = createUser(USERNAME, PASSWORD);
@@ -218,8 +215,7 @@ public class ProcessManagementTest extends CommonAPITest {
 
     @Test(expected = DeletionException.class)
     public void deleteEnabledProcess() throws Exception {
-        final DesignProcessDefinition designProcessDefinition = BuildTestUtil.buildProcessDefinitionWithHumanAndAutomaticSteps(
-                Arrays.asList("step1", "step2"),
+        final DesignProcessDefinition designProcessDefinition = BuildTestUtil.buildProcessDefinitionWithHumanAndAutomaticSteps(Arrays.asList("step1", "step2"),
                 Arrays.asList(true, true));
 
         final User user = createUser(USERNAME, PASSWORD);
@@ -237,8 +233,7 @@ public class ProcessManagementTest extends CommonAPITest {
     @Test
     public void deleteProcess() throws Exception {
         final long numberOfProcesses = getProcessAPI().getNumberOfProcessDeploymentInfos();
-        final DesignProcessDefinition designProcessDefinition = BuildTestUtil.buildProcessDefinitionWithHumanAndAutomaticSteps(
-                Arrays.asList("step1", "step2"),
+        final DesignProcessDefinition designProcessDefinition = BuildTestUtil.buildProcessDefinitionWithHumanAndAutomaticSteps(Arrays.asList("step1", "step2"),
                 Arrays.asList(true, true));
 
         final ProcessDefinition processDefinition = getProcessAPI().deploy(
@@ -288,8 +283,7 @@ public class ProcessManagementTest extends CommonAPITest {
     public void createProcessWithNoName() throws Exception {
         final List<String> emptyList = Collections.emptyList();
         final List<Boolean> emptyList2 = Collections.emptyList();
-        final DesignProcessDefinition processDefinition = BuildTestUtil.buildProcessDefinitionWithHumanAndAutomaticSteps(null, null, emptyList,
-                emptyList2);
+        final DesignProcessDefinition processDefinition = BuildTestUtil.buildProcessDefinitionWithHumanAndAutomaticSteps(null, null, emptyList, emptyList2);
         getProcessAPI().deploy(new BusinessArchiveBuilder().createNewBusinessArchive().setProcessDefinition(processDefinition).done());
     }
 
@@ -333,8 +327,7 @@ public class ProcessManagementTest extends CommonAPITest {
     private void getArchivedActivityInstancesOrderByPagingCriterion(final ActivityInstanceCriterion criterionAsc, final int asc1, final int asc2,
             final int asc3, final ActivityInstanceCriterion criterionDsc, final int desc1, final int desc2, final int desc3) throws Exception {
 
-        final DesignProcessDefinition designProcessDefinition2 = BuildTestUtil.buildProcessDefinitionWithHumanAndAutomaticSteps(PROCESS_NAME
-                + criterionAsc,
+        final DesignProcessDefinition designProcessDefinition2 = BuildTestUtil.buildProcessDefinitionWithHumanAndAutomaticSteps(PROCESS_NAME + criterionAsc,
                 PROCESS_VERSION, Arrays.asList("task1", "task2", "task3"), Arrays.asList(false, false, false));
         final ProcessDefinition processDefinition2 = deployAndEnableProcess(designProcessDefinition2);
         final ProcessInstance processInstance2 = getProcessAPI().startProcess(processDefinition2.getId());
@@ -520,8 +513,7 @@ public class ProcessManagementTest extends CommonAPITest {
     public void getProcessDefinitionIdFromProcessInstanceId() throws Exception {
         final User user = createUser(USERNAME, PASSWORD);
 
-        final DesignProcessDefinition designProcessDefinition = BuildTestUtil.buildProcessDefinitionWithHumanAndAutomaticSteps(
-                Arrays.asList("step1", "step2"),
+        final DesignProcessDefinition designProcessDefinition = BuildTestUtil.buildProcessDefinitionWithHumanAndAutomaticSteps(Arrays.asList("step1", "step2"),
                 Arrays.asList(true, true));
         final ProcessDefinition processDefinition = deployAndEnableProcessWithActor(designProcessDefinition, ACTOR_NAME, user);
         final ProcessInstance pi0 = getProcessAPI().startProcess(processDefinition.getId());
@@ -540,8 +532,7 @@ public class ProcessManagementTest extends CommonAPITest {
     public void getProcessDefinitionIdFromActivityInstanceId() throws Exception {
         final User user = createUser(USERNAME, PASSWORD);
 
-        final DesignProcessDefinition designProcessDefinition = BuildTestUtil.buildProcessDefinitionWithHumanAndAutomaticSteps(
-                Arrays.asList("step1", "step2"),
+        final DesignProcessDefinition designProcessDefinition = BuildTestUtil.buildProcessDefinitionWithHumanAndAutomaticSteps(Arrays.asList("step1", "step2"),
                 Arrays.asList(true, true));
         final ProcessDefinition processDefinition = deployAndEnableProcessWithActor(designProcessDefinition, ACTOR_NAME, user);
         final ProcessInstance pi0 = getProcessAPI().startProcess(processDefinition.getId());
@@ -635,8 +626,7 @@ public class ProcessManagementTest extends CommonAPITest {
     public void getActivityInstanceState() throws Exception {
         final User user = createUser(USERNAME, PASSWORD);
 
-        final DesignProcessDefinition designProcessDefinition = BuildTestUtil.buildProcessDefinitionWithHumanAndAutomaticSteps(
-                Arrays.asList("step1", "step2"),
+        final DesignProcessDefinition designProcessDefinition = BuildTestUtil.buildProcessDefinitionWithHumanAndAutomaticSteps(Arrays.asList("step1", "step2"),
                 Arrays.asList(true, true));
         final ProcessDefinition processDefinition = deployAndEnableProcessWithActor(designProcessDefinition, ACTOR_NAME, user);
         final ProcessInstance pi0 = getProcessAPI().startProcess(processDefinition.getId());
@@ -679,8 +669,7 @@ public class ProcessManagementTest extends CommonAPITest {
 
     @Test
     public void getProcessDefinitionIdByNameAndVersion() throws Exception {
-        final DesignProcessDefinition designProcessDefinition = BuildTestUtil.buildProcessDefinitionWithHumanAndAutomaticSteps(
-                Arrays.asList("step1", "step2"),
+        final DesignProcessDefinition designProcessDefinition = BuildTestUtil.buildProcessDefinitionWithHumanAndAutomaticSteps(Arrays.asList("step1", "step2"),
                 Arrays.asList(true, true));
         final ProcessDefinition processDefinition = getProcessAPI().deploy(
                 new BusinessArchiveBuilder().createNewBusinessArchive().setProcessDefinition(designProcessDefinition).done());
@@ -693,8 +682,7 @@ public class ProcessManagementTest extends CommonAPITest {
 
     @Test(expected = ProcessDefinitionNotFoundException.class)
     public void getProcessDefinitionIdByNameAndVersionWithExcepton() throws Exception {
-        final DesignProcessDefinition designProcessDefinition = BuildTestUtil.buildProcessDefinitionWithHumanAndAutomaticSteps(
-                Arrays.asList("step1", "step2"),
+        final DesignProcessDefinition designProcessDefinition = BuildTestUtil.buildProcessDefinitionWithHumanAndAutomaticSteps(Arrays.asList("step1", "step2"),
                 Arrays.asList(true, true));
         final ProcessDefinition processDefinition = getProcessAPI().deploy(
                 new BusinessArchiveBuilder().createNewBusinessArchive().setProcessDefinition(designProcessDefinition).done());
@@ -750,9 +738,7 @@ public class ProcessManagementTest extends CommonAPITest {
         final User user = createUser(USERNAME, PASSWORD);
 
         ProcessDefinitionBuilder processDefinitionBuilder = new ProcessDefinitionBuilder().createNewInstance(PROCESS_NAME, PROCESS_VERSION);
-        UserTaskDefinitionBuilder addUserTask = processDefinitionBuilder
-                .addActor(ACTOR_NAME)
-                .addDescription("Delivery all day and night long")
+        UserTaskDefinitionBuilder addUserTask = processDefinitionBuilder.addActor(ACTOR_NAME).addDescription("Delivery all day and night long")
                 .addUserTask("step1", ACTOR_NAME);
         processDefinitionBuilder.addShortTextData("a", new ExpressionBuilder().createConstantStringExpression("aprocess"));
         processDefinitionBuilder.addShortTextData("b", new ExpressionBuilder().createConstantStringExpression("bprocess"));
@@ -987,8 +973,7 @@ public class ProcessManagementTest extends CommonAPITest {
     @Test(expected = ProcessDefinitionNotFoundException.class)
     public void updateProcessDeploymentInfoWithProcessDefinitionNotFoundException() throws Exception {
         // create process definition;
-        final DesignProcessDefinition designProcessDefinition = BuildTestUtil.buildProcessDefinitionWithHumanAndAutomaticSteps(
-                Arrays.asList("step1", "step2"),
+        final DesignProcessDefinition designProcessDefinition = BuildTestUtil.buildProcessDefinitionWithHumanAndAutomaticSteps(Arrays.asList("step1", "step2"),
                 Arrays.asList(true, true));
         final ProcessDefinition processDefinition = getProcessAPI().deploy(
                 new BusinessArchiveBuilder().createNewBusinessArchive().setProcessDefinition(designProcessDefinition).done());
@@ -1007,8 +992,7 @@ public class ProcessManagementTest extends CommonAPITest {
     @Test(expected = UpdateException.class)
     public void updateProcessDeploymentInfoWithException() throws Exception {
         // create process definition;
-        final DesignProcessDefinition designProcessDefinition = BuildTestUtil.buildProcessDefinitionWithHumanAndAutomaticSteps(
-                Arrays.asList("step1", "step2"),
+        final DesignProcessDefinition designProcessDefinition = BuildTestUtil.buildProcessDefinitionWithHumanAndAutomaticSteps(Arrays.asList("step1", "step2"),
                 Arrays.asList(true, true));
         final ProcessDefinition processDefinition = getProcessAPI().deploy(
                 new BusinessArchiveBuilder().createNewBusinessArchive().setProcessDefinition(designProcessDefinition).done());
@@ -1034,11 +1018,11 @@ public class ProcessManagementTest extends CommonAPITest {
         final String dataName5 = "refhbh?bgrtg";
         try {
             new ProcessDefinitionBuilder().createNewInstance(PROCESS_NAME, PROCESS_VERSION)
-                    .addIntegerData(dataName1, new ExpressionBuilder().createConstantIntegerExpression(1))
-                    .addIntegerData(dataName2, new ExpressionBuilder().createConstantIntegerExpression(2))
-                    .addIntegerData(dataName3, new ExpressionBuilder().createConstantIntegerExpression(3))
-                    .addIntegerData(dataName4, new ExpressionBuilder().createConstantIntegerExpression(4))
-                    .addIntegerData(dataName5, new ExpressionBuilder().createConstantIntegerExpression(5)).getProcess();
+            .addIntegerData(dataName1, new ExpressionBuilder().createConstantIntegerExpression(1))
+            .addIntegerData(dataName2, new ExpressionBuilder().createConstantIntegerExpression(2))
+            .addIntegerData(dataName3, new ExpressionBuilder().createConstantIntegerExpression(3))
+            .addIntegerData(dataName4, new ExpressionBuilder().createConstantIntegerExpression(4))
+            .addIntegerData(dataName5, new ExpressionBuilder().createConstantIntegerExpression(5)).getProcess();
 
             fail("This test should not reach this statement");
         } catch (final InvalidProcessDefinitionException ipde) {
@@ -1207,15 +1191,13 @@ public class ProcessManagementTest extends CommonAPITest {
 
         final ProcessDefinitionBuilder processBuilder = new ProcessDefinitionBuilder().createNewInstance(PROCESS_NAME, PROCESS_VERSION);
         processBuilder.addActor(ACTOR_NAME).addDescription("Coding all scrum-sprint-long").addUserTask("userTask1", ACTOR_NAME)
-                .addUserTask("userTask2", ACTOR_NAME)
-                .addUserTask("userTask3", ACTOR_NAME);
+        .addUserTask("userTask2", ACTOR_NAME).addUserTask("userTask3", ACTOR_NAME);
         final DesignProcessDefinition processDefinition = processBuilder.done();
 
         final ProcessDefinition definition = deployAndEnableProcessWithActor(processDefinition, ACTOR_NAME, jack);
 
         final ProcessInstance startedProcess = getProcessAPI().startProcess(definition.getId());
-        assertTrue("expected 2 activities",
-                new CheckNbOfActivities(getProcessAPI(), 200, 5000, true, startedProcess, 3, TestStates.READY).waitUntil());
+        assertTrue("expected 2 activities", new CheckNbOfActivities(getProcessAPI(), 200, 5000, true, startedProcess, 3, TestStates.READY).waitUntil());
         // add lucy to actor
         getProcessAPI().addUserToActor(ACTOR_NAME, definition, lucy.getId());
         // assign first user task to jack, second one to john, leaving the third pending
@@ -1252,15 +1234,13 @@ public class ProcessManagementTest extends CommonAPITest {
         // default expectedDuration is null for HumanTaskDefinition, so the expectedEndDate is 0 by default, no need to set it in particular.
         final ProcessDefinitionBuilder processBuilder = new ProcessDefinitionBuilder().createNewInstance(PROCESS_NAME, PROCESS_VERSION);
         processBuilder.addActor(ACTOR_NAME).addDescription("Coding all scrum-sprint-long").addUserTask("userTask1", ACTOR_NAME)
-                .addUserTask("userTask2", ACTOR_NAME)
-                .addUserTask("userTask3", ACTOR_NAME);
+        .addUserTask("userTask2", ACTOR_NAME).addUserTask("userTask3", ACTOR_NAME);
         final DesignProcessDefinition processDefinition = processBuilder.done();
 
         final ProcessDefinition definition = deployAndEnableProcessWithActor(processDefinition, ACTOR_NAME, jack);
 
         final ProcessInstance startedProcess = getProcessAPI().startProcess(definition.getId());
-        assertTrue("expected 2 activities",
-                new CheckNbOfActivities(getProcessAPI(), 200, 5000, true, startedProcess, 3, TestStates.READY).waitUntil());
+        assertTrue("expected 2 activities", new CheckNbOfActivities(getProcessAPI(), 200, 5000, true, startedProcess, 3, TestStates.READY).waitUntil());
         // add lucy to actor
         getProcessAPI().addUserToActor(ACTOR_NAME, definition, lucy.getId());
         // assign first user task to jack, second one to john, leaving the third pending
@@ -1595,16 +1575,15 @@ public class ProcessManagementTest extends CommonAPITest {
     }
 
     private List<Long> createProcessDefinitionWithTwoHumanStepsAndDeployBusinessArchive(final int nbProcess) throws InvalidProcessDefinitionException,
-            ProcessDeployException, InvalidBusinessArchiveFormatException, AlreadyExistsException {
+    ProcessDeployException, InvalidBusinessArchiveFormatException, AlreadyExistsException {
         final List<Long> ids = new ArrayList<Long>();
         for (int i = 0; i < nbProcess; i++) {
             String processName = PROCESS_NAME;
             if (i >= 0 && i < 10) {
                 processName += "0";
             }
-            final DesignProcessDefinition processDefinition = BuildTestUtil.buildProcessDefinitionWithHumanAndAutomaticSteps(processName + i,
-                    PROCESS_VERSION
-                            + i, Arrays.asList("step1", "step2"), Arrays.asList(true, true));
+            final DesignProcessDefinition processDefinition = BuildTestUtil.buildProcessDefinitionWithHumanAndAutomaticSteps(processName + i, PROCESS_VERSION
+                    + i, Arrays.asList("step1", "step2"), Arrays.asList(true, true));
             ids.add(getProcessAPI().deploy(new BusinessArchiveBuilder().createNewBusinessArchive().setProcessDefinition(processDefinition).done()).getId());
         }
         return ids;
