@@ -1,6 +1,6 @@
 package org.bonitasoft.engine.authentication;
 
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.*;
 
 import java.io.Serializable;
 import java.util.HashMap;

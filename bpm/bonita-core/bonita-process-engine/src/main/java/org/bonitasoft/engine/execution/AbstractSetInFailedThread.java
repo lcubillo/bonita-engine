@@ -27,8 +27,8 @@ import org.bonitasoft.engine.service.impl.ServiceAccessorFactory;
 import org.bonitasoft.engine.session.SSessionNotFoundException;
 import org.bonitasoft.engine.session.SessionService;
 import org.bonitasoft.engine.session.model.SSession;
-import org.bonitasoft.engine.sessionaccessor.STenantIdNotSetException;
 import org.bonitasoft.engine.sessionaccessor.SessionAccessor;
+import org.bonitasoft.engine.sessionaccessor.STenantIdNotSetException;
 
 /**
  * @author Charles Souillard

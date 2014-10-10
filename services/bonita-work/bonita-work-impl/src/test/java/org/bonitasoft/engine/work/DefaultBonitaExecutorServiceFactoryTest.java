@@ -1,6 +1,6 @@
 package org.bonitasoft.engine.work;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.*;
 
 import java.util.concurrent.ThreadPoolExecutor;
 

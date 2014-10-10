@@ -8,8 +8,8 @@ import java.util.List;
 
 import org.bonitasoft.engine.CommonServiceTest;
 import org.bonitasoft.engine.builder.BuilderFactory;
-import org.bonitasoft.engine.dependency.model.SDependency;
 import org.bonitasoft.engine.dependency.model.ScopeType;
+import org.bonitasoft.engine.dependency.model.SDependency;
 import org.bonitasoft.engine.dependency.model.builder.SDependencyBuilderFactory;
 import org.bonitasoft.engine.recorder.model.EntityUpdateDescriptor;
 import org.junit.Test;

@@ -13,8 +13,7 @@
  **/
 package org.bonitasoft.engine.test.persistence.builder;
 
-import static org.bonitasoft.engine.core.process.instance.model.builder.event.handling.SWaitingMessageEventBuilderFactory.PROGRESS_FREE_KEY;
-import static org.bonitasoft.engine.core.process.instance.model.builder.event.handling.SWaitingMessageEventBuilderFactory.PROGRESS_IN_TREATMENT_KEY;
+import static org.bonitasoft.engine.core.process.instance.model.builder.event.handling.SWaitingMessageEventBuilderFactory.*;
 
 import org.bonitasoft.engine.core.process.instance.model.event.handling.impl.SWaitingMessageEventImpl;
 

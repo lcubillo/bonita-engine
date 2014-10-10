@@ -14,15 +14,15 @@
  */
 package org.bonitasoft.engine.core.process.instance.model;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.bonitasoft.engine.test.persistence.builder.ActorBuilder.anActor;
-import static org.bonitasoft.engine.test.persistence.builder.ActorMemberBuilder.anActorMember;
-import static org.bonitasoft.engine.test.persistence.builder.CallActivityInstanceBuilder.aCallActivityInstanceBuilder;
-import static org.bonitasoft.engine.test.persistence.builder.GatewayInstanceBuilder.aGatewayInstanceBuilder;
-import static org.bonitasoft.engine.test.persistence.builder.PendingActivityMappingBuilder.aPendingActivityMapping;
-import static org.bonitasoft.engine.test.persistence.builder.ProcessInstanceBuilder.aProcessInstance;
-import static org.bonitasoft.engine.test.persistence.builder.UserBuilder.aUser;
-import static org.bonitasoft.engine.test.persistence.builder.UserMembershipBuilder.aUserMembership;
+import static org.assertj.core.api.Assertions.*;
+import static org.bonitasoft.engine.test.persistence.builder.ActorBuilder.*;
+import static org.bonitasoft.engine.test.persistence.builder.ActorMemberBuilder.*;
+import static org.bonitasoft.engine.test.persistence.builder.CallActivityInstanceBuilder.*;
+import static org.bonitasoft.engine.test.persistence.builder.GatewayInstanceBuilder.*;
+import static org.bonitasoft.engine.test.persistence.builder.PendingActivityMappingBuilder.*;
+import static org.bonitasoft.engine.test.persistence.builder.ProcessInstanceBuilder.*;
+import static org.bonitasoft.engine.test.persistence.builder.UserBuilder.*;
+import static org.bonitasoft.engine.test.persistence.builder.UserMembershipBuilder.*;
 
 import java.util.List;
 

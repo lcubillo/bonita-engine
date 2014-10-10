@@ -23,6 +23,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import org.bonitasoft.engine.command.SCommandExecutionException;
 import org.bonitasoft.engine.core.process.definition.ProcessDefinitionService;
 import org.bonitasoft.engine.core.process.definition.model.SFlowElementContainerDefinition;
 import org.bonitasoft.engine.core.process.definition.model.SFlowNodeDefinition;

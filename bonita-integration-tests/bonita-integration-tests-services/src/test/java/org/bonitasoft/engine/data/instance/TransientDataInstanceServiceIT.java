@@ -1,11 +1,7 @@
 package org.bonitasoft.engine.data.instance;
 
-import static org.bonitasoft.engine.matchers.ListContainsMatcher.namesContain;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.bonitasoft.engine.matchers.ListContainsMatcher.*;
+import static org.junit.Assert.*;
 
 import java.io.Serializable;
 import java.util.ArrayList;

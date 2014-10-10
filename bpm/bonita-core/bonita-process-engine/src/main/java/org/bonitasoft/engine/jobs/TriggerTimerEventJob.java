@@ -14,6 +14,8 @@
 package org.bonitasoft.engine.jobs;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.bonitasoft.engine.commons.exceptions.SBonitaException;
@@ -21,6 +23,8 @@ import org.bonitasoft.engine.core.process.definition.model.event.trigger.SEventT
 import org.bonitasoft.engine.execution.event.EventsHandler;
 import org.bonitasoft.engine.log.technical.TechnicalLogSeverity;
 import org.bonitasoft.engine.log.technical.TechnicalLoggerService;
+import org.bonitasoft.engine.persistence.FilterOption;
+import org.bonitasoft.engine.persistence.QueryOptions;
 import org.bonitasoft.engine.scheduler.JobService;
 import org.bonitasoft.engine.scheduler.SchedulerService;
 import org.bonitasoft.engine.scheduler.exception.SJobConfigurationException;

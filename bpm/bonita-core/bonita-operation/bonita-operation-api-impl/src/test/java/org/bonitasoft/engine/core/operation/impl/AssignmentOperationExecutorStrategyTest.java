@@ -21,6 +21,7 @@ import java.util.Collections;
 
 import org.bonitasoft.engine.core.expression.control.model.SExpressionContext;
 import org.bonitasoft.engine.core.operation.exception.SOperationExecutionException;
+import org.bonitasoft.engine.core.operation.impl.AssignmentOperationExecutorStrategy;
 import org.bonitasoft.engine.core.operation.model.SLeftOperand;
 import org.bonitasoft.engine.core.operation.model.SOperation;
 import org.bonitasoft.engine.data.instance.api.DataInstanceService;

@@ -13,6 +13,8 @@
  **/
 package org.bonitasoft.engine.commons;
 
+import java.io.File;
+
 /**
  * String manipulation utilitary class.
  *

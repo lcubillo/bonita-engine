@@ -13,8 +13,8 @@
  **/
 package org.bonitasoft.engine.core.process.instance.model;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.bonitasoft.engine.test.persistence.builder.UserBuilder.aUser;
+import static org.assertj.core.api.Assertions.*;
+import static org.bonitasoft.engine.test.persistence.builder.UserBuilder.*;
 
 import java.util.List;
 
