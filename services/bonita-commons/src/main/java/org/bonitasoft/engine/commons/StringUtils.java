@@ -13,7 +13,6 @@
  **/
 package org.bonitasoft.engine.commons;
 
-
 /**
  * String manipulation utilitary class.
  *

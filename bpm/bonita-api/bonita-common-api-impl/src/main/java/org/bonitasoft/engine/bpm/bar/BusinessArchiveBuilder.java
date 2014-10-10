@@ -28,16 +28,14 @@ import org.bonitasoft.engine.filter.UserFilter;
 /**
  * <b>Creates {@link BusinessArchive}</b>
  * <p>
- * A typical use of this class is to build programmatically Business archive in order to deploy it using the {@link ProcessAPI}
- * <p>
+ * A typical use of this class is to build programmatically Business archive in order to deploy it using the {@link ProcessAPI} <p>
  * <p>
  * If you wish to deploy a BusinessArchived stored in a .bar file use {@link BusinessArchiveFactory} instead.
  * <p>
  * <p>
  * <p>
  * Usage example:
- * <p>
- * {@code BusinessArchive businessArchive = BusinessArchiveBuilder().createNewBusinessArchive().setProcessDefinition(processDefinition).done();}
+ * <p> {@code BusinessArchive businessArchive = BusinessArchiveBuilder().createNewBusinessArchive().setProcessDefinition(processDefinition).done();}
  * 
  * @author Baptiste Mesta
  * @author Matthieu Chaffotte
@@ -53,8 +51,7 @@ public class BusinessArchiveBuilder {
 
     /**
      * Set the process definition of the {@link BusinessArchive} that is currently build
-     * <p>
-     * {@link DesignProcessDefinition} can be constructed using {@link ProcessDefinitionBuilder}
+     * <p> {@link DesignProcessDefinition} can be constructed using {@link ProcessDefinitionBuilder}
      * 
      * @see ProcessDefinitionBuilder
      * @param processDefinition
@@ -69,9 +66,8 @@ public class BusinessArchiveBuilder {
     /**
      * Set the parameters values
      * <p>
-     * Parameters must also be defined in the {@link ProcessDefinition} using {@link ProcessDefinitionBuilder}
-     * <p>
-     * {@link DesignProcessDefinition} can be constructed using {@link ProcessDefinitionBuilder}
+     * Parameters must also be defined in the {@link ProcessDefinition} using {@link ProcessDefinitionBuilder} <p> {@link DesignProcessDefinition} can be
+     * constructed using {@link ProcessDefinitionBuilder}
      * 
      * @see ProcessDefinitionBuilder
      * @param processDefinition
@@ -92,7 +88,7 @@ public class BusinessArchiveBuilder {
      * e.g. if you add a connector in your process add here dependencies the process need to execute it
      * 
      * @param resource
-     *            the {@link BarResource} the represent a JAR file
+     *        the {@link BarResource} the represent a JAR file
      * @return
      *         the same {@link BusinessArchiveBuilder} in order to chain calls
      */
@@ -108,13 +104,12 @@ public class BusinessArchiveBuilder {
      * <p>
      * A connector definition should also be added in the {@link ProcessDefinition} using
      * {@link ProcessDefinitionBuilder#addConnector(String, String, String, org.bonitasoft.engine.bpm.model.ConnectorEvent)} or
-     * {@link ActivityDefinitionBuilder#addConnector(String, String, String, org.bonitasoft.engine.bpm.model.ConnectorEvent)}
-     * <p>
+     * {@link ActivityDefinitionBuilder#addConnector(String, String, String, org.bonitasoft.engine.bpm.model.ConnectorEvent)} <p>
      * <p>
      * e.g. if you add a connector in your process add here dependencies the process need to execute it
      * 
      * @param resource
-     *            the {@link BarResource} the represent a connector implementation descriptor file
+     *        the {@link BarResource} the represent a connector implementation descriptor file
      * @return
      *         the same {@link BusinessArchiveBuilder} in order to chain calls
      */
@@ -137,8 +132,7 @@ public class BusinessArchiveBuilder {
     }
 
     /**
-     * Set the actor mapping for this {@link BusinessArchive}
-     * <p>
+     * Set the actor mapping for this {@link BusinessArchive} <p>
      * The file must be compliant with the xsd actorMapping.xsd The actor mapping specify for each {@link ActorDefinition actor} of the process who it is in the
      * organization.
      * <p>
@@ -147,7 +141,7 @@ public class BusinessArchiveBuilder {
      * {@link ProcessAPI#addRoleAndGroupToActor(long, long, long)}
      * 
      * @param xmlContent
-     *            the xml file content that describe the actor mapping
+     *        the xml file content that describe the actor mapping
      * @return
      *         the same {@link BusinessArchiveBuilder} in order to chain calls
      */
@@ -160,7 +154,7 @@ public class BusinessArchiveBuilder {
      * Add resource in the {@link BusinessArchive} used by extensions
      * 
      * @param resource
-     *            the resource to be added in the business archive
+     *        the resource to be added in the business archive
      * @return
      *         the same {@link BusinessArchiveBuilder} in order to chain calls
      */
@@ -189,7 +183,7 @@ public class BusinessArchiveBuilder {
      * @return
      *         The BusinessArchive
      * @throws InvalidBusinessArchiveFormatException
-     *             when the business archive is inconsistent in the current state
+     *         when the business archive is inconsistent in the current state
      */
     public BusinessArchive done() throws InvalidBusinessArchiveFormatException {
         if (entity.getProcessDefinition() == null) {

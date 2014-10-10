@@ -18,9 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 
  * @author Baptiste Mesta
- * 
  */
 public abstract class BonitaWork implements Runnable, Serializable {
 
@@ -33,7 +31,6 @@ public abstract class BonitaWork implements Runnable, Serializable {
     public abstract String getDescription();
 
     /**
-     * 
      * @return
      *         how to restart the work if it fails
      */
@@ -45,7 +42,7 @@ public abstract class BonitaWork implements Runnable, Serializable {
      * Execution code of the work
      * 
      * @param context
-     *            a map of context that can be filled by a work to be given to a wrapped work
+     *        a map of context that can be filled by a work to be given to a wrapped work
      * @throws Exception
      */
     public abstract void work(Map<String, Object> context) throws Exception;

@@ -50,7 +50,7 @@ public class MembershipTest extends CommonAPITest {
 
     @Before
     public void before() throws BonitaException, InterruptedException {
-         loginOnDefaultTenantWithDefaultTechnicalUser();
+        loginOnDefaultTenantWithDefaultTechnicalUser();
         createTestedUserMemberships();
     }
 

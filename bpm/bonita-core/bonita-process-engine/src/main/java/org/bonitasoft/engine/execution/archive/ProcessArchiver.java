@@ -254,8 +254,6 @@ public class ProcessArchiver {
         }
     }
 
-
-
     private static void archiveFlowNodeInstance(final SFlowNodeInstance flowNodeInstance, final ArchiveService archiveService, final long archiveDate)
             throws SArchivingException {
         try {
@@ -329,7 +327,6 @@ public class ProcessArchiver {
         }
         return saFlowNodeInstance;
     }
-
 
     private static void deleteLocalDataInstancesFromActivityInstance(final SFlowNodeInstance flowNodeInstance, final DataInstanceService dataInstanceService)
             throws SDataInstanceException {

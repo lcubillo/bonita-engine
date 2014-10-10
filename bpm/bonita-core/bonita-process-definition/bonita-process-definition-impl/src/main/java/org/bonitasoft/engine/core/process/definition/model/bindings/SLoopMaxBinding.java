@@ -13,7 +13,6 @@
  **/
 package org.bonitasoft.engine.core.process.definition.model.bindings;
 
-
 /**
  * @author Matthieu Chaffotte
  */

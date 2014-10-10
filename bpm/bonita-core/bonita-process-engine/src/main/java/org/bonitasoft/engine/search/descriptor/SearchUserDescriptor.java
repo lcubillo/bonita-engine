@@ -41,10 +41,14 @@ public class SearchUserDescriptor extends SearchEntityDescriptor {
         userKeys.put(UserSearchDescriptor.FIRST_NAME, new FieldDescriptor(SUser.class, BuilderFactory.get(SUserBuilderFactory.class).getFirstNameKey()));
         userKeys.put(UserSearchDescriptor.LAST_NAME, new FieldDescriptor(SUser.class, BuilderFactory.get(SUserBuilderFactory.class).getLastNameKey()));
         userKeys.put(UserSearchDescriptor.ENABLED, new FieldDescriptor(SUser.class, BuilderFactory.get(SUserBuilderFactory.class).getEnabledKey()));
-        userKeys.put(UserSearchDescriptor.LAST_CONNECTION, new FieldDescriptor(SUser.class, BuilderFactory.get(SUserBuilderFactory.class).getLastConnectionKey()));
-        userKeys.put(UserSearchDescriptor.MANAGER_USER_ID, new FieldDescriptor(SUser.class, BuilderFactory.get(SUserBuilderFactory.class).getManagerUserIdKey()));
-        userKeys.put(UserSearchDescriptor.ROLE_ID, new FieldDescriptor(SUserMembership.class, BuilderFactory.get(SUserMembershipBuilderFactory.class).getRoleIdKey()));
-        userKeys.put(UserSearchDescriptor.GROUP_ID, new FieldDescriptor(SUserMembership.class, BuilderFactory.get(SUserMembershipBuilderFactory.class).getGroupIdKey()));
+        userKeys.put(UserSearchDescriptor.LAST_CONNECTION, new FieldDescriptor(SUser.class, BuilderFactory.get(SUserBuilderFactory.class)
+                .getLastConnectionKey()));
+        userKeys.put(UserSearchDescriptor.MANAGER_USER_ID,
+                new FieldDescriptor(SUser.class, BuilderFactory.get(SUserBuilderFactory.class).getManagerUserIdKey()));
+        userKeys.put(UserSearchDescriptor.ROLE_ID, new FieldDescriptor(SUserMembership.class, BuilderFactory.get(SUserMembershipBuilderFactory.class)
+                .getRoleIdKey()));
+        userKeys.put(UserSearchDescriptor.GROUP_ID, new FieldDescriptor(SUserMembership.class, BuilderFactory.get(SUserMembershipBuilderFactory.class)
+                .getGroupIdKey()));
 
         userAllFields = new HashMap<Class<? extends PersistentObject>, Set<String>>(1);
         final Set<String> userFields = new HashSet<String>(4);

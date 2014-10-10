@@ -60,7 +60,7 @@ public class UserTaskAssignationTest extends CommonAPITest {
 
     @Before
     public void beforeTest() throws BonitaException {
-         loginOnDefaultTenantWithDefaultTechnicalUser();
+        loginOnDefaultTenantWithDefaultTechnicalUser();
         john = createUser(JOHN, "bpm");
         jack = createUser(JACK, "bpm");
         loginOnDefaultTenantWith(JOHN, "bpm");
@@ -75,7 +75,7 @@ public class UserTaskAssignationTest extends CommonAPITest {
         assignAndExecuteStep(pendingTask, john.getId());
 
         final List<HumanTaskInstance> toDoTasks = getProcessAPI().getAssignedHumanTaskInstances(john.getId(), 0, 10, null);
-        
+
         // Task is in STARTED state so should not be retrieved:
         assertEquals(0, toDoTasks.size());
         waitForProcessToFinish(startProcess);
@@ -141,7 +141,7 @@ public class UserTaskAssignationTest extends CommonAPITest {
 
         ProcessInstance process = getProcessAPI().startProcess(processDefinition.getId());
         HumanTaskInstance pendingTask = waitForUserTask("step2", process);
-        
+
         // after assign
         getProcessAPI().assignUserTask(pendingTask.getId(), john.getId());
         List<HumanTaskInstance> toDoTasks = getProcessAPI().getAssignedHumanTaskInstances(john.getId(), 0, 10, null);
@@ -191,7 +191,7 @@ public class UserTaskAssignationTest extends CommonAPITest {
         List<HumanTaskInstance> toDoTasks = getProcessAPI().getAssignedHumanTaskInstances(john.getId(), 0, 10, null);
         assertEquals(1, toDoTasks.size());
         assertEquals(john.getId(), toDoTasks.get(0).getAssigneeId());
-        List<HumanTaskInstance>  pendingTasks = getProcessAPI().getPendingHumanTaskInstances(john.getId(), 0, 10, null);
+        List<HumanTaskInstance> pendingTasks = getProcessAPI().getPendingHumanTaskInstances(john.getId(), 0, 10, null);
         assertEquals(0, pendingTasks.size());
         // after release
         getProcessAPI().releaseUserTask(toDoTasks.get(0).getId());
@@ -623,7 +623,7 @@ public class UserTaskAssignationTest extends CommonAPITest {
         //then
         assertThat(possibleUsers).containsExactly(jaakko, pato);
         assertThat(userIdsForActor).containsExactly(jaakko.getId(), pato.getId());
-        
+
         // cleanup:
         deleteGroups(group);
         deleteRoles(role);
@@ -736,5 +736,5 @@ public class UserTaskAssignationTest extends CommonAPITest {
         deleteUser(jaakko);
         disableAndDeleteProcess(processDefinition);
     }
-    
+
 }

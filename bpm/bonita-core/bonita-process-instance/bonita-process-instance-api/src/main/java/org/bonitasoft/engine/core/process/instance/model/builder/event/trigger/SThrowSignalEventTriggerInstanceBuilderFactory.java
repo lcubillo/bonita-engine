@@ -13,7 +13,6 @@
  **/
 package org.bonitasoft.engine.core.process.instance.model.builder.event.trigger;
 
-
 /**
  * @author Matthieu Chaffotte
  */

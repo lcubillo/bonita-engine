@@ -19,7 +19,7 @@ import org.bonitasoft.engine.dependency.model.impl.SPlatformDependencyMappingImp
 public class SPlatformDependencyMappingBuilderImpl implements SPlatformDependencyMappingBuilder {
 
     private final SPlatformDependencyMappingImpl object;
-    
+
     public SPlatformDependencyMappingBuilderImpl(final SPlatformDependencyMappingImpl object) {
         super();
         this.object = object;

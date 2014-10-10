@@ -41,9 +41,9 @@ public class UserFilterServiceDecorator implements UserFilterService {
 
     /**
      * @param userFilterService
-     *            the UserFilterService class that this class is decorating.
+     *        the UserFilterService class that this class is decorating.
      * @param expressionbuilder
-     *            the {@link SExpressionBuilder} used to decorate.
+     *        the {@link SExpressionBuilder} used to decorate.
      */
     public UserFilterServiceDecorator(final UserFilterService userFilterService) {
         super();

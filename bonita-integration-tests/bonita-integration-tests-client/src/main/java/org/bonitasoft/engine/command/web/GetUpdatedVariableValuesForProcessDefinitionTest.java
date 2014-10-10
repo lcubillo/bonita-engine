@@ -58,7 +58,7 @@ public class GetUpdatedVariableValuesForProcessDefinitionTest extends CommonAPIT
 
     @Before
     public void before() throws Exception {
-         loginOnDefaultTenantWithDefaultTechnicalUser();
+        loginOnDefaultTenantWithDefaultTechnicalUser();
     }
 
     @After

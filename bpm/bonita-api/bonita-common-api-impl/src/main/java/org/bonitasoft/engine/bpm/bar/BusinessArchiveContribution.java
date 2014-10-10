@@ -16,7 +16,6 @@ package org.bonitasoft.engine.bpm.bar;
 import java.io.File;
 import java.io.IOException;
 
-
 /**
  * @author Baptiste Mesta
  */

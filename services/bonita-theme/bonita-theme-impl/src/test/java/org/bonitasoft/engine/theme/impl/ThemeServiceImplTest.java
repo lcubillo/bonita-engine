@@ -205,7 +205,6 @@ public class ThemeServiceImplTest {
      * 
      * @throws SRestoreThemeException
      * @throws SRecorderException
-     * 
      */
     @Test
     public final void restoreDefaultTheme() throws SRestoreThemeException, SRecorderException {

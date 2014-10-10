@@ -30,7 +30,6 @@ import org.bonitasoft.engine.persistence.SBonitaReadException;
 
 /**
  * @author Baptiste Mesta
- * 
  */
 public class ReevaluatingTransientDataExpressionExecutorStrategy extends TransientDataExpressionExecutorStrategy {
 

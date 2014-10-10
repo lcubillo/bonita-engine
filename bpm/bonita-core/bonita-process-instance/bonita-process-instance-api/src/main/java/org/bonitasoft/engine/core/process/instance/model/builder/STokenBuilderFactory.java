@@ -14,7 +14,6 @@
  */
 package org.bonitasoft.engine.core.process.instance.model.builder;
 
-
 /**
  * @author Celine Souchet
  */

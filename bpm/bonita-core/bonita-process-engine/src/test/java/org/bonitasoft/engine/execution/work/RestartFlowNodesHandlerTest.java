@@ -61,8 +61,6 @@ public class RestartFlowNodesHandlerTest {
         doReturn(activityInstanceService).when(tenantServiceAccessor).getActivityInstanceService();
     }
 
-
-
     @Test
     public final void do_nothing_if_no_flownode() throws Exception {
         //given
@@ -75,7 +73,6 @@ public class RestartFlowNodesHandlerTest {
         //then
         assertThat(restartFlowNodesHandler.flownodesToRestartByTenant.get(123l)).isEmpty();
     }
-
 
     @Test(expected = RestartException.class)
     public final void throw_exception_if_error_when_get_flownode() throws Exception {

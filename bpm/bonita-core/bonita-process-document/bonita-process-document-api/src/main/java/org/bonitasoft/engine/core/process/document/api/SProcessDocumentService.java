@@ -54,15 +54,15 @@ public interface SProcessDocumentService {
      * attached to several ones.
      * 
      * @param documentId
-     *            the Id of the document to retrieve
+     *        the Id of the document to retrieve
      * @param fromIndex
-     *            initial index
+     *        initial index
      * @param maxResults
-     *            max number of results to get
+     *        max number of results to get
      * @param sortFieldName
-     *            field name to execute the sort
+     *        field name to execute the sort
      * @param order
-     *            the sort order 'ASC' or 'DESC'
+     *        the sort order 'ASC' or 'DESC'
      * @return
      * @throws SProcessDocumentNotFoundException
      * @throws SProcessDocumentException

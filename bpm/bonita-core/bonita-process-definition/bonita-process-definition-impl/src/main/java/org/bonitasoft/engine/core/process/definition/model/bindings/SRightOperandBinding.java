@@ -13,12 +13,10 @@
  **/
 package org.bonitasoft.engine.core.process.definition.model.bindings;
 
-
 /**
  * @author Elias Ricken de Medeiros
  */
 public class SRightOperandBinding extends SExpressionBinding {
-
 
     @Override
     public String getElementTag() {

@@ -29,7 +29,7 @@ import org.bonitasoft.engine.recorder.model.EntityUpdateDescriptor;
 public class SProcessDefinitionDeployInfoUpdateBuilderImpl implements SProcessDefinitionDeployInfoUpdateBuilder {
 
     private final EntityUpdateDescriptor descriptor;
-    
+
     public SProcessDefinitionDeployInfoUpdateBuilderImpl(final EntityUpdateDescriptor descriptor) {
         this.descriptor = descriptor;
     }

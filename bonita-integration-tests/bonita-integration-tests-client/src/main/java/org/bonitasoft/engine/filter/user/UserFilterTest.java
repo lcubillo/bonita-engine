@@ -187,7 +187,8 @@ public class UserFilterTest extends CommonAPITest {
         assertEquals(0, tasks.size());
         tasks = getProcessAPI().getAssignedHumanTaskInstances(jack.getId(), 0, 10, null);
         assertEquals(1, tasks.size());
-        SearchResult<Comment> commentSearchResult = getProcessAPI().searchComments(new SearchOptionsBuilder(0, 10).filter(SearchCommentsDescriptor.PROCESS_INSTANCE_ID, processInstance.getId()).done());
+        SearchResult<Comment> commentSearchResult = getProcessAPI().searchComments(
+                new SearchOptionsBuilder(0, 10).filter(SearchCommentsDescriptor.PROCESS_INSTANCE_ID, processInstance.getId()).done());
         assertThat(commentSearchResult.getResult()).hasSize(1);
         assertThat(commentSearchResult.getResult().get(0).getContent()).isEqualTo("The task \"A task to test user filter\" is now assigned to jack");
         disableAndDeleteProcess(processDefinition);

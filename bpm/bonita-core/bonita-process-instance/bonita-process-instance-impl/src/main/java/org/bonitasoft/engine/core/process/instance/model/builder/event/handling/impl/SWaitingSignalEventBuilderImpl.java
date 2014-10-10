@@ -36,5 +36,5 @@ public class SWaitingSignalEventBuilderImpl implements SWaitingSignalEventBuilde
     public SWaitingSignalEvent done() {
         return entity;
     }
-    
+
 }

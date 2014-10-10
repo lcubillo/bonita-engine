@@ -13,12 +13,10 @@
  **/
 package org.bonitasoft.engine.core.process.definition.model.bindings;
 
-
 /**
  * @author Emmanuel Duchastenier
  */
 public class STargetProcessBinding extends SExpressionBinding {
-
 
     @Override
     public String getElementTag() {

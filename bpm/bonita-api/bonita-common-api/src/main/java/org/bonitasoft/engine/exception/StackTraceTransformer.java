@@ -20,14 +20,10 @@ import java.util.List;
 import org.bonitasoft.engine.api.internal.ServerWrappedException;
 
 /**
- * 
  * Transform an exception having causes in one single exception with merged stack trace
- * 
  * This is done in order to avoid to throw to client server side exception with unknown class in client side
  * 
- * 
  * @author Baptiste Mesta
- * 
  */
 public class StackTraceTransformer {
 
@@ -51,9 +47,8 @@ public class StackTraceTransformer {
     }
 
     /**
-     * 
      * @param e
-     *            the ServerWrappedException given by the server api
+     *        the ServerWrappedException given by the server api
      * @return
      *         a safe to throw to client ServerWrappedException
      */

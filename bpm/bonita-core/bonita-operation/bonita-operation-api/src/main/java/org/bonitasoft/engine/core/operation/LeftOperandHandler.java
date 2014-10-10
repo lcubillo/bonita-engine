@@ -41,7 +41,7 @@ public interface LeftOperandHandler {
     /**
      * @param sLeftOperand
      * @param inputValues
-     *            contains value(s) given by the strategy to update the left operand with
+     *        contains value(s) given by the strategy to update the left operand with
      * @param containerId
      * @param containerType
      * @throws SOperationExecutionException

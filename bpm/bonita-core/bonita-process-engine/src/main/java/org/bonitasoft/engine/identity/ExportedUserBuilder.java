@@ -13,7 +13,6 @@
  **/
 package org.bonitasoft.engine.identity;
 
-
 /**
  * Import / export version of the client User model
  * 
@@ -104,7 +103,7 @@ public class ExportedUserBuilder {
         user.setEnabled(enabled);
         return this;
     }
-    
+
     public ExportedUserBuilder addCustomUserInfoValue(ExportedCustomUserInfoValue userInfo) {
         user.addCustomUserInfoValues(userInfo);
         return this;

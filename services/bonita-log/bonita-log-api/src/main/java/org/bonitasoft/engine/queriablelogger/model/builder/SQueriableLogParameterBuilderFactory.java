@@ -13,7 +13,6 @@
  **/
 package org.bonitasoft.engine.queriablelogger.model.builder;
 
-
 /**
  * @author Elias Ricken de Medeiros
  */

@@ -33,9 +33,9 @@ public interface FlowElementInstanceService {
      * Retrieves the total number of <code>SFlowElementInstance</code> matching the given search criteria
      * 
      * @param entityClass
-     *            the class of the <code>SFlowElementInstance</code> objects to search for.
+     *        the class of the <code>SFlowElementInstance</code> objects to search for.
      * @param countOptions
-     *            the search options for this count method
+     *        the search options for this count method
      * @return the number found, 0 if none matching search criteria
      * @throws SBonitaSearchException
      * @since 6.0
@@ -49,9 +49,9 @@ public interface FlowElementInstanceService {
      * Retrieves the total number of <code>SAFlowElementInstance</code> matching the given search criteria
      * 
      * @param entityClass
-     *            the class of the <code>SAFlowElementInstance</code> objects to search for.
+     *        the class of the <code>SAFlowElementInstance</code> objects to search for.
      * @param countOptions
-     *            the search options for this count method
+     *        the search options for this count method
      * @return the number found, 0 if none matching search criteria
      * @throws SBonitaSearchException
      * @since 6.0

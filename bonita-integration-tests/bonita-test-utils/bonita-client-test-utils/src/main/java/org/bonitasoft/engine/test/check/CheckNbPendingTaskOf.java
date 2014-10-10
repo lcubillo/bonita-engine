@@ -12,7 +12,6 @@ import org.bonitasoft.engine.test.WaitUntil;
 /**
  * @author Baptiste Mesta
  * @author Matthieu Chaffotte
- * 
  * @deprecated use {@link APITestUtil} .waitFor...
  */
 @Deprecated

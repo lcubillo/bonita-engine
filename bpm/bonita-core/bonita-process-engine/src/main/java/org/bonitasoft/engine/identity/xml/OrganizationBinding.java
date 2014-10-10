@@ -30,7 +30,7 @@ import org.bonitasoft.engine.xml.ElementBinding;
  * @author Elias Ricken de Medeiros
  */
 public class OrganizationBinding extends ElementBinding {
-    
+
     private final List<CustomUserInfoDefinitionCreator> customUserInfoDefinitionCreators = new ArrayList<CustomUserInfoDefinitionCreator>();
 
     private final List<ExportedUser> users = new ArrayList<ExportedUser>();

@@ -24,11 +24,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * 
  * Test all things related to remote connection
  * 
  * @author Baptiste Mesta
- * 
  */
 public class RemoteEngineTests extends CommonAPITest {
 
@@ -39,7 +37,7 @@ public class RemoteEngineTests extends CommonAPITest {
 
     @Before
     public void beforeTest() throws BonitaException {
-         loginOnDefaultTenantWithDefaultTechnicalUser();
+        loginOnDefaultTenantWithDefaultTechnicalUser();
     }
 
     /*

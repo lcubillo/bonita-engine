@@ -7,7 +7,6 @@ import org.bonitasoft.engine.test.persistence.builder.PersistentObjectBuilder;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 
-
 public class ProcessInstanceRepository extends TestRepository {
 
     public ProcessInstanceRepository(SessionFactory sessionFactory) {

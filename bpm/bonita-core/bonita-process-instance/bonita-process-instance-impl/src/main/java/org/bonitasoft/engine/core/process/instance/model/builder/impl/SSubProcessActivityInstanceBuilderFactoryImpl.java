@@ -27,7 +27,8 @@ public class SSubProcessActivityInstanceBuilderFactoryImpl extends SActivityInst
     public SSubProcessActivityInstanceBuilder createNewSubProcessActivityInstance(final String name, final long flowNodeDefinitionId,
             final long rootContainerId, final long parentContainerId, final long processDefinitionId, final long rootProcessInstanceId,
             final long parentProcessInstanceId, final boolean isTriggeredByEvent) {
-        final SSubProcessActivityInstanceImpl entity = new SSubProcessActivityInstanceImpl(name, flowNodeDefinitionId, rootContainerId, parentContainerId, processDefinitionId,
+        final SSubProcessActivityInstanceImpl entity = new SSubProcessActivityInstanceImpl(name, flowNodeDefinitionId, rootContainerId, parentContainerId,
+                processDefinitionId,
                 rootProcessInstanceId, isTriggeredByEvent);
         entity.setLogicalGroup(PARENT_PROCESS_INSTANCE_INDEX, parentProcessInstanceId);
         entity.setTokenCount(1);

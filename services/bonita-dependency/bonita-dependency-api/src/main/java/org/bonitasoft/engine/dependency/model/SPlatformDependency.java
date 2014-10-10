@@ -13,7 +13,6 @@
  **/
 package org.bonitasoft.engine.dependency.model;
 
-
 /**
  * @author Celine Souchet
  */

@@ -22,7 +22,6 @@ import org.bonitasoft.engine.profile.model.SProfile;
 
 /**
  * @author Baptiste Mesta
- * 
  */
 public class FailOnDuplicateImportStrategy extends ProfileImportStategy {
 

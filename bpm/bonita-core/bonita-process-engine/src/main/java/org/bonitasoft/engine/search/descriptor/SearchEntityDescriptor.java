@@ -71,7 +71,7 @@ public abstract class SearchEntityDescriptor {
      * Override this method to have specific convertion behaviour from client filter value to server filter value .
      * 
      * @param filterValue
-     *            the initial value
+     *        the initial value
      * @return the converted filter value
      * @since 6.0
      */

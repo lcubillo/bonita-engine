@@ -272,7 +272,7 @@ public class ProfileServiceImpl implements ProfileService {
 
     @Override
     public void deleteProfile(final long profileId) throws SProfileNotFoundException, SProfileDeletionException, SProfileEntryDeletionException,
-    SProfileMemberDeletionException {
+            SProfileMemberDeletionException {
         logBeforeMethod("deleteProfile");
         final SProfile profile = getProfile(profileId);
         deleteProfile(profile);

@@ -105,7 +105,7 @@ public class ProcessDefinitionBARContributionTest {
         final File createTempFile = IOUtil.createTempFileInDefaultTempDirectory("old", "process.xml");
 
         try {
-        IOUtil.writeContentToFile(allContentFrom, createTempFile);
+            IOUtil.writeContentToFile(allContentFrom, createTempFile);
             new ProcessDefinitionBARContribution().deserializeProcessDefinition(createTempFile);
         } finally {
             createTempFile.delete();

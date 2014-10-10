@@ -14,7 +14,6 @@
  */
 package org.bonitasoft.engine.core.process.document.model.builder;
 
-
 /**
  * @author Nicolas Chabanoles
  */

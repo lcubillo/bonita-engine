@@ -26,7 +26,7 @@ public class SPendingActivityMappingLogBuilderFactoryImpl extends CRUDELogBuilde
     public SPendingActivityMappingLogBuilder createNewInstance() {
         return new SPendingActivityMappingLogBuilderImpl();
     }
-    
+
     @Override
     public String getObjectIdKey() {
         return "numericIndex2";

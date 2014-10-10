@@ -31,7 +31,7 @@ import org.bonitasoft.engine.service.ModelConvertor;
  * @author Matthieu Chaffotte
  */
 public class EvaluateExpressionsInstanceLevelAndArchived extends AbstractEvaluateExpressionsInstance implements
-TransactionContentWithResult<Map<String, Serializable>> {
+        TransactionContentWithResult<Map<String, Serializable>> {
 
     private final Map<Expression, Map<String, Serializable>> expressions;
 

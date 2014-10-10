@@ -26,12 +26,12 @@ public interface ThemeAPI {
      * Get the current theme for the specific type.
      * 
      * @param type
-     *            The type of the theme
+     *        The type of the theme
      * @return The theme
      * @throws RetrieveException
-     *             If an exception occurs while retrieving the theme
+     *         If an exception occurs while retrieving the theme
      * @throws InvalidSessionException
-     *             If the session is invalid (expired, unknown, ...)
+     *         If the session is invalid (expired, unknown, ...)
      * @since 6.2
      */
     Theme getCurrentTheme(ThemeType type);
@@ -40,12 +40,12 @@ public interface ThemeAPI {
      * Get the default theme for the specific type.
      * 
      * @param type
-     *            The type of the theme
+     *        The type of the theme
      * @return The theme
      * @throws RetrieveException
-     *             If an exception occurs while retrieving the theme
+     *         If an exception occurs while retrieving the theme
      * @throws InvalidSessionException
-     *             If the session is invalid (expired, unknown, ...)
+     *         If the session is invalid (expired, unknown, ...)
      * @since 6.2
      */
     Theme getDefaultTheme(ThemeType type);
@@ -54,10 +54,10 @@ public interface ThemeAPI {
      * Get the last updated date of the current theme for the specific type.
      * 
      * @param type
-     *            The type of theme
+     *        The type of theme
      * @return The last updated date of the theme
      * @throws InvalidSessionException
-     *             If the session is invalid (expired, unknown, ...)
+     *         If the session is invalid (expired, unknown, ...)
      * @since 6.2
      */
     Date getLastUpdateDate(ThemeType type);

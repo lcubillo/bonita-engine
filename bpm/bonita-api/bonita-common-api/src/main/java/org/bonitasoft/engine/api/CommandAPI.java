@@ -54,15 +54,11 @@ import org.bonitasoft.engine.session.InvalidSessionException;
  * After registration, the command can be executed using {@link CommandAPI#execute(long, Map)} with the id returned by the register method or
  * {@link CommandAPI#execute(String, Map)} with the name of the command and with a map of parameters required by the command.<br/>
  * Finally the command can be removed using both {@link CommandAPI#unregister(long)} or {@link CommandAPI#unregister(String)} and
- * {@link CommandAPI#removeDependency(String)}
- * </p>
- * 
+ * {@link CommandAPI#removeDependency(String)} </p>
  * <pre>
- * Code example:<br/> 
- * 
- * In this example we deploy a command named "myCommandName". The class that implements TenantCommand is org.bonitasoft.engine.command.IntegerCommand and 
+ * Code example:<br/>
+ * In this example we deploy a command named "myCommandName". The class that implements TenantCommand is org.bonitasoft.engine.command.IntegerCommand and
  * is contained in the jar we deploy using CommandAPI.addDependency.
- *  
  * {@code
  *  
  * byte[] byteArray = /* read the jar containing the command as a byte array * /
@@ -101,15 +97,15 @@ public interface CommandAPI {
      * Adds a dependency to the tenant scope.
      * 
      * @param name
-     *            the dependency name
+     *        the dependency name
      * @param jar
-     *            the JAR content
+     *        the JAR content
      * @throws InvalidSessionException
-     *             Generic exception thrown if API Session is invalid, e.g session has expired.
+     *         Generic exception thrown if API Session is invalid, e.g session has expired.
      * @throws AlreadyExistsException
-     *             if a dependency with the same name already exists
+     *         if a dependency with the same name already exists
      * @throws CreationException
-     *             occurs when any other dependency creation problem occurs
+     *         occurs when any other dependency creation problem occurs
      * @since 6.0
      */
     void addDependency(String name, byte[] jar) throws AlreadyExistsException, CreationException;
@@ -118,13 +114,13 @@ public interface CommandAPI {
      * Remove a dependency to the tenant scope.
      * 
      * @param name
-     *            the dependency name.
+     *        the dependency name.
      * @throws InvalidSessionException
-     *             Generic exception thrown if API Session is invalid, e.g session has expired.
+     *         Generic exception thrown if API Session is invalid, e.g session has expired.
      * @throws DependencyNotFoundException
-     *             occurs when the name does not refer to any existing dependency
+     *         occurs when the name does not refer to any existing dependency
      * @throws DeletionException
-     *             occurs when an exception is thrown during dependency deletion
+     *         occurs when an exception is thrown during dependency deletion
      * @since 6.0
      */
     void removeDependency(String name) throws DependencyNotFoundException, DeletionException;
@@ -133,18 +129,18 @@ public interface CommandAPI {
      * Create a new command with its provided name, description, implementation.
      * 
      * @param name
-     *            the command name
+     *        the command name
      * @param description
-     *            the descriptor of the command
+     *        the descriptor of the command
      * @param implementation
-     *            the implementation class which will be uses when executing the command. This class is inside the jar.
+     *        the implementation class which will be uses when executing the command. This class is inside the jar.
      * @return the descriptor of the newly created command
      * @throws InvalidSessionException
-     *             Generic exception thrown if API Session is invalid, e.g session has expired.
+     *         Generic exception thrown if API Session is invalid, e.g session has expired.
      * @throws AlreadyExistsException
-     *             when a command with the same name already exists
+     *         when a command with the same name already exists
      * @throws CreationException
-     *             when the command registering cannot be fulfilled
+     *         when the command registering cannot be fulfilled
      * @since 6.0
      */
     CommandDescriptor register(String name, String description, String implementation) throws AlreadyExistsException, CreationException;
@@ -153,18 +149,18 @@ public interface CommandAPI {
      * Execute a command according to its name and a map of parameters.
      * 
      * @param name
-     *            the command name
+     *        the command name
      * @param parameters
-     *            the parameters
+     *        the parameters
      * @return the result of the command execution.
      * @throws InvalidSessionException
-     *             Generic exception thrown if API Session is invalid, e.g session has expired.
+     *         Generic exception thrown if API Session is invalid, e.g session has expired.
      * @throws CommandNotFoundException
-     *             occurs when the name does not refer to any existing command
+     *         occurs when the name does not refer to any existing command
      * @throws CommandParameterizationException
-     *             when command parameters are not correct
+     *         when command parameters are not correct
      * @throws CommandExecutionException
-     *             occurs when an exception is thrown during command execution
+     *         occurs when an exception is thrown during command execution
      * @since 6.0
      */
     Serializable execute(String name, Map<String, Serializable> parameters) throws CommandNotFoundException, CommandParameterizationException,
@@ -175,18 +171,18 @@ public interface CommandAPI {
      * will have to manage itself its transactions.
      * 
      * @param name
-     *            the command name
+     *        the command name
      * @param parameters
-     *            the parameters
+     *        the parameters
      * @return the result of the command execution.
      * @throws InvalidSessionException
-     *             Generic exception thrown if API Session is invalid, e.g session has expired.
+     *         Generic exception thrown if API Session is invalid, e.g session has expired.
      * @throws CommandNotFoundException
-     *             occurs when the name does not refer to any existing command
+     *         occurs when the name does not refer to any existing command
      * @throws CommandParameterizationException
-     *             when command parameters are not correct
+     *         when command parameters are not correct
      * @throws CommandExecutionException
-     *             occurs when an exception is thrown during command execution
+     *         occurs when an exception is thrown during command execution
      * @since 6.2
      */
     Serializable executeWithUserTransactions(String name, Map<String, Serializable> parameters) throws CommandNotFoundException,
@@ -197,18 +193,18 @@ public interface CommandAPI {
      * Execute a command according to its id and a map of parameters.
      * 
      * @param commandId
-     *            the command commandId
+     *        the command commandId
      * @param parameters
-     *            the parameters
+     *        the parameters
      * @return the result of the command execution.
      * @throws InvalidSessionException
-     *             Generic exception thrown if API Session is invalid, e.g session has expired.
+     *         Generic exception thrown if API Session is invalid, e.g session has expired.
      * @throws CommandNotFoundException
-     *             occurs when the name does not refer to any existing command
+     *         occurs when the name does not refer to any existing command
      * @throws CommandParameterizationException
-     *             when command parameters are not correct
+     *         when command parameters are not correct
      * @throws CommandExecutionException
-     *             occurs when an exception is thrown during command execution
+     *         occurs when an exception is thrown during command execution
      * @since 6.0
      */
     Serializable execute(long commandId, Map<String, Serializable> parameters) throws CommandNotFoundException, CommandParameterizationException,
@@ -219,18 +215,18 @@ public interface CommandAPI {
      * will have to manage itself its transactions.
      * 
      * @param commandId
-     *            the command commandId
+     *        the command commandId
      * @param parameters
-     *            the parameters
+     *        the parameters
      * @return the result of the command execution.
      * @throws InvalidSessionException
-     *             Generic exception thrown if API Session is invalid, e.g session has expired.
+     *         Generic exception thrown if API Session is invalid, e.g session has expired.
      * @throws CommandNotFoundException
-     *             occurs when the name does not refer to any existing command
+     *         occurs when the name does not refer to any existing command
      * @throws CommandParameterizationException
-     *             when command parameters are not correct
+     *         when command parameters are not correct
      * @throws CommandExecutionException
-     *             occurs when an exception is thrown during command execution
+     *         occurs when an exception is thrown during command execution
      * @since 6.2
      */
     Serializable executeWithUserTransactions(long commandId, Map<String, Serializable> parameters) throws CommandNotFoundException,
@@ -241,13 +237,13 @@ public interface CommandAPI {
      * Delete a command through its name.
      * 
      * @param name
-     *            the command name
+     *        the command name
      * @throws InvalidSessionException
-     *             Generic exception thrown if API Session is invalid, e.g session has expired.
+     *         Generic exception thrown if API Session is invalid, e.g session has expired.
      * @throws CommandNotFoundException
-     *             occurs when the name does not refer to any existing command.
+     *         occurs when the name does not refer to any existing command.
      * @throws DeletionException
-     *             occurs when an exception is thrown during command deletion
+     *         occurs when an exception is thrown during command deletion
      * @since 6.0
      */
     void unregister(String name) throws CommandNotFoundException, DeletionException;
@@ -256,12 +252,12 @@ public interface CommandAPI {
      * Returns the command descriptor
      * 
      * @param name
-     *            the command name
+     *        the command name
      * @return the descriptor of the command
      * @throws InvalidSessionException
-     *             Generic exception thrown if API Session is invalid, e.g session has expired.
+     *         Generic exception thrown if API Session is invalid, e.g session has expired.
      * @throws CommandNotFoundException
-     *             occurs when the command name does not refer to any existing command.
+     *         occurs when the command name does not refer to any existing command.
      * @since 6.0
      */
     CommandDescriptor getCommand(String name) throws CommandNotFoundException;
@@ -270,14 +266,14 @@ public interface CommandAPI {
      * Returns the paginated list of command descriptors according to the sort criterion.
      * 
      * @param startIndex
-     *            the list start index
+     *        the list start index
      * @param maxResults
-     *            the number of {@link CommandDescriptor} to retrieve
+     *        the number of {@link CommandDescriptor} to retrieve
      * @param sort
-     *            the sorting criterion
+     *        the sorting criterion
      * @return the paginated list of descriptors of the command
      * @throws InvalidSessionException
-     *             Generic exception thrown if API Session is invalid, e.g session has expired.
+     *         Generic exception thrown if API Session is invalid, e.g session has expired.
      * @since 6.0
      */
     List<CommandDescriptor> getAllCommands(int startIndex, int maxResults, CommandCriterion sort);
@@ -286,15 +282,15 @@ public interface CommandAPI {
      * Updates a command according to the update descriptor.
      * 
      * @param name
-     *            the command name
+     *        the command name
      * @param updateDescriptor
-     *            the update descriptor
+     *        the update descriptor
      * @throws InvalidSessionException
-     *             Generic exception thrown if API Session is invalid, e.g session has expired.
+     *         Generic exception thrown if API Session is invalid, e.g session has expired.
      * @throws CommandNotFoundException
-     *             when the name does not refer to any existing command
+     *         when the name does not refer to any existing command
      * @throws UpdateException
-     *             when the update cannot be fulfilled correctly
+     *         when the update cannot be fulfilled correctly
      * @since 6.0
      */
     void update(String name, CommandUpdater updateDescriptor) throws CommandNotFoundException, UpdateException;
@@ -303,9 +299,9 @@ public interface CommandAPI {
      * Delete all commands
      * 
      * @throws InvalidSessionException
-     *             Generic exception thrown if API Session is invalid, e.g session has expired.
+     *         Generic exception thrown if API Session is invalid, e.g session has expired.
      * @throws DeletionException
-     *             occurs when an exception is thrown during command (unregistering) deletion
+     *         occurs when an exception is thrown during command (unregistering) deletion
      * @since 6.0
      */
     void unregisterAll() throws DeletionException;
@@ -314,14 +310,14 @@ public interface CommandAPI {
      * Returns the Commands with System is false
      * 
      * @param startIndex
-     *            The starting index
+     *        The starting index
      * @param maxResults
-     *            The number of {@link CommandDescriptor}
+     *        The number of {@link CommandDescriptor}
      * @param sort
-     *            The sorting criterion
+     *        The sorting criterion
      * @return The list of commands
      * @throws InvalidSessionException
-     *             Generic exception thrown if API Session is invalid, e.g session has expired.
+     *         Generic exception thrown if API Session is invalid, e.g session has expired.
      * @since 6.0
      */
     List<CommandDescriptor> getUserCommands(final int startIndex, final int maxResults, final CommandCriterion sort);
@@ -330,12 +326,12 @@ public interface CommandAPI {
      * Get the command descriptor by its id
      * 
      * @param commandId
-     *            identifier of command
+     *        identifier of command
      * @return the descriptor of the command
      * @throws InvalidSessionException
-     *             Generic exception thrown if API Session is invalid, e.g session has expired.
+     *         Generic exception thrown if API Session is invalid, e.g session has expired.
      * @throws CommandNotFoundException
-     *             occurs when the command id does not refer to any existing command.
+     *         occurs when the command id does not refer to any existing command.
      * @since 6.0
      */
     CommandDescriptor get(long commandId) throws CommandNotFoundException;
@@ -344,15 +340,15 @@ public interface CommandAPI {
      * Updates a command according to the update descriptor.
      * 
      * @param commandId
-     *            identifier of command to indicate which command will be updated
+     *        identifier of command to indicate which command will be updated
      * @param updateDescriptor
-     *            the update descriptor
+     *        the update descriptor
      * @throws InvalidSessionException
-     *             Generic exception thrown if API Session is invalid, e.g session has expired.
+     *         Generic exception thrown if API Session is invalid, e.g session has expired.
      * @throws CommandNotFoundException
-     *             occurs when the command id does not refer to any existing command
+     *         occurs when the command id does not refer to any existing command
      * @throws UpdateException
-     *             occurs when an exception is thrown during command update
+     *         occurs when an exception is thrown during command update
      * @since 6.0
      */
     void update(long commandId, CommandUpdater updateDescriptor) throws CommandNotFoundException, UpdateException;
@@ -361,13 +357,13 @@ public interface CommandAPI {
      * Delete a command through its id.
      * 
      * @param commandId
-     *            the identifier of command
+     *        the identifier of command
      * @throws InvalidSessionException
-     *             Generic exception thrown if API Session is invalid, e.g session has expired.
+     *         Generic exception thrown if API Session is invalid, e.g session has expired.
      * @throws CommandNotFoundException
-     *             occurs when the name does not refer to any existing command.
+     *         occurs when the name does not refer to any existing command.
      * @throws DeletionException
-     *             occurs when an exception is thrown during command deletion
+     *         occurs when an exception is thrown during command deletion
      * @since 6.0
      */
     void unregister(long commandId) throws CommandNotFoundException, DeletionException;
@@ -376,12 +372,12 @@ public interface CommandAPI {
      * Search commands
      * 
      * @param searchOptions
-     *            The criterion used during the search
+     *        The criterion used during the search
      * @return A {@link SearchResult} containing the search result
      * @throws InvalidSessionException
-     *             Generic exception thrown if API Session is invalid, e.g session has expired.
+     *         Generic exception thrown if API Session is invalid, e.g session has expired.
      * @throws SearchException
-     *             when problem occurs during the commands search
+     *         when problem occurs during the commands search
      * @since 6.0
      */
     SearchResult<CommandDescriptor> searchCommands(SearchOptions searchOptions) throws SearchException;

@@ -22,7 +22,6 @@ import org.hibernate.SessionFactory;
 
 /**
  * @author Elias Ricken de Medeiros
- *
  */
 public class FlowNodeInstanceRepository extends TestRepository {
 
