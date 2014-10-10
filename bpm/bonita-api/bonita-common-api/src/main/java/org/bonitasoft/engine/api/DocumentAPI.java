@@ -27,6 +27,7 @@ import org.bonitasoft.engine.exception.SearchException;
 import org.bonitasoft.engine.identity.UserNotFoundException;
 import org.bonitasoft.engine.search.SearchOptions;
 import org.bonitasoft.engine.search.SearchResult;
+import org.bonitasoft.engine.session.InvalidSessionException;
 
 /**
  * Manipulate documents that are attached to a process instance.

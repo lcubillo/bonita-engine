@@ -15,10 +15,10 @@ package org.bonitasoft.engine.events;
 
 import java.util.Set;
 
-import org.bonitasoft.engine.events.model.SFireEventException;
 import org.bonitasoft.engine.events.model.HandlerRegistrationException;
 import org.bonitasoft.engine.events.model.HandlerUnregistrationException;
 import org.bonitasoft.engine.events.model.SEvent;
+import org.bonitasoft.engine.events.model.SFireEventException;
 import org.bonitasoft.engine.events.model.SHandler;
 
 /**

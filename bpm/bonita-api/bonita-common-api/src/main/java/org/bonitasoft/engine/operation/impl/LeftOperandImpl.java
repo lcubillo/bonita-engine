@@ -14,6 +14,7 @@
 package org.bonitasoft.engine.operation.impl;
 
 import org.bonitasoft.engine.operation.LeftOperand;
+import org.bonitasoft.engine.operation.Operation;
 
 /**
  * @author Zhang Bole

@@ -13,9 +13,9 @@
  **/
 package org.bonitasoft.engine.bpm.classloader;
 
-import org.bonitasoft.engine.classloader.SClassLoaderException;
 import org.bonitasoft.engine.classloader.ClassLoaderService;
 import org.bonitasoft.engine.classloader.ParentClassLoaderResolver;
+import org.bonitasoft.engine.classloader.SClassLoaderException;
 import org.bonitasoft.engine.dependency.model.ScopeType;
 import org.bonitasoft.engine.exception.BonitaRuntimeException;
 import org.bonitasoft.engine.sessionaccessor.ReadSessionAccessor;

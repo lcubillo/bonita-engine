@@ -17,8 +17,8 @@ import java.io.Serializable;
 import java.util.Map;
 
 import org.bonitasoft.engine.events.model.SFireEventException;
-import org.bonitasoft.engine.scheduler.exception.SJobExecutionException;
 import org.bonitasoft.engine.scheduler.exception.SJobConfigurationException;
+import org.bonitasoft.engine.scheduler.exception.SJobExecutionException;
 
 /**
  * Interface of a scheduled job. A job is classified using a name and a group name. A job has a unique name and group name. It

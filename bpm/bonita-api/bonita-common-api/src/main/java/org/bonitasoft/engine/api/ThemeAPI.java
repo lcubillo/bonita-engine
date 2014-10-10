@@ -10,6 +10,8 @@ package org.bonitasoft.engine.api;
 
 import java.util.Date;
 
+import org.bonitasoft.engine.exception.RetrieveException;
+import org.bonitasoft.engine.session.InvalidSessionException;
 import org.bonitasoft.engine.theme.Theme;
 import org.bonitasoft.engine.theme.ThemeType;
 
