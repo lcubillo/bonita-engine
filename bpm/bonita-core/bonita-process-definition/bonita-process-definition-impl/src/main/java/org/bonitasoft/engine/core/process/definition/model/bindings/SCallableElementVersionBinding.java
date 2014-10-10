@@ -15,6 +15,7 @@ package org.bonitasoft.engine.core.process.definition.model.bindings;
 
 /**
  * @author Elias Ricken de Medeiros
+ *
  */
 public class SCallableElementVersionBinding extends SExpressionBinding {
 

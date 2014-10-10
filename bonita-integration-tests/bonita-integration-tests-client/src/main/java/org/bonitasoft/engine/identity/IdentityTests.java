@@ -6,12 +6,12 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({
-        UserTest.class,
-        RoleTest.class,
-        GroupTest.class,
-        MembershipTest.class,
-        OrganizationTest.class,
-        CustomUserInfoIT.class
+    UserTest.class,
+    RoleTest.class,
+    GroupTest.class,
+    MembershipTest.class,
+    OrganizationTest.class,
+    CustomUserInfoIT.class
 })
 public class IdentityTests {
 

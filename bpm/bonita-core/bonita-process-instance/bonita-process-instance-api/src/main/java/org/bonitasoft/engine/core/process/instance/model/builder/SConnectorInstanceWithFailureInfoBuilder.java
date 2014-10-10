@@ -13,8 +13,10 @@
  **/
 package org.bonitasoft.engine.core.process.instance.model.builder;
 
+
 /**
  * @author Elias Ricken de Medeiros
+ *
  */
 public interface SConnectorInstanceWithFailureInfoBuilder extends SConnectorInstanceBuilder {
 

@@ -84,8 +84,7 @@ public class ProcessDefinitionServiceIntegrationTest extends CommonBPMServicesTe
 
         getTransactionService().begin();
         // update processDefinitionDeployInfo
-        final EntityUpdateDescriptor updateDescriptor = BuilderFactory.get(SProcessDefinitionDeployInfoUpdateBuilderFactory.class).createNewInstance()
-                .updateDisplayName(updatedDisplayName)
+        final EntityUpdateDescriptor updateDescriptor = BuilderFactory.get(SProcessDefinitionDeployInfoUpdateBuilderFactory.class).createNewInstance().updateDisplayName(updatedDisplayName)
                 .updateActivationState(ActivationState.ENABLED).done();
         processDefinitionService.updateProcessDefinitionDeployInfo(processId, updateDescriptor);
 
@@ -112,8 +111,7 @@ public class ProcessDefinitionServiceIntegrationTest extends CommonBPMServicesTe
         getTransactionService().begin();
         // update processDefinitionDeployInfo with wrong processId
 
-        final EntityUpdateDescriptor updateDescriptor = BuilderFactory.get(SProcessDefinitionDeployInfoUpdateBuilderFactory.class).createNewInstance()
-                .updateDisplayName(updatedDisplayName).done();
+        final EntityUpdateDescriptor updateDescriptor = BuilderFactory.get(SProcessDefinitionDeployInfoUpdateBuilderFactory.class).createNewInstance().updateDisplayName(updatedDisplayName).done();
         try {
             processDefinitionService.updateProcessDefinitionDeployInfo(sProcessDefinition.getId() + 1, updateDescriptor);
         } finally {

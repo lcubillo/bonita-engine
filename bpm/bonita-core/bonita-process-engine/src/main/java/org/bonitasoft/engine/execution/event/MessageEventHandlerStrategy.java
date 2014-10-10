@@ -213,13 +213,7 @@ public class MessageEventHandlerStrategy extends CoupleEventHandlerStrategy {
             dataInstanceService.createDataContainer(messageInstance.getId(), DataInstanceContainer.MESSAGE_INSTANCE.name(), false);
             TechnicalLoggerService logger = bpmInstancesCreator.getLogger();
             if (logger.isLoggable(this.getClass(), TechnicalLogSeverity.DEBUG)) {
-                logger.log(
-                        this.getClass(),
-                        TechnicalLogSeverity.DEBUG,
-                        "Initialized variables for message instance [name: <" + messageInstance.getMessageName() + ">, id: <" + messageInstance.getId()
-                                + ">, flow node: <" + messageInstance.getFlowNodeName() + ">, target flow node: <" + messageInstance.getTargetFlowNode()
-                                + ">, target process: <" + messageInstance.getTargetProcess() + ">, process definition: <"
-                                + messageInstance.getProcessDefinitionId() + ">]");
+                logger.log(this.getClass(), TechnicalLogSeverity.DEBUG, "Initialized variables for message instance [name: <" + messageInstance.getMessageName() + ">, id: <" + messageInstance.getId() + ">, flow node: <" + messageInstance.getFlowNodeName() + ">, target flow node: <" + messageInstance.getTargetFlowNode() + ">, target process: <" + messageInstance.getTargetProcess() + ">, process definition: <" + messageInstance.getProcessDefinitionId() + ">]");
             }
         }
     }

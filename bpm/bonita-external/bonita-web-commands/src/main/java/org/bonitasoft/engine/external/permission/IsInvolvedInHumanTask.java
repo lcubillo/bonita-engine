@@ -60,6 +60,7 @@ public class IsInvolvedInHumanTask extends CommandWithParameters {
         final long userId = getLongMandadoryParameter(parameters, USER_ID_KEY);
         final long humanTaskInstanceId = getLongMandadoryParameter(parameters, HUMAN_TASK_INSTANCE_ID_KEY);
 
+
         try {
             return isInvolvedInHumanTask(userId, humanTaskInstanceId, serviceAccessor);
         } catch (final SBonitaException e) {

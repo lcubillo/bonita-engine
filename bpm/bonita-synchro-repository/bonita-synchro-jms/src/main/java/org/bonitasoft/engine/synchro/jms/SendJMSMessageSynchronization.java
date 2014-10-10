@@ -46,11 +46,11 @@ public class SendJMSMessageSynchronization implements BonitaTransactionSynchroni
     @Override
     public void afterCompletion(final TransactionState status) {
         if (status == TransactionState.COMMITTED) {
-            try {
-                jmsProducer.sendMessage(event, Long.toString(id));
+        	try {
+	            jmsProducer.sendMessage(event, Long.toString(id));
             } catch (JMSException e) {
-                e.printStackTrace();
-                throw new RuntimeException(e);
+	            e.printStackTrace();
+	            throw new RuntimeException(e);
             }
         }
     }

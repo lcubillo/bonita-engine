@@ -13,11 +13,12 @@
  **/
 package org.bonitasoft.engine.identity.model.builder;
 
+
 /**
  * @author Baptiste Mesta
  */
 public interface SIdentityUpdateBuilderFactory {
 
     SIdentityUpdateBuilder createNewInstance();
-
+    
 }

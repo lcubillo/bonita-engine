@@ -29,8 +29,7 @@ public class SUserTaskInstanceBuilderFactoryImpl extends SHumanTaskInstanceBuild
     public SUserTaskInstanceBuilder createNewUserTaskInstance(final String name, final long flowNodeDefinitionId, final long rootContainerId,
             final long parentContainerId, final long actorId, final long processDefinitionId, final long rootProcessInstanceId,
             final long parentProcessInstanceId) {
-        final SUserTaskInstanceImpl activityInst = new SUserTaskInstanceImpl(name, flowNodeDefinitionId, rootContainerId, parentContainerId, actorId,
-                STaskPriority.NORMAL,
+        final SUserTaskInstanceImpl activityInst = new SUserTaskInstanceImpl(name, flowNodeDefinitionId, rootContainerId, parentContainerId, actorId, STaskPriority.NORMAL,
                 processDefinitionId, rootProcessInstanceId);
         activityInst.setLogicalGroup(PARENT_PROCESS_INSTANCE_INDEX, parentProcessInstanceId);
         return new SUserTaskInstanceBuilderImpl(activityInst);

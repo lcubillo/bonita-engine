@@ -89,6 +89,7 @@ public class ProfileServiceImplForProfileEntryTest {
      * Test method for {@link org.bonitasoft.engine.profile.impl.ProfileServiceImpl#createProfileEntry(org.bonitasoft.engine.profile.model.SProfileEntry)}.
      * 
      * @param l
+     * 
      * @throws SRecorderException
      * @throws SProfileEntryCreationException
      */
@@ -352,8 +353,8 @@ public class ProfileServiceImplForProfileEntryTest {
         final SProfileEntry sProfileEntry = createProfileEntry(3);
         final SProfileEntryUpdateBuilder sProfileEntryUpdateBuilder = new SProfileEntryUpdateBuilderImpl();
         sProfileEntryUpdateBuilder.setDescription("description").setName("newName").setIndex(6).setCustom(true).setPage("page").setParentId(5858)
-                .setProfileId(9)
-                .setType("type");
+        .setProfileId(9)
+        .setType("type");
 
         doReturn(false).when(eventService).hasHandlers(anyString(), any(EventActionType.class));
         doReturn(false).when(queriableLoggerService).isLoggable(anyString(), any(SQueriableLogSeverity.class));

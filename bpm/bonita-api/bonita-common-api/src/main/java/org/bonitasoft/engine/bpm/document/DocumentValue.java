@@ -40,11 +40,11 @@ public class DocumentValue implements Serializable {
      * Represent the value of a document, content, mime type and file name is given
      * 
      * @param content
-     *        content of the document
+     *            content of the document
      * @param mimeType
-     *        mime type of the document
+     *            mime type of the document
      * @param fileName
-     *        file name of the document
+     *            file name of the document
      */
     public DocumentValue(final byte[] content, final String mimeType, final String fileName) {
         super();
@@ -58,7 +58,7 @@ public class DocumentValue implements Serializable {
      * Represent the value of an external document, only the url is given
      * 
      * @param url
-     *        url of the document
+     *            url of the document
      */
     public DocumentValue(final String url) {
         super();

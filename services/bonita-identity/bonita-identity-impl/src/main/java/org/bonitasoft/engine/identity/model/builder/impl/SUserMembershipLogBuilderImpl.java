@@ -33,6 +33,8 @@ public class SUserMembershipLogBuilderImpl extends CRUDELogBuilder implements SU
         return this;
     }
 
+    
+
     @Override
     protected String getActionTypePrefix() {
         return PREFIX;

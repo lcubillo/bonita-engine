@@ -32,11 +32,11 @@ public class SQueriableLogBuilderImpl implements SQueriableLogBuilder {
     public SQueriableLogBuilderImpl() {
         this.entity = new SQueriableLogImpl();
     }
-
+    
     public SQueriableLogBuilderImpl(final SQueriableLogImpl entity) {
         this.entity = entity;
     }
-
+    
     public SQueriableLogBuilderImpl(final SQueriableLog log) {
         // FIXME cannot be the same object. This method can be removed when all SQueriableLog was replaced
         // by SQueriableLogBuilder where it's necessary
@@ -49,7 +49,7 @@ public class SQueriableLogBuilderImpl implements SQueriableLogBuilder {
         }
         this.entity = local;
     }
-
+    
     @Override
     public SQueriableLogBuilder userId(final String userId) {
         entity.setUserId(userId);

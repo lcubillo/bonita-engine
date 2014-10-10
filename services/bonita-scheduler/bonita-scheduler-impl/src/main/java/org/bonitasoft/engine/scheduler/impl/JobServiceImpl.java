@@ -75,8 +75,7 @@ public class JobServiceImpl implements JobService {
 
     private final TechnicalLoggerService logger;
 
-    public JobServiceImpl(final EventService eventService, final Recorder recorder, final ReadPersistenceService readPersistenceService,
-            final TechnicalLoggerService logger) {
+    public JobServiceImpl(final EventService eventService, final Recorder recorder, final ReadPersistenceService readPersistenceService, final TechnicalLoggerService logger) {
         this.readPersistenceService = readPersistenceService;
         this.eventService = eventService;
         this.recorder = recorder;

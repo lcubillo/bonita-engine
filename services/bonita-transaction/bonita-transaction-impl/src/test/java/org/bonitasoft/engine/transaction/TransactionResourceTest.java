@@ -1,5 +1,6 @@
 package org.bonitasoft.engine.transaction;
 
+
 public abstract class TransactionResourceTest {
 
     protected abstract TransactionService getTxService();

@@ -102,7 +102,7 @@ public class SMigrationPlanDescriptorImpl implements SMigrationPlanDescriptor {
 
     /**
      * @param content
-     *        the content to set
+     *            the content to set
      */
     public void setContent(final byte[] content) {
         this.content = content;
@@ -110,7 +110,7 @@ public class SMigrationPlanDescriptorImpl implements SMigrationPlanDescriptor {
 
     /**
      * @param targetProcessVersion
-     *        the targetProcessVersion to set
+     *            the targetProcessVersion to set
      */
     public void setTargetProcessVersion(final String targetProcessVersion) {
         this.targetProcessVersion = targetProcessVersion;
@@ -118,7 +118,7 @@ public class SMigrationPlanDescriptorImpl implements SMigrationPlanDescriptor {
 
     /**
      * @param targetProcessName
-     *        the targetProcessName to set
+     *            the targetProcessName to set
      */
     public void setTargetProcessName(final String targetProcessName) {
         this.targetProcessName = targetProcessName;
@@ -126,7 +126,7 @@ public class SMigrationPlanDescriptorImpl implements SMigrationPlanDescriptor {
 
     /**
      * @param sourceProcessVersion
-     *        the sourceProcessVersion to set
+     *            the sourceProcessVersion to set
      */
     public void setSourceProcessVersion(final String sourceProcessVersion) {
         this.sourceProcessVersion = sourceProcessVersion;
@@ -134,7 +134,7 @@ public class SMigrationPlanDescriptorImpl implements SMigrationPlanDescriptor {
 
     /**
      * @param sourceProcessName
-     *        the sourceProcessName to set
+     *            the sourceProcessName to set
      */
     public void setSourceProcessName(final String sourceProcessName) {
         this.sourceProcessName = sourceProcessName;
@@ -142,7 +142,7 @@ public class SMigrationPlanDescriptorImpl implements SMigrationPlanDescriptor {
 
     /**
      * @param description
-     *        the description to set
+     *            the description to set
      */
     public void setDescription(final String description) {
         this.description = description;
@@ -150,7 +150,7 @@ public class SMigrationPlanDescriptorImpl implements SMigrationPlanDescriptor {
 
     /**
      * @param id
-     *        the id to set
+     *            the id to set
      */
     public void setId(final long id) {
         this.id = id;
@@ -172,7 +172,7 @@ public class SMigrationPlanDescriptorImpl implements SMigrationPlanDescriptor {
 
     /**
      * @param tenantId
-     *        the tenantId to set
+     *            the tenantId to set
      */
     public void setTenantId(final long tenantId) {
         this.tenantId = tenantId;

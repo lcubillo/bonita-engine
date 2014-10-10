@@ -15,6 +15,7 @@ package org.bonitasoft.engine.bpm.process;
 
 /**
  * @author Celine Souchet
+ * 
  *         Autoset by engine
  */
 public enum ConfigurationState {

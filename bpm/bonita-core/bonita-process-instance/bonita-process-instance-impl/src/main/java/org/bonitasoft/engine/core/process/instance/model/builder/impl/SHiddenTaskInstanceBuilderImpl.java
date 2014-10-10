@@ -23,7 +23,7 @@ import org.bonitasoft.engine.core.process.instance.model.impl.SHiddenTaskInstanc
 public class SHiddenTaskInstanceBuilderImpl implements SHiddenTaskInstanceBuilder {
 
     private final SHiddenTaskInstanceImpl entity;
-
+    
     public SHiddenTaskInstanceBuilderImpl(final SHiddenTaskInstanceImpl entity) {
         super();
         this.entity = entity;

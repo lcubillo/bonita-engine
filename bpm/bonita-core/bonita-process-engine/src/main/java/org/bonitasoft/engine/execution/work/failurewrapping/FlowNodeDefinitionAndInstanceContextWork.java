@@ -35,9 +35,9 @@ public class FlowNodeDefinitionAndInstanceContextWork extends TxInHandleFailureW
 
     /**
      * @param wrappedWork
-     *        The work to wrap
+     *            The work to wrap
      * @param flowNodeInstanceId
-     *        The identifier of the flow node instance
+     *            The identifier of the flow node instance
      */
     public FlowNodeDefinitionAndInstanceContextWork(final WrappingBonitaWork wrappedWork, final long flowNodeInstanceId) {
         super(wrappedWork);

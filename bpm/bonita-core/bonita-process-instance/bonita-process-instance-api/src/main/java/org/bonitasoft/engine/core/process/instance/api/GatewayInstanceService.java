@@ -41,7 +41,7 @@ public interface GatewayInstanceService {
      * Create gatewayInstance in DB according to the given gateway instance object
      * 
      * @param gatewayInstance
-     *        the gatewayInsttance object
+     *            the gatewayInsttance object
      * @throws SGatewayCreationException
      */
     void createGatewayInstance(SGatewayInstance gatewayInstance) throws SGatewayCreationException;
@@ -50,7 +50,7 @@ public interface GatewayInstanceService {
      * Get gateway instance by its id
      * 
      * @param gatewayInstanceId
-     *        identifier of gateway instance
+     *            identifier of gateway instance
      * @return an SGatewayInstance object
      * @throws SGatewayNotFoundException
      * @throws SGatewayReadException
@@ -61,9 +61,9 @@ public interface GatewayInstanceService {
      * Change state of the specific gateway
      * 
      * @param gatewayInstance
-     *        the gateway instance will be updated
+     *            the gateway instance will be updated
      * @param stateId
-     *        identifier of gateway state
+     *            identifier of gateway state
      * @throws SGatewayModificationException
      */
     void setState(SGatewayInstance gatewayInstance, int stateId) throws SGatewayModificationException;
@@ -81,9 +81,9 @@ public interface GatewayInstanceService {
      * Add transitionDefinitionName to hitBy of specific gatewayInstance
      * 
      * @param gatewayInstance
-     *        the gateway instance will be updated
+     *            the gateway instance will be updated
      * @param transitionIndex
-     *        value will be added to hitBy of gatewayInstance
+     *            value will be added to hitBy of gatewayInstance
      * @throws SGatewayModificationException
      * @throws SGatewayCreationException
      */
@@ -93,9 +93,9 @@ public interface GatewayInstanceService {
      * Get active gatewayInstance in the specific process instance
      * 
      * @param parentProcessInstanceId
-     *        identifier of parent process instance
+     *            identifier of parent process instance
      * @param name
-     *        name of gateway instance
+     *            name of gateway instance
      * @return
      * @throws SGatewayNotFoundException
      * @throws SGatewayReadException

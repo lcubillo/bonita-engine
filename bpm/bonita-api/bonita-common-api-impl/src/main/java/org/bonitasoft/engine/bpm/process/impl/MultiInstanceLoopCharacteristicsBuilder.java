@@ -52,7 +52,7 @@ public class MultiInstanceLoopCharacteristicsBuilder {
      * Adds a condition completion on this multi-instance
      * 
      * @param completionCondition
-     *        expression used as completion condition. The return type must be boolean
+     *            expression used as completion condition. The return type must be boolean
      * @return
      */
     public MultiInstanceLoopCharacteristicsBuilder addCompletionCondition(final Expression completionCondition) {
@@ -69,7 +69,7 @@ public class MultiInstanceLoopCharacteristicsBuilder {
      * {@link MultiInstanceLoopCharacteristicsBuilder#addDataOutputItemRef(String)}
      * 
      * @param loopDataOutputRef
-     *        name of process data that will store the collection output. This data must be previously added at the process level.
+     *            name of process data that will store the collection output. This data must be previously added at the process level.
      * @return
      * @see MultiInstanceLoopCharacteristicsBuilder#addDataOutputItemRef(String)
      */
@@ -85,8 +85,8 @@ public class MultiInstanceLoopCharacteristicsBuilder {
      * A and in the second one, B.
      * 
      * @param dataItemRef
-     *        name of activity data that will store the collection element related to each instance. This data must be previously added at the activity
-     *        level.
+     *            name of activity data that will store the collection element related to each instance. This data must be previously added at the activity
+     *            level.
      * @return
      */
     public MultiInstanceLoopCharacteristicsBuilder addDataInputItemRef(final String dataItemRef) {
@@ -100,7 +100,7 @@ public class MultiInstanceLoopCharacteristicsBuilder {
      * will be added in the data output reference: {@link MultiInstanceLoopCharacteristicsBuilder#addLoopDataOutputRef(String)}.
      * 
      * @param dataItemRef
-     *        name of activity data that will store the output related each instance. This data must be previously added at the activity level.
+     *            name of activity data that will store the output related each instance. This data must be previously added at the activity level.
      * @return
      */
     public MultiInstanceLoopCharacteristicsBuilder addDataOutputItemRef(final String dataItemRef) {

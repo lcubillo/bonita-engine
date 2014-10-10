@@ -37,10 +37,10 @@ public interface ProcessDocumentService {
      * Save a document
      * 
      * @param document
-     *        the document to store. The process id of the document has to be set.
+     *            the document to store. The process id of the document has to be set.
      * @return The document image from database
      * @throws SProcessDocumentCreationException
-     *         when the storage has failed
+     *             when the storage has failed
      */
     SProcessDocument attachDocumentToProcessInstance(SProcessDocument document) throws SProcessDocumentCreationException;
 
@@ -48,10 +48,10 @@ public interface ProcessDocumentService {
      * Modify document information
      * 
      * @param document
-     *        the document will be updated to
+     *            the document will be updated to
      * @return the updated SProcessDocument object
      * @throws SProcessDocumentCreationException
-     *         when the update has failed
+     *             when the update has failed
      */
     SProcessDocument updateDocumentOfProcessInstance(SProcessDocument document) throws SProcessDocumentCreationException;
 
@@ -59,9 +59,9 @@ public interface ProcessDocumentService {
      * Store a document and its content
      * 
      * @param document
-     *        The document information. The process id of the document has to be set.
+     *            The document information. The process id of the document has to be set.
      * @param documentContent
-     *        The content of the document
+     *            The content of the document
      * @return The stored document
      * @throws SProcessDocumentCreationException
      */
@@ -71,9 +71,9 @@ public interface ProcessDocumentService {
      * update the specific document, set it content as the specific content
      * 
      * @param document
-     *        document will be updated
+     *            document will be updated
      * @param documentContent
-     *        value of document content
+     *            value of document content
      * @return the updated object
      * @throws SProcessDocumentCreationException
      */
@@ -83,7 +83,7 @@ public interface ProcessDocumentService {
      * remove the current version of the document but archive it before
      * 
      * @param document
-     *        document will be updated
+     *            document will be updated
      * @return the updated object
      * @throws SProcessDocumentCreationException
      */
@@ -93,7 +93,7 @@ public interface ProcessDocumentService {
      * Get document content by storage id
      * 
      * @param documentStorageId
-     *        identifier of document storage
+     *            identifier of document storage
      * @return document content
      * @throws SProcessDocumentContentNotFoundException
      */
@@ -103,7 +103,7 @@ public interface ProcessDocumentService {
      * Get document by its id
      * 
      * @param documentId
-     *        identifier of document
+     *            identifier of document
      * @return an SProcessDocument object with id corresponding to the parameter
      * @throws SDocumentNotFoundException
      */
@@ -113,9 +113,9 @@ public interface ProcessDocumentService {
      * Get document by its name in the specific process instance
      * 
      * @param processInstanceId
-     *        identifier of process instance
+     *            identifier of process instance
      * @param documentName
-     *        name of process document
+     *            name of process document
      * @return the corresponding SProcessDocument object
      * @throws SDocumentNotFoundException
      */
@@ -125,11 +125,11 @@ public interface ProcessDocumentService {
      * Get a list of documents for specific process instance, this can be used for pagination
      * 
      * @param processInstanceId
-     *        identifier of process instance
+     *            identifier of process instance
      * @param fromIndex
-     *        Index of the record to be retrieved from. First record has index 0
+     *            Index of the record to be retrieved from. First record has index 0
      * @param numberPerPage
-     *        Number of result we want to get. Maximum number of result returned
+     *            Number of result we want to get. Maximum number of result returned
      * @param order
      * @param field
      * @return a list of SProcessDocument objects
@@ -142,7 +142,7 @@ public interface ProcessDocumentService {
      * Get total number of documents in the specific process instance
      * 
      * @param processInstanceId
-     *        identifier of process instance
+     *            identifier of process instance
      * @return
      *         number of documents in the process instance
      * @throws SDocumentException
@@ -153,11 +153,11 @@ public interface ProcessDocumentService {
      * Get name specified document archived in a certain time in the process instance
      * 
      * @param processInstanceId
-     *        identifier of process instance
+     *            identifier of process instance
      * @param documentName
-     *        name of document
+     *            name of document
      * @param time
-     *        the archived time of document
+     *            the archived time of document
      * @return an SProcessDocument object archived in the specific time or not archived
      * @throws SDocumentNotFoundException
      */
@@ -167,7 +167,7 @@ public interface ProcessDocumentService {
      * Get total number of document according to the query criteria
      * 
      * @param queryOptions
-     *        a QueryOptions object containing some query conditions
+     *            a QueryOptions object containing some query conditions
      * @return number of document satisfied to the query criteria
      * @throws SBonitaSearchException
      */
@@ -177,7 +177,7 @@ public interface ProcessDocumentService {
      * Search all documents according to the query criteria
      * 
      * @param queryOptions
-     *        a QueryOptions object containing some query conditions
+     *            a QueryOptions object containing some query conditions
      * @return a list of SProcessDocument objects
      * @throws SBonitaSearchException
      */
@@ -187,9 +187,9 @@ public interface ProcessDocumentService {
      * Get total number of documents for the specific supervisor
      * 
      * @param userId
-     *        identifier of supervisor user
+     *            identifier of supervisor user
      * @param queryOptions
-     *        a QueryOptions object containing some query conditions
+     *            a QueryOptions object containing some query conditions
      * @return number of documents for the specific supervisor
      * @throws SBonitaSearchException
      */
@@ -199,9 +199,9 @@ public interface ProcessDocumentService {
      * Search all documents for the specific supervisor
      * 
      * @param userId
-     *        identifier of supervisor user
+     *            identifier of supervisor user
      * @param queryOptions
-     *        a QueryOptions object containing some query conditions
+     *            a QueryOptions object containing some query conditions
      * @return a list of SProcessDocument objects
      * @throws SBonitaSearchException
      */
@@ -211,7 +211,7 @@ public interface ProcessDocumentService {
      * Get total number of archived documents according to the query criteria
      * 
      * @param queryOptions
-     *        a QueryOptions object containing some query conditions
+     *            a QueryOptions object containing some query conditions
      * @return number of archived documents
      * @throws SBonitaSearchException
      */
@@ -221,7 +221,7 @@ public interface ProcessDocumentService {
      * Search all archived documents according to the query criteria.
      * 
      * @param queryOptions
-     *        a QueryOptions object containing some query conditions
+     *            a QueryOptions object containing some query conditions
      * @return a list of SAProcessDocument objects
      * @throws SBonitaSearchException
      */
@@ -231,9 +231,9 @@ public interface ProcessDocumentService {
      * Get total number of archived documents for the specific supervisor
      * 
      * @param userId
-     *        identifier of supervisor user
+     *            identifier of supervisor user
      * @param queryOptions
-     *        a QueryOptions object containing some query conditions
+     *            a QueryOptions object containing some query conditions
      * @return number of archived documents for the specific supervisor
      * @throws SBonitaSearchException
      */
@@ -243,9 +243,9 @@ public interface ProcessDocumentService {
      * Search all archived documents for the specific supervisor
      * 
      * @param userId
-     *        identifier of supervisor user
+     *            identifier of supervisor user
      * @param queryOptions
-     *        a QueryOptions object containing some query conditions
+     *            a QueryOptions object containing some query conditions
      * @return a list of SAProcessDocument objects
      * @throws SBonitaSearchException
      */
@@ -255,10 +255,10 @@ public interface ProcessDocumentService {
      * Get the archived version corresponding to a document
      * 
      * @param documentId
-     *        identifier of process document
+     *            identifier of process document
      * @return the archive of the corresponding document
      * @throws SDocumentNotFoundException
-     *         when the document does not exist
+     *             when the document does not exist
      */
     SAProcessDocument getArchivedVersionOfProcessDocument(long documentId) throws SDocumentNotFoundException;
 
@@ -266,10 +266,10 @@ public interface ProcessDocumentService {
      * Retrieve an archived document
      * 
      * @param archivedProcessDocumentId
-     *        the id of the archived document
+     *            the id of the archived document
      * @return the corresponding archive
      * @throws SDocumentNotFoundException
-     *         when the archive does not exist
+     *             when the archive does not exist
      */
     SAProcessDocument getArchivedDocument(long archivedProcessDocumentId) throws SDocumentNotFoundException;
 
@@ -300,6 +300,7 @@ public interface ProcessDocumentService {
     void deleteDocumentsFromProcessInstance(final Long processInstanceId) throws SDocumentException, SProcessDocumentDeletionException;
 
     /**
+     * 
      * @param instanceId
      * @throws SDocumentMappingDeletionException
      * @since 6.0

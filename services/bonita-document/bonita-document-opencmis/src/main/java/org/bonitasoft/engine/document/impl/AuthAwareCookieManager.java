@@ -49,12 +49,12 @@ public class AuthAwareCookieManager extends CookieManager {
      * Create a new cookie manager with specified cookie store and cookie policy.
      * 
      * @param store
-     *        a <tt>CookieStore</tt> to be used by cookie manager. if <tt>null</tt>, cookie manager will use a default one, which is an
-     *        in-memory CookieStore implmentation.
+     *            a <tt>CookieStore</tt> to be used by cookie manager. if <tt>null</tt>, cookie manager will use a default one, which is an
+     *            in-memory CookieStore implmentation.
      * @param cookiePolicy
-     *        a <tt>CookiePolicy</tt> instance to be used by cookie manager as
-     *        policy callback. if <tt>null</tt>, ACCEPT_ORIGINAL_SERVER will be
-     *        used.
+     *            a <tt>CookiePolicy</tt> instance to be used by cookie manager as
+     *            policy callback. if <tt>null</tt>, ACCEPT_ORIGINAL_SERVER will be
+     *            used.
      */
     public AuthAwareCookieManager(final CookieStore store, final CookiePolicy cookiePolicy) {
         super(store, cookiePolicy);
@@ -70,8 +70,8 @@ public class AuthAwareCookieManager extends CookieManager {
      * policy.
      * 
      * @param cookiePolicy
-     *        the cookie policy. Can be <tt>null</tt>, which has no effects on
-     *        current cookie policy.
+     *            the cookie policy. Can be <tt>null</tt>, which has no effects on
+     *            current cookie policy.
      */
     @Override
     public void setCookiePolicy(final CookiePolicy cookiePolicy) {

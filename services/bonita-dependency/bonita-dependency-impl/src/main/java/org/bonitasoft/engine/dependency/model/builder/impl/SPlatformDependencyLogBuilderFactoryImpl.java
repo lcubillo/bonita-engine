@@ -26,5 +26,5 @@ public class SPlatformDependencyLogBuilderFactoryImpl extends SDependencyLogBuil
     public SDependencyLogBuilder createNewInstance() {
         return new SDependencyLogBuilderImpl();
     }
-
+    
 }

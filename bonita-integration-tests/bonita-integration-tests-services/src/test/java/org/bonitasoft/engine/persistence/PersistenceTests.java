@@ -6,8 +6,8 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({
-        TenantTest.class,
-        MultiTenancyTest.class
+    TenantTest.class,
+    MultiTenancyTest.class
 })
 public class PersistenceTests {
 

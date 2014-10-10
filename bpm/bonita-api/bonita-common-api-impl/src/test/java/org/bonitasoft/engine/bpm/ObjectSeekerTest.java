@@ -34,6 +34,7 @@ public class ObjectSeekerTest {
         assertThat(dataDefinition).isNull();
     }
 
+
     @Test
     public void seekAnUnknownObjectReturnsNull() throws Exception {
         final List<DataDefinition> dataDefinitions = new ArrayList<DataDefinition>();

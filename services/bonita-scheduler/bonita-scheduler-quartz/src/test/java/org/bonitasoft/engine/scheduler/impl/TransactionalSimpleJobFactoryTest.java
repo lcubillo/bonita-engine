@@ -22,6 +22,7 @@ import org.quartz.SchedulerException;
 import org.quartz.impl.JobDetailImpl;
 import org.quartz.spi.TriggerFiredBundle;
 
+
 @RunWith(MockitoJUnitRunner.class)
 public class TransactionalSimpleJobFactoryTest {
 

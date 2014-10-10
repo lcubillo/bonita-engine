@@ -28,15 +28,14 @@ public class DBConfigurationsProvider {
 
     public void setTenantConfigurations(final List<DBConfiguration> tenantConfigurations) {
         this.tenantConfigurations = tenantConfigurations;
-        Collections.sort(this.tenantConfigurations, new Comparator<DBConfiguration>() {
-
+        Collections.sort(this.tenantConfigurations, new Comparator<DBConfiguration>(){
             public int compare(DBConfiguration dbConfiguration1, DBConfiguration dbConfiguration2) {
                 final int priority1 = dbConfiguration1.getDeleteTenantObjectsPriority();
                 final int priority2 = dbConfiguration2.getDeleteTenantObjectsPriority();
-
+                
                 return priority1 - priority2;
             }
-        });
+          });
     }
 
     public List<DBConfiguration> getTenantConfigurations() {

@@ -26,7 +26,9 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 /**
+ * 
  * @author Baptiste Mesta
+ * 
  */
 @RunWith(MockitoJUnitRunner.class)
 public class PlatformTenantManagerTest {

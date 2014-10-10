@@ -22,6 +22,7 @@ import org.springframework.beans.factory.config.AbstractFactoryBean;
 
 /**
  * @author Baptiste Mesta
+ * 
  */
 public class MapToPropertiesFactoryBean extends AbstractFactoryBean<Properties> {
 

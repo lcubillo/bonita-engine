@@ -127,8 +127,7 @@ public class SignalEventHandlerStrategy extends CoupleEventHandlerStrategy {
         final SWaitingSignalEventBuilderFactory builderFact = BuilderFactory.get(SWaitingSignalEventBuilderFactory.class);
         final SSignalEventTriggerDefinition sSignalEventTriggerDefinition = (SSignalEventTriggerDefinition) sEventTriggerDefinition;
         final SWaitingSignalEventBuilder builder = builderFact.createNewWaitingSignalEventSubProcInstance(processDefinition.getId(),
-                parentProcessInstance.getId(), parentProcessInstance.getRootProcessInstanceId(), sSignalEventTriggerDefinition.getSignalName(),
-                processDefinition.getName(),
+                parentProcessInstance.getId(),  parentProcessInstance.getRootProcessInstanceId(), sSignalEventTriggerDefinition.getSignalName(), processDefinition.getName(),
                 eventDefinition.getId(), eventDefinition.getName(), subProcessId);
 
         final SWaitingSignalEvent signalEvent = builder.done();

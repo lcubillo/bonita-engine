@@ -123,8 +123,7 @@ public class SQueriableLogBuilderImplTest {
 
     @Test
     public void testFromInstance() {
-        SQueriableLogBuilder builder = fact.createNewInstance();
-        builder.userId("john").rawMessage("successfully executed").severity(SQueriableLogSeverity.BUSINESS);
+        SQueriableLogBuilder builder = fact.createNewInstance();builder.userId("john").rawMessage("successfully executed").severity(SQueriableLogSeverity.BUSINESS);
         builder.actionType("variable_update").actionScope("myVar").actionStatus(1);
         final SQueriableLog queriableLog1 = builder.done();
         assertEquals("john", queriableLog1.getUserId());

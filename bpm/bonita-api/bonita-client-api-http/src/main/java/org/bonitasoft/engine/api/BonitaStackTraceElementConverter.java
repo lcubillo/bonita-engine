@@ -20,7 +20,10 @@ import com.thoughtworks.xstream.converters.extended.StackTraceElementFactory;
 /**
  * Override default stack trace element parser to avoid having big exception when there is parsing issues
  * 
+ * 
+ * 
  * @author Baptiste Mesta
+ * 
  */
 public class BonitaStackTraceElementConverter extends StackTraceElementConverter {
 

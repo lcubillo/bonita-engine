@@ -135,7 +135,7 @@ public class JDBCJobListener extends AbstractJobListener {
     }
 
     private void deleteJobIfNotScheduledAnyMore(final Long jobDescriptorId) throws SJobDescriptorNotFoundException, SJobDescriptorReadException,
-            SSchedulerException {
+    SSchedulerException {
         try {
             final SJobDescriptor jobDescriptor = jobService.getJobDescriptor(jobDescriptorId);
             if (!getSchedulerService().isStillScheduled(jobDescriptor)) {

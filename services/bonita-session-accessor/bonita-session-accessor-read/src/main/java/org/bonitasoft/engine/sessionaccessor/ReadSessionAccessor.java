@@ -23,7 +23,7 @@ public interface ReadSessionAccessor {
      * 
      * @return the identifier of current session
      * @throws SessionIdNotSetException
-     *         if no session exists for the given id, throw exception
+     *             if no session exists for the given id, throw exception
      * @since 6.0
      */
     long getSessionId() throws SessionIdNotSetException;
@@ -33,7 +33,7 @@ public interface ReadSessionAccessor {
      * 
      * @return the identifier of the tenant
      * @throws STenantIdNotSetException
-     *         if no tenant exists for the given id, throw exception
+     *             if no tenant exists for the given id, throw exception
      * @since 6.0
      */
     long getTenantId() throws STenantIdNotSetException;

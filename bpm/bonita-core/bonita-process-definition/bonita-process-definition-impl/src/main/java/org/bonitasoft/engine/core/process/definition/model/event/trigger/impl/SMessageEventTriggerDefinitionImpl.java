@@ -91,8 +91,7 @@ public class SMessageEventTriggerDefinitionImpl extends SEventTriggerDefinitionI
         if (isXMLDataDefinition(dataDefinition)) {
             final XMLDataDefinition xmlDataDef = (XMLDataDefinition) dataDefinition;
             final SXMLDataDefinitionBuilderFactory fact = BuilderFactory.get(SXMLDataDefinitionBuilderFactory.class);
-            final SXMLDataDefinitionBuilder builder = fact.createNewXMLData(messageName).setElement(xmlDataDef.getElement())
-                    .setNamespace(xmlDataDef.getNamespace());
+            final SXMLDataDefinitionBuilder builder = fact.createNewXMLData(messageName).setElement(xmlDataDef.getElement()).setNamespace(xmlDataDef.getNamespace());
             builder.setDefaultValue(ServerModelConvertor.convertExpression(dataDefinition.getDefaultValueExpression()));
             builder.setDescription(dataDefinition.getDescription());
             builder.setTransient(dataDefinition.isTransientData());

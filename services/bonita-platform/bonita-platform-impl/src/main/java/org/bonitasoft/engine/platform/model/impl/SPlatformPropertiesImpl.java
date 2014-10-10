@@ -22,6 +22,7 @@ import org.bonitasoft.engine.platform.model.SPlatformProperties;
 
 /**
  * @author Celine Souchet
+ * 
  */
 public class SPlatformPropertiesImpl implements SPlatformProperties {
 

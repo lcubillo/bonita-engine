@@ -26,7 +26,7 @@ public class SFlowNodeInstanceLogBuilderFactoryImpl extends CRUDELogBuilderFacto
     public SFlowNodeInstanceLogBuilder createNewInstance() {
         return new SFlowNodeInstanceLogBuilderImpl();
     }
-
+    
     @Override
     public String getObjectIdKey() {
         return SProcessInstanceLogIndexesMapper.ACTIVITY_INSTANCE_NAME;

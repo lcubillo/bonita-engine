@@ -49,6 +49,7 @@ public class SADocumentMappingBuilderFactoryImpl implements SADocumentMappingBui
 
     static final String DOCUMENT_CREATIONDATE = "documentCreationDate";
 
+
     @Override
     public SADocumentMappingBuilder createNewInstance() {
         final SADocumentMappingImpl documentMapping = new SADocumentMappingImpl();

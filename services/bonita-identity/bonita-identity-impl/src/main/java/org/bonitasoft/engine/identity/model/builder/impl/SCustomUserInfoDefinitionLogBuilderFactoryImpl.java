@@ -31,7 +31,7 @@ public class SCustomUserInfoDefinitionLogBuilderFactoryImpl extends CRUDELogBuil
     public SCustomUserInfoDefinitionLogBuilder createNewInstance() {
         return new SCustomUserInfoDefinitionLogBuilderImpl();
     }
-
+    
     @Override
     public String getObjectIdKey() {
         return SPROFILE_METADATA_DEFINITION_INDEX_NAME;

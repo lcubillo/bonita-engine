@@ -20,8 +20,7 @@ import org.bonitasoft.engine.core.process.instance.model.event.trigger.impl.SThr
 /**
  * @author Elias Ricken de Medeiros
  */
-public class SThrowErrorEventTriggerInstanceBuilderFactoryImpl extends SEventTriggerInstanceBuilderFactoryImpl implements
-        SThrowErrorEventTriggerInstanceBuilderFactory {
+public class SThrowErrorEventTriggerInstanceBuilderFactoryImpl extends SEventTriggerInstanceBuilderFactoryImpl implements SThrowErrorEventTriggerInstanceBuilderFactory {
 
     @Override
     public SThrowErrorEventTriggerInstanceBuilder createNewInstance(final long eventInstanceId, final String errorCode) {

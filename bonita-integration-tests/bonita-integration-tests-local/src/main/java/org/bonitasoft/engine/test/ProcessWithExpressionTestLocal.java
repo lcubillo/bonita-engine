@@ -53,14 +53,14 @@ public class ProcessWithExpressionTestLocal extends CommonAPITest {
     @After
     public void afterTest() throws BonitaException {
         deleteUser(USERNAME);
-        logoutOnTenant();
+       logoutOnTenant();
     }
 
     @Before
     public void beforeTest() throws BonitaException {
         loginOnDefaultTenantWithDefaultTechnicalUser();
         user = createUser(USERNAME, PASSWORD);
-        logoutOnTenant();
+       logoutOnTenant();
         loginOnDefaultTenantWith(USERNAME, PASSWORD);
     }
 
@@ -146,7 +146,7 @@ public class ProcessWithExpressionTestLocal extends CommonAPITest {
                 String.valueOf(System.currentTimeMillis()));
         builder.addActor("actor");
         builder.addUserTask("step1", "actor")
-                .addData("tData", String.class.getName(), new ExpressionBuilder().createConstantStringExpression("The default value")).isTransient();
+        .addData("tData", String.class.getName(), new ExpressionBuilder().createConstantStringExpression("The default value")).isTransient();
         processDefinition = deployAndEnableProcessWithActor(builder.done(), "actor", user);
         getProcessAPI().startProcess(processDefinition.getId());
         final HumanTaskInstance step1 = waitForUserTask("step1");

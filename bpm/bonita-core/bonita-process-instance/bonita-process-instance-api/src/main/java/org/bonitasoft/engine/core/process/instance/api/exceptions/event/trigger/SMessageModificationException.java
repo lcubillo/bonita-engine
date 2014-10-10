@@ -13,8 +13,10 @@
  **/
 package org.bonitasoft.engine.core.process.instance.api.exceptions.event.trigger;
 
+
 /**
  * @author Elias Ricken de Medeiros
+ *
  */
 public class SMessageModificationException extends SEventTriggerInstanceException {
 

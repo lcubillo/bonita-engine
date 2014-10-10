@@ -43,7 +43,6 @@ public class AbstractLoginApiImpl {
             final TransactionService transactionService = platformAccessor.getTransactionService();
             try {
                 transactionService.executeInTransaction(new Callable<SPlatform>() {
-
                     @Override
                     public SPlatform call() throws Exception {
                         try {

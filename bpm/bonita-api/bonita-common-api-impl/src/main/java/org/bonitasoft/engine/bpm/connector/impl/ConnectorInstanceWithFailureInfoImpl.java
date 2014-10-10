@@ -17,8 +17,10 @@ import org.bonitasoft.engine.bpm.connector.ConnectorEvent;
 import org.bonitasoft.engine.bpm.connector.ConnectorInstanceWithFailureInfo;
 import org.bonitasoft.engine.bpm.connector.ConnectorState;
 
+
 /**
  * @author Elias Ricken de Medeiros
+ * 
  */
 public class ConnectorInstanceWithFailureInfoImpl extends ConnectorInstanceImpl implements ConnectorInstanceWithFailureInfo {
 

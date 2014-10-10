@@ -26,7 +26,7 @@ public class SHiddenTaskInstanceLogBuilderFactoryImpl extends CRUDELogBuilderFac
     public SHiddenTaskInstanceLogBuilder createNewInstance() {
         return new SHiddenTaskInstanceLogBuilderImpl();
     }
-
+    
     @Override
     public String getObjectIdKey() {
         return "numericIndex3";

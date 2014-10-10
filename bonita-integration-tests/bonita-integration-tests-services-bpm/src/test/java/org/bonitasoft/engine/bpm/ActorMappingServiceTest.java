@@ -75,7 +75,6 @@ public class ActorMappingServiceTest extends CommonBPMServicesTest {
     @Test(expected = SActorNotFoundException.class)
     public void cannotGetAnUnknownActor() throws Exception {
         transactionService.executeInTransaction(new Callable<SActor>() {
-
             @Override
             public SActor call() throws Exception {
                 return actorMappingService.getActor(0);

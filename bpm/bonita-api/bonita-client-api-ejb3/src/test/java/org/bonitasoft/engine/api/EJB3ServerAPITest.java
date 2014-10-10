@@ -35,8 +35,10 @@ import org.bonitasoft.engine.exception.ServerAPIException;
 import org.junit.Before;
 import org.junit.Test;
 
+
 /**
  * @author Julien Reboul
+ *
  */
 public class EJB3ServerAPITest {
 

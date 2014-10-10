@@ -19,7 +19,6 @@ import org.bonitasoft.engine.exception.ExecutionException;
  * @author Frédéric Bouquet
  */
 public class ProcessExecutionException extends ExecutionException {
-
     private static final long serialVersionUID = 4412292065541283593L;
 
     public ProcessExecutionException(Throwable cause) {

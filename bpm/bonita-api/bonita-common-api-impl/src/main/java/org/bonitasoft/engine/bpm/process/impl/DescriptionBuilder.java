@@ -20,7 +20,6 @@ public interface DescriptionBuilder {
 
     /**
      * Adds a description to current element
-     * 
      * @param description the description
      * @return
      */

@@ -60,6 +60,7 @@ public interface ProcessInstance extends NamedElement, BaseElement {
     long getRootProcessInstanceId();
 
     /**
+     * 
      * @return id of the call activity instance
      */
     long getCallerId();

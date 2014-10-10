@@ -16,13 +16,15 @@ package org.bonitasoft.engine.core.process.instance.model.builder.impl;
 import org.bonitasoft.engine.core.process.instance.model.builder.SConnectorInstanceWithFailureInfoBuilder;
 import org.bonitasoft.engine.core.process.instance.model.impl.SConnectorInstanceImpl;
 
+
 /**
  * @author Elias Ricken de Medeiros
+ *
  */
 public class SConnectorInstanceWithFailureInfoBuilderImpl extends SConnectorInstanceBuilderImpl implements SConnectorInstanceWithFailureInfoBuilder {
 
     public SConnectorInstanceWithFailureInfoBuilderImpl(final SConnectorInstanceImpl entity) {
         super(entity);
     }
-
+    
 }

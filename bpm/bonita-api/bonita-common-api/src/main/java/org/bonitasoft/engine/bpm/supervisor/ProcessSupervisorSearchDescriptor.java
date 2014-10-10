@@ -16,6 +16,7 @@ package org.bonitasoft.engine.bpm.supervisor;
 /**
  * @author Elias Ricken de Medeiros
  * @author Celine Souchet
+ * 
  */
 public class ProcessSupervisorSearchDescriptor {
 

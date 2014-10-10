@@ -53,7 +53,9 @@ import org.bonitasoft.engine.xml.SValidationException;
 import org.bonitasoft.engine.xml.SXMLParseException;
 
 /**
+ * 
  * Import profiles with mapping and entries using Policy
+ * 
  * 
  * @author Baptiste Mesta
  */

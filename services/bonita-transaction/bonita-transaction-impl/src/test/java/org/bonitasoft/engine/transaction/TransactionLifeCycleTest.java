@@ -14,6 +14,7 @@ public abstract class TransactionLifeCycleTest {
 
     protected abstract TransactionService getTxService() throws Exception;
 
+
     @Before
     public void before() throws Exception {
         txService = getTxService();

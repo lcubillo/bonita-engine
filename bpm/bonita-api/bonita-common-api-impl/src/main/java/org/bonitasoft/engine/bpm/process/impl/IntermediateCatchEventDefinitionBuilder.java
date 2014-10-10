@@ -36,18 +36,16 @@ public class IntermediateCatchEventDefinitionBuilder extends FlowElementContaine
 
     /**
      * Adds a timer trigger on this event
-     * 
      * @param timerType timer type
      * @param timerValue expression representing the timer value
      * @return
-     */
+     */    
     public TimerEventTriggerDefinitionBuilder addTimerEventTriggerDefinition(final TimerType timerType, final Expression timerValue) {
         return new TimerEventTriggerDefinitionBuilder(getProcessBuilder(), getContainer(), event, timerType, timerValue);
     }
 
     /**
      * Adds a message trigger on this event
-     * 
      * @param messageName name of the message to be caught
      * @return
      */
@@ -57,7 +55,6 @@ public class IntermediateCatchEventDefinitionBuilder extends FlowElementContaine
 
     /**
      * Adds a signal trigger on this event
-     * 
      * @param signalName name of the signal to be caught
      * @return
      */
@@ -75,7 +72,7 @@ public class IntermediateCatchEventDefinitionBuilder extends FlowElementContaine
      * Sets the display description on this event
      * 
      * @param displayDescription
-     *        expression representing the display description
+     *            expression representing the display description
      * @return
      */
     public IntermediateCatchEventDefinitionBuilder addDisplayDescription(final Expression displayDescription) {
@@ -87,7 +84,7 @@ public class IntermediateCatchEventDefinitionBuilder extends FlowElementContaine
      * Sets the display name on this event
      * 
      * @param displayName
-     *        expression representing the display name
+     *            expression representing the display name
      * @return
      */
     public IntermediateCatchEventDefinitionBuilder addDisplayName(final Expression displayName) {
@@ -100,7 +97,7 @@ public class IntermediateCatchEventDefinitionBuilder extends FlowElementContaine
      * execution
      * 
      * @param displayDescriptionAfterCompletion
-     *        expression representing the new display description after the event completion.
+     *            expression representing the new display description after the event completion.
      * @return
      */
     public IntermediateCatchEventDefinitionBuilder addDisplayDescriptionAfterCompletion(final Expression displayDescriptionAfterCompletion) {

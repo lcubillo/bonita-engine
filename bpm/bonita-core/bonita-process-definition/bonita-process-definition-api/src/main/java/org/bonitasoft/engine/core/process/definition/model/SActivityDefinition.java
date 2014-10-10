@@ -33,7 +33,6 @@ public interface SActivityDefinition extends SFlowNodeDefinition {
     List<SBusinessDataDefinition> getBusinessDataDefinitions();
 
     List<SOperation> getSOperations();
-
     List<SBoundaryEventDefinition> getBoundaryEventDefinitions();
 
     SBoundaryEventDefinition getBoundaryEventDefinition(String name) throws SBoundaryEventNotFoundException;

@@ -32,6 +32,7 @@ public enum ConnectorCriterion {
 
     /**
      * By ascending version of connector definition
+     * 
      */
     DEFINITION_VERSION_ASC,
 
@@ -43,34 +44,34 @@ public enum ConnectorCriterion {
     /**
      * By ascending identifier of connector implementation
      */
-
+    
     IMPLEMENTATION_ID_ASC,
-
+    
     /**
      * By descending identifier of connector implementation
      */
     IMPLEMENTATION_ID_DESC,
-
+    
     /**
      * By ascending version of connector implementation
      */
     IMPLEMENTATION_VERSION_ASC,
-
+    
     /**
      * By descending version of connector implementation
      */
     IMPLEMENTATIONN_VERSION_DESC,
-
+    
     /**
      * By ascending class name of connector implementation
      */
     IMPLEMENTATIONN_CLASS_NAME_ACS,
-
+    
     /**
      * By descending class name of connector implementation
      */
     IMPLEMENTATIONN_CLASS_NAME_DESC,
-
+    
     /**
      * By descending identifier of connector implementation
      */

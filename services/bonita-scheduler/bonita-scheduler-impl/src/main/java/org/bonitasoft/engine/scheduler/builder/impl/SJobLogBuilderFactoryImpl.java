@@ -18,7 +18,9 @@ import org.bonitasoft.engine.scheduler.builder.SJobLogBuilderFactory;
 import org.bonitasoft.engine.scheduler.model.impl.SJobLogImpl;
 
 /**
+ * 
  * @author Celine Souchet
+ * 
  */
 public class SJobLogBuilderFactoryImpl implements SJobLogBuilderFactory {
 

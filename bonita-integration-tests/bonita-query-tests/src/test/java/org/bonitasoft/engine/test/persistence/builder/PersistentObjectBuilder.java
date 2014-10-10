@@ -31,7 +31,6 @@ public abstract class PersistentObjectBuilder<T extends PersistentObject, B exte
     }
 
     abstract B getThisBuilder();
-
     abstract T _build();
 
 }

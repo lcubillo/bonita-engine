@@ -26,7 +26,7 @@ public abstract class SActivityInstanceBuilderImpl extends SFlowNodeInstanceBuil
     protected SActivityInstanceBuilderImpl(final SActivityInstanceImpl entity) {
         super(entity);
     }
-
+    
     @Override
     public SActivityInstanceBuilder setName(final String name) {
         this.entity.setName(name);
@@ -38,5 +38,6 @@ public abstract class SActivityInstanceBuilderImpl extends SFlowNodeInstanceBuil
         this.entity.setDescription(description);
         return this;
     }
+
 
 }

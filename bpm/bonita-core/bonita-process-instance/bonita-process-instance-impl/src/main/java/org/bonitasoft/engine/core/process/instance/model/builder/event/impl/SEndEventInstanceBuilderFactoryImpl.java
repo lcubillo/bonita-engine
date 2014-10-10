@@ -26,8 +26,7 @@ public class SEndEventInstanceBuilderFactoryImpl extends SEventInstanceBuilderFa
     @Override
     public SEndEventInstanceBuilder createNewEndEventInstance(final String name, final long flowNodeDefinitionId, final long rootContainerId,
             final long parentContainerId, final long processDefinitionId, final long rootProcessInstanceId, final long parentProcessInstanceId) {
-        final SEndEventInstanceImpl entity = new SEndEventInstanceImpl(name, flowNodeDefinitionId, rootContainerId, parentContainerId, processDefinitionId,
-                rootProcessInstanceId);
+        final SEndEventInstanceImpl entity = new SEndEventInstanceImpl(name, flowNodeDefinitionId, rootContainerId, parentContainerId, processDefinitionId, rootProcessInstanceId);
         entity.setLogicalGroup(PARENT_PROCESS_INSTANCE_INDEX, parentProcessInstanceId);
         return new SEndEventInstanceBuilderImpl(entity);
     }

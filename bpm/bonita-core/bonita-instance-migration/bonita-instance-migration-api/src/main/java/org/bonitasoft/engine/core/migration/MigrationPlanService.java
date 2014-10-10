@@ -41,7 +41,7 @@ public interface MigrationPlanService {
      * Import a migration plan in the engine
      * 
      * @param content
-     *        of the migration plan
+     *            of the migration plan
      * @return the imported migration plan
      */
     SMigrationPlanDescriptor importMigrationPlan(byte[] content) throws SInvalidMigrationPlanException, SMigrationPlanCreationException;
@@ -50,7 +50,7 @@ public interface MigrationPlanService {
      * Get the content of a migration plan
      * 
      * @param id
-     *        of the migration plan
+     *            of the migration plan
      * @return the content of the migration plan
      * @throws SBonitaReadException
      * @throws SMigrationPlanNotFoundException
@@ -72,7 +72,7 @@ public interface MigrationPlanService {
      * Get a migration plan using its id
      * 
      * @param id
-     *        of the migration plan to retrieve
+     *            of the migration plan to retrieve
      * @return the migration plan
      * @throws SBonitaReadException
      * @throws SInvalidMigrationPlanException
@@ -84,7 +84,7 @@ public interface MigrationPlanService {
      * Delete a migration plan
      * 
      * @param id
-     *        of the migration plan
+     *            of the migration plan
      * @throws SBonitaReadException
      * @throws SMigrationPlanNotFoundException
      * @throws SMigrationPlanDeletionException

@@ -13,8 +13,12 @@
  **/
 package org.bonitasoft.engine.bpm.flownode;
 
+
+
+
 /**
  * @author Elias Ricken de Medeiros
+ *
  */
 public interface CatchErrorEventTriggerDefinition extends ErrorEventTriggerDefinition {
 

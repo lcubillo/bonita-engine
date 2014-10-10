@@ -29,7 +29,7 @@ public class SCommandImpl implements SCommand {
     private String description;
 
     private String implementation;
-
+    
     private boolean system;
 
     public SCommandImpl() {
@@ -52,6 +52,7 @@ public class SCommandImpl implements SCommand {
         this.system = command.getSystem();
     }
 
+    
     public void setSystem(boolean system) {
         this.system = system;
     }

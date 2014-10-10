@@ -37,10 +37,8 @@ public class SearchEntityMemberRoleAndGroupDescriptor extends SearchEntityMember
     public SearchEntityMemberRoleAndGroupDescriptor() {
         super();
         putField(EntityMemberSearchDescriptor.DISPLAY_NAME_PART1, new FieldDescriptor(SRole.class, BuilderFactory.get(SRoleBuilderFactory.class).getNameKey()));
-        putField(EntityMemberSearchDescriptor.DISPLAY_NAME_PART2,
-                new FieldDescriptor(SGroup.class, BuilderFactory.get(SGroupBuilderFactory.class).getNameKey()));
-        putField(EntityMemberSearchDescriptor.DISPLAY_NAME_PART3, new FieldDescriptor(SGroup.class, BuilderFactory.get(SGroupBuilderFactory.class)
-                .getParentPathKey()));
+        putField(EntityMemberSearchDescriptor.DISPLAY_NAME_PART2, new FieldDescriptor(SGroup.class, BuilderFactory.get(SGroupBuilderFactory.class).getNameKey()));
+        putField(EntityMemberSearchDescriptor.DISPLAY_NAME_PART3, new FieldDescriptor(SGroup.class, BuilderFactory.get(SGroupBuilderFactory.class).getParentPathKey()));
 
         entityMemberAllFields = new HashMap<Class<? extends PersistentObject>, Set<String>>(2);
         final Set<String> roleFields = new HashSet<String>(1);

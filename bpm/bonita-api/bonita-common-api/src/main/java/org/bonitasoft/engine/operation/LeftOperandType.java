@@ -14,8 +14,11 @@
 package org.bonitasoft.engine.operation;
 
 /**
+ * 
  * @deprecated use constants of LeftOperand
+ * 
  *             Type of the left operand.
+ * 
  * @author Emmanuel Duchastenier
  */
 @Deprecated

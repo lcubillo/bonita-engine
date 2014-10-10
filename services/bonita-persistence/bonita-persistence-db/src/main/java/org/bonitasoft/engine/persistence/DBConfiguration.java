@@ -49,7 +49,7 @@ public class DBConfiguration {
      * @param dropTablesFile
      * @param initTablesFile
      * @param filter
-     *        name of persistence service that the configuration is relevant to
+     *            name of persistence service that the configuration is relevant to
      */
     public DBConfiguration(final String createTablesFile, final String dropTablesFile, final String initTablesFile, final String cleanTablesFile,
             final String filter) {
@@ -68,11 +68,11 @@ public class DBConfiguration {
      * @param dropTablesFile
      * @param initTablesFile
      * @param filter
-     *        name of persistence service that the configuration is relevant to
+     *            name of persistence service that the configuration is relevant to
      * @param postCreateStructureFile
-     *        SQL script that creates foreign keys
+     *            SQL script that creates foreign keys
      * @param preDropStructureFile
-     *        SQL script that drops foreign keys
+     *            SQL script that drops foreign keys
      */
     public DBConfiguration(final String createTablesFile, final String dropTablesFile, final String initTablesFile, final String cleanTablesFile,
             final String filter, final String postCreateStructureFile, final String preDropStructureFile) {
@@ -91,15 +91,15 @@ public class DBConfiguration {
      * @param dropTablesFile
      * @param initTablesFile
      * @param filter
-     *        name of persistence service that the configuration is relevant to
+     *            name of persistence service that the configuration is relevant to
      * @param deleteTenantObjectsFile
-     *        SQL script that clean objects of the tenant
+     *            SQL script that clean objects of the tenant
      * @param deleteTenantObjectsPriority
-     *        Priority order to execute deleteTenantObjectsFile
+     *            Priority order to execute deleteTenantObjectsFile
      * @param postCreateStructureFile
-     *        SQL script that creates foreign keys
+     *            SQL script that creates foreign keys
      * @param preDropStructureFile
-     *        SQL script that drops foreign keys
+     *            SQL script that drops foreign keys
      */
     public DBConfiguration(final String createTablesFile, final String dropTablesFile, final String initTablesFile, final String cleanTablesFile,
             final String filter, final String deleteTenantObjectsFile, final int deleteTenantObjectsPriority, final String postCreateStructureFile,
@@ -120,11 +120,11 @@ public class DBConfiguration {
      * @param dropTablesFile
      * @param initTablesFile
      * @param filter
-     *        name of persistence service that the configuration is relevant to
+     *            name of persistence service that the configuration is relevant to
      * @param deleteTenantObjectsFile
-     *        SQL script that clean objects of the tenant
+     *            SQL script that clean objects of the tenant
      * @param deleteTenantObjectsPriority
-     *        Priority order to execute deleteTenantObjectsFile
+     *            Priority order to execute deleteTenantObjectsFile
      */
     public DBConfiguration(final String createTablesFile, final String dropTablesFile, final String initTablesFile, final String cleanTablesFile,
             final String filter, final String deleteTenantObjectsFile, final int deleteTenantObjectsPriority) {
@@ -144,9 +144,9 @@ public class DBConfiguration {
      * @param dropTablesFile
      * @param initTablesFile
      * @param filter
-     *        name of persistence service that the configuration is relevant to
+     *            name of persistence service that the configuration is relevant to
      * @param deleteTenantObjectsFile
-     *        SQL script that clean objects of the tenant
+     *            SQL script that clean objects of the tenant
      */
     public DBConfiguration(final String postCreateStructureFile, final String preDropStructureFile, final String filter) {
         createTablesFile = null;

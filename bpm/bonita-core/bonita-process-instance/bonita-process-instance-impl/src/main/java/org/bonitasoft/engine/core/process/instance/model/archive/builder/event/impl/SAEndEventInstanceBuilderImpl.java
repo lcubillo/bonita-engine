@@ -23,7 +23,7 @@ import org.bonitasoft.engine.core.process.instance.model.archive.event.impl.SAEn
 public class SAEndEventInstanceBuilderImpl implements SAEndEventInstanceBuilder {
 
     private final SAEndEventInstanceImpl entity;
-
+    
     public SAEndEventInstanceBuilderImpl(final SAEndEventInstanceImpl entity) {
         super();
         this.entity = entity;

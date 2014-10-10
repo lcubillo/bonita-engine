@@ -29,10 +29,10 @@ public interface SessionService {
      *
      * @param tenantId
      * @param userName
-     *        userName
+     *            userName
      * @return a new session
      * @throws SSessionException
-     *         if some error arrives while creating the session
+     *             if some error arrives while creating the session
      * @since 6.0
      */
     SSession createSession(long tenantId, String userName) throws SSessionException;
@@ -43,9 +43,9 @@ public interface SessionService {
      * Delete a session having the given id
      *
      * @param sessionId
-     *        the session's id
+     *            the session's id
      * @throws SSessionNotFoundException
-     *         if no session exists for the given id
+     *             if no session exists for the given id
      * @since 6.0
      */
     void deleteSession(final long sessionId) throws SSessionNotFoundException;
@@ -61,10 +61,10 @@ public interface SessionService {
      * Verify if a session is valid
      *
      * @param sessionId
-     *        the session's id
+     *            the session's id
      * @return true if the session is valid, false otherwise
      * @throws SSessionNotFoundException
-     *         if no session exists for the given id
+     *             if no session exists for the given id
      * @since 6.0
      */
     boolean isValid(long sessionId) throws SSessionNotFoundException;
@@ -73,10 +73,10 @@ public interface SessionService {
      * Retrieve a session by its id
      *
      * @param sessionId
-     *        the session's id
+     *            the session's id
      * @return the session associated to the given id
      * @throws SSessionNotFoundException
-     *         if no session exists for the given id
+     *             if no session exists for the given id
      * @since 6.0
      */
     SSession getSession(long sessionId) throws SSessionNotFoundException;
@@ -109,9 +109,9 @@ public interface SessionService {
      * Update the expiration and the last update dates of the session.
      *
      * @param sessionId
-     *        the session id
+     *            the session id
      * @throws SSessionException
-     *         if some error arrives while creating the session
+     *             if some error arrives while creating the session
      * @since 6.0
      */
     void renewSession(long sessionId) throws SSessionException;

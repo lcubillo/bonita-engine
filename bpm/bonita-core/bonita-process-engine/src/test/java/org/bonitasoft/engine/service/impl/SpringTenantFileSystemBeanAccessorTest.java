@@ -19,6 +19,7 @@ import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
+
 @PrepareForTest({ SpringPlatformFileSystemBeanAccessor.class })
 @RunWith(PowerMockRunner.class)
 public class SpringTenantFileSystemBeanAccessorTest {
@@ -32,10 +33,10 @@ public class SpringTenantFileSystemBeanAccessorTest {
     AbsoluteFileSystemXmlApplicationContext absoluteFileSystemXmlApplicationContext;
 
     @Before
-    public void setUp() {
+    public void setUp(){
         MockitoAnnotations.initMocks(this);
     }
-
+    
     @Test
     public void testInitializeContextShouldExecuteCorrectly() throws Exception {
         Properties props = new Properties();

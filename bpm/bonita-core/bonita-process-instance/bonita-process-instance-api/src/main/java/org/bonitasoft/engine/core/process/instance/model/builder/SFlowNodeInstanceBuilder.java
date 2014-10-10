@@ -48,7 +48,7 @@ public interface SFlowNodeInstanceBuilder {
     SFlowNodeInstanceBuilder setTokenRefId(Long tokenRefId);
 
     SFlowNodeInstance done();
-
+    
     SFlowNodeType getFlowNodeType();
 
 }

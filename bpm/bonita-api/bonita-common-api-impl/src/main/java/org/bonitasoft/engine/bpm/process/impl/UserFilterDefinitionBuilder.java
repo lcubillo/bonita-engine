@@ -46,7 +46,6 @@ public class UserFilterDefinitionBuilder extends FlowElementContainerBuilder {
 
     /**
      * Adds a user filter input.
-     * 
      * @param name input name.
      * @param value expression representing the input value.
      * @return

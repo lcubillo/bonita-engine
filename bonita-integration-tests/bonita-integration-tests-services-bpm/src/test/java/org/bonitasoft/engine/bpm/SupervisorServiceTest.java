@@ -162,8 +162,7 @@ public class SupervisorServiceTest extends CommonBPMServicesTest {
     private List<SProcessSupervisor> createUserSupervisors(final List<SUser> users) throws Exception {
         final List<SProcessSupervisor> supervisorList = new ArrayList<SProcessSupervisor>();
         for (final SUser sUser : users) {
-            final SProcessSupervisor supervisor = BuilderFactory.get(SProcessSupervisorBuilderFactory.class).createNewInstance(this.processDefId)
-                    .setUserId(sUser.getId()).done();
+            final SProcessSupervisor supervisor = BuilderFactory.get(SProcessSupervisorBuilderFactory.class).createNewInstance(this.processDefId).setUserId(sUser.getId()).done();
             final SProcessSupervisor createdSupervisor = createSupervisor(supervisor);
             supervisorList.add(createdSupervisor);
         }
@@ -185,8 +184,7 @@ public class SupervisorServiceTest extends CommonBPMServicesTest {
         final List<SProcessSupervisor> supervisorList = new ArrayList<SProcessSupervisor>();
         this.transactionService.begin();
         for (final SRole sRole : roles) {
-            final SProcessSupervisor supervisor = BuilderFactory.get(SProcessSupervisorBuilderFactory.class).createNewInstance(this.processDefId)
-                    .setRoleId(sRole.getId()).done();
+            final SProcessSupervisor supervisor = BuilderFactory.get(SProcessSupervisorBuilderFactory.class).createNewInstance(this.processDefId).setRoleId(sRole.getId()).done();
             final SProcessSupervisor createdSupervisor = supervisorService.createProcessSupervisor(supervisor);
             supervisorList.add(createdSupervisor);
         }
@@ -198,8 +196,7 @@ public class SupervisorServiceTest extends CommonBPMServicesTest {
         final List<SProcessSupervisor> supervisorList = new ArrayList<SProcessSupervisor>();
         this.transactionService.begin();
         for (final SGroup sGroup : groups) {
-            final SProcessSupervisor supervisor = BuilderFactory.get(SProcessSupervisorBuilderFactory.class).createNewInstance(this.processDefId)
-                    .setGroupId(sGroup.getId()).done();
+            final SProcessSupervisor supervisor = BuilderFactory.get(SProcessSupervisorBuilderFactory.class).createNewInstance(this.processDefId).setGroupId(sGroup.getId()).done();
             final SProcessSupervisor createdSupervisor = supervisorService.createProcessSupervisor(supervisor);
             supervisorList.add(createdSupervisor);
         }
@@ -211,8 +208,7 @@ public class SupervisorServiceTest extends CommonBPMServicesTest {
         final List<SProcessSupervisor> supervisorList = new ArrayList<SProcessSupervisor>();
         this.transactionService.begin();
         for (final Entry<Long, Long> roleGroup : roleGroupMap.entrySet()) {
-            final SProcessSupervisor supervisor = BuilderFactory.get(SProcessSupervisorBuilderFactory.class).createNewInstance(this.processDefId)
-                    .setRoleId(roleGroup.getKey())
+            final SProcessSupervisor supervisor = BuilderFactory.get(SProcessSupervisorBuilderFactory.class).createNewInstance(this.processDefId).setRoleId(roleGroup.getKey())
                     .setGroupId(roleGroup.getValue()).done();
             final SProcessSupervisor createdSupervisor = supervisorService.createProcessSupervisor(supervisor);
             supervisorList.add(createdSupervisor);
@@ -232,11 +228,9 @@ public class SupervisorServiceTest extends CommonBPMServicesTest {
         final List<SProcessSupervisor> createdSupervisorList = createUserSupervisors(users);
         assertEquals(5, createdSupervisorList.size());
         this.transactionService.begin();
-        final List<OrderByOption> oderByOptions = Collections.singletonList(new OrderByOption(SProcessSupervisor.class, BuilderFactory.get(
-                SProcessSupervisorBuilderFactory.class).getUserIdKey(),
+        final List<OrderByOption> oderByOptions = Collections.singletonList(new OrderByOption(SProcessSupervisor.class, BuilderFactory.get(SProcessSupervisorBuilderFactory.class).getUserIdKey(),
                 OrderByType.DESC));
-        final List<FilterOption> filterOptions = Collections.singletonList(new FilterOption(SProcessSupervisor.class, BuilderFactory.get(
-                SProcessSupervisorBuilderFactory.class)
+        final List<FilterOption> filterOptions = Collections.singletonList(new FilterOption(SProcessSupervisor.class, BuilderFactory.get(SProcessSupervisorBuilderFactory.class)
                 .getProcessDefIdKey(),
                 this.processDefId));
 

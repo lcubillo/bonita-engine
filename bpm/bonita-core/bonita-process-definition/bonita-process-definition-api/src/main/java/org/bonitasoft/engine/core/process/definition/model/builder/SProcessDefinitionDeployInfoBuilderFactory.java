@@ -13,6 +13,7 @@
  **/
 package org.bonitasoft.engine.core.process.definition.model.builder;
 
+
 /**
  * @author Baptiste Mesta
  * @author Yanyan Liu

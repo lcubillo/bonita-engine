@@ -30,13 +30,13 @@ public interface ConnectorExecutor extends TenantLifecycleService {
      * Execute a connector.
      * 
      * @param sConnector
-     *        The connector will be executed
+     *            The connector will be executed
      * @param inputParameters
-     *        The input parameters of connector
+     *            The input parameters of connector
      * @return
      *         The output after connector executing
      * @throws SConnectorException
-     *         Error thrown when error occurs in connector executing
+     *             Error thrown when error occurs in connector executing
      */
     Map<String, Object> execute(SConnector sConnector, Map<String, Object> inputParameters) throws SConnectorException;
 

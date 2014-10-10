@@ -30,7 +30,7 @@ public interface UserFilter {
      * Set the input parameter for the filter.
      * 
      * @param parameters
-     *        parameters is a map with parameter names and their value.
+     *            parameters is a map with parameter names and their value.
      */
     void setInputParameters(Map<String, Object> parameters);
 
@@ -45,7 +45,7 @@ public interface UserFilter {
      * Execute the filter.
      * 
      * @param actorName
-     *        the actor name of the task
+     *            the actor name of the task
      * @return the connector outputs map corresponding to the output definition.
      * @throws UserFilterException
      */

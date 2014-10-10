@@ -146,7 +146,7 @@ public class SMessageInstanceImpl extends SPersistenceObjectImpl implements SMes
 
     /**
      * @param correlation1
-     *        the correlation1 to set
+     *            the correlation1 to set
      */
     public void setCorrelation1(final String correlation1) {
         this.correlation1 = correlation1;
@@ -162,7 +162,7 @@ public class SMessageInstanceImpl extends SPersistenceObjectImpl implements SMes
 
     /**
      * @param correlation2
-     *        the correlation2 to set
+     *            the correlation2 to set
      */
     public void setCorrelation2(final String correlation2) {
         this.correlation2 = correlation2;
@@ -178,7 +178,7 @@ public class SMessageInstanceImpl extends SPersistenceObjectImpl implements SMes
 
     /**
      * @param correlation3
-     *        the correlation3 to set
+     *            the correlation3 to set
      */
     public void setCorrelation3(final String correlation3) {
         this.correlation3 = correlation3;
@@ -194,7 +194,7 @@ public class SMessageInstanceImpl extends SPersistenceObjectImpl implements SMes
 
     /**
      * @param correlation4
-     *        the correlation4 to set
+     *            the correlation4 to set
      */
     public void setCorrelation4(final String correlation4) {
         this.correlation4 = correlation4;
@@ -210,7 +210,7 @@ public class SMessageInstanceImpl extends SPersistenceObjectImpl implements SMes
 
     /**
      * @param correlation5
-     *        the correlation5 to set
+     *            the correlation5 to set
      */
     public void setCorrelation5(final String correlation5) {
         this.correlation5 = correlation5;

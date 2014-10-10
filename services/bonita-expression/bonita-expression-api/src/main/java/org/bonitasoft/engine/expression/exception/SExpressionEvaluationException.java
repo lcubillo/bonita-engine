@@ -27,7 +27,7 @@ public class SExpressionEvaluationException extends SExpressionException {
      * @param message
      * @param cause
      * @param expressionName
-     *        The expression's name that failed on the evaluation.
+     *            The expression's name that failed on the evaluation.
      */
     public SExpressionEvaluationException(final String message, final Throwable cause, final String expressionName) {
         super(message, cause);
@@ -37,7 +37,7 @@ public class SExpressionEvaluationException extends SExpressionException {
     /**
      * @param message
      * @param expressionName
-     *        The expression's name that failed on the evaluation.
+     *            The expression's name that failed on the evaluation.
      */
     public SExpressionEvaluationException(final String message, final String expressionName) {
         super(message);
@@ -47,7 +47,7 @@ public class SExpressionEvaluationException extends SExpressionException {
     /**
      * @param cause
      * @param expressionName
-     *        The expression's name that failed on the evaluation.
+     *            The expression's name that failed on the evaluation.
      */
     public SExpressionEvaluationException(final Throwable cause, final String expressionName) {
         super(cause);

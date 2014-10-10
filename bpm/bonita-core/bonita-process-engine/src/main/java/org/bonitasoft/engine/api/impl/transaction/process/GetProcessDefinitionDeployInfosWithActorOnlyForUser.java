@@ -32,8 +32,7 @@ public final class GetProcessDefinitionDeployInfosWithActorOnlyForUser extends A
 
     private final long userId;
 
-    public GetProcessDefinitionDeployInfosWithActorOnlyForUser(final ProcessDefinitionService processDefinitionService,
-            final SearchEntityDescriptor searchDescriptor,
+    public GetProcessDefinitionDeployInfosWithActorOnlyForUser(final ProcessDefinitionService processDefinitionService, final SearchEntityDescriptor searchDescriptor,
             final int fromIndex, final int numberOfResults, final ProcessDeploymentInfoCriterion criterion, final long userId) {
         super(searchDescriptor, fromIndex, numberOfResults, criterion);
         this.userId = userId;

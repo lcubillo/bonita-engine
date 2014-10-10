@@ -25,8 +25,7 @@ public class SSendTaskInstanceBuilderFactoryImpl extends SActivityInstanceBuilde
     @Override
     public SSendTaskInstanceBuilder createNewSendTaskInstance(final String name, final long flowNodeDefinitionId, final long rootContainerId,
             final long parentContainerId, final long processDefinitionId, final long rootProcessInstanceId, final long parentProcessInstanceId) {
-        final SSendTaskInstanceImpl activityInstanceImpl = new SSendTaskInstanceImpl(name, flowNodeDefinitionId, rootContainerId, parentContainerId,
-                processDefinitionId,
+        final SSendTaskInstanceImpl activityInstanceImpl = new SSendTaskInstanceImpl(name, flowNodeDefinitionId, rootContainerId, parentContainerId, processDefinitionId,
                 rootProcessInstanceId);
         activityInstanceImpl.setLogicalGroup(PARENT_PROCESS_INSTANCE_INDEX, parentProcessInstanceId);
         return new SSendTaskInstanceBuilderImpl(activityInstanceImpl);

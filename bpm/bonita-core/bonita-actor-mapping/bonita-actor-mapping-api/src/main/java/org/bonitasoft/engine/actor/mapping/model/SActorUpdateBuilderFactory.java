@@ -13,6 +13,7 @@
  **/
 package org.bonitasoft.engine.actor.mapping.model;
 
+
 /**
  * @author Matthieu Chaffotte
  */

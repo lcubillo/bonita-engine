@@ -79,9 +79,9 @@ public class ProcessDefinitionBuilder implements DescriptionBuilder, ContainerBu
      * {@link #getProcess()} is called.
      *
      * @param name
-     *        the process name
+     *            the process name
      * @param version
-     *        the process version
+     *            the process version
      * @return
      */
     public ProcessDefinitionBuilder createNewInstance(final String name, final String version) {
@@ -99,7 +99,7 @@ public class ProcessDefinitionBuilder implements DescriptionBuilder, ContainerBu
      *
      * @return the process being build
      * @throws InvalidProcessDefinitionException
-     *         when the process definition is inconsistent. The exception contains causes
+     *             when the process definition is inconsistent. The exception contains causes
      */
     public DesignProcessDefinition done() throws InvalidProcessDefinitionException {
         validateProcess();
@@ -321,7 +321,7 @@ public class ProcessDefinitionBuilder implements DescriptionBuilder, ContainerBu
                 if (loopCharacteristics.getDataOutputItemRef() != null && !loopCharacteristics.getDataOutputItemRef().isEmpty()
                         && (loopCharacteristics.getLoopDataOutputRef() == null || loopCharacteristics.getLoopDataOutputRef().isEmpty())) {
                     designErrors
-                            .add("The multi instance has got a data output reference but does not have a loop data output on activity" + activity.getName());
+                    .add("The multi instance has got a data output reference but does not have a loop data output on activity" + activity.getName());
                 }
                 // TODO add validation on data existence
             }
@@ -424,7 +424,7 @@ public class ProcessDefinitionBuilder implements DescriptionBuilder, ContainerBu
      * Sets the process display name. When set, It is used to replace the name in the Bonita BPM Portal
      *
      * @param name
-     *        display name
+     *            display name
      * @return
      */
     public ProcessDefinitionBuilder addDisplayName(final String name) {
@@ -436,7 +436,7 @@ public class ProcessDefinitionBuilder implements DescriptionBuilder, ContainerBu
      * Sets the process display description
      *
      * @param description
-     *        display description
+     *            display description
      * @return
      */
     public ProcessDefinitionBuilder addDisplayDescription(final String description) {
@@ -572,7 +572,7 @@ public class ProcessDefinitionBuilder implements DescriptionBuilder, ContainerBu
     public TextDataDefinitionBuilder addLongTextData(final String name, final Expression defaultValue) {
         final String className = String.class.getName();
         return new TextDataDefinitionBuilder(this, (FlowElementContainerDefinitionImpl) process.getProcessContainer(), name, className, defaultValue)
-                .isLongText();
+        .isLongText();
     }
 
     @Override
@@ -620,7 +620,7 @@ public class ProcessDefinitionBuilder implements DescriptionBuilder, ContainerBu
      * Adds an actor on this process
      *
      * @param actorName
-     *        actor name
+     *            actor name
      * @see #addActor(String, boolean)
      */
     public ActorDefinitionBuilder addActor(final String actorName) {
@@ -631,9 +631,9 @@ public class ProcessDefinitionBuilder implements DescriptionBuilder, ContainerBu
      * Adds an actor on this process
      *
      * @param name
-     *        actor name
+     *            actor name
      * @param initiator
-     *        defines whether it's the actor initiator (actor that's able to start the process)
+     *            defines whether it's the actor initiator (actor that's able to start the process)
      * @return
      */
     public ActorDefinitionBuilder addActor(final String name, final boolean initiator) {
@@ -661,7 +661,7 @@ public class ProcessDefinitionBuilder implements DescriptionBuilder, ContainerBu
      * @return
      *         the process being build
      * @throws InvalidProcessDefinitionException
-     *         when the process definition is inconsistent. The exception contains causes
+     *             when the process definition is inconsistent. The exception contains causes
      */
     public DesignProcessDefinition getProcess() throws InvalidProcessDefinitionException {
         return done();

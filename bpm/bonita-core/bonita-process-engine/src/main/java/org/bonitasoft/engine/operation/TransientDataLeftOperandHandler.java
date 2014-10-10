@@ -154,7 +154,7 @@ public class TransientDataLeftOperandHandler implements LeftOperandHandler {
             if (theTransientData == null) {
                 throw new SBonitaReadException(
                         "Transient data was not found and we were unable to reevaluate it because it was not found in the definition, name=<" + name
-                                + "> process definition=<" + processDefinition.getName() + "," + processDefinition.getVersion() + "> flow node=<"
+                        + "> process definition=<" + processDefinition.getName() + "," + processDefinition.getVersion() + "> flow node=<"
                                 + flowNode.getName() + ">");
             }
             bpmInstancesCreator.createDataInstances(Arrays.asList(theTransientData), containerId, DataInstanceContainer.ACTIVITY_INSTANCE,

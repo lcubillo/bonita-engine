@@ -214,7 +214,7 @@ public class SDocumentMappingImpl implements SDocumentMapping {
             return false;
         }
         if (documentAuthor != other.documentAuthor) {
-            return false;
+                return false;
         }
         if (documentContentFileName == null) {
             if (other.documentContentFileName != null) {

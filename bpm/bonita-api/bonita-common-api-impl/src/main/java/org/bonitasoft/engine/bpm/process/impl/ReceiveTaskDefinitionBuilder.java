@@ -54,7 +54,7 @@ public class ReceiveTaskDefinitionBuilder extends ActivityDefinitionBuilder {
      * Adds the given operation on this message event. Operations added here can be used to initialize process data from message content.
      *
      * @param operation
-     *        operation to be added
+     *            operation to be added
      * @return
      */
     public ReceiveTaskDefinitionBuilder addMessageOperation(final Operation operation) {

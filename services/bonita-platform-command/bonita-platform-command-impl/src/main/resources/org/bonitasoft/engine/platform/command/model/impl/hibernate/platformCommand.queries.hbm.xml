@@ -3,15 +3,15 @@
 <hibernate-mapping auto-import="false">
 
 
-    <query name="getPlatformCommandByName">
-        SELECT platformCommand
-        FROM org.bonitasoft.engine.platform.command.model.impl.SPlatformCommandImpl AS platformCommand
-        WHERE platformCommand.name = :name
-    </query>
+	<query name="getPlatformCommandByName">
+		SELECT platformCommand
+		FROM org.bonitasoft.engine.platform.command.model.impl.SPlatformCommandImpl AS platformCommand
+		WHERE platformCommand.name = :name
+	</query>
 
-    <query name="getPlatformCommands">
-        SELECT platformCommand
-        FROM org.bonitasoft.engine.platform.command.model.impl.SPlatformCommandImpl AS platformCommand
-    </query>
+	<query name="getPlatformCommands">
+		SELECT platformCommand
+		FROM org.bonitasoft.engine.platform.command.model.impl.SPlatformCommandImpl AS platformCommand
+	</query>
 
 </hibernate-mapping>

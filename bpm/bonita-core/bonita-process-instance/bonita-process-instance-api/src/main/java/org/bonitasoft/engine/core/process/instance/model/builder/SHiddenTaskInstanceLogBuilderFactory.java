@@ -22,7 +22,7 @@ import org.bonitasoft.engine.queriablelogger.model.builder.SPersistenceLogBuilde
 public interface SHiddenTaskInstanceLogBuilderFactory extends SPersistenceLogBuilderFactory, HasCRUDEActionFactory {
 
     SHiddenTaskInstanceLogBuilder createNewInstance();
-
+    
     String getActivityInstanceIdKey();
 
 }

@@ -6,12 +6,12 @@
 
     <!-- MySQL configuration -->
 
-    <entry key="sql.delimiter">;</entry>
+     <entry key="sql.delimiter">;</entry>
 
-    <!-- Hibernate specific configuration -->
-    <entry key="hibernate.journal.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</entry>
-    <entry key="hibernate.journal.interceptor" />
+     <!-- Hibernate specific configuration -->
+     <entry key="hibernate.journal.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</entry>
+     <entry key="hibernate.journal.interceptor" />
 
-    <!-- Quartz specific configuration -->
+     <!-- Quartz specific configuration -->
 
 </properties>

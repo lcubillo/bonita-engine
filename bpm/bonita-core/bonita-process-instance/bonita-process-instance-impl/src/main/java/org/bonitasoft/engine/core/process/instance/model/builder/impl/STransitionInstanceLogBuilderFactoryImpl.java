@@ -26,7 +26,7 @@ public class STransitionInstanceLogBuilderFactoryImpl extends CRUDELogBuilderFac
     public STransitionInstanceLogBuilder createNewInstance() {
         return new STransitionInstanceLogBuilderImpl();
     }
-
+    
     @Override
     public String getObjectIdKey() {
         return SProcessInstanceLogIndexesMapper.TRANSITION_INSTANCE_NAME;

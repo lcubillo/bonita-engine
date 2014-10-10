@@ -25,7 +25,7 @@ public class ThemeTest extends CommonAPITest {
 
     @After
     public void after() throws Exception {
-        logoutOnTenant();
+       logoutOnTenant();
     }
 
     @Cover(classes = ThemeAPI.class, concept = BPMNConcept.NONE, keywords = { "Theme", "Get default", "Mobile" }, jira = "BS-2396, BS-2397")

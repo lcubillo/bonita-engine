@@ -146,7 +146,7 @@ public class AdvancedStartProcessValidatorTest {
 
     @Test
     public void validate_return_problem_if_the_flowNode_name_list_is_empty() throws Exception {
-        List<String> problems = starterValidator.validate(Collections.<String> emptyList());
+        List<String> problems = starterValidator.validate(Collections.<String>emptyList());
         assertEquals(1, problems.size());
         assertTrue(problems.get(0).contains("empty"));
     }

@@ -24,7 +24,7 @@ import org.bonitasoft.engine.core.process.comment.model.impl.SCommentImpl;
 public abstract class SCommentBuilderImpl implements SCommentBuilder {
 
     protected final SCommentImpl commentImpl;
-
+    
     public SCommentBuilderImpl(final SCommentImpl commentImpl) {
         super();
         this.commentImpl = commentImpl;
@@ -41,7 +41,7 @@ public abstract class SCommentBuilderImpl implements SCommentBuilder {
         commentImpl.setPostDate(postDate);
         return this;
     }
-
+    
     public SComment done() {
         return this.commentImpl;
     }

@@ -20,6 +20,7 @@ import org.bonitasoft.engine.core.process.instance.model.archive.impl.SAGatewayI
 
 /**
  * @author Hongwen Zang
+ * 
  */
 public class SAGatewayInstanceBuilderFactoryImpl extends SAActivityInstanceBuilderFactoryImpl implements SAGatewayInstanceBuilderFactory {
 

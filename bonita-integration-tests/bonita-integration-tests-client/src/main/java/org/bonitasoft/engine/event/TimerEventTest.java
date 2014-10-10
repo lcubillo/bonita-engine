@@ -46,7 +46,7 @@ public class TimerEventTest extends CommonAPITest {
 
     @Before
     public void beforeTest() throws BonitaException {
-        loginOnDefaultTenantWithDefaultTechnicalUser();
+         loginOnDefaultTenantWithDefaultTechnicalUser();
         user = createUser(USERNAME, PASSWORD);
         logoutThenloginAs(USERNAME, PASSWORD);
     }
@@ -74,7 +74,7 @@ public class TimerEventTest extends CommonAPITest {
         // BS-9586 : for mysql, we wait longer
         while (cnt < 10 && eventInstance != null) {
             Thread.sleep(1000);
-            eventInstance = getEventInstance(processInstanceId, "intermediateCatchEvent");
+        eventInstance = getEventInstance(processInstanceId, "intermediateCatchEvent");
             cnt++;
         }
         assertNull(eventInstance);// finished

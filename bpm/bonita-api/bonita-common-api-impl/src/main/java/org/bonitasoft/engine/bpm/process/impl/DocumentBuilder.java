@@ -25,7 +25,6 @@ public class DocumentBuilder {
 
     /**
      * Create a new instance of {@link Document}. This method is the entry point of this builder: it must be called before any other method.
-     * 
      * @param documentName document name
      * @param hasContent defines whether the document has content or not
      * @return
@@ -43,7 +42,6 @@ public class DocumentBuilder {
 
     /**
      * Sets the document file name
-     * 
      * @param fileName file name
      * @return
      */
@@ -54,7 +52,6 @@ public class DocumentBuilder {
 
     /**
      * Sets the document URL
-     * 
      * @param documentUrl document URL
      * @return
      */
@@ -65,7 +62,6 @@ public class DocumentBuilder {
 
     /**
      * Sets the document MIME type
-     * 
      * @param documentContentMimeType document MIME type
      * @return
      */

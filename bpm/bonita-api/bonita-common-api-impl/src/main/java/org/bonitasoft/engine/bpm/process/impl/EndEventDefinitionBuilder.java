@@ -36,7 +36,6 @@ public class EndEventDefinitionBuilder extends FlowElementContainerBuilder imple
 
     /**
      * Adds a signal on this event
-     * 
      * @param signalName name of the signal to be thrown
      * @return
      */
@@ -46,7 +45,6 @@ public class EndEventDefinitionBuilder extends FlowElementContainerBuilder imple
 
     /**
      * Adds a message on this event
-     * 
      * @param messageName name of message to be sent
      * @param targetProcess target process
      * @param targetFlowNode target flow node
@@ -58,7 +56,6 @@ public class EndEventDefinitionBuilder extends FlowElementContainerBuilder imple
 
     /**
      * Adds a message on this event
-     * 
      * @param messageName name of message to be sent
      * @param targetProcess target process
      * @return
@@ -68,8 +65,7 @@ public class EndEventDefinitionBuilder extends FlowElementContainerBuilder imple
     }
 
     /**
-     * Adds an error on this event
-     * 
+     * Adds an error on this event 
      * @param errorCode error code of the error to be thrown
      * @return
      */
@@ -79,7 +75,6 @@ public class EndEventDefinitionBuilder extends FlowElementContainerBuilder imple
 
     /**
      * Marks this event as a terminate event
-     * 
      * @return
      */
     public EndEventDefinitionBuilder addTerminateEventTrigger() {
@@ -95,12 +90,12 @@ public class EndEventDefinitionBuilder extends FlowElementContainerBuilder imple
     }
 
     /**
-     * Sets the display description on this event
-     * 
-     * @param displayDescription
-     *        expression representing the display description
-     * @return
-     */
+    * Sets the display description on this event
+    * 
+    * @param displayDescription
+    *            expression representing the display description
+    * @return
+    */
     public EndEventDefinitionBuilder addDisplayDescription(final Expression displayDescription) {
         endEvent.setDisplayDescription(displayDescription);
         return this;
@@ -110,7 +105,7 @@ public class EndEventDefinitionBuilder extends FlowElementContainerBuilder imple
      * Sets the display name on this event
      * 
      * @param displayName
-     *        expression representing the display name
+     *            expression representing the display name
      * @return
      */
     public EndEventDefinitionBuilder addDisplayName(final Expression displayName) {
@@ -118,12 +113,13 @@ public class EndEventDefinitionBuilder extends FlowElementContainerBuilder imple
         return this;
     }
 
+
     /**
      * Sets the display description after completion on this event. This will be used to updated the display description when the event completes its
      * execution
      * 
      * @param displayDescriptionAfterCompletion
-     *        expression representing the new display description after the event completion.
+     *            expression representing the new display description after the event completion.
      * @return
      */
     public EndEventDefinitionBuilder addDisplayDescriptionAfterCompletion(final Expression displayDescriptionAfterCompletion) {

@@ -29,10 +29,10 @@ public interface DocumentService {
      * Get content for specific document
      * 
      * @param documentId
-     *        Identifier of document
+     *            Identifier of document
      * @return content of document, it is a byte array
      * @throws SDocumentException
-     *         Error thrown if has exception during the document content searching
+     *             Error thrown if has exception during the document content searching
      */
     byte[] getContent(String documentId) throws SDocumentException;
 
@@ -41,10 +41,10 @@ public interface DocumentService {
      * 
      * @param sDocument
      * @param documentContent
-     *        Content of document, it is a byte array
+     *            Content of document, it is a byte array
      * @return document object with storage id
      * @throws SDocumentStorageException
-     *         Error thrown if has exception during the document content storage
+     *             Error thrown if has exception during the document content storage
      */
     SDocument storeDocumentContent(SDocument sDocument, byte[] documentContent) throws SDocumentStorageException;
 
@@ -53,9 +53,9 @@ public interface DocumentService {
      * 
      * @param documentId
      * @throws SDocumentDeletionException
-     *         Error thrown if has exception during the document content delete
+     *             Error thrown if has exception during the document content delete
      * @throws SDocumentException
-     *         Error thrown if has exception during the document content retrieve
+     *             Error thrown if has exception during the document content retrieve
      */
     void deleteDocumentContent(String documentId) throws SDocumentDeletionException, SDocumentException;
 

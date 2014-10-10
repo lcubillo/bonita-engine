@@ -73,9 +73,9 @@ import org.mockito.runners.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class ProcessExecutorImplTest {
 
-    @Rule
+	@Rule
     public ExpectedException thrown = ExpectedException.none();
-
+	
     @Mock
     private ActivityInstanceService activityInstanceService;
 
@@ -255,64 +255,67 @@ public class ProcessExecutorImplTest {
         assertThat(results).containsExactly(defaultTransition);
         verify(processExecutorImpl, times(1)).getDefaultTransition(processDefinition, flowNodeInstance);
     }
-
+    
+    
+    
     @Test
     public void testEvaluateTransitionsForImpliciteGateway_without_valid_transitions_should_throw_SActivityExecutionException() throws Exception {
+        
+    	// Given
+    	final String processName = "Faulty Process";
+    	final String processVersion = "6.3.1";
+    	SProcessDefinition processDefinition = mock(SProcessDefinition.class);
+    	when(processDefinition.getName()).thenReturn(processName);
+		when(processDefinition.getVersion()).thenReturn(processVersion);
 
-        // Given
-        final String processName = "Faulty Process";
-        final String processVersion = "6.3.1";
-        SProcessDefinition processDefinition = mock(SProcessDefinition.class);
-        when(processDefinition.getName()).thenReturn(processName);
-        when(processDefinition.getVersion()).thenReturn(processVersion);
+    	SFlowNodeInstance flowNodeInstance = mock(SFlowNodeInstance.class);
+    	when(flowNodeInstance.getParentProcessInstanceId()).thenReturn(42L);
+    	
+    	
+    	thrown.expect(SActivityExecutionException.class);
+    	thrown.expect(new BaseMatcher<Object>() {
 
-        SFlowNodeInstance flowNodeInstance = mock(SFlowNodeInstance.class);
-        when(flowNodeInstance.getParentProcessInstanceId()).thenReturn(42L);
+    		long expectedProcessInstanceID = 42L;
 
-        thrown.expect(SActivityExecutionException.class);
-        thrown.expect(new BaseMatcher<Object>() {
+			@Override
+			public boolean matches(Object item) {
+				
+				
+				if(item instanceof SActivityExecutionException) {
+					SActivityExecutionException exception = (SActivityExecutionException) item;
+					
+					Map<SExceptionContext, Serializable> context = exception.getContext();
+					return (hasProcessNameInContext(processName, context) && hasProcessInstanceIDInContext(expectedProcessInstanceID, context) && hasProcessVersionInContext(processVersion, context));
+				}
+				return false;
+			}
 
-            long expectedProcessInstanceID = 42L;
+			private boolean hasProcessVersionInContext(String processVersion, Map<SExceptionContext, Serializable> context) {
+				return processVersion.equals(context.get(SExceptionContext.PROCESS_VERSION));
+			}
 
-            @Override
-            public boolean matches(Object item) {
+			private boolean hasProcessInstanceIDInContext(long processInstanceId, Map<SExceptionContext, Serializable> context) {
+				return processInstanceId == (Long)context.get(SExceptionContext.PROCESS_INSTANCE_ID);
+			}
 
-                if (item instanceof SActivityExecutionException) {
-                    SActivityExecutionException exception = (SActivityExecutionException) item;
+			private boolean hasProcessNameInContext(final String processName, Map<SExceptionContext, Serializable> context) {
+				return processName.equals(context.get(SExceptionContext.PROCESS_NAME));
+			}
 
-                    Map<SExceptionContext, Serializable> context = exception.getContext();
-                    return (hasProcessNameInContext(processName, context) && hasProcessInstanceIDInContext(expectedProcessInstanceID, context) && hasProcessVersionInContext(
-                            processVersion, context));
-                }
-                return false;
-            }
-
-            private boolean hasProcessVersionInContext(String processVersion, Map<SExceptionContext, Serializable> context) {
-                return processVersion.equals(context.get(SExceptionContext.PROCESS_VERSION));
-            }
-
-            private boolean hasProcessInstanceIDInContext(long processInstanceId, Map<SExceptionContext, Serializable> context) {
-                return processInstanceId == (Long) context.get(SExceptionContext.PROCESS_INSTANCE_ID);
-            }
-
-            private boolean hasProcessNameInContext(final String processName, Map<SExceptionContext, Serializable> context) {
-                return processName.equals(context.get(SExceptionContext.PROCESS_NAME));
-            }
-
-            @Override
-            public void describeTo(Description description) {
-                description.appendText("Having context containing Process Name: " + processName + " and Version: " + processVersion
-                        + " and Process Instance ID: " + expectedProcessInstanceID);
-
-            }
-        });
+			@Override
+			public void describeTo(Description description) {
+				description.appendText("Having context containing Process Name: " + processName + " and Version: " + processVersion + " and Process Instance ID: " + expectedProcessInstanceID);
+				
+			}
+			});
+    	
 
         processExecutorImpl = spy(processExecutorImpl);
         doReturn(null).when(processExecutorImpl).getDefaultTransition(processDefinition, flowNodeInstance);
-
-        // When
-        processExecutorImpl.evaluateTransitionsInclusively(processDefinition, flowNodeInstance, Collections.<STransitionDefinition> emptyList(), null);
-
+        
+    	// When
+    	processExecutorImpl.evaluateTransitionsInclusively(processDefinition, flowNodeInstance, Collections.<STransitionDefinition>emptyList(), null);
+    	
     }
 
     @Test

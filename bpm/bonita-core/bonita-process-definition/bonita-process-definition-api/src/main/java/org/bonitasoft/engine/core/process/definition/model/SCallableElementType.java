@@ -13,8 +13,10 @@
  **/
 package org.bonitasoft.engine.core.process.definition.model;
 
+
 /**
  * @author Elias Ricken de Medeiros
+ *
  */
 public enum SCallableElementType {
 

@@ -40,7 +40,7 @@ public interface DocumentMappingService {
      * Create document mapping in DB by given document mapping
      * 
      * @param docMapping
-     *        the document mapping object
+     *            the document mapping object
      * @return the new created document mapping object
      * @throws SDocumentMappingAlreadyExistsException
      * @throws SDocumentMappingCreationException
@@ -51,7 +51,7 @@ public interface DocumentMappingService {
      * Delete the specific document mapping
      * 
      * @param documentMapping
-     *        the document mapping will be deleted
+     *            the document mapping will be deleted
      * @throws SDocumentMappingDeletionException
      */
     void delete(SDocumentMapping documentMapping) throws SDocumentMappingDeletionException;
@@ -60,7 +60,7 @@ public interface DocumentMappingService {
      * Delete id specified document mapping
      * 
      * @param documentMappingId
-     *        identifier of document mapping
+     *            identifier of document mapping
      * @throws SDocumentMappingDeletionException
      */
     void delete(long documentMappingId) throws SDocumentMappingDeletionException;
@@ -69,7 +69,7 @@ public interface DocumentMappingService {
      * Get document mapping by its id
      * 
      * @param documentMappingId
-     *        identifier of document mapping
+     *            identifier of document mapping
      * @return the corresponding document
      * @throws SDocumentMappingNotFoundException
      */
@@ -79,30 +79,30 @@ public interface DocumentMappingService {
      * Get document mappings for given process instance suit to the criteria
      * 
      * @param processInstanceId
-     *        identifier of process instance
+     *            identifier of process instance
      * @param fromIndex
-     *        Index of the record to be retrieved from. First record has index 0
+     *            Index of the record to be retrieved from. First record has index 0
      * @param maxResults
-     *        Number of result we want to get. Maximum number of result returned
+     *            Number of result we want to get. Maximum number of result returned
      * @param sortFieldName
-     *        the name of filed used to do order
+     *            the name of filed used to do order
      * @param order
-     *        ASC or DESC
+     *            ASC or DESC
      * @return a list of SDocumentMapping objects
      * @throws SDocumentMappingException
      */
     List<SDocumentMapping> getDocumentMappingsForProcessInstance(long processInstanceId, int fromIndex, int maxResults, String sortFieldName, OrderByType order)
             throws SDocumentMappingException;
-
+    
     /**
      * Get document mappings for given process instance ordered by id
      * 
      * @param processInstanceId
-     *        identifier of process instance
+     *            identifier of process instance
      * @param fromIndex
-     *        Index of the record to be retrieved from. First record has index 0
+     *            Index of the record to be retrieved from. First record has index 0
      * @param maxResults
-     *        Number of result we want to get. Maximum number of result returned
+     *            Number of result we want to get. Maximum number of result returned
      * @return a list of SDocumentMapping objects
      * @throws SDocumentMappingException
      */
@@ -113,9 +113,9 @@ public interface DocumentMappingService {
      * Get document mapping by its name in a process instance
      * 
      * @param processInstanceId
-     *        identifier of process instance
+     *            identifier of process instance
      * @param documentName
-     *        name of document
+     *            name of document
      * @return the document
      * @throws SDocumentMappingNotFoundException
      */
@@ -125,7 +125,7 @@ public interface DocumentMappingService {
      * Get total number of document mappings in a specific process instance
      * 
      * @param processInstanceId
-     *        identifier of process instance
+     *            identifier of process instance
      * @return number of document mappings in the specific process instance
      * @throws SDocumentMappingException
      */
@@ -135,7 +135,7 @@ public interface DocumentMappingService {
      * Update the specific docMapping
      * 
      * @param docMapping
-     *        the document mapping used to do update
+     *            the document mapping used to do update
      * @return the updated document mapping
      * @throws SDocumentMappingException
      */
@@ -145,11 +145,11 @@ public interface DocumentMappingService {
      * Get archive document mapping archived after specific time by its name in a process instance
      * 
      * @param processInstanceId
-     *        identifier of process instance
+     *            identifier of process instance
      * @param documentName
-     *        name of document
+     *            name of document
      * @param time
-     *        the archive time
+     *            the archive time
      * @return the archived document mapping suit to the criteria
      * @throws SDocumentMappingNotFoundException
      */
@@ -159,9 +159,9 @@ public interface DocumentMappingService {
      * archive the specific document mapping in the archive date
      * 
      * @param docMapping
-     *        document mapping will be archived
+     *            document mapping will be archived
      * @param archiveDate
-     *        the archive time
+     *            the archive time
      * @throws SDocumentMappingException
      */
     void archive(SDocumentMapping docMapping, long archiveDate) throws SDocumentMappingException;
@@ -170,7 +170,7 @@ public interface DocumentMappingService {
      * Get number of document mappings suit to the criteria
      * 
      * @param queryOptions
-     *        a QueryOptions object containing some query conditions
+     *            a QueryOptions object containing some query conditions
      * @return the number of document mappings suit to the criteria
      * @throws SBonitaSearchException
      */
@@ -180,7 +180,7 @@ public interface DocumentMappingService {
      * Search a list of document mapping suit to query criteria
      * 
      * @param queryOptions
-     *        a QueryOptions object containing some query conditions
+     *            a QueryOptions object containing some query conditions
      * @return a list of SDocumentMapping objects
      * @throws SBonitaSearchException
      */
@@ -190,9 +190,9 @@ public interface DocumentMappingService {
      * Get number of document mappings supervised by the specific user
      * 
      * @param userId
-     *        identifier of user
+     *            identifier of user
      * @param queryOptions
-     *        a QueryOptions object containing some query conditions
+     *            a QueryOptions object containing some query conditions
      * @return number of document mappings supervised by the specific user and suit to the query criteria
      * @throws SBonitaSearchException
      */
@@ -202,9 +202,9 @@ public interface DocumentMappingService {
      * Search all document mappings supervised by the specific user
      * 
      * @param userId
-     *        identifier of user
+     *            identifier of user
      * @param queryOptions
-     *        a QueryOptions object containing some query conditions
+     *            a QueryOptions object containing some query conditions
      * @return a list of SDocumentMapping objects
      * @throws SBonitaSearchException
      */
@@ -214,9 +214,9 @@ public interface DocumentMappingService {
      * Get number of archived documents suit to the query criteria
      * 
      * @param queryOptions
-     *        a QueryOptions object containing some query conditions
+     *            a QueryOptions object containing some query conditions
      * @param persistenceService
-     *        persistenceService used to do the search
+     *            persistenceService used to do the search
      * @return number of archived documents suit to the query criteria
      * @throws SBonitaSearchException
      */
@@ -226,7 +226,7 @@ public interface DocumentMappingService {
      * Search all archived documents suit to the query criteria
      * 
      * @param queryOptions
-     *        a QueryOptions object containing some query conditions
+     *            a QueryOptions object containing some query conditions
      * @return a list of SDocumentMapping objects
      * @throws SBonitaSearchException
      */
@@ -236,9 +236,9 @@ public interface DocumentMappingService {
      * Get number of archived documents supervised by the specific user and suit to the query criteria
      * 
      * @param userId
-     *        identifier of user
+     *            identifier of user
      * @param queryOptions
-     *        a QueryOptions object containing some query conditions
+     *            a QueryOptions object containing some query conditions
      * @return number of archived documents suit to the query criteria
      * @throws SBonitaSearchException
      */
@@ -248,9 +248,9 @@ public interface DocumentMappingService {
      * Search all archived documents supervised by the specific user and suit to the query criteria
      * 
      * @param userId
-     *        identifier of user
+     *            identifier of user
      * @param queryOptions
-     *        a QueryOptions object containing some query conditions
+     *            a QueryOptions object containing some query conditions
      * @return a list of SDocumentMapping objects
      * @throws SBonitaSearchException
      */
@@ -260,7 +260,7 @@ public interface DocumentMappingService {
      * Get archived document mapping by its id
      * 
      * @param documentId
-     *        identifier of the archived document mapping
+     *            identifier of the archived document mapping
      * @return the archived document mapping object
      * @throws SDocumentMappingNotFoundException
      */
@@ -270,10 +270,10 @@ public interface DocumentMappingService {
      * Retrieve the archive of a version of a document
      * 
      * @param documentId
-     *        the document id of the document to retrieve
+     *            the document id of the document to retrieve
      * @return the corresponding document mapping
      * @throws SDocumentMappingNotFoundException
-     *         when the document does not exists
+     *             when the document does not exists
      */
     SADocumentMapping getArchivedVersionOfDocument(long documentId) throws SDocumentMappingNotFoundException;
 
@@ -281,7 +281,7 @@ public interface DocumentMappingService {
      * Delete the specific document mapping
      * 
      * @param documentMapping
-     *        the document mapping will be deleted
+     *            the document mapping will be deleted
      * @throws SDocumentMappingDeletionException
      */
     void delete(SADocumentMapping documentMapping) throws SDocumentMappingDeletionException;

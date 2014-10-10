@@ -15,6 +15,7 @@ package org.bonitasoft.engine.bpm.flownode;
 
 import java.util.List;
 
+
 /**
  * @author Elias Ricken de Medeiros
  */
