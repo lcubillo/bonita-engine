@@ -13,22 +13,8 @@
  **/
 package org.bonitasoft.engine.bpm.process.impl;
 
-import org.bonitasoft.engine.bpm.bar.BusinessArchive;
-import org.bonitasoft.engine.bpm.bar.BusinessArchiveBuilder;
 import org.bonitasoft.engine.bpm.connector.ConnectorEvent;
-import org.bonitasoft.engine.bpm.flownode.AutomaticTaskDefinition;
-import org.bonitasoft.engine.bpm.flownode.CallActivityDefinition;
-import org.bonitasoft.engine.bpm.flownode.EndEventDefinition;
-import org.bonitasoft.engine.bpm.flownode.GatewayDefinition;
 import org.bonitasoft.engine.bpm.flownode.GatewayType;
-import org.bonitasoft.engine.bpm.flownode.IntermediateCatchEventDefinition;
-import org.bonitasoft.engine.bpm.flownode.IntermediateThrowEventDefinition;
-import org.bonitasoft.engine.bpm.flownode.ManualTaskDefinition;
-import org.bonitasoft.engine.bpm.flownode.ReceiveTaskDefinition;
-import org.bonitasoft.engine.bpm.flownode.SendTaskDefinition;
-import org.bonitasoft.engine.bpm.flownode.StartEventDefinition;
-import org.bonitasoft.engine.bpm.flownode.UserTaskDefinition;
-import org.bonitasoft.engine.bpm.process.SubProcessDefinition;
 import org.bonitasoft.engine.expression.Expression;
 
 /**

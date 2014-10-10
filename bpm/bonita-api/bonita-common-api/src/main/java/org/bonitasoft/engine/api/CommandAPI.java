@@ -33,7 +33,6 @@ import org.bonitasoft.engine.exception.SearchException;
 import org.bonitasoft.engine.exception.UpdateException;
 import org.bonitasoft.engine.search.SearchOptions;
 import org.bonitasoft.engine.search.SearchResult;
-import org.bonitasoft.engine.session.InvalidSessionException;
 
 /**
  * Manipulate tenant commands. A command can be registered, unregistered, and executed with parameters.

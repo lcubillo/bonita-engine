@@ -16,7 +16,6 @@ package org.bonitasoft.engine.bpm.process.impl;
 import java.io.Serializable;
 import java.util.Date;
 
-import org.bonitasoft.engine.api.ProcessAPI;
 import org.bonitasoft.engine.bpm.businessdata.impl.BusinessDataDefinitionImpl;
 import org.bonitasoft.engine.bpm.connector.ConnectorEvent;
 import org.bonitasoft.engine.bpm.flownode.impl.internal.ActivityDefinitionImpl;

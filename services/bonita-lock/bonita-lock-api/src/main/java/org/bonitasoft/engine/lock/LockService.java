@@ -14,7 +14,6 @@
 package org.bonitasoft.engine.lock;
 
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
  * This service allows to synchronize access to a resource using ReadWrite lock pattern
