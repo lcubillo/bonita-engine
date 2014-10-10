@@ -21,6 +21,7 @@ import org.bonitasoft.engine.platform.PlatformNotFoundException;
 import org.bonitasoft.engine.platform.PlatformState;
 import org.bonitasoft.engine.platform.StartNodeException;
 import org.bonitasoft.engine.platform.StopNodeException;
+import org.bonitasoft.engine.session.InvalidSessionException;
 
 /**
  * <b>Manage the platform.</b>

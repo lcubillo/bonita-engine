@@ -13,6 +13,7 @@
  **/
 package org.bonitasoft.engine.command;
 
+import org.bonitasoft.engine.api.PlatformCommandAPI;
 import org.bonitasoft.engine.service.PlatformServiceAccessor;
 
 /**
