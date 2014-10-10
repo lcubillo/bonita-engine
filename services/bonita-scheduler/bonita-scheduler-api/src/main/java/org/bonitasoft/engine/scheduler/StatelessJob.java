@@ -58,7 +58,7 @@ public interface StatelessJob extends Serializable {
      * Execute the content of the job.
      * 
      * @throws SJobExecutionException
-     *         if an exception occurs
+     *             if an exception occurs
      * @throws SFireEventException
      * @since 6.0
      */
@@ -68,8 +68,8 @@ public interface StatelessJob extends Serializable {
      * This method is called by the scheduler service before the execution of the job
      * 
      * @param attributes
-     *        key is the name of the attribute
-     *        value is the value of the attribute
+     *            key is the name of the attribute
+     *            value is the value of the attribute
      * @throws SJobConfigurationException
      * @since 6.0
      */

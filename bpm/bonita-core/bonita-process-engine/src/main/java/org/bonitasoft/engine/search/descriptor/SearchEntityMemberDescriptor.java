@@ -37,8 +37,7 @@ public abstract class SearchEntityMemberDescriptor extends SearchEntityDescripto
         fieldDescriptorMap.put(EntityMemberSearchDescriptor.USER_ID, new FieldDescriptor(SExternalIdentityMapping.class, fact.getUserIdKey()));
         fieldDescriptorMap.put(EntityMemberSearchDescriptor.GROUP_ID, new FieldDescriptor(SExternalIdentityMapping.class, fact.getGroupIdKey()));
         fieldDescriptorMap.put(EntityMemberSearchDescriptor.ROLE_ID, new FieldDescriptor(SExternalIdentityMapping.class, fact.getRoleIdKey()));
-        fieldDescriptorMap.put(EntityMemberSearchDescriptor.USER_NAME, new FieldDescriptor(SUser.class, BuilderFactory.get(SUserBuilderFactory.class)
-                .getUserNameKey()));
+        fieldDescriptorMap.put(EntityMemberSearchDescriptor.USER_NAME, new FieldDescriptor(SUser.class, BuilderFactory.get(SUserBuilderFactory.class).getUserNameKey()));
     }
 
     @Override

@@ -37,11 +37,11 @@ public class ReturnTypeChecker {
      * this method returns true.
      * 
      * @param expression
-     *        the evaluated expression
+     *            the evaluated expression
      * @param result
-     *        the expression result to check
+     *            the expression result to check
      * @throws SInvalidExpressionException
-     *         if the condition is not fulfilled, does nothing otherwise
+     *             if the condition is not fulfilled, does nothing otherwise
      */
     public void checkReturnType(final SExpression expression, final Object result, final Map<String, Object> context) throws SExpressionEvaluationException {
         if (result != null && !result.getClass().getName().equals(expression.getReturnType())) {

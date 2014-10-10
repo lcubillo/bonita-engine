@@ -17,6 +17,7 @@ import org.bonitasoft.engine.exception.NotFoundException;
 
 /**
  * Thrown when it's not possible to find the user task.
+ * 
  * The class UserTaskNotFoundException is a form of Throwable that indicates conditions that a reasonable application might want to catch.
  * The class UserTaskNotFoundException that is not also subclasses of {@link RuntimeException} are checked exceptions.
  * Checked exceptions need to be declared in a method or constructor's {@literal throws} clause if they can be thrown by the execution of the method or
@@ -34,7 +35,7 @@ public class UserTaskNotFoundException extends NotFoundException {
      * Constructs a new exception with the specified detail message.
      * 
      * @param message
-     *        The detail message (which is saved for later retrieval by the {@link Throwable#getMessage()} method).
+     *            The detail message (which is saved for later retrieval by the {@link Throwable#getMessage()} method).
      */
     public UserTaskNotFoundException(final String message) {
         super(message);

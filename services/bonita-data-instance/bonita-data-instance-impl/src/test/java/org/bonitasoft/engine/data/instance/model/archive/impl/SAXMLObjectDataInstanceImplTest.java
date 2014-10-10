@@ -43,7 +43,9 @@ public class SAXMLObjectDataInstanceImplTest {
     }
 
     /**
-     * Test method for {@link SAXMLObjectDataInstanceImpl#SAXMLObjectDataInstanceImpl(org.bonitasoft.engine.data.instance.model.SDataInstance)} .
+     * Test method for
+     * {@link SAXMLObjectDataInstanceImpl#SAXMLObjectDataInstanceImpl(org.bonitasoft.engine.data.instance.model.SDataInstance)}
+     * .
      */
     @Test
     public final void sAXMLObjectDataInstanceImplSDataInstance() {

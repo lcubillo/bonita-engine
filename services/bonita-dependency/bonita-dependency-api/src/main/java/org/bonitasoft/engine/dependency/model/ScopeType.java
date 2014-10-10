@@ -2,6 +2,7 @@ package org.bonitasoft.engine.dependency.model;
 
 /**
  * @author Celine Souchet
+ * 
  */
 public enum ScopeType {
     /**

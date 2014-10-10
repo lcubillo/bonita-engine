@@ -13,13 +13,15 @@
  **/
 package org.bonitasoft.engine.bpm.connector;
 
+
 /**
  * @author Elias Ricken de Medeiros
+ *
  */
 public interface ConnectorInstanceWithFailureInfo extends ConnectorInstance {
-
+    
     String getExceptionMessage();
-
+    
     String getStackTrace();
 
 }

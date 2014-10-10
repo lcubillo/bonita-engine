@@ -125,12 +125,12 @@ public class SearchOptionsImpl implements SearchOptions {
             // Cannot happen as we force a correct value
         }
     }
-
+    
     public final void addLeftParenthesis() {
         try {
             filters.add(new SearchFilter(SearchFilterOperation.L_PARENTHESIS));
         } catch (IncorrectParameterException e) {
-            // Cannot happen as we force a correct value
+         // Cannot happen as we force a correct value
         }
     }
 

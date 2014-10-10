@@ -35,11 +35,11 @@ public interface TransitionService {
      * Archive a Transition from its definition and state
      * 
      * @param sTransitionDefinition
-     *        the transition to archive
+     *            the transition to archive
      * @param sFlowNodeInstance
-     *        source flow node of the transition to archive
+     *            source flow node of the transition to archive
      * @param transitionState
-     *        the state to set
+     *            the state to set
      */
     void archive(STransitionDefinition sTransitionDefinition, SFlowNodeInstance sFlowNodeInstance, TransitionState transitionState)
             throws STransitionCreationException;

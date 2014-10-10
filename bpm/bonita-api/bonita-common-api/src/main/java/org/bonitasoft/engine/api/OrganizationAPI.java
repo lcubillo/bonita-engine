@@ -34,9 +34,9 @@ public interface OrganizationAPI {
      * </b>
      * 
      * @throws DeletionException
-     *         If an exception occurs during the organization deletion
+     *             If an exception occurs during the organization deletion
      * @throws InvalidSessionException
-     *         If the session is invalid (expired, unknown, ...)
+     *             If the session is invalid (expired, unknown, ...)
      * @since6.0
      */
     void deleteOrganization() throws DeletionException;
@@ -47,11 +47,11 @@ public interface OrganizationAPI {
      * An organization is composed by users, roles, groups and user memberships.
      * 
      * @param organizationContent
-     *        the XML content of the organization
+     *            the XML content of the organization
      * @throws OrganizationImportException
-     *         If an exception occurs during the organization import
+     *             If an exception occurs during the organization import
      * @throws InvalidSessionException
-     *         If the session is invalid (expired, unknown, ...)
+     *             If the session is invalid (expired, unknown, ...)
      * @since6.0
      */
     void importOrganization(String organizationContent) throws OrganizationImportException;
@@ -62,13 +62,13 @@ public interface OrganizationAPI {
      * An organization is composed by users, roles, groups and user memberships.
      * 
      * @param organizationContent
-     *        the XML content of the organization
+     *            the XML content of the organization
      * @param policy
-     *        the import policy
+     *            the import policy
      * @throws OrganizationImportException
-     *         If an exception occurs during the organization import
+     *             If an exception occurs during the organization import
      * @throws InvalidSessionException
-     *         If the session is invalid (expired, unknown, ...)
+     *             If the session is invalid (expired, unknown, ...)
      * @since6.0
      */
     void importOrganization(String organizationContent, ImportPolicy policy) throws OrganizationImportException;
@@ -80,9 +80,9 @@ public interface OrganizationAPI {
      * 
      * @return the organization contented in an XML format
      * @throws OrganizationExportException
-     *         If an exception occurs during the organization export
+     *             If an exception occurs during the organization export
      * @throws InvalidSessionException
-     *         If the session is invalid (expired, unknown, ...)
+     *             If the session is invalid (expired, unknown, ...)
      * @since6.0
      */
     String exportOrganization() throws OrganizationExportException;

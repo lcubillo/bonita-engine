@@ -106,7 +106,7 @@ public class ProcessStarter {
 
     // For commands
     public ProcessInstance start(final List<ConnectorDefinitionWithInputValues> connectorsWithInput) throws SProcessInstanceCreationException,
-            SProcessDefinitionReadException, SProcessDefinitionException {
+    SProcessDefinitionReadException, SProcessDefinitionException {
         final TenantServiceAccessor tenantAccessor = getTenantAccessor();
         final ProcessExecutor processExecutor = tenantAccessor.getProcessExecutor();
 

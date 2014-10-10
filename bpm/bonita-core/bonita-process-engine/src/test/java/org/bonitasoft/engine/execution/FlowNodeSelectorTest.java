@@ -36,6 +36,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 /**
  * @author Elias Ricken de Medeiros
+ * 
  */
 @RunWith(MockitoJUnitRunner.class)
 public class FlowNodeSelectorTest {

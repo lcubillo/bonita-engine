@@ -21,15 +21,13 @@ import org.bonitasoft.engine.core.process.instance.model.event.impl.SIntermediat
  * @author Elias Ricken de Medeiros
  * @author Baptiste Mesta
  */
-public class SIntermediateCatchEventInstanceBuilderFactoryImpl extends SEventInstanceBuilderFactoryImpl implements
-        SIntermediateCatchEventInstanceBuilderFactory {
+public class SIntermediateCatchEventInstanceBuilderFactoryImpl extends SEventInstanceBuilderFactoryImpl implements SIntermediateCatchEventInstanceBuilderFactory {
 
     @Override
     public SIntermediateCatchEventInstanceBuilder createNewIntermediateCatchEventInstance(final String name, final long flowNodeDefinitionId,
             final long rootContainerId, final long parentContainerId, final long processDefinitionId, final long rootProcessInstanceId,
             final long parentProcessInstanceId) {
-        final SIntermediateCatchEventInstanceImpl entity = new SIntermediateCatchEventInstanceImpl(name, flowNodeDefinitionId, rootContainerId,
-                parentContainerId, processDefinitionId,
+        final SIntermediateCatchEventInstanceImpl entity = new SIntermediateCatchEventInstanceImpl(name, flowNodeDefinitionId, rootContainerId, parentContainerId, processDefinitionId,
                 rootProcessInstanceId);
         entity.setLogicalGroup(PARENT_PROCESS_INSTANCE_INDEX, parentProcessInstanceId);
         return new SIntermediateCatchEventInstanceBuilderImpl(entity);

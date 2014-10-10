@@ -13,6 +13,7 @@
  **/
 package org.bonitasoft.engine.core.migration.model.impl.xml;
 
+
 /**
  * @author Baptiste Mesta
  */

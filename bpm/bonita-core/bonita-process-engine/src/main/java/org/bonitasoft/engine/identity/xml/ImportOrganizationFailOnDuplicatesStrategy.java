@@ -58,8 +58,7 @@ public class ImportOrganizationFailOnDuplicatesStrategy implements ImportOrganiz
     @Override
     public void foundExistingCustomUserInfoDefinition(SCustomUserInfoDefinition existingUserInfoDefinition,
             CustomUserInfoDefinitionCreator newUserInfoDefinition) throws ImportDuplicateInOrganizationException {
-        throw new ImportDuplicateInOrganizationException("There's already a custom user info definition with the name : '" + newUserInfoDefinition.getName()
-                + "'");
+        throw new ImportDuplicateInOrganizationException("There's already a custom user info definition with the name : '" + newUserInfoDefinition.getName() + "'");
     }
 
 }

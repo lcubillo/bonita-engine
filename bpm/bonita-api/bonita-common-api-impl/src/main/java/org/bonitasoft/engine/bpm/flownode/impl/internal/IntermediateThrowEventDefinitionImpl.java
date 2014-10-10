@@ -18,6 +18,7 @@ import org.bonitasoft.engine.bpm.flownode.IntermediateThrowEventDefinition;
 /**
  * @author Elias Ricken de Medeiros
  * @author Celine Souchet
+ * 
  */
 public class IntermediateThrowEventDefinitionImpl extends ThrowEventDefinitionImpl implements IntermediateThrowEventDefinition {
 

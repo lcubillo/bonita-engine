@@ -19,6 +19,7 @@ import org.bonitasoft.engine.scheduler.ServicesResolver;
 
 /**
  * @author Baptiste Mesta
+ * 
  */
 public class TestsServicesResolver implements ServicesResolver {
 

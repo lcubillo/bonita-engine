@@ -27,7 +27,7 @@ import org.bonitasoft.engine.identity.model.SCustomUserInfoDefinition;
 public class Organization {
 
     private final List<SCustomUserInfoDefinition> customUserInfoDefinitions;
-
+    
     private final List<ExportedUser> users;
 
     private final List<Role> roles;
@@ -44,7 +44,7 @@ public class Organization {
         this.memberships = memberships;
         this.customUserInfoDefinitions = customUserInfoDefinitions;
     }
-
+    
     public List<SCustomUserInfoDefinition> getCustomUserInfoDefinitions() {
         return customUserInfoDefinitions;
     }

@@ -51,7 +51,6 @@ public class XMLDataDefinitionBuilder extends DataDefinitionBuilder {
 
     /**
      * Sets the XML name space.
-     * 
      * @param nameSpace XML name space
      * @return
      */
@@ -62,7 +61,6 @@ public class XMLDataDefinitionBuilder extends DataDefinitionBuilder {
 
     /**
      * Sets the XML element.
-     * 
      * @param element XML element
      * @return
      */

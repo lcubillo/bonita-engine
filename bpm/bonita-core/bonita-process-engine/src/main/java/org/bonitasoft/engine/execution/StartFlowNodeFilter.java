@@ -18,6 +18,7 @@ import org.bonitasoft.engine.core.process.definition.model.SFlowNodeDefinition;
 /**
  * @author Elias Ricken de Medeiros
  * @author Vincent Elcrin
+ *
  */
 public class StartFlowNodeFilter implements Filter<SFlowNodeDefinition> {
 

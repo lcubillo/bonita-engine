@@ -48,7 +48,7 @@ public class ArchiveProcessInstancesHandler implements SProcessInstanceHandler<S
     private final String identifier;
 
     public ArchiveProcessInstancesHandler(final long tenantId) {
-        this(tenantId, UUID.randomUUID().toString());
+        this(tenantId,  UUID.randomUUID().toString());
     }
 
     public ArchiveProcessInstancesHandler(final long tenantId, final String identifier) {

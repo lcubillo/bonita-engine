@@ -21,14 +21,16 @@ import org.bonitasoft.engine.commons.exceptions.SBonitaException;
 import org.bonitasoft.engine.identity.ExportedCustomUserInfoValue;
 import org.bonitasoft.engine.identity.model.SCustomUserInfoDefinition;
 
+
 /**
  * @author Elias Ricken de Medeiros
+ *
  */
 public class CustomUserInfoValueImporter {
-
+    
     private SCustomUserInfoValueAPI userInfoAPI;
     private Map<String, SCustomUserInfoDefinition> customUserInfoDefinitions;
-
+    
     public CustomUserInfoValueImporter(SCustomUserInfoValueAPI userInfoAPI, Map<String, SCustomUserInfoDefinition> customUserInfoDefinitions) {
         this.userInfoAPI = userInfoAPI;
         this.customUserInfoDefinitions = customUserInfoDefinitions;
@@ -45,5 +47,5 @@ public class CustomUserInfoValueImporter {
             userInfoAPI.set(infoDefinition.getId(), persistedUserId, infoValue.getValue());
         }
     }
-
+    
 }

@@ -13,6 +13,7 @@
  **/
 package org.bonitasoft.engine.exception;
 
+
 /**
  * Generic Bonita exception for all invalid Parameter when calling a constructor or a method on Bonita objects.
  * 

@@ -23,7 +23,7 @@ import org.bonitasoft.engine.queriablelogger.model.builder.SPersistenceLogBuilde
 public interface SDocumentMappingLogBuilderFactory extends SPersistenceLogBuilderFactory, HasCRUDEActionFactory {
 
     SDocumentMappingLogBuilder createNewInstance();
-
+    
     String getProcessInstanceIdKey();
 
 }

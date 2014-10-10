@@ -91,6 +91,7 @@ public interface FlowNodeInstanceService {
      */
     void setState(SFlowNodeInstance flowNodeInstance, FlowNodeState state) throws SFlowNodeModificationException;
 
+
     /**
      * @param flowNodeInstance
      * @param priority
@@ -165,9 +166,9 @@ public interface FlowNodeInstanceService {
      * Set execute by for the specific flow node instance
      * 
      * @param flowNodeInstance
-     *        the flowNodeInstance will be updated
+     *            the flowNodeInstance will be updated
      * @param userId
-     *        value for executedBy
+     *            value for executedBy
      * @throws SFlowNodeModificationException
      * @since 6.0
      */
@@ -177,9 +178,9 @@ public interface FlowNodeInstanceService {
      * Set execute by delegate for the specific flow node instance
      * 
      * @param flowNodeInstance
-     *        the flowNodeInstance will be updated
+     *            the flowNodeInstance will be updated
      * @param executerSubstituteId
-     *        value for executedBySubstitute
+     *            value for executedBySubstitute
      * @throws SFlowNodeModificationException
      * @since 6.0.1
      */
@@ -189,9 +190,9 @@ public interface FlowNodeInstanceService {
      * Retrieve the total number of the archived flow nodes matching the given search criteria.
      * 
      * @param entityClass
-     *        The type of the archived flow node to search for
+     *            The type of the archived flow node to search for
      * @param queryOptions
-     *        The search options to filter the results
+     *            The search options to filter the results
      * @return The number found, 0 if none matching search criteria
      * @since 6.0
      */
@@ -201,11 +202,11 @@ public interface FlowNodeInstanceService {
      * Retrieve the total number of the archived flow nodes matching the given search criteria, for a specific supervisor.
      * 
      * @param supervisorId
-     *        The identifier of the supervisor
+     *            The identifier of the supervisor
      * @param entityClass
-     *        The type of the archived flow node to search for
+     *            The type of the archived flow node to search for
      * @param queryOptions
-     *        The search options to filter the results
+     *            The search options to filter the results
      * @return The number found, 0 if no matching search criteria
      * @since 6.3
      */
@@ -216,9 +217,9 @@ public interface FlowNodeInstanceService {
      * Retrieve the total number of the archived flow nodes matching the given search criteria.
      * 
      * @param entityClass
-     *        The type of the archived flow node to search for
+     *            The type of the archived flow node to search for
      * @param queryOptions
-     *        The search options to filter the results
+     *            The search options to filter the results
      * @return The list of paginated results, according to the QueryOptions search criteria
      * @since 6.0
      */
@@ -228,11 +229,11 @@ public interface FlowNodeInstanceService {
      * Retrieve the total number of the archived flow nodes matching the given search criteria, for a specific supervisor.
      * 
      * @param supervisorId
-     *        The identifier of the supervisor
+     *            The identifier of the supervisor
      * @param entityClass
-     *        The type of the archived flow node to search for
+     *            The type of the archived flow node to search for
      * @param queryOptions
-     *        The search options to filter the results
+     *            The search options to filter the results
      * @return The list of paginated results, according to the QueryOptions search criteria
      * @since 6.3
      */
@@ -267,7 +268,7 @@ public interface FlowNodeInstanceService {
 
     /**
      * @param sourceObjectFlowNodeInstanceId
-     *        The source identifier of the flow node instance
+     *            The source identifier of the flow node instance
      * @return The last archived flow node
      * @since 6.3
      */
@@ -279,6 +280,7 @@ public interface FlowNodeInstanceService {
      * @throws SFlowNodeModificationException
      */
     void setExecuting(SFlowNodeInstance flowNodeInstance) throws SFlowNodeModificationException;
+
 
     /**
      * @param saFlowNodeInstance
@@ -301,17 +303,18 @@ public interface FlowNodeInstanceService {
      * ACTIVITY_INSTANCE.
      * 
      * @param containerId
-     *        the ID of the container of the flownode or process to get the process instance ID for.
+     *            the ID of the container of the flownode or process to get the process instance ID for.
      * @param containerType
-     *        the type of container, can be one of {@link DataInstanceContainer#PROCESS_INSTANCE} or {@link DataInstanceContainer#ACTIVITY_INSTANCE}
+     *            the type of container, can be one of {@link DataInstanceContainer#PROCESS_INSTANCE} or {@link DataInstanceContainer#ACTIVITY_INSTANCE}
      * @return the process instance id found
      * @throws SFlowNodeNotFoundException
-     *         if containerType is an ACTIVITY_INSTANCE and the flownode/activity instance is not found with id containerId.
+     *             if containerType is an ACTIVITY_INSTANCE and the flownode/activity instance is not found with id containerId.
      * @throws SFlowNodeReadException
-     *         if a read exception occurs.
+     *             if a read exception occurs.
      * @since 6.3
      */
     long getProcessInstanceId(final long containerId, final String containerType) throws SFlowNodeNotFoundException, SFlowNodeReadException;
+
 
     /**
      * retrieve ids of elements that need to be restarted

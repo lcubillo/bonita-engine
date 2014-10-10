@@ -20,6 +20,7 @@ import org.bonitasoft.engine.service.impl.ServiceAccessorFactory;
 
 /**
  * @author Baptiste Mesta
+ * 
  */
 public class ProcessEngineServicesResolver implements ServicesResolver {
 

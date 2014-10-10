@@ -13,6 +13,7 @@
  **/
 package org.bonitasoft.engine.bpm.bar.xml;
 
+
 /**
  * @author Baptiste Mesta
  */

@@ -173,7 +173,7 @@ public class DocumentImpl implements Document {
         }
         final DocumentImpl other = (DocumentImpl) obj;
         if (author != other.author) {
-            return false;
+                return false;
         }
         if (contentMimeType == null) {
             if (other.contentMimeType != null) {

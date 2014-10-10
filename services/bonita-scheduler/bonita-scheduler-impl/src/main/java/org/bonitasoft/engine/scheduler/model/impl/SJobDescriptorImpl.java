@@ -24,7 +24,7 @@ public class SJobDescriptorImpl extends SPersistentObjectImpl implements SJobDes
     private String jobName;
 
     private String description;
-
+    
     private boolean disallowConcurrentExecution;
 
     public SJobDescriptorImpl() {
@@ -76,7 +76,7 @@ public class SJobDescriptorImpl extends SPersistentObjectImpl implements SJobDes
     public void setJobName(final String jobName) {
         this.jobName = jobName;
     }
-
+    
     @Override
     public boolean disallowConcurrentExecution() {
         return disallowConcurrentExecution;

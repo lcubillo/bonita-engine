@@ -16,6 +16,7 @@ package org.bonitasoft.engine.bpm.process.impl;
 import org.bonitasoft.engine.bpm.flownode.impl.internal.AutomaticTaskDefinitionImpl;
 import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowElementContainerDefinitionImpl;
 
+
 /**
  * @author Baptiste Mesta
  * @author Matthieu Chaffotte

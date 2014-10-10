@@ -28,7 +28,7 @@ public interface SConnector {
      * Set the input parameter for a connector.
      * 
      * @param parameters
-     *        parameters is a map with parameter names and their value.
+     *            parameters is a map with parameter names and their value.
      */
     void setInputParameters(Map<String, Object> parameters);
 

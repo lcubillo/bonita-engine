@@ -50,7 +50,7 @@ public interface SchedulerService extends PlatformLifecycleService {
      * 
      * @return true if the service is started; false otherwise.
      * @throws SSchedulerException
-     *         if an exception occurs.
+     *             if an exception occurs.
      */
     boolean isStarted() throws SSchedulerException;
 
@@ -68,7 +68,7 @@ public interface SchedulerService extends PlatformLifecycleService {
      * @param jobDescriptor
      * @param trigger
      * @throws SSchedulerException
-     *         if an exception occurs.
+     *             if an exception occurs.
      */
     void schedule(SJobDescriptor jobDescriptor, Trigger trigger) throws SSchedulerException;
 
@@ -79,7 +79,7 @@ public interface SchedulerService extends PlatformLifecycleService {
      * @param jobParameters
      * @param trigger
      * @throws SSchedulerException
-     *         if an exception occurs.
+     *             if an exception occurs.
      */
     void schedule(SJobDescriptor jobDescriptor, List<SJobParameter> parameters, Trigger trigger) throws SSchedulerException;
 
@@ -91,7 +91,7 @@ public interface SchedulerService extends PlatformLifecycleService {
      * @param jobDescriptorId
      * @param jobParameters
      * @throws SSchedulerException
-     *         if an exception occurs.
+     *             if an exception occurs.
      */
     void executeAgain(long jobDescriptorId, List<SJobParameter> parameters) throws SSchedulerException;
 
@@ -101,7 +101,7 @@ public interface SchedulerService extends PlatformLifecycleService {
      * @param jobDescriptor
      * @param jobParameters
      * @throws SSchedulerException
-     *         if an exception occurs.
+     *             if an exception occurs.
      */
     void executeNow(SJobDescriptor jobDescriptor, List<SJobParameter> parameters) throws SSchedulerException;
 
@@ -109,10 +109,10 @@ public interface SchedulerService extends PlatformLifecycleService {
      * Deletes a job according to its name.
      * 
      * @param jobName
-     *        the job name
+     *            the job name
      * @return true if delete a job, otherwise return false.
      * @throws SSchedulerException
-     *         if an exception occurs.
+     *             if an exception occurs.
      */
     boolean delete(String jobName) throws SSchedulerException;
 
@@ -120,7 +120,7 @@ public interface SchedulerService extends PlatformLifecycleService {
      * Deletes all jobs.
      * 
      * @throws SSchedulerException
-     *         if an exception occurs.
+     *             if an exception occurs.
      */
     void deleteJobs() throws SSchedulerException;
 
@@ -129,7 +129,7 @@ public interface SchedulerService extends PlatformLifecycleService {
      * 
      * @return all jobs on the current tenant
      * @throws SSchedulerException
-     *         if an exception occurs.
+     *             if an exception occurs.
      */
     List<String> getJobs() throws SSchedulerException;
 
@@ -139,7 +139,7 @@ public interface SchedulerService extends PlatformLifecycleService {
      * 
      * @return all jobs on the current tenant
      * @throws SSchedulerException
-     *         if an exception occurs.
+     *             if an exception occurs.
      */
     List<String> getAllJobs() throws SSchedulerException;
 

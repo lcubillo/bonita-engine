@@ -24,7 +24,7 @@ import org.bonitasoft.engine.identity.model.impl.SCustomUserInfoDefinitionImpl;
 public class SCustomUserInfoDefinitionBuilderImpl implements SCustomUserInfoDefinitionBuilder {
 
     private final SCustomUserInfoDefinitionImpl entity;
-
+    
     public SCustomUserInfoDefinitionBuilderImpl(final SCustomUserInfoDefinitionImpl entity) {
         super();
         this.entity = entity;

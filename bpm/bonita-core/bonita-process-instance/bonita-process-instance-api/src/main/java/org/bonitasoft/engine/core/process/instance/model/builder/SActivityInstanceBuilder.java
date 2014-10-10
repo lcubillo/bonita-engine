@@ -15,6 +15,8 @@ package org.bonitasoft.engine.core.process.instance.model.builder;
 
 import org.bonitasoft.engine.core.process.instance.model.SActivityInstance;
 
+
+
 /**
  * @author Baptiste Mesta
  * @author Elias Ricken de Medeiros
@@ -23,7 +25,7 @@ import org.bonitasoft.engine.core.process.instance.model.SActivityInstance;
 public interface SActivityInstanceBuilder extends SFlowNodeInstanceBuilder {
 
     SActivityInstance done();
-
+    
     SActivityInstanceBuilder setName(final String name);
 
     SActivityInstanceBuilder setDescription(String description);

@@ -24,6 +24,7 @@ import org.bonitasoft.engine.service.TenantServiceAccessor;
 public interface TenantRestartHandler {
 
     /**
+     * 
      * called in a transaction during {@link PlatformAPI#startNode()}
      * 
      * @param tenantServiceAccessor

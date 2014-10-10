@@ -27,8 +27,7 @@ public class SStartEventInstanceBuilderFactoryImpl extends SEventInstanceBuilder
     @Override
     public SStartEventInstanceBuilder createNewStartEventInstance(final String name, final long flowNodeDefinitionId, final long rootContainerId,
             final long parentContainerId, final long processDefinitionId, final long rootProcessInstanceId, final long parentProcessInstanceId) {
-        final SStartEventInstanceImpl entity = new SStartEventInstanceImpl(name, flowNodeDefinitionId, rootContainerId, parentContainerId, processDefinitionId,
-                rootProcessInstanceId);
+        final SStartEventInstanceImpl entity = new SStartEventInstanceImpl(name, flowNodeDefinitionId, rootContainerId, parentContainerId, processDefinitionId, rootProcessInstanceId);
         entity.setLogicalGroup(PARENT_PROCESS_INSTANCE_INDEX, parentProcessInstanceId);
         return new SStartEventInstanceBuilderImpl(entity);
     }

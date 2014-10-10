@@ -21,7 +21,9 @@ import org.bonitasoft.engine.persistence.FilterOption;
 import org.bonitasoft.engine.persistence.PersistentObject;
 
 /**
+ * 
  * @author Celine Souchet
+ * 
  */
 public class DeleteAllRecord {
 

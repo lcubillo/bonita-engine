@@ -13,13 +13,15 @@
  **/
 package org.bonitasoft.engine.core.process.instance.model.builder;
 
+
 /**
  * @author Elias Ricken de Medeiros
+ *
  */
 public interface SConnectorInstanceWithFailureInfoBuilderFactory extends SConnectorInstanceBuilderFactory {
 
     String getExceptionMessageKey();
-
+    
     String getStackTraceKey();
-
+    
 }

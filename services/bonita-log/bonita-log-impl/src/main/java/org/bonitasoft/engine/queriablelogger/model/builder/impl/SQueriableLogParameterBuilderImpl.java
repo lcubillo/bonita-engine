@@ -33,7 +33,7 @@ public class SQueriableLogParameterBuilderImpl implements SQueriableLogParameter
         super();
         this.entity = entity;
     }
-
+    
     @Override
     public SQueriableLogParameterBuilder stringValue(final String stringValue) {
         entity.setStringValue(stringValue);

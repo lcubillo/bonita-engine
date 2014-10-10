@@ -35,4 +35,5 @@ public class XMLDescriptor {
 
     public static final String JAR_DEPENDENCY = "jarDependency";
 
+
 }

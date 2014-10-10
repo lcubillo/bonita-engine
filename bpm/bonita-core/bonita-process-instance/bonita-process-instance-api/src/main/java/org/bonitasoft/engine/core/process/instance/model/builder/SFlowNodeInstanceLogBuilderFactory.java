@@ -22,7 +22,7 @@ import org.bonitasoft.engine.queriablelogger.model.builder.SPersistenceLogBuilde
 public interface SFlowNodeInstanceLogBuilderFactory extends SPersistenceLogBuilderFactory, HasCRUDEActionFactory {
 
     SFlowNodeInstanceLogBuilder createNewInstance();
-
+    
     String getProcessInstanceIdKey();
 
 }

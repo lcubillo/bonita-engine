@@ -13,8 +13,10 @@
  **/
 package org.bonitasoft.engine.bpm.bar.xml;
 
+
 /**
  * @author Elias Ricken de Medeiros
+ *
  */
 public class DataInputOperationBinding extends OperationBinding {
 

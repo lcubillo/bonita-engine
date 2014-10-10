@@ -86,7 +86,7 @@ public class OrganizationTest extends CommonAPITest {
 
     @Before
     public void before() throws BonitaException {
-        loginOnDefaultTenantWithDefaultTechnicalUser();
+         loginOnDefaultTenantWithDefaultTechnicalUser();
     }
 
     @After
@@ -240,7 +240,7 @@ public class OrganizationTest extends CommonAPITest {
     }
 
     @Cover(classes = { IdentityAPI.class, User.class }, concept = BPMNConcept.ORGANIZATION, keywords = { "Import", "Organization", "Enabled", "Disabled",
-            "User" }, jira = "ENGINE-577")
+    "User" }, jira = "ENGINE-577")
     @Test
     public void importOrganizationWithEnabledAndDisabledUsers() throws Exception {
         // create XML file

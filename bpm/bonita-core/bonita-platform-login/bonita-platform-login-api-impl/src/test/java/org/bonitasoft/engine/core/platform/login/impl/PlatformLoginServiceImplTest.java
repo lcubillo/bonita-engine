@@ -38,6 +38,7 @@ import org.mockito.MockitoAnnotations;
 
 /**
  * @author Celine Souchet
+ * 
  */
 public class PlatformLoginServiceImplTest {
 

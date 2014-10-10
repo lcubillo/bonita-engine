@@ -35,8 +35,7 @@ public class STextDataDefinitionBinding extends SDataDefinitionBinding {
 
     @Override
     public SDataDefinition getObject() {
-        final SDataDefinitionBuilder dataDefinitionImpl = BuilderFactory.get(SDataDefinitionBuilderFactory.class).createNewTextData(name)
-                .setAsLongText(longText);
+        final SDataDefinitionBuilder dataDefinitionImpl = BuilderFactory.get(SDataDefinitionBuilderFactory.class).createNewTextData(name).setAsLongText(longText);
         if (description != null) {
             dataDefinitionImpl.setDescription(description);
         }

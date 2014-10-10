@@ -22,6 +22,6 @@ import org.bonitasoft.engine.queriablelogger.model.builder.SPersistenceLogBuilde
 public interface SPendingActivityMappingLogBuilderFactory extends SPersistenceLogBuilderFactory, HasCRUDEActionFactory {
 
     SPendingActivityMappingLogBuilder createNewInstance();
-
+    
     String getActivityInstanceIdKey();
 }

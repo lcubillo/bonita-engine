@@ -44,15 +44,15 @@ public interface PlatformCommandAPI {
      * Adds a dependency to the tenant scope.
      * 
      * @param name
-     *        the dependency name.
+     *            the dependency name.
      * @param jar
-     *        the JAR content
+     *            the JAR content
      * @throws InvalidSessionException
-     *         occurs when the session is not valid
+     *             occurs when the session is not valid
      * @throws AlreadyExistsException
-     *         occurs when the dependency name was already taken by another dependency
+     *             occurs when the dependency name was already taken by another dependency
      * @throws CreationException
-     *         if a problem occurs when creating the dependency
+     *             if a problem occurs when creating the dependency
      */
     void addDependency(String name, byte[] jar) throws AlreadyExistsException, CreationException;
 
@@ -60,13 +60,13 @@ public interface PlatformCommandAPI {
      * Remove a dependency to the tenant scope.
      * 
      * @param name
-     *        the dependency name.
+     *            the dependency name.
      * @throws InvalidSessionException
-     *         if the current platform session is not valid
+     *             if the current platform session is not valid
      * @throws DependencyNotFoundException
-     *         if no dependency can be found with the provided name
+     *             if no dependency can be found with the provided name
      * @throws DeletionException
-     *         if a problem occurs when deleting the dependency
+     *             if a problem occurs when deleting the dependency
      */
     void removeDependency(String name) throws DependencyNotFoundException, DeletionException;
 
@@ -74,18 +74,18 @@ public interface PlatformCommandAPI {
      * Adds a command and its descriptor.
      * 
      * @param name
-     *        the command name
+     *            the command name
      * @param description
-     *        the command description
+     *            the command description
      * @param implementation
-     *        the implementation class which will be uses when executing the command.
+     *            the implementation class which will be uses when executing the command.
      * @return the descriptor of the command
      * @throws InvalidSessionException
-     *         occurs when the session is not valid
+     *             occurs when the session is not valid
      * @throws AlreadyExistsException
-     *         occurs when the command name was already taken by another command
+     *             occurs when the command name was already taken by another command
      * @throws CreationException
-     *         if a problem occurs when registering the command
+     *             if a problem occurs when registering the command
      */
     CommandDescriptor register(String name, String description, String implementation) throws AlreadyExistsException, CreationException;
 
@@ -93,18 +93,18 @@ public interface PlatformCommandAPI {
      * Execute a command according to its name and a list of parameters.
      * 
      * @param name
-     *        the command name
+     *            the command name
      * @param parameters
-     *        the parameters (specific to the command to execute)
+     *            the parameters (specific to the command to execute)
      * @return the result of the command execution.
      * @throws InvalidSessionException
-     *         occurs when the session is not valid
+     *             occurs when the session is not valid
      * @throws CommandNotFoundException
-     *         occurs when the name does not refer to any existing command
+     *             occurs when the name does not refer to any existing command
      * @throws CommandParameterizationException
-     *         when command parameters are not correct
+     *             when command parameters are not correct
      * @throws CommandExecutionException
-     *         occurs when an exception is thrown during command execution
+     *             occurs when an exception is thrown during command execution
      */
     Serializable execute(String name, Map<String, Serializable> parameters) throws CommandNotFoundException, CommandParameterizationException,
             CommandExecutionException;
@@ -113,13 +113,13 @@ public interface PlatformCommandAPI {
      * Delete a command and its descriptor.
      * 
      * @param name
-     *        the command name
+     *            the command name
      * @throws InvalidSessionException
-     *         occurs when the session is not valid
+     *             occurs when the session is not valid
      * @throws CommandNotFoundException
-     *         occurs when the name does not refer to an existing command
+     *             occurs when the name does not refer to an existing command
      * @throws DeletionException
-     *         occurs when an exception is thrown during command deletion
+     *             occurs when an exception is thrown during command deletion
      */
     void unregister(String name) throws CommandNotFoundException, DeletionException;
 
@@ -127,12 +127,12 @@ public interface PlatformCommandAPI {
      * Returns the command descriptor
      * 
      * @param name
-     *        the command name
+     *            the command name
      * @return the descriptor of the command
      * @throws InvalidSessionException
-     *         occurs when the session is not valid
+     *             occurs when the session is not valid
      * @throws CommandNotFoundException
-     *         occurs when the command name does not refer to an existing command.
+     *             occurs when the command name does not refer to an existing command.
      * @deprecated As of release 6.2.1, replaced by {@link #getCommand(String)} that does not throw CreationException.
      */
     @Deprecated
@@ -142,12 +142,12 @@ public interface PlatformCommandAPI {
      * Returns the command descriptor corresponding to the command name passed as parameter.
      * 
      * @param commandName
-     *        the name of the command.
+     *            the name of the command.
      * @return the descriptor of the command
      * @throws InvalidSessionException
-     *         occurs when the session is not valid
+     *             occurs when the session is not valid
      * @throws CommandNotFoundException
-     *         occurs when the command name does not refer to an existing command.
+     *             occurs when the command name does not refer to an existing command.
      * @since 6.2.1
      */
     CommandDescriptor getCommand(String commandName) throws CommandNotFoundException;
@@ -156,14 +156,14 @@ public interface PlatformCommandAPI {
      * Returns the paginated list of command descriptors according to the sort criterion.
      * 
      * @param startIndex
-     *        the start index
+     *            the start index
      * @param maxResults
-     *        the number of {@link CommandDescriptor} to retrieve
+     *            the number of {@link CommandDescriptor} to retrieve
      * @param sort
-     *        the sorting criterion
+     *            the sorting criterion
      * @return the paginated list of command descriptors
      * @throws InvalidSessionException
-     *         occurs when the session is not valid
+     *             occurs when the session is not valid
      */
     List<CommandDescriptor> getCommands(int startIndex, int maxResults, CommandCriterion sort);
 
@@ -171,15 +171,15 @@ public interface PlatformCommandAPI {
      * Updates a command according to the update descriptor.
      * 
      * @param name
-     *        the command name
+     *            the command name
      * @param updater
-     *        the update descriptor
+     *            the update descriptor
      * @throws InvalidSessionException
-     *         occurs when the session is not valid
+     *             occurs when the session is not valid
      * @throws CommandNotFoundException
-     *         occurs when the name does not refer to any existing command
+     *             occurs when the name does not refer to any existing command
      * @throws UpdateException
-     *         occurs when an exception is thrown during command update
+     *             occurs when an exception is thrown during command update
      */
     void update(String name, CommandUpdater updater) throws CommandNotFoundException, UpdateException;
 

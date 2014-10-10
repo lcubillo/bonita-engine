@@ -7,11 +7,8 @@
 <!-- ====================================================================== -->
 
 <datasources>
-    <datasource jta="false" jndi-name="java:jboss/datasources/bonitaSequenceManagerDS"
-                pool-name="bonitaSequenceManagerDS" enabled="true" use-ccm="false">
-        <connection-url>
-            jdbc:h2:tcp://#database.ip#:#database.port#/#database.name#;MVCC=TRUE;DB_CLOSE_ON_EXIT=TRUE;IGNORECASE=TRUE
-        </connection-url>
+    <datasource jta="false" jndi-name="java:jboss/datasources/bonitaSequenceManagerDS" pool-name="bonitaSequenceManagerDS" enabled="true" use-ccm="false">
+        <connection-url>jdbc:h2:tcp://#database.ip#:#database.port#/#database.name#;MVCC=TRUE;DB_CLOSE_ON_EXIT=TRUE;IGNORECASE=TRUE</connection-url>
         <driver>h2</driver>
         <security>
             <user-name>#database.user#</user-name>
@@ -19,9 +16,7 @@
         </security>
     </datasource>
     <xa-datasource jndi-name="java:jboss/datasources/bonitaDS" pool-name="bonitaDS" enabled="true" use-ccm="false">
-        <xa-datasource-property name="URL">
-            jdbc:h2:tcp://#database.ip#:#database.port#/#database.name#;MVCC=TRUE;DB_CLOSE_ON_EXIT=TRUE;IGNORECASE=TRUE
-        </xa-datasource-property>
+        <xa-datasource-property name="URL">jdbc:h2:tcp://#database.ip#:#database.port#/#database.name#;MVCC=TRUE;DB_CLOSE_ON_EXIT=TRUE;IGNORECASE=TRUE</xa-datasource-property>
         <driver>h2</driver>
         <xa-pool>
             <min-pool-size>1</min-pool-size>

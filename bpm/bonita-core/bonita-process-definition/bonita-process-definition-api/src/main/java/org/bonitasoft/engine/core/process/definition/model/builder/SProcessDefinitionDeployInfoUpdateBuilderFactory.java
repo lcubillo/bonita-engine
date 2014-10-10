@@ -13,6 +13,7 @@
  **/
 package org.bonitasoft.engine.core.process.definition.model.builder;
 
+
 /**
  * @author Yanyan Liu
  * @author Baptiste Mesta
@@ -21,5 +22,5 @@ package org.bonitasoft.engine.core.process.definition.model.builder;
 public interface SProcessDefinitionDeployInfoUpdateBuilderFactory {
 
     SProcessDefinitionDeployInfoUpdateBuilder createNewInstance();
-
+    
 }

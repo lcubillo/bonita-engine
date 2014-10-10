@@ -27,9 +27,9 @@ public class NullCheckingUtil {
      * a helpful message by scanning the stack trace.
      * 
      * @param params
-     *        the parameters to check
+     *            the parameters to check
      * @throws IllegalArgumentException
-     *         if at least one of the parameters is null
+     *             if at least one of the parameters is null
      */
     public static void checkArgsNotNull(final Object... params) {
         checkArgsNotNull(1, params);
@@ -42,11 +42,11 @@ public class NullCheckingUtil {
      * a helpful message by scanning the stack trace.
      * 
      * @param offset
-     *        the offset to use in the stack trace to produce error message
+     *            the offset to use in the stack trace to produce error message
      * @param params
-     *        the parameters to check
+     *            the parameters to check
      * @throws IllegalArgumentException
-     *         if at least one of the parameters is null
+     *             if at least one of the parameters is null
      */
     private static void checkArgsNotNull(final int offset, final Object... params) {
         final NullCheckResult result = findNull(params);
@@ -82,7 +82,7 @@ public class NullCheckingUtil {
      * This method returns a {@link NullCheckResult}.
      * 
      * @param params
-     *        the parameters to check
+     *            the parameters to check
      * @return a {@link NullCheckResult} representing null parameters.
      * @see NullCheckResult
      */
@@ -123,9 +123,9 @@ public class NullCheckingUtil {
      * This method throw an IllegalStateException if the given parameter is null
      * 
      * @param valueToCheck
-     *        the value to check
+     *            the value to check
      * @param msg
-     *        the message for the thrown exception
+     *            the message for the thrown exception
      * @see IllegalStateException
      */
     public static void badStateIfNull(final Object valueToCheck, final String msg) {
@@ -136,9 +136,9 @@ public class NullCheckingUtil {
      * This method throw an IllegalStateException if the given parameter is true
      * 
      * @param valueToCheck
-     *        the value to check
+     *            the value to check
      * @param msg
-     *        the message for the thrown exception
+     *            the message for the thrown exception
      * @see IllegalStateException
      */
     public static void badStateIfTrue(final boolean valueToCheck, final String msg) {
@@ -187,7 +187,7 @@ public class NullCheckingUtil {
          * Returns true if the i th parameter given to {@link #findNull(Object...)} was null.
          * 
          * @param i
-         *        the rank of the parameter given to {@link #findNull(Object...)}.
+         *            the rank of the parameter given to {@link #findNull(Object...)}.
          * @return true if the i th parameter given to {@link #findNull(Object...)} was null.
          */
         public boolean isNull(final int i) {

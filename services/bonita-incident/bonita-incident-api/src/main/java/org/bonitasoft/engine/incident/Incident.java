@@ -14,7 +14,9 @@
 package org.bonitasoft.engine.incident;
 
 /**
+ * 
  * @author Baptiste Mesta
+ * 
  */
 public class Incident {
 

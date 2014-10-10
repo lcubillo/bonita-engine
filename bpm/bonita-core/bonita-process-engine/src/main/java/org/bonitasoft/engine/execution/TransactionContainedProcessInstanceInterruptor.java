@@ -65,8 +65,7 @@ public class TransactionContainedProcessInstanceInterruptor extends AbstractProc
         final SFlowNodeInstance flowNodeInstance = flowNodeInstanceService.getFlowNodeInstance(childId);
         final SFlowNodeInstanceBuilderFactory flowNodeKeyProvider = BuilderFactory.get(SUserTaskInstanceBuilderFactory.class);
 
-        containerRegistry.executeFlowNode(flowNodeInstance.getProcessDefinitionId(),
-                flowNodeInstance.getLogicalGroup(flowNodeKeyProvider.getParentProcessInstanceIndex()), flowNodeInstance.getId(), null,
+        containerRegistry.executeFlowNode(flowNodeInstance.getProcessDefinitionId(), flowNodeInstance.getLogicalGroup(flowNodeKeyProvider.getParentProcessInstanceIndex()), flowNodeInstance.getId(), null,
                 null);
     }
 

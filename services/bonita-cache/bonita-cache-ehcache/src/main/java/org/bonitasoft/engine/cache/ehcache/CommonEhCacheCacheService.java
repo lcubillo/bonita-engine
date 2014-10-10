@@ -56,7 +56,7 @@ public abstract class CommonEhCacheCacheService implements CommonCacheService {
         ehCacheConfig.setOverflowToDisk(!cacheConfig.isInMemoryOnly());
         ehCacheConfig.setEternal(cacheConfig.isEternal());
         if (!cacheConfig.isEternal()) {
-            ehCacheConfig.setTimeToLiveSeconds(cacheConfig.getTimeToLiveSeconds());
+        ehCacheConfig.setTimeToLiveSeconds(cacheConfig.getTimeToLiveSeconds());
         }
         return ehCacheConfig;
     }

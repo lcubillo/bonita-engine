@@ -16,8 +16,10 @@ package org.bonitasoft.engine.core.process.instance.model.builder.event.handling
 import org.bonitasoft.engine.queriablelogger.model.builder.HasCRUDEActionFactory;
 import org.bonitasoft.engine.queriablelogger.model.builder.SPersistenceLogBuilderFactory;
 
+
 /**
  * @author Elias Ricken de Medeiros
+ *
  */
 public interface SWaitingEventLogBuilderFactory extends SPersistenceLogBuilderFactory, HasCRUDEActionFactory {
 

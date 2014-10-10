@@ -23,7 +23,7 @@ import org.bonitasoft.engine.core.process.instance.model.event.handling.impl.SMe
 public class SMessageInstanceBuilderImpl implements SMessageInstanceBuilder {
 
     private final SMessageInstanceImpl entity;
-
+    
     public SMessageInstanceBuilderImpl(final SMessageInstanceImpl entity) {
         super();
         this.entity = entity;

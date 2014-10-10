@@ -84,11 +84,11 @@ public abstract class ExternalIdentityMappingCommand extends MemberCommand {
      * Deletes all <code>SExternalIdentityMapping</code> objects associated with the specified externalId and kind.
      * 
      * @param externalId
-     *        the external Id identifying the <code>SExternalIdentityMapping</code>s to delete.
+     *            the external Id identifying the <code>SExternalIdentityMapping</code>s to delete.
      * @param kind
-     *        the discriminator of the <code>SExternalIdentityMapping</code>
+     *            the discriminator of the <code>SExternalIdentityMapping</code>
      * @throws SExternalIdentityMappingDeletionException
-     *         in case a deletion problem occurs
+     *             in case a deletion problem occurs
      */
     protected void deleteExternalIdentityMappings(final String externalId, final String kind) throws SExternalIdentityMappingDeletionException {
         final DeleteExternalIdentityMappings transactionContent = new DeleteExternalIdentityMappings(kind, externalId);

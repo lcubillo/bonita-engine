@@ -17,6 +17,7 @@ import org.bonitasoft.engine.exception.NotFoundException;
 
 /**
  * Thrown when it's not possible to find the archived flow node instance.
+ * 
  * The class ArchivedFlowNodeInstanceNotFoundException is a form of Throwable that indicates conditions that a reasonable application might want to catch.
  * The class ArchivedFlowNodeInstanceNotFoundException that is not also subclasses of {@link RuntimeException} are checked exceptions.
  * Checked exceptions need to be declared in a method or constructor's {@literal throws} clause if they can be thrown by the execution of the method or
@@ -33,8 +34,8 @@ public class ArchivedFlowNodeInstanceNotFoundException extends NotFoundException
      * Constructs a new exception with the specified detail cause.
      * 
      * @param cause
-     *        The cause (which is saved for later retrieval by the {@link Throwable#getCause()} method). (A null value is permitted, and indicates that the
-     *        cause is nonexistent or unknown.)
+     *            The cause (which is saved for later retrieval by the {@link Throwable#getCause()} method). (A null value is permitted, and indicates that the
+     *            cause is nonexistent or unknown.)
      */
     public ArchivedFlowNodeInstanceNotFoundException(final Throwable cause) {
         super(cause);
@@ -44,8 +45,8 @@ public class ArchivedFlowNodeInstanceNotFoundException extends NotFoundException
      * Constructs a new exception with the specified detail message.
      * 
      * @param id
-     *        The identifier of the archived flow node include in the detail message (which is saved for later retrieval by the {@link Throwable#getMessage()}
-     *        method).
+     *            The identifier of the archived flow node include in the detail message (which is saved for later retrieval by the
+     *            {@link Throwable#getMessage()} method).
      */
     public ArchivedFlowNodeInstanceNotFoundException(final long id) {
         super("Archived flow node with id " + id + " not found");

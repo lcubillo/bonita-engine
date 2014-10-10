@@ -57,12 +57,9 @@ public class SearchProcessInstanceDescriptor extends SearchEntityDescriptor {
         searchEntityKeys.put(ProcessInstanceSearchDescriptor.STARTED_BY, new FieldDescriptor(SProcessInstance.class, instanceBuilder.getStartedByKey()));
         searchEntityKeys.put(ProcessInstanceSearchDescriptor.CALLER_ID,
                 new FieldDescriptor(SProcessInstance.class, instanceBuilder.getCallerIdKey()));
-        searchEntityKeys.put(ProcessInstanceSearchDescriptor.USER_ID,
-                new FieldDescriptor(SProcessSupervisor.class, BuilderFactory.get(SProcessSupervisorBuilderFactory.class).getUserIdKey()));
-        searchEntityKeys.put(ProcessInstanceSearchDescriptor.GROUP_ID,
-                new FieldDescriptor(SProcessSupervisor.class, BuilderFactory.get(SProcessSupervisorBuilderFactory.class).getGroupIdKey()));
-        searchEntityKeys.put(ProcessInstanceSearchDescriptor.ROLE_ID,
-                new FieldDescriptor(SProcessSupervisor.class, BuilderFactory.get(SProcessSupervisorBuilderFactory.class).getRoleIdKey()));
+        searchEntityKeys.put(ProcessInstanceSearchDescriptor.USER_ID, new FieldDescriptor(SProcessSupervisor.class, BuilderFactory.get(SProcessSupervisorBuilderFactory.class).getUserIdKey()));
+        searchEntityKeys.put(ProcessInstanceSearchDescriptor.GROUP_ID, new FieldDescriptor(SProcessSupervisor.class, BuilderFactory.get(SProcessSupervisorBuilderFactory.class).getGroupIdKey()));
+        searchEntityKeys.put(ProcessInstanceSearchDescriptor.ROLE_ID, new FieldDescriptor(SProcessSupervisor.class, BuilderFactory.get(SProcessSupervisorBuilderFactory.class).getRoleIdKey()));
         searchEntityKeys.put(ProcessInstanceSearchDescriptor.ASSIGNEE_ID,
                 new FieldDescriptor(SUserTaskInstance.class, sUserTaskInstanceBuilder.getAssigneeIdKey()));
 

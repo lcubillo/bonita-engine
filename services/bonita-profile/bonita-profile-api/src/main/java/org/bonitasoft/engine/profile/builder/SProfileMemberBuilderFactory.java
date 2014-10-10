@@ -13,6 +13,7 @@
  **/
 package org.bonitasoft.engine.profile.builder;
 
+
 /**
  * @author Elias Ricken de Medeiros
  * @author Matthieu Chaffotte

@@ -120,7 +120,7 @@ public class ActivityDefinitionBuilder extends FlowElementContainerBuilder imple
      * Sets the display description on this activity
      * 
      * @param displayDescription
-     *        expression representing the display description
+     *            expression representing the display description
      * @return
      */
     public ActivityDefinitionBuilder addDisplayDescription(final Expression displayDescription) {
@@ -132,7 +132,7 @@ public class ActivityDefinitionBuilder extends FlowElementContainerBuilder imple
      * Sets the display name on this activity. When set, the display name will replace the name in the Bonita BPM Portal
      * 
      * @param displayName
-     *        expression representing the display name
+     *            expression representing the display name
      * @return
      */
     public ActivityDefinitionBuilder addDisplayName(final Expression displayName) {
@@ -145,7 +145,7 @@ public class ActivityDefinitionBuilder extends FlowElementContainerBuilder imple
      * execution
      * 
      * @param displayDescriptionAfterCompletion
-     *        expression representing the new display description after the activity completion.
+     *            expression representing the new display description after the activity completion.
      * @return
      */
     public ActivityDefinitionBuilder addDisplayDescriptionAfterCompletion(final Expression displayDescriptionAfterCompletion) {
@@ -158,13 +158,13 @@ public class ActivityDefinitionBuilder extends FlowElementContainerBuilder imple
      * are executed after calling the method {@link ProcessAPI#executeFlowNode(long)}
      * 
      * @param leftOperand
-     *        operation left operand
+     *            operation left operand
      * @param type
-     *        operator type
+     *            operator type
      * @param operator
-     *        operator
+     *            operator
      * @param rightOperand
-     *        expression representing the right operand
+     *            expression representing the right operand
      * @return
      */
     public ActivityDefinitionBuilder addOperation(final LeftOperand leftOperand, final OperatorType type, final String operator, final Expression rightOperand) {
@@ -181,15 +181,15 @@ public class ActivityDefinitionBuilder extends FlowElementContainerBuilder imple
      * are executed after calling the method {@link ProcessAPI#executeFlowNode(long)}
      * 
      * @param leftOperand
-     *        operation left operand
+     *            operation left operand
      * @param type
-     *        operator type
+     *            operator type
      * @param operator
-     *        operator
+     *            operator
      * @param operatorInputType
-     *        the input operator type. For instance, the parameter type in the case of a Java setter
+     *            the input operator type. For instance, the parameter type in the case of a Java setter
      * @param rightOperand
-     *        expression representing the right operand
+     *            expression representing the right operand
      * @return
      */
     public ActivityDefinitionBuilder addOperation(final LeftOperand leftOperand, final OperatorType type, final String operator,
@@ -203,7 +203,7 @@ public class ActivityDefinitionBuilder extends FlowElementContainerBuilder imple
      * Adds the given operation on this activity
      * 
      * @param operation
-     *        operation to be added
+     *            operation to be added
      * @return
      */
     public ActivityDefinitionBuilder addOperation(final Operation operation) {
@@ -222,9 +222,9 @@ public class ActivityDefinitionBuilder extends FlowElementContainerBuilder imple
      * Defines this activity as a loop. The loop will finish when the condition is evaluated to false
      * 
      * @param testBefore
-     *        true if the condition must be check before execute the first iteration; false if the condition must be checked only after the first iteration
+     *            true if the condition must be check before execute the first iteration; false if the condition must be checked only after the first iteration
      * @param condition
-     *        condition determining whether the activity must loop again
+     *            condition determining whether the activity must loop again
      * @return
      */
     public ActivityDefinitionBuilder addLoop(final boolean testBefore, final Expression condition) {
@@ -237,11 +237,11 @@ public class ActivityDefinitionBuilder extends FlowElementContainerBuilder imple
      * Defines this activity as a loop. The loop will finish when the condition is evaluated to false or when the max iterations number is reached
      * 
      * @param testBefore
-     *        true if the condition must be check before execute the first iteration; false if the condition must be checked only after the first iteration
+     *            true if the condition must be check before execute the first iteration; false if the condition must be checked only after the first iteration
      * @param condition
-     *        condition determining whether the activity must loop again. The loop will finish when the condition is evaluated to false
+     *            condition determining whether the activity must loop again. The loop will finish when the condition is evaluated to false
      * @param loopMax
-     *        expression representing the max iterations number. The expression must return an Integer
+     *            expression representing the max iterations number. The expression must return an Integer
      * @return
      */
     public ActivityDefinitionBuilder addLoop(final boolean testBefore, final Expression condition, final Expression loopMax) {
@@ -254,9 +254,9 @@ public class ActivityDefinitionBuilder extends FlowElementContainerBuilder imple
      * Adds a boundary event
      *
      * @param name
-     *        the name of the boundary event
+     *            the name of the boundary event
      * @param interrupting
-     *        defines whether the boundary event is interrupting or not
+     *            defines whether the boundary event is interrupting or not
      * @return
      * @since 6.0
      */
@@ -268,7 +268,7 @@ public class ActivityDefinitionBuilder extends FlowElementContainerBuilder imple
      * Adds an interrupting boundary event
      *
      * @param name
-     *        the name of the boundary event
+     *            the name of the boundary event
      * @return
      * @since 6.0
      */
@@ -281,7 +281,7 @@ public class ActivityDefinitionBuilder extends FlowElementContainerBuilder imple
      * 
      * @param isSequential defines whether instances creation is sequential or not. If true, instances will be created iteration by iteration; otherwise all
      *        instances will be created during the activity initialization.
-     * @param loopCardinality expression representing how many instances must be created. The expression return type must be Integer
+     * @param loopCardinality expression representing how many instances must be created. The expression return type must be Integer 
      * @return
      */
     public MultiInstanceLoopCharacteristicsBuilder addMultiInstance(final boolean isSequential, final Expression loopCardinality) {

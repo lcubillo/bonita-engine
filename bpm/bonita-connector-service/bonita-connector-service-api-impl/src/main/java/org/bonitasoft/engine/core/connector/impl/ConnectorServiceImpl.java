@@ -710,7 +710,7 @@ public class ConnectorServiceImpl implements ConnectorService {
 
     /**
      * @param connectorImplementationDescriptor
-     *        check the implementation has all required properties or not
+     *            check the implementation has all required properties or not
      * @return
      */
     private boolean isGoodImplementation(final SConnectorImplementationDescriptor connectorImplementationDescriptor) {

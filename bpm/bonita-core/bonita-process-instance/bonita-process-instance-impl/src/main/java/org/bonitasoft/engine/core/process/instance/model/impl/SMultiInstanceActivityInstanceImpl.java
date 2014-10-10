@@ -143,7 +143,7 @@ public class SMultiInstanceActivityInstanceImpl extends SActivityInstanceImpl im
     public void setLoopCardinality(final int loopCardinality) {
         this.loopCardinality = loopCardinality;
     }
-
+    
     @Override
     public boolean mustExecuteOnAbortOrCancelProcess() {
         // it's not necessary to execute it because this will be done when the last child reaches the aborted state

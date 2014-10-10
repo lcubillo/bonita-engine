@@ -69,7 +69,7 @@ public class CustomUserInfoQueriesTest {
         skills = repository.add(aCustomUserInfoDefinition().withName(SKILLS_NAME).build());
         developer = repository.add(aCustomUserInfoDefinition().withName(DEVELOPER_NAME).build());
     }
-
+    
     @Test
     public void query_getUserIdsWithCustomUserInfo_should_return_empty_list_if_no_users_has_the_chosen_custom_user_info() throws Exception {
         // when
@@ -103,11 +103,11 @@ public class CustomUserInfoQueriesTest {
         repository.add(aCustomUserInfoValue().withUserId(user2.getId()).withCustomUserInfoDefinitionId(developer.getId()).withValue("Java").build());
         repository.add(aCustomUserInfoValue().withUserId(user3.getId()).withCustomUserInfoDefinitionId(skills.getId()).withValue("C").build());
         repository.add(aCustomUserInfoValue().withUserId(user4.getId()).withCustomUserInfoDefinitionId(skills.getId()).withValue("Java").build());
-
+        
         // when
         List<Long> userIdsWholeValue = repository.getUserIdsWithCustomUserInfo(SKILLS_NAME, "Java", true);
         List<Long> userIdsPartialValue = repository.getUserIdsWithCustomUserInfo(SKILLS_NAME, "av", true);
-
+        
         // then
         assertThat(userIdsWholeValue).hasSize(2);
         assertThat(userIdsWholeValue).contains(user1.getId());

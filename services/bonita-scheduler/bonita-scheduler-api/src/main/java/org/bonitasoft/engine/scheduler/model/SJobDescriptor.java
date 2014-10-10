@@ -27,6 +27,6 @@ public interface SJobDescriptor extends PersistentObject {
 
     String getDescription();
 
-    boolean disallowConcurrentExecution();
+	boolean disallowConcurrentExecution();
 
 }

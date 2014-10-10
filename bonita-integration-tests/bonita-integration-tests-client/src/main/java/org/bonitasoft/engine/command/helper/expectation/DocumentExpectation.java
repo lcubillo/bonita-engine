@@ -20,8 +20,10 @@ import org.bonitasoft.engine.bpm.document.Document;
 import org.bonitasoft.engine.bpm.document.DocumentNotFoundException;
 import org.bonitasoft.engine.bpm.process.ProcessInstance;
 
+
 /**
  * @author Elias Ricken de Medeiros
+ *
  */
 public class DocumentExpectation {
 
@@ -42,5 +44,5 @@ public class DocumentExpectation {
         String storageId = document.getContentStorageId();
         assertEquals(variable, new String(testCase.getProcessAPI().getDocumentContent(storageId)));
     }
-
+    
 }

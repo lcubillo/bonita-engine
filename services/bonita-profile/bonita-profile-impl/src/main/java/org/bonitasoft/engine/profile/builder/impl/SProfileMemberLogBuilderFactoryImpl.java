@@ -27,6 +27,7 @@ public class SProfileMemberLogBuilderFactoryImpl extends CRUDELogBuilderFactory 
 
     // TODO: add index for user, group and role
 
+
     @Override
     public String getObjectIdKey() {
         return PROFILE_MEMBER_INDEX_NAME;

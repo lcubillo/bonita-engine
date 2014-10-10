@@ -40,10 +40,8 @@ public class SearchDocumentDescriptor extends SearchEntityDescriptor {
         searchEntityKeys = new HashMap<String, FieldDescriptor>(9);
         searchEntityKeys.put(DocumentsSearchDescriptor.CONTENT_STORAGE_ID, new FieldDescriptor(SDocumentMapping.class, fact.geContentStorageIdKey()));
         searchEntityKeys.put(DocumentsSearchDescriptor.DOCUMENT_AUTHOR, new FieldDescriptor(SDocumentMapping.class, fact.getDocumentAuthorKey()));
-        searchEntityKeys.put(DocumentsSearchDescriptor.DOCUMENT_CONTENT_FILENAME,
-                new FieldDescriptor(SDocumentMapping.class, fact.getDocumentContentFileNameKey()));
-        searchEntityKeys.put(DocumentsSearchDescriptor.DOCUMENT_CONTENT_MIMETYPE,
-                new FieldDescriptor(SDocumentMapping.class, fact.getDocumentContentMimeTypeKey()));
+        searchEntityKeys.put(DocumentsSearchDescriptor.DOCUMENT_CONTENT_FILENAME, new FieldDescriptor(SDocumentMapping.class, fact.getDocumentContentFileNameKey()));
+        searchEntityKeys.put(DocumentsSearchDescriptor.DOCUMENT_CONTENT_MIMETYPE, new FieldDescriptor(SDocumentMapping.class, fact.getDocumentContentMimeTypeKey()));
         searchEntityKeys.put(DocumentsSearchDescriptor.DOCUMENT_CREATIONDATE, new FieldDescriptor(SDocumentMapping.class, fact.getDocumentCreationDateKey()));
         searchEntityKeys.put(DocumentsSearchDescriptor.DOCUMENT_HAS_CONTENT, new FieldDescriptor(SDocumentMapping.class, fact.getDocumentHasContent()));
         searchEntityKeys.put(DocumentsSearchDescriptor.DOCUMENT_NAME, new FieldDescriptor(SDocumentMapping.class, fact.getDocumentNameKey()));

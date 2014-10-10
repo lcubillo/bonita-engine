@@ -28,10 +28,10 @@ public interface LoginService {
      * generic login approach to handle outer authentication service like CAS or OAuth or whatever...
      * 
      * @param credentials
-     *        the parameters to use to login
+     *            the parameters to use to login
      * @return the session created if login succeeds
      * @throws SLoginException
-     *         if login fails
+     *             if login fails
      */
     SSession login(Map<String, Serializable> credentials) throws SLoginException;
 
@@ -39,14 +39,14 @@ public interface LoginService {
      * login the current user with the given username and password on the given tenant
      * 
      * @param tenantId
-     *        the tenant to log the user into
+     *            the tenant to log the user into
      * @param userName
-     *        the username to use
+     *            the username to use
      * @param password
-     *        the password to use
+     *            the password to use
      * @return true if authentication succeed
      * @throws SLoginException
-     *         if login fails
+     *             if login fails
      */
     @Deprecated
     SSession login(final long tenantId, final String userName, final String password) throws SLoginException;

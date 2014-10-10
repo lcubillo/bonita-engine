@@ -31,19 +31,19 @@ public class ListElementMatcher extends BaseMatcher<List<?>> {
 
     private enum TYPE {
         NAME(String.class,
-                "getName"),
+             "getName"),
         ID(long.class,
-                "getId"),
+           "getId"),
         VERSION(String.class,
                 "getVersion"),
         DESCRIPTION(String.class,
-                "getDescription"),
+                    "getDescription"),
         USERNAME(String.class,
-                "getUserName"),
+                 "getUserName"),
         MANAGER(long.class,
                 "getManagerUserId"),
         STATE(String.class,
-                "getState");
+              "getState");
 
         private final Class<?> clazz;
 

@@ -120,10 +120,10 @@ public class ExecuteFlowNodes implements Callable<Object> {
      * Determines if the found flownode should be relaunched at restart or not. For now, only Gateways must not always be restarted under certain conditions.
      *
      * @param sFlowNodeInstance
-     *        the flownode to check
+     *            the flownode to check
      * @return true if the flownode should be relaunched because it has not finished its work in progress, false otherwise.
      * @throws SBonitaException
-     *         in case of error.
+     *             in case of error.
      */
     protected boolean shouldExecuteFlownode(final SFlowNodeInstance sFlowNodeInstance) throws SBonitaException {
         try {

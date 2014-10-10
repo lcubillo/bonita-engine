@@ -13,6 +13,7 @@
  **/
 package org.bonitasoft.engine.platform.model.builder;
 
+
 /**
  * @author Charles Souillard
  */

@@ -34,12 +34,9 @@ public class SearchEntityMemberUserDescriptor extends SearchEntityMemberDescript
 
     public SearchEntityMemberUserDescriptor() {
         super();
-        putField(EntityMemberSearchDescriptor.DISPLAY_NAME_PART1, new FieldDescriptor(SUser.class, BuilderFactory.get(SUserBuilderFactory.class)
-                .getFirstNameKey()));
-        putField(EntityMemberSearchDescriptor.DISPLAY_NAME_PART2, new FieldDescriptor(SUser.class, BuilderFactory.get(SUserBuilderFactory.class)
-                .getLastNameKey()));
-        putField(EntityMemberSearchDescriptor.DISPLAY_NAME_PART3, new FieldDescriptor(SUser.class, BuilderFactory.get(SUserBuilderFactory.class)
-                .getUserNameKey()));
+        putField(EntityMemberSearchDescriptor.DISPLAY_NAME_PART1, new FieldDescriptor(SUser.class, BuilderFactory.get(SUserBuilderFactory.class).getFirstNameKey()));
+        putField(EntityMemberSearchDescriptor.DISPLAY_NAME_PART2, new FieldDescriptor(SUser.class, BuilderFactory.get(SUserBuilderFactory.class).getLastNameKey()));
+        putField(EntityMemberSearchDescriptor.DISPLAY_NAME_PART3, new FieldDescriptor(SUser.class, BuilderFactory.get(SUserBuilderFactory.class).getUserNameKey()));
 
         entityMemberAllFields = new HashMap<Class<? extends PersistentObject>, Set<String>>(3);
         final Set<String> userFields = new HashSet<String>(3);

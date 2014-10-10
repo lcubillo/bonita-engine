@@ -55,8 +55,7 @@ public class AddUserMembership implements TransactionContentWithResult<SUserMemb
         final SUser user = identityService.getUser(userId);
         final SRole role = identityService.getRole(roleId);
         final SGroup group = identityService.getGroup(groupId);
-        userMembership = BuilderFactory.get(SUserMembershipBuilderFactory.class).createNewInstance(user.getId(), group.getId(), role.getId())
-                .setAssignedBy(assignedBy)
+        userMembership = BuilderFactory.get(SUserMembershipBuilderFactory.class).createNewInstance(user.getId(), group.getId(), role.getId()).setAssignedBy(assignedBy)
                 .setAssignedDate(System.currentTimeMillis()).done();
         identityService.createUserMembership(userMembership);
     }

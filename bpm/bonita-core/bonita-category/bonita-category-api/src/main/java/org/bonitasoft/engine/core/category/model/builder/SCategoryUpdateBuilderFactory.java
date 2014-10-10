@@ -13,6 +13,7 @@
  **/
 package org.bonitasoft.engine.core.category.model.builder;
 
+
 /**
  * @author Yanyan Liu
  */

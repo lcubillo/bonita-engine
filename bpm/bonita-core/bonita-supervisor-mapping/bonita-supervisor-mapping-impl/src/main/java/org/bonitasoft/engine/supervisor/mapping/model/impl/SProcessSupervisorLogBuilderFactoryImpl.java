@@ -26,7 +26,7 @@ public class SProcessSupervisorLogBuilderFactoryImpl extends CRUDELogBuilderFact
     public SProcessSupervisorLogBuilder createNewInstance() {
         return new SProcessSupervisorLogBuilderImpl();
     }
-
+    
     @Override
     public String getObjectIdKey() {
         return SProcessSupervisorLogIndexesMapper.SUPERVISOR_INDEX_NAME;

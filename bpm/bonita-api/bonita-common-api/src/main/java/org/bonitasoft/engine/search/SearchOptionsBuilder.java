@@ -37,9 +37,9 @@ public class SearchOptionsBuilder {
      * Builds a new <code>SearchOptions</code> with results limited to startIndex and maxResults
      * 
      * @param startIndex
-     *        the first result to return
+     *            the first result to return
      * @param maxResults
-     *        the maximum results to return. The actual number can be smaller, if the end of the list has been reached.
+     *            the maximum results to return. The actual number can be smaller, if the end of the list has been reached.
      */
     public SearchOptionsBuilder(final int startIndex, final int maxResults) {
         options = new SearchOptionsImpl(startIndex, maxResults);
@@ -61,10 +61,10 @@ public class SearchOptionsBuilder {
      * Filter the results to the specific value for the specific field (equality)
      * 
      * @param field
-     *        The name of the field to filter on. Depending on the search perimeter, specify the field by accessing the relevant xxxSearchDescriptor classes.
-     *        For example, HumanTaskInstanceSearchDescriptor.NAME and HumanTaskInstanceSearchDescriptor.PROCESS_DEFINITION_ID.
+     *            The name of the field to filter on. Depending on the search perimeter, specify the field by accessing the relevant xxxSearchDescriptor classes. 
+     *            For example, HumanTaskInstanceSearchDescriptor.NAME and HumanTaskInstanceSearchDescriptor.PROCESS_DEFINITION_ID.
      * @param value
-     *        the single value to filter on that field name
+     *            the single value to filter on that field name
      * @return this builder itself
      * @since 6.0
      */
@@ -77,9 +77,9 @@ public class SearchOptionsBuilder {
      * Filters search results with a greaterThan comparison operation.
      * 
      * @param field
-     *        the field name to compare to.
+     *            the field name to compare to.
      * @param value
-     *        the value to compare.
+     *            the value to compare.
      * @return this builder itself
      * @see SearchOptionsBuilder.filter() for field values
      */
@@ -189,9 +189,9 @@ public class SearchOptionsBuilder {
      * Adds a sort order option to the list of sort options
      * 
      * @param field
-     *        the field name to sort by
+     *            the field name to sort by
      * @param order
-     *        the order of the sort (ASCENDING, DESCENDING)
+     *            the order of the sort (ASCENDING, DESCENDING)
      * @return the current SearchOptionsBuilder
      */
     public SearchOptionsBuilder sort(final String field, final Order order) {

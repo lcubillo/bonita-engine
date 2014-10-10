@@ -25,6 +25,7 @@ public class SJobLogQueriableLogBuilderFactoryImpl extends CRUDELogBuilderFactor
 
     private static final String JOB_INDEX_NAME = "numericIndex1";
 
+
     @Override
     public String getObjectIdKey() {
         return JOB_LOG_INDEX_NAME;

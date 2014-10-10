@@ -28,8 +28,7 @@ public class SWaitingErrorEventBuilderFactoryImpl extends SWaitingEventKeyProvid
     public SWaitingErrorEventBuilder createNewWaitingErrorBoundaryEventInstance(final long processdefinitionId, final long rootProcessInstanceId,
             final long parentProcessInstanceId, final long flowNodeInstanceId, final String errorCode, final String processName,
             final long flowNodeDefinitionId, final String flowNodeName, final long relatedActivityInstanceId) {
-        final SWaitingErrorEventImpl entity = new SWaitingErrorEventImpl(SBPMEventType.BOUNDARY_EVENT, processdefinitionId, processName, flowNodeDefinitionId,
-                flowNodeName, errorCode);
+        final SWaitingErrorEventImpl entity = new SWaitingErrorEventImpl(SBPMEventType.BOUNDARY_EVENT, processdefinitionId, processName, flowNodeDefinitionId, flowNodeName, errorCode);
         entity.setFlowNodeInstanceId(flowNodeInstanceId);
         entity.setRootProcessInstanceId(rootProcessInstanceId);
         entity.setParentProcessInstanceId(parentProcessInstanceId);
@@ -41,8 +40,7 @@ public class SWaitingErrorEventBuilderFactoryImpl extends SWaitingEventKeyProvid
     public SWaitingErrorEventBuilder createNewWaitingErrorEventSubProcInstance(final long processdefinitionId, final long parentProcessInstanceId,
             final long rootProcessInstanceId, final String errorCode, final String processName, final long flowNodeDefinitionId, final String flowNodeName,
             final long subProcessId) {
-        final SWaitingErrorEventImpl entity = new SWaitingErrorEventImpl(SBPMEventType.EVENT_SUB_PROCESS, processdefinitionId, processName,
-                flowNodeDefinitionId, flowNodeName, errorCode);
+        final SWaitingErrorEventImpl entity = new SWaitingErrorEventImpl(SBPMEventType.EVENT_SUB_PROCESS, processdefinitionId, processName, flowNodeDefinitionId, flowNodeName, errorCode);
         entity.setRootProcessInstanceId(rootProcessInstanceId);
         entity.setParentProcessInstanceId(parentProcessInstanceId);
         entity.setSubProcessId(subProcessId);
@@ -53,5 +51,5 @@ public class SWaitingErrorEventBuilderFactoryImpl extends SWaitingEventKeyProvid
     public String getErrorCodeKey() {
         return "errorCode";
     }
-
+    
 }

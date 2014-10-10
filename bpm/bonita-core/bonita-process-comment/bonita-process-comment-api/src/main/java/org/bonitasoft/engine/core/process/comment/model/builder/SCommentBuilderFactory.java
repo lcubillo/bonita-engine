@@ -13,6 +13,7 @@
  **/
 package org.bonitasoft.engine.core.process.comment.model.builder;
 
+
 /**
  * @author Elias Ricken de Medeiros
  * @author Hongwen Zang

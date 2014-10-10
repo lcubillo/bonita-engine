@@ -30,11 +30,11 @@ public class AbsoluteFileSystemXmlApplicationContext extends FileSystemXmlApplic
      * refreshing the context.
      * 
      * @param configLocations
-     *        array of file paths
+     *            array of file paths
      * @param parent
-     *        the parent context
+     *            the parent context
      * @throws BeansException
-     *         if context creation failed
+     *             if context creation failed
      */
     public AbsoluteFileSystemXmlApplicationContext(final String[] configLocations, final boolean refresh, final ApplicationContext parent)
             throws BeansException {

@@ -25,6 +25,7 @@ import org.bonitasoft.engine.search.descriptor.SearchEntityDescriptor;
 /**
  * @author Arthur Freycon
  * @author Celine Souchet
+ * 
  */
 public class GetProcessDefinitionDeployInfosWithActorOnlyForGroup extends AbstractGetProcessDeploymentInfo {
 
@@ -32,8 +33,7 @@ public class GetProcessDefinitionDeployInfosWithActorOnlyForGroup extends Abstra
 
     private final ProcessDefinitionService processDefinitionService;
 
-    public GetProcessDefinitionDeployInfosWithActorOnlyForGroup(final ProcessDefinitionService processDefinitionService,
-            final SearchEntityDescriptor searchDescriptor,
+    public GetProcessDefinitionDeployInfosWithActorOnlyForGroup(final ProcessDefinitionService processDefinitionService, final SearchEntityDescriptor searchDescriptor,
             final int fromIndex, final int numberOfResults, final ProcessDeploymentInfoCriterion criterion, final long groupId) {
         super(searchDescriptor, fromIndex, numberOfResults, criterion);
         this.groupId = groupId;

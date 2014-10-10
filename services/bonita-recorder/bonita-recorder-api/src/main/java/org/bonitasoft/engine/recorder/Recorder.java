@@ -28,9 +28,9 @@ public interface Recorder {
      * Add a record to database
      * 
      * @param record
-     *        the record for insert
+     *            the record for insert
      * @param insertEvent
-     *        the event for insert
+     *            the event for insert
      * @throws SRecorderException
      * @since 6.0
      */
@@ -40,9 +40,9 @@ public interface Recorder {
      * Delete a record from database
      * 
      * @param record
-     *        the record for insert
+     *            the record for insert
      * @param deleteEvent
-     *        the event for delete
+     *            the event for delete
      * @throws SRecorderException
      * @since 6.0
      */
@@ -52,9 +52,9 @@ public interface Recorder {
      * Update a record from database
      * 
      * @param record
-     *        the record for insert
+     *            the record for insert
      * @param updateEvent
-     *        the event for update
+     *            the event for update
      * @throws SRecorderException
      * @since 6.0
      */
@@ -71,7 +71,7 @@ public interface Recorder {
      * Delete all records for a table from database, for the connected tenant
      * 
      * @param record
-     *        table to clean
+     *            table to clean
      * @throws SRecorderException
      * @since 6.1
      */

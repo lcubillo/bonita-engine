@@ -42,7 +42,6 @@ public class DocumentDefinitionBuilder extends FlowElementContainerBuilder {
 
     /**
      * Sets description on this document
-     * 
      * @param description description
      * @return
      */
@@ -53,7 +52,6 @@ public class DocumentDefinitionBuilder extends FlowElementContainerBuilder {
 
     /**
      * Adds URL on this document
-     * 
      * @param url URL
      * @return
      */
@@ -68,7 +66,6 @@ public class DocumentDefinitionBuilder extends FlowElementContainerBuilder {
 
     /**
      * Adds content file name on this document
-     * 
      * @param contentFilename content file name
      * @return
      */
@@ -83,7 +80,6 @@ public class DocumentDefinitionBuilder extends FlowElementContainerBuilder {
 
     /**
      * Adds a file on this document
-     * 
      * @param file the complete file name
      * @return
      */

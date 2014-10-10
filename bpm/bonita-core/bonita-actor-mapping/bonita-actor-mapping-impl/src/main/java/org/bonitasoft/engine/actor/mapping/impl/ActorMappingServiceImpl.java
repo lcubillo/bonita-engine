@@ -211,7 +211,7 @@ public class ActorMappingServiceImpl implements ActorMappingService {
 
     @Override
     public SActor updateActor(final long actorId, final EntityUpdateDescriptor descriptor) throws SActorNotFoundException, SActorUpdateException,
-            SBonitaReadException {
+    SBonitaReadException {
         final SActor actor = getActor(actorId);
         final SActorLogBuilder logBuilder = getQueriableLog(ActionType.UPDATED, "Updating an actor");
         final UpdateRecord updateRecord = UpdateRecord.buildSetFields(actor, descriptor);
@@ -348,7 +348,7 @@ public class ActorMappingServiceImpl implements ActorMappingService {
 
     @Override
     public SActorMember addRoleAndGroupToActor(final long actorId, final long roleId, final long groupId) throws SActorNotFoundException,
-            SActorMemberCreationException {
+    SActorMemberCreationException {
         try {
             final SActorMember addActorMember = addOnlyThisRoleAndGroupToActor(actorId, roleId, groupId);
             int i = 0;

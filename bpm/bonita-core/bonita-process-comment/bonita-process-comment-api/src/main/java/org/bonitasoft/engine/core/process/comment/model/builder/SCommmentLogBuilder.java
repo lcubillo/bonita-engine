@@ -18,6 +18,7 @@ import org.bonitasoft.engine.queriablelogger.model.builder.SPersistenceLogBuilde
 
 /**
  * @author Hongwen Zang
+ * 
  */
 public interface SCommmentLogBuilder extends SPersistenceLogBuilder, HasCRUDEAction {
 

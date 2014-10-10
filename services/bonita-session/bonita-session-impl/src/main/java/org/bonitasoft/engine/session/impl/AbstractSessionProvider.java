@@ -27,6 +27,7 @@ import org.bonitasoft.engine.session.model.SSession;
 
 /**
  * @author Baptiste Mesta
+ * 
  */
 public abstract class AbstractSessionProvider implements SessionProvider {
 

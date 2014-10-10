@@ -268,26 +268,26 @@ public class StateBehaviors {
     @SuppressWarnings("unchecked")
     public void mapDataOutputOfMultiInstance(final SFlowNodeInstance flowNodeInstance, final SMultiInstanceLoopCharacteristics miLoop)
             throws SActivityExecutionException, SBonitaException {
-        final SDataInstance outputData = dataInstanceService.getDataInstance(miLoop.getDataOutputItemRef(), flowNodeInstance.getId(),
-                DataInstanceContainer.ACTIVITY_INSTANCE.name());
-        final SDataInstance loopData = dataInstanceService.getDataInstance(miLoop.getLoopDataOutputRef(), flowNodeInstance.getId(),
-                DataInstanceContainer.ACTIVITY_INSTANCE.name());
-        if (outputData != null && loopData != null) {
-            final Serializable value = loopData.getValue();
-            final int index = flowNodeInstance.getLoopCounter();
-            if (value instanceof List<?>) {
-                final List<Serializable> list = (List<Serializable>) value;
-                list.set(index, outputData.getValue());
-            } else {
-                throw new SActivityExecutionException("unable to map the ouput of the multi instanciated activity "
-                        + flowNodeInstance.getName() + " the output loop data named " + loopData.getName() + " is not a list but "
-                        + loopData.getClassName());
-            }
-            final EntityUpdateDescriptor entityUpdateDescriptor = new EntityUpdateDescriptor();
-            entityUpdateDescriptor.addField("value", value);
-            dataInstanceService.updateDataInstance(loopData, entityUpdateDescriptor);
-        }
-    }
+                        final SDataInstance outputData = dataInstanceService.getDataInstance(miLoop.getDataOutputItemRef(), flowNodeInstance.getId(),
+                                DataInstanceContainer.ACTIVITY_INSTANCE.name());
+                        final SDataInstance loopData = dataInstanceService.getDataInstance(miLoop.getLoopDataOutputRef(), flowNodeInstance.getId(),
+                                DataInstanceContainer.ACTIVITY_INSTANCE.name());
+                        if (outputData != null && loopData != null) {
+                            final Serializable value = loopData.getValue();
+                            final int index = flowNodeInstance.getLoopCounter();
+                            if (value instanceof List<?>) {
+                                final List<Serializable> list = (List<Serializable>) value;
+                                list.set(index, outputData.getValue());
+                            } else {
+                                throw new SActivityExecutionException("unable to map the ouput of the multi instanciated activity "
+                                        + flowNodeInstance.getName() + " the output loop data named " + loopData.getName() + " is not a list but "
+                                        + loopData.getClassName());
+                            }
+                            final EntityUpdateDescriptor entityUpdateDescriptor = new EntityUpdateDescriptor();
+                            entityUpdateDescriptor.addField("value", value);
+                            dataInstanceService.updateDataInstance(loopData, entityUpdateDescriptor);
+                        }
+                    }
 
     public void mapActors(final SFlowNodeInstance flowNodeInstance, final SFlowElementContainerDefinition processContainer)
             throws SActivityStateExecutionException {
@@ -441,8 +441,7 @@ public class StateBehaviors {
     }
 
     private BEntry<Integer, BEntry<SConnectorInstance, SConnectorDefinition>> getConnectorToExecuteOnFinish(final SFlowNodeDefinition flowNodeDefinition,
-            final SFlowNodeInstance flowNodeInstance, final boolean executeConnectorsOnFinish, final boolean onEnterExecuted)
-            throws SConnectorInstanceReadException,
+            final SFlowNodeInstance flowNodeInstance, final boolean executeConnectorsOnFinish, final boolean onEnterExecuted) throws SConnectorInstanceReadException,
             SActivityStateExecutionException {
         final List<SConnectorDefinition> connectorsOnFinish = flowNodeDefinition.getConnectors(ConnectorEvent.ON_FINISH);
         if (connectorsOnFinish.size() > 0 && executeConnectorsOnFinish) {
@@ -788,7 +787,7 @@ public class StateBehaviors {
 
     private void createBoundaryEvent(final SProcessDefinition processDefinition, final SActivityInstance activityInstance, final long rootProcessInstanceId,
             final long parentProcessInstanceId, final SFlowElementsContainerType containerType, final SBoundaryEventDefinition boundaryEventDefinition)
-            throws SBonitaException {
+                    throws SBonitaException {
         final TokenInfo tokenInfo = new BoundaryCreationTokenProvider(activityInstance, boundaryEventDefinition, tokenService).getOutputTokenInfo();
         final SBoundaryEventInstance boundaryEventInstance = (SBoundaryEventInstance) bpmInstancesCreator.createFlowNodeInstance(processDefinition.getId(),
                 rootProcessInstanceId, activityInstance.getParentContainerId(), containerType, boundaryEventDefinition,

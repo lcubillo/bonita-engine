@@ -13,6 +13,7 @@
  **/
 package org.bonitasoft.engine.scheduler.builder;
 
+
 /**
  * @author Baptiste Mesta
  * @author Celine Souchet
@@ -20,7 +21,7 @@ package org.bonitasoft.engine.scheduler.builder;
 public interface SJobDescriptorBuilderFactory {
 
     SJobDescriptorBuilder createNewInstance(String jobClassName, String jobName, boolean disallowConcurrentExecution);
-
+    
     SJobDescriptorBuilder createNewInstance(String jobClassName, String jobName);
 
     String getIdKey();

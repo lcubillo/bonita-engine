@@ -30,6 +30,7 @@ import org.bonitasoft.engine.sessionaccessor.SessionAccessor;
 
 /**
  * @author Baptiste Mesta
+ *
  */
 public class StarterThread extends Thread {
 

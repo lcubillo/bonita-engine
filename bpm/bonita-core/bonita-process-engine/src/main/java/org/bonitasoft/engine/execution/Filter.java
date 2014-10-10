@@ -13,11 +13,13 @@
  **/
 package org.bonitasoft.engine.execution;
 
+
 /**
  * @author Elias Ricken de Medeiros
+ *
  */
 public interface Filter<E> {
 
     boolean mustSelect(E element);
-
+    
 }

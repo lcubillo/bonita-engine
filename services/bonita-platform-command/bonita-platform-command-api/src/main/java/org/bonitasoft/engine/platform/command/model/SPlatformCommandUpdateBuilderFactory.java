@@ -13,6 +13,7 @@
  **/
 package org.bonitasoft.engine.platform.command.model;
 
+
 /**
  * @author Zhang Bole
  */

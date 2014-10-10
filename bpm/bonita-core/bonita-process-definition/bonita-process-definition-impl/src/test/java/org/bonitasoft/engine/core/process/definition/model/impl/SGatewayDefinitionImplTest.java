@@ -22,6 +22,7 @@ import org.junit.Test;
 /**
  * @author Elias Ricken de Medeiros
  * @author Celine Souchet
+ * 
  */
 public class SGatewayDefinitionImplTest {
 
