@@ -25,7 +25,7 @@ import org.bonitasoft.engine.session.model.impl.SSessionImpl;
 public class SSessionBuilderFactoryImpl implements SSessionBuilderFactory {
 
     @Override
-    public SSessionBuilder createNewInstance(final long id, final long tenantId, final long duration, final String username, 
+    public SSessionBuilder createNewInstance(final long id, final long tenantId, final long duration, final String username,
             final String applicationName, final long userId) {
         final SSessionImpl entity = new SSessionImpl(id, tenantId, username, applicationName, userId);
         entity.setDuration(duration);

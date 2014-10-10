@@ -57,7 +57,7 @@ public interface User extends BonitaObject {
 
     /**
      * @deprecated As of 6.0 Use {@link #getManagerUserId()} instead
-     * FIXME Remove ASAP
+     *             FIXME Remove ASAP
      */
     @Deprecated
     String getManagerUserName();

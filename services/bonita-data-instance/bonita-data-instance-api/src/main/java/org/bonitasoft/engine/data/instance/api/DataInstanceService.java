@@ -127,7 +127,8 @@ public interface DataInstanceService {
      * @param shouldArchiveMapping
      * @throws SDataInstanceException
      */
-    void addChildContainer(final long parentContainerId, final String parentContainerType, final long containerId, final String containerType, boolean shouldArchiveMapping)
+    void addChildContainer(final long parentContainerId, final String parentContainerType, final long containerId, final String containerType,
+            boolean shouldArchiveMapping)
             throws SDataInstanceException;
 
     /**
@@ -168,7 +169,8 @@ public interface DataInstanceService {
      * @return a list of SDataInstanceVisibilityMapping objects
      * @throws SDataInstanceException
      */
-    List<SDataInstanceVisibilityMapping> createDataContainer(long containerId, String containerType, boolean shouldArchiveMapping) throws SDataInstanceException;
+    List<SDataInstanceVisibilityMapping> createDataContainer(long containerId, String containerType, boolean shouldArchiveMapping)
+            throws SDataInstanceException;
 
     /**
      * Get SADataInstance object for specific dataInstance at the specific time

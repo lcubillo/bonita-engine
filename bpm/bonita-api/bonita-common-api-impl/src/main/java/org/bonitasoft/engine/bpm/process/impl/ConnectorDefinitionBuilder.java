@@ -52,6 +52,7 @@ public class ConnectorDefinitionBuilder extends FlowElementContainerBuilder {
 
     /**
      * Adds a connector input
+     * 
      * @param name input name
      * @param value expression representing the input value
      * @return
@@ -67,6 +68,7 @@ public class ConnectorDefinitionBuilder extends FlowElementContainerBuilder {
 
     /**
      * Adds a connector output operation
+     * 
      * @param operation operation to be executed at connector completion
      * @return
      */
@@ -80,14 +82,15 @@ public class ConnectorDefinitionBuilder extends FlowElementContainerBuilder {
 
     /**
      * Adds a connector output operation
+     * 
      * @param leftOperand
-     *            operation left operand
+     *        operation left operand
      * @param type
-     *            operator type
+     *        operator type
      * @param operator
-     *            operator
+     *        operator
      * @param rightOperand
-     *            expression representing the right operand
+     *        expression representing the right operand
      * @return
      */
     public ConnectorDefinitionBuilder addOutput(final LeftOperand leftOperand, final OperatorType type, final String operator,
@@ -106,16 +109,17 @@ public class ConnectorDefinitionBuilder extends FlowElementContainerBuilder {
 
     /**
      * Adds a connector output operation
+     * 
      * @param leftOperand
-     *            operation left operand
+     *        operation left operand
      * @param type
-     *            operator type
+     *        operator type
      * @param operator
-     *            operator
+     *        operator
      * @param operatorInputType
-     *            the input operator type. For instance, the parameter type in the case of a Java setter
+     *        the input operator type. For instance, the parameter type in the case of a Java setter
      * @param rightOperand
-     *            expression representing the right operand
+     *        expression representing the right operand
      * @return
      */
     public ConnectorDefinitionBuilder addOutput(final LeftOperand leftOperand, final OperatorType type, final String operator, final String operatorInputType,
@@ -128,6 +132,7 @@ public class ConnectorDefinitionBuilder extends FlowElementContainerBuilder {
 
     /**
      * Makes connector to ignore errors during its execution
+     * 
      * @return
      */
     public ConnectorDefinitionBuilder ignoreError() {
@@ -137,6 +142,7 @@ public class ConnectorDefinitionBuilder extends FlowElementContainerBuilder {
 
     /**
      * Makes connector to throw an BPMN Error Event when it fails
+     * 
      * @param errorCode error code to be thrown
      * @return
      */

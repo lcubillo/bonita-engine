@@ -64,7 +64,7 @@ public class SContactInfoBuilderFactoryImpl implements SContactInfoBuilderFactor
         final SContactInfoImpl entity = new SContactInfoImpl(contactInfo);
         return new SContactInfoBuilderImpl(entity);
     }
-    
+
     @Override
     public String getIdKey() {
         return ID;

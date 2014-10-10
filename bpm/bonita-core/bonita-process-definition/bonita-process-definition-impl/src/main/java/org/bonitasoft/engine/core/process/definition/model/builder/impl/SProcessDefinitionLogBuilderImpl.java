@@ -25,7 +25,7 @@ import org.bonitasoft.engine.queriablelogger.model.builder.impl.MissingMandatory
 public class SProcessDefinitionLogBuilderImpl extends CRUDELogBuilder implements SProcessDefinitionLogBuilder {
 
     private static final String PROCESS_DEFINITION = "PROCESS_DEFINITION";
-    
+
     @Override
     public SPersistenceLogBuilder objectId(final long objectId) {
         queriableLogBuilder.numericIndex(ProcessDefinitionLogIndexesMapper.PROCESS_DEFINITION_INDEX, objectId);

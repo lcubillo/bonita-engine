@@ -13,7 +13,6 @@
  **/
 package org.bonitasoft.engine.core.process.document.mapping.model.builder;
 
-
 /**
  * @author Nicolas Chabanoles
  */

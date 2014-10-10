@@ -22,7 +22,7 @@ import org.bonitasoft.engine.dependency.model.impl.SPlatformDependencyImpl;
 public class SPlatformDependencyBuilderImpl implements SPlatformDependencyBuilder {
 
     private final SPlatformDependencyImpl entity;
-    
+
     public SPlatformDependencyBuilderImpl(final SPlatformDependencyImpl entity) {
         super();
         this.entity = entity;
@@ -32,12 +32,11 @@ public class SPlatformDependencyBuilderImpl implements SPlatformDependencyBuilde
     public SPlatformDependencyImpl done() {
         return this.entity;
     }
-    
+
     @Override
     public SPlatformDependencyBuilder setDescription(final String description) {
         this.entity.setDescription(description);
         return this;
     }
-
 
 }

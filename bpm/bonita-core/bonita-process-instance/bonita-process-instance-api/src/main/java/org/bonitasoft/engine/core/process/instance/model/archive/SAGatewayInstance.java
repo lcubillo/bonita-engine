@@ -17,7 +17,6 @@ import org.bonitasoft.engine.core.process.definition.model.SGatewayType;
 
 /**
  * @author Hongwen Zang
- * 
  */
 public interface SAGatewayInstance extends SAFlowNodeInstance {
 

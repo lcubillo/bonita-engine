@@ -28,7 +28,7 @@ public class SDocumentMappingLogBuilderFactoryImpl extends CRUDELogBuilderFactor
     public SDocumentMappingLogBuilder createNewInstance() {
         return new SDocumentMappingLogBuilderImpl();
     }
-    
+
     @Override
     public String getObjectIdKey() {
         return SDocumentMappingLogIndexesMapper.DOCUMENTMAPPING_INDEX_NAME;

@@ -81,7 +81,7 @@ public class SearchEntitiesDescriptor {
         searchUserDescriptor = new SearchUserDescriptor();
         searchRoleDescriptor = new SearchRoleDescriptor();
         searchGroupDescriptor = new SearchGroupDescriptor();
-        searchCustomUserInfoValueDescriptor  = new SearchCustomUserInfoValueDescriptor();
+        searchCustomUserInfoValueDescriptor = new SearchCustomUserInfoValueDescriptor();
         searchProcessInstanceDescriptor = new SearchProcessInstanceDescriptor();
         searchArchivedProcessInstanceDescriptor = new SearchArchivedProcessInstancesDescriptor();
         searchHumanTaskInstanceDescriptor = new SearchHumanTaskInstanceDescriptor();
@@ -123,7 +123,6 @@ public class SearchEntitiesDescriptor {
     public SearchCustomUserInfoValueDescriptor getSearchCustomUserInfoValueDescriptor() {
         return searchCustomUserInfoValueDescriptor;
     }
-
 
     public SearchProcessInstanceDescriptor getSearchProcessInstanceDescriptor() {
         return searchProcessInstanceDescriptor;

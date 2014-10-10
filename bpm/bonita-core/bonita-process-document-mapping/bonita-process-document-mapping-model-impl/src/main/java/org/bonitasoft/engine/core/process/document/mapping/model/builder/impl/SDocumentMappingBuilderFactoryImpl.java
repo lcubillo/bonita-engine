@@ -46,7 +46,6 @@ public class SDocumentMappingBuilderFactoryImpl implements SDocumentMappingBuild
 
     static final String DOCUMENT_URL = "documentURL";
 
-
     @Override
     public SDocumentMappingBuilder createNewInstance() {
         final SDocumentMappingImpl documentMapping = new SDocumentMappingImpl();

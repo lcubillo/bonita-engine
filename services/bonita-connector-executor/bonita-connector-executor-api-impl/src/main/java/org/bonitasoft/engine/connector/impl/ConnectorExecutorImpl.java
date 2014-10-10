@@ -74,20 +74,20 @@ public class ConnectorExecutorImpl implements ConnectorExecutor {
      * - If the queue is full, and the number of threads is greater than or equal to maxPoolSize, reject the task.
      * 
      * @param queueCapacity
-     *            The maximum number of execution of connector to queue for each thread
+     *        The maximum number of execution of connector to queue for each thread
      * @param corePoolSize
-     *            the number of threads to keep in the pool, even
-     *            if they are idle, unless {@code allowCoreThreadTimeOut} is set
+     *        the number of threads to keep in the pool, even
+     *        if they are idle, unless {@code allowCoreThreadTimeOut} is set
      * @param loggerService
      * @param timeout
-     *            if the execution of the connector is above this time in milliseconds the execution will fail
+     *        if the execution of the connector is above this time in milliseconds the execution will fail
      * @param maximumPoolSize
-     *            the maximum number of threads to allow in the
-     *            pool
+     *        the maximum number of threads to allow in the
+     *        pool
      * @param keepAliveTime
-     *            when the number of threads is greater than
-     *            the core, this is the maximum time that excess idle threads
-     *            will wait for new tasks before terminating. (in seconds)
+     *        when the number of threads is greater than
+     *        the core, this is the maximum time that excess idle threads
+     *        will wait for new tasks before terminating. (in seconds)
      */
     public ConnectorExecutorImpl(final int queueCapacity, final int corePoolSize, final TechnicalLoggerService loggerService, final int maximumPoolSize,
             final long keepAliveTimeSeconds, final SessionAccessor sessionAccessor, final SessionService sessionService, final TimeTracker timeTracker) {

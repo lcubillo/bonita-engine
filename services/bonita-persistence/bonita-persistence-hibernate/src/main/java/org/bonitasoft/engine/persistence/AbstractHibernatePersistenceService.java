@@ -161,7 +161,7 @@ public abstract class AbstractHibernatePersistenceService extends AbstractDBPers
 
     /**
      * @param classesToPurge
-     *            the classesToPurge to set
+     *        the classesToPurge to set
      */
     public void setClassesToPurge(final List<String> classesToPurge) {
         this.classesToPurge = classesToPurge;

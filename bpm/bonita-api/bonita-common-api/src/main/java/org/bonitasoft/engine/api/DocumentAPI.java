@@ -50,22 +50,22 @@ public interface DocumentAPI {
      * The document itself does not contain content but is a reference to external content specified by its URL.
      * 
      * @param processInstanceId
-     *            The identifier of the process instance
+     *        The identifier of the process instance
      * @param documentName
-     *            The name of the document
+     *        The name of the document
      * @param fileName
-     *            The filename of the document content
+     *        The filename of the document content
      * @param mimeType
-     *            The MimeType of the document content (optional)
+     *        The MimeType of the document content (optional)
      * @param url
-     *            The URL of the document content
+     *        The URL of the document content
      * @return a document object
      * @throws ProcessInstanceNotFoundException
-     *             when the processInstanceId does not refer to an existing process instance
+     *         when the processInstanceId does not refer to an existing process instance
      * @throws InvalidSessionException
-     *             when the session is not valid
+     *         when the session is not valid
      * @throws DocumentAttachmentException
-     *             when an error occurs while attaching the document
+     *         when an error occurs while attaching the document
      * @since 6.0
      */
     Document attachDocument(long processInstanceId, String documentName, String fileName, String mimeType, String url) throws ProcessInstanceNotFoundException,
@@ -76,22 +76,22 @@ public interface DocumentAPI {
      * The content is stored to enable later retrieval.
      * 
      * @param processInstanceId
-     *            The identifier of the process instance
+     *        The identifier of the process instance
      * @param documentName
-     *            The name of the document
+     *        The name of the document
      * @param fileName
-     *            The name of the file containing the document
+     *        The name of the file containing the document
      * @param mimeType
-     *            The MimeType of the document content (optional)
+     *        The MimeType of the document content (optional)
      * @param documentContent
-     *            The content of the document
+     *        The content of the document
      * @return a document object
      * @throws ProcessInstanceNotFoundException
-     **             when the processInstanceId does not refer to an existing process instance
+     **         when the processInstanceId does not refer to an existing process instance
      * @throws InvalidSessionException
-     *             when the session is not valid
+     *         when the session is not valid
      * @throws DocumentAttachmentException
-     *             when an error occurs while attaching the document
+     *         when an error occurs while attaching the document
      * @since 6.0
      */
     Document attachDocument(long processInstanceId, String documentName, String fileName, String mimeType, byte[] documentContent)
@@ -102,20 +102,20 @@ public interface DocumentAPI {
      * a new version of the named document.
      * 
      * @param processInstanceId
-     *            The identifier of the process instance
+     *        The identifier of the process instance
      * @param documentName
-     *            The name of the document
+     *        The name of the document
      * @param fileName
-     *            The name of the file containing the document
+     *        The name of the file containing the document
      * @param mimeType
-     *            The MimeType of the document content (optional)
+     *        The MimeType of the document content (optional)
      * @param url
-     *            The URL of the document content
+     *        The URL of the document content
      * @return a document object
      * @throws InvalidSessionException
-     *             when the session is not valid
+     *         when the session is not valid
      * @throws DocumentAttachmentException
-     *             when an error occurs while attaching the new version of the document
+     *         when an error occurs while attaching the new version of the document
      * @since 6.0
      */
     Document attachNewDocumentVersion(long processInstanceId, String documentName, String fileName, String mimeType, String url)
@@ -126,20 +126,20 @@ public interface DocumentAPI {
      * The content is stored to enable later retrieval.
      * 
      * @param processInstanceId
-     *            The identifier of the process instance
+     *        The identifier of the process instance
      * @param documentName
-     *            The name of the document
+     *        The name of the document
      * @param contentFileName
-     *            The name of the file containing the content of the document
+     *        The name of the file containing the content of the document
      * @param contentMimeType
-     *            The MimeType of the document content (optional)
+     *        The MimeType of the document content (optional)
      * @param documentContent
-     *            The content of the document
+     *        The content of the document
      * @return a document object
      * @throws InvalidSessionException
-     *             when the session is not valid
+     *         when the session is not valid
      * @throws DocumentAttachmentException
-     *             when an error occurs while attaching the new version of the document
+     *         when an error occurs while attaching the new version of the document
      * @since 6.0
      */
     Document attachNewDocumentVersion(long processInstanceId, String documentName, String contentFileName, String contentMimeType, byte[] documentContent)
@@ -149,12 +149,12 @@ public interface DocumentAPI {
      * Get the document with the specified identifier.
      * 
      * @param documentId
-     *            The identifier of the document to retrieve
+     *        The identifier of the document to retrieve
      * @return a document object
      * @throws DocumentNotFoundException
-     *             when the document identifier does not refer to an existing document
+     *         when the document identifier does not refer to an existing document
      * @throws InvalidSessionException
-     *             when the session is not valid
+     *         when the session is not valid
      * @since 6.0
      */
     Document getDocument(long documentId) throws DocumentNotFoundException;
@@ -163,21 +163,21 @@ public interface DocumentAPI {
      * Get the latest version of all documents attached to the specified process instance.
      * 
      * @param processInstanceId
-     *            The identifier of the process instance
+     *        The identifier of the process instance
      * @param pageIndex
-     *            The index of the page
+     *        The index of the page
      * @param numberPerPage
-     *            The number of documents to list per page
+     *        The number of documents to list per page
      * @param pagingCriterion
-     *            the sort criterion for the returned list
+     *        the sort criterion for the returned list
      * @return the matching list of documents
      *         a paginated list of the latest version of each document attached to the process instance
      * @throws ProcessInstanceNotFoundException
-     *             when the specified processInstanceId does not refer to an existing process instance
+     *         when the specified processInstanceId does not refer to an existing process instance
      * @throws InvalidSessionException
-     *             when the session is not valid
+     *         when the session is not valid
      * @throws DocumentException
-     *             when any other error occurs during document handling
+     *         when any other error occurs during document handling
      * @since 6.0
      */
     List<Document> getLastVersionOfDocuments(long processInstanceId, int pageIndex, int numberPerPage, DocumentCriterion pagingCriterion)
@@ -187,12 +187,12 @@ public interface DocumentAPI {
      * Get content of the document with the specified identifier.
      * 
      * @param storageId
-     *            the id of the document to retrive the content from
+     *        the id of the document to retrive the content from
      * @return document content as a byte array
      * @throws DocumentNotFoundException
-     *             when the specified documentId does not refer to an existing document
+     *         when the specified documentId does not refer to an existing document
      * @throws InvalidSessionException
-     *             when the session is note valid
+     *         when the session is note valid
      * @since 6.0
      */
     byte[] getDocumentContent(String storageId) throws DocumentNotFoundException;
@@ -201,14 +201,14 @@ public interface DocumentAPI {
      * Get the last version of the named document for the specified process instance.
      * 
      * @param processInstanceId
-     *            The identifier of the process instance that the document is attached to
+     *        The identifier of the process instance that the document is attached to
      * @param documentName
-     *            The name of the document
+     *        The name of the document
      * @return a document object
      * @throws InvalidSessionException
-     *             when the session is not valid
+     *         when the session is not valid
      * @throws DocumentNotFoundException
-     *             when the specified documentName does not refer to an existing document attached to this process instance
+     *         when the specified documentName does not refer to an existing document attached to this process instance
      * @since 6.0
      */
     Document getLastDocument(long processInstanceId, String documentName) throws DocumentNotFoundException;
@@ -217,14 +217,14 @@ public interface DocumentAPI {
      * Get the version of the named document that was current when the specified process instance is instantiated.
      * 
      * @param processInstanceId
-     *            The identifier of the process instance
+     *        The identifier of the process instance
      * @param documentName
-     *            The name of the document
+     *        The name of the document
      * @return a document object
      * @throws InvalidSessionException
-     *             when the session is not valid
+     *         when the session is not valid
      * @throws DocumentNotFoundException
-     *             when the specified documentName does not refer to a document attached to the specified process instance
+     *         when the specified documentName does not refer to a document attached to the specified process instance
      * @since 6.0
      */
     Document getDocumentAtProcessInstantiation(long processInstanceId, String documentName) throws DocumentNotFoundException;
@@ -233,14 +233,14 @@ public interface DocumentAPI {
      * Get the version of the named document when the specified activity completed.
      * 
      * @param activityInstanceId
-     *            The identifier of the activity instance
+     *        The identifier of the activity instance
      * @param documentName
-     *            The name of the document
+     *        The name of the document
      * @return a document object
      * @throws DocumentNotFoundException
-     *             when the specified documentName does not refer to an existing document attached to the process instance that contains the activity
+     *         when the specified documentName does not refer to an existing document attached to the process instance that contains the activity
      * @throws InvalidSessionException
-     *             when the session is not valid
+     *         when the session is not valid
      * @since 6.0
      */
     Document getDocumentAtActivityInstanceCompletion(long activityInstanceId, String documentName) throws DocumentNotFoundException;
@@ -249,12 +249,12 @@ public interface DocumentAPI {
      * Get the number of documents attached to the specified process instance. A document with multiple versions is counted once.
      * 
      * @param processInstanceId
-     *            The process instance identifier
+     *        The process instance identifier
      * @return the number of documents in the specified process instance
      * @throws InvalidSessionException
-     *             when the session is not valid
+     *         when the session is not valid
      * @throws DocumentException
-     *             when an error occurs during document handling
+     *         when an error occurs during document handling
      * @since 6.0
      */
     long getNumberOfDocuments(long processInstanceId) throws DocumentException;
@@ -263,12 +263,12 @@ public interface DocumentAPI {
      * Search for documents that match the search options.
      * 
      * @param searchOptions
-     *            A {@link SearchOptions} object defining the search options
+     *        A {@link SearchOptions} object defining the search options
      * @return the matching document list and its total number
      * @throws InvalidSessionException
-     *             when the session is not valid
+     *         when the session is not valid
      * @throws SearchException
-     *             when an error occurs during the search
+     *         when an error occurs during the search
      * @since 6.0
      */
     SearchResult<Document> searchDocuments(SearchOptions searchOptions) throws SearchException;
@@ -277,16 +277,16 @@ public interface DocumentAPI {
      * Search for documents that match the search options and are supervised by the specified user.
      * 
      * @param userId
-     *            The identifier of the supervising user
+     *        The identifier of the supervising user
      * @param searchOptions
-     *            A {@link SearchOptions} object defining the search options
+     *        A {@link SearchOptions} object defining the search options
      * @return the list of matching documents and the number of such documents
      * @throws InvalidSessionException
-     *             when the session is not valid
+     *         when the session is not valid
      * @throws UserNotFoundException
-     *             when the specified userId does not refer to an existing user
+     *         when the specified userId does not refer to an existing user
      * @throws SearchException
-     *             when an error occurs during the search
+     *         when an error occurs during the search
      * @since 6.0
      */
     SearchResult<Document> searchDocumentsSupervisedBy(long userId, SearchOptions searchOptions) throws UserNotFoundException, SearchException;
@@ -295,12 +295,12 @@ public interface DocumentAPI {
      * Search for archived documents that meet the search options. An archived document is a document that is not the latest version.
      * 
      * @param searchOptions
-     *            A {@link SearchOptions} object defining the search options
+     *        A {@link SearchOptions} object defining the search options
      * @return the matching archived document list and its total number
      * @throws InvalidSessionException
-     *             when the session is not valid
+     *         when the session is not valid
      * @throws SearchException
-     *             when an error occurs during the search
+     *         when an error occurs during the search
      * @since 6.0
      */
     SearchResult<ArchivedDocument> searchArchivedDocuments(SearchOptions searchOptions) throws SearchException;
@@ -310,16 +310,16 @@ public interface DocumentAPI {
      * latest version.
      * 
      * @param userId
-     *            The identifier of the supervising user
+     *        The identifier of the supervising user
      * @param searchOptions
-     *            A {@link SearchOptions} object defining the search options
+     *        A {@link SearchOptions} object defining the search options
      * @return the matching archived document list and its total number
      * @throws InvalidSessionException
-     *             when the session is not valid
+     *         when the session is not valid
      * @throws UserNotFoundException
-     *             when the specified userId does not refer to an existing user
+     *         when the specified userId does not refer to an existing user
      * @throws SearchException
-     *             when an error occurs during the search
+     *         when an error occurs during the search
      * @since 6.0
      */
     SearchResult<ArchivedDocument> searchArchivedDocumentsSupervisedBy(long userId, SearchOptions searchOptions) throws UserNotFoundException, SearchException;
@@ -328,12 +328,12 @@ public interface DocumentAPI {
      * Get an ArchivedDocument based on it's id.
      * 
      * @param sourceObjectId
-     *            The identifier of the document
+     *        The identifier of the document
      * @return an archived document
      * @throws InvalidSessionException
-     *             when the session is not valid
+     *         when the session is not valid
      * @throws ArchivedDocumentNotFoundException
-     *             when the specified identifier does not refer to an archived document
+     *         when the specified identifier does not refer to an archived document
      * @since 6.0
      */
     ArchivedDocument getArchivedProcessDocument(final long sourceObjectId) throws ArchivedDocumentNotFoundException;
@@ -342,12 +342,12 @@ public interface DocumentAPI {
      * Get the original version of the document with the specified identifier.
      * 
      * @param sourceObjectId
-     *            The identifier of the document
+     *        The identifier of the document
      * @return an archived document
      * @throws InvalidSessionException
-     *             when the session is not valid
+     *         when the session is not valid
      * @throws ArchivedDocumentNotFoundException
-     *             when the specified identifier does not refer to an archived document
+     *         when the specified identifier does not refer to an archived document
      * @since 6.0
      */
     ArchivedDocument getArchivedVersionOfProcessDocument(long sourceObjectId) throws ArchivedDocumentNotFoundException;

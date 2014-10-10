@@ -13,7 +13,6 @@
  **/
 package org.bonitasoft.engine.identity;
 
-
 /**
  * Import / export version of the client User model
  * 

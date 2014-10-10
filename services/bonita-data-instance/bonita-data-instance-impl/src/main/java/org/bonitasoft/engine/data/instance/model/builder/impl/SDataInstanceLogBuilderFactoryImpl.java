@@ -20,8 +20,6 @@ public class SDataInstanceLogBuilderFactoryImpl extends CRUDELogBuilderFactory i
 
     private static String DATA_INSTANCE_INDEX_NAME = "numericIndex1";
 
-    
-
     @Override
     public String getObjectIdKey() {
         return DATA_INSTANCE_INDEX_NAME;

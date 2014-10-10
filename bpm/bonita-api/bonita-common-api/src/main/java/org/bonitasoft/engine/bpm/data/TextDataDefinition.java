@@ -13,7 +13,6 @@
  **/
 package org.bonitasoft.engine.bpm.data;
 
-
 /**
  * @author Feng Hui
  */

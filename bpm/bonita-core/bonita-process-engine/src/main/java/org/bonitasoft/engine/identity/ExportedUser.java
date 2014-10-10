@@ -104,7 +104,7 @@ public interface ExportedUser {
     String getProfessionalCountry();
 
     String getProfessionalWebsite();
-    
+
     List<ExportedCustomUserInfoValue> getCustomUserInfoValues();
 
 }

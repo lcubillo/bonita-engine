@@ -15,7 +15,6 @@ package org.bonitasoft.engine.core.process.comment.model;
 
 /**
  * @author Hongwen Zang
- * 
  */
 public interface SSystemComment extends SComment {
 

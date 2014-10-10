@@ -141,7 +141,7 @@ public interface PersistenceService extends ReadPersistenceService {
      * Delete elements that are marked to be deleted
      * 
      * @param classToPurge
-     *            the class to purge
+     *        the class to purge
      * @throws SPersistenceException
      * @throws SRetryableException
      */
@@ -151,7 +151,7 @@ public interface PersistenceService extends ReadPersistenceService {
      * Delete all records belong to the given entity class from the table.
      * 
      * @param entityClass
-     *            The class which extends persistentObject
+     *        The class which extends persistentObject
      * @throws SPersistenceException
      * @throws SRetryableException
      * @since 6.0
@@ -162,10 +162,10 @@ public interface PersistenceService extends ReadPersistenceService {
      * Executes a query update.
      * 
      * @param updateQueryName
-     *            the name of the declared query that represent the update.
+     *        the name of the declared query that represent the update.
      * @return the number of updated rows, as returned by the underlining persistence implementation.
      * @throws SPersistenceException
-     *             if a persistence problem occurs when executing the update query.
+     *         if a persistence problem occurs when executing the update query.
      */
     int update(final String updateQueryName) throws SPersistenceException;
 
@@ -208,9 +208,9 @@ public interface PersistenceService extends ReadPersistenceService {
      * Delete a record from the table by id and its class type.
      * 
      * @param id
-     *            entity's id
+     *        entity's id
      * @param entityClass
-     *            The class which extends persistentObject
+     *        The class which extends persistentObject
      * @throws SPersistenceException
      * @throws SRetryableException
      * @since 6.0
@@ -221,9 +221,9 @@ public interface PersistenceService extends ReadPersistenceService {
      * Delete records from the table.
      * 
      * @param ids
-     *            A list contains entity ids
+     *        A list contains entity ids
      * @param entityClass
-     *            The class which extends persistentObject
+     *        The class which extends persistentObject
      * @throws SPersistenceException
      * @throws SRetryableException
      * @since 6.0

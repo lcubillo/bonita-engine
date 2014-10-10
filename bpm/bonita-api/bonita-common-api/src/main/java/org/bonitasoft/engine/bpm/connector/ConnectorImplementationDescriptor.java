@@ -72,17 +72,17 @@ public class ConnectorImplementationDescriptor implements Serializable {
 
     /**
      * @param implementationClassName
-     *            The implementation of the connector
+     *        The implementation of the connector
      * @param id
-     *            The identifier of the connector
+     *        The identifier of the connector
      * @param version
-     *            The version of the connector
+     *        The version of the connector
      * @param definitionId
-     *            The identifier of the definition of the connector
+     *        The identifier of the definition of the connector
      * @param definitionVersion
-     *            The version of the definition of the connector
+     *        The version of the definition of the connector
      * @param jarDependencies
-     *            The dependencies of the connector (path of the JAR files)
+     *        The dependencies of the connector (path of the JAR files)
      */
     public ConnectorImplementationDescriptor(final String implementationClassName, final String id, final String version, final String definitionId,
             final String definitionVersion, final List<String> jarDependencies) {

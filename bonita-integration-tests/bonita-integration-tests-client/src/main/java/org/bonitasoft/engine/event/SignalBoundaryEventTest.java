@@ -30,7 +30,7 @@ public class SignalBoundaryEventTest extends CommonAPITest {
 
     @Before
     public void beforeTest() throws BonitaException {
-         loginOnDefaultTenantWithDefaultTechnicalUser();
+        loginOnDefaultTenantWithDefaultTechnicalUser();
         donaBenta = createUser(USERNAME, PASSWORD);
         logoutOnTenant();
         loginOnDefaultTenantWith(USERNAME, PASSWORD);
@@ -39,7 +39,7 @@ public class SignalBoundaryEventTest extends CommonAPITest {
     @After
     public void afterTest() throws BonitaException {
         logoutOnTenant();
-         loginOnDefaultTenantWithDefaultTechnicalUser();
+        loginOnDefaultTenantWithDefaultTechnicalUser();
         deleteUser(donaBenta.getId());
         logoutOnTenant();
     }

@@ -63,7 +63,8 @@ public class EventServiceImpl extends AbstractEventServiceImpl {
             // Check if another handler of the same class is already registered
             for (SHandler<SEvent> tmpHandler : handlers) {
                 if (tmpHandler.getIdentifier().equals(handler.getIdentifier())) {
-                    throw new HandlerRegistrationException("The handler with identifier " + tmpHandler.getIdentifier() + " is already registered for the event " + eventType);
+                    throw new HandlerRegistrationException("The handler with identifier " + tmpHandler.getIdentifier()
+                            + " is already registered for the event " + eventType);
                 }
             }
 

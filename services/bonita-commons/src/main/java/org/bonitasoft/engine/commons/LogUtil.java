@@ -26,9 +26,9 @@ public class LogUtil {
      * Get the log message on enter of the method
      * 
      * @param classes
-     *            class name
+     *        class name
      * @param methodName
-     *            method name
+     *        method name
      * @return log message with String type
      */
     public static String getLogBeforeMethod(final Object classes, final String methodName) {
@@ -40,9 +40,9 @@ public class LogUtil {
      * Get the log message before quitting the method
      * 
      * @param classes
-     *            class name
+     *        class name
      * @param methodName
-     *            method name
+     *        method name
      * @return log message with String type
      */
     public static String getLogAfterMethod(final Object classes, final String methodName) {
@@ -54,11 +54,11 @@ public class LogUtil {
      * Get the log message in each catch block
      * 
      * @param classes
-     *            class name
+     *        class name
      * @param methodName
-     *            method name
+     *        method name
      * @param e
-     *            Exception
+     *        Exception
      * @return log message with String type
      */
     public static String getLogOnExceptionMethod(final Object classes, final String methodName, final Exception e) {

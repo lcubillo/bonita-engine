@@ -40,7 +40,8 @@ public class SCustomUserInfoDefinitionLogBuilderImpl extends CRUDELogBuilder imp
 
     @Override
     protected void checkExtraRules(final SQueriableLog log) {
-        if (log.getActionStatus() != SQueriableLog.STATUS_FAIL && log.getNumericIndex(SCustomUserInfoDefinitionLogBuilderFactoryImpl.SPROFILE_METADATA_DEFINITION_INDEX) == 0L) {
+        if (log.getActionStatus() != SQueriableLog.STATUS_FAIL
+                && log.getNumericIndex(SCustomUserInfoDefinitionLogBuilderFactoryImpl.SPROFILE_METADATA_DEFINITION_INDEX) == 0L) {
             throw new MissingMandatoryFieldsException("Some mandatory fields are missing: " + "Identity SCustomUserInfoDefinition Id");
         }
     }

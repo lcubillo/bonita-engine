@@ -23,7 +23,7 @@ import org.bonitasoft.engine.document.model.SDocumentBuilder;
 public class SDocumentBuilderImpl implements SDocumentBuilder {
 
     private final SDocumentImpl document;
-    
+
     public SDocumentBuilderImpl(final SDocumentImpl document) {
         super();
         this.document = document;

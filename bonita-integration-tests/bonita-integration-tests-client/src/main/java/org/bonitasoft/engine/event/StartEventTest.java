@@ -53,18 +53,18 @@ public class StartEventTest extends CommonAPITest {
         processDefinitionBuilder.addActor(ACTOR_NAME);
         processDefinitionBuilder.addStartEvent("startEvent").addUserTask("step1", ACTOR_NAME).addTransition("startEvent", "step1");
         processDefinitionBuilder.addStartEvent("startEventWithSignal").addSignalEventTrigger("signalName").addUserTask("step1WithSignal", ACTOR_NAME)
-        .addTransition("startEventWithSignal", "step1WithSignal");
+                .addTransition("startEventWithSignal", "step1WithSignal");
         processDefinitionBuilder.addStartEvent("startEventWithTimer").addTimerEventTriggerDefinition(TimerType.DURATION, timerExpression)
-        .addUserTask("step1WithTimer", ACTOR_NAME).addTransition("startEventWithTimer", "step1WithTimer");
+                .addUserTask("step1WithTimer", ACTOR_NAME).addTransition("startEventWithTimer", "step1WithTimer");
         processDefinitionBuilder.addStartEvent("startEventWithMessage").addMessageEventTrigger("message").addUserTask("step1WithMessage", ACTOR_NAME)
-        .addTransition("startEventWithMessage", "step1WithMessage");
+                .addTransition("startEventWithMessage", "step1WithMessage");
         final ProcessDefinition processDefinition = deployAndEnableProcessWithActor(processDefinitionBuilder.getProcess(), ACTOR_NAME, user);
         final ProcessInstance startProcess = getProcessAPI().startProcess(processDefinition.getId());
 
         final HumanTaskInstance waitForUserTaskStep1 = waitForUserTask("step1");
 
         final SearchOptionsBuilder searchOptionsBuilder = new SearchOptionsBuilder(0, 10)
-        .sort(HumanTaskInstanceSearchDescriptor.PROCESS_INSTANCE_ID, Order.ASC);
+                .sort(HumanTaskInstanceSearchDescriptor.PROCESS_INSTANCE_ID, Order.ASC);
 
         List<HumanTaskInstance> humanTaskInstances = getProcessAPI().searchPendingTasksForUser(user.getId(), searchOptionsBuilder.done()).getResult();
         final long rootContainerId = waitForUserTaskStep1.getRootContainerId();

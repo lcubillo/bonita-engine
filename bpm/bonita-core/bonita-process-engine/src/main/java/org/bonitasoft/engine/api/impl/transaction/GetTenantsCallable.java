@@ -26,7 +26,6 @@ import org.bonitasoft.engine.platform.model.STenant;
 
 /**
  * @author Baptiste Mesta
- * 
  */
 public class GetTenantsCallable implements Callable<List<STenant>> {
 

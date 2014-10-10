@@ -18,14 +18,12 @@ import org.bonitasoft.engine.scheduler.model.SJobLog;
 import org.bonitasoft.engine.scheduler.model.impl.SJobLogImpl;
 
 /**
- * 
  * @author Celine Souchet
- * 
  */
 public class SJobLogBuilderImpl implements SJobLogBuilder {
 
     private final SJobLogImpl entity;
-    
+
     public SJobLogBuilderImpl(final SJobLogImpl entity) {
         super();
         this.entity = entity;

@@ -111,9 +111,9 @@ public class SchedulerServiceImplTest {
 
         final SQueriableLog sQueriableLog = mock(SQueriableLog.class);
         when(jobLogBuilder.done()).thenReturn(sQueriableLog);
-        
+
         given(sessionAccessor.getTenantId()).willReturn(TENANT_ID);
-        
+
         servicesResolver = mock(ServicesResolver.class);
         schedulerService = new SchedulerServiceImpl(schedulerExecutor, jobService, logger, eventService, transactionService, sessionAccessor, servicesResolver);
     }

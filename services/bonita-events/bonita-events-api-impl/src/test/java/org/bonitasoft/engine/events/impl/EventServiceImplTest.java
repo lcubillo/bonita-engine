@@ -10,9 +10,7 @@ import org.bonitasoft.engine.log.technical.TechnicalLogSeverity;
 import org.bonitasoft.engine.log.technical.TechnicalLoggerService;
 
 /**
- *
  * @author Laurent Vaills
- *
  */
 public class EventServiceImplTest extends EventServiceTest {
 

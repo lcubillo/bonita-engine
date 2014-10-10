@@ -51,7 +51,6 @@ public class OrganizationNodeBuilder {
         BINDINGS.add(MembershipBinding.class);
     }
 
-
     private OrganizationNodeBuilder() {
     }
 
