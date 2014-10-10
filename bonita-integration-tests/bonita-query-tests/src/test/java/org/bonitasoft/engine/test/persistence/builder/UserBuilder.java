@@ -2,7 +2,6 @@ package org.bonitasoft.engine.test.persistence.builder;
 
 import org.bonitasoft.engine.identity.model.impl.SUserImpl;
 
-
 public class UserBuilder extends PersistentObjectBuilder<SUserImpl, UserBuilder> {
 
     private String userName = "userName" + id;
@@ -10,7 +9,7 @@ public class UserBuilder extends PersistentObjectBuilder<SUserImpl, UserBuilder>
     public static UserBuilder aUser() {
         return new UserBuilder();
     }
-    
+
     @Override
     UserBuilder getThisBuilder() {
         return this;
@@ -24,12 +23,12 @@ public class UserBuilder extends PersistentObjectBuilder<SUserImpl, UserBuilder>
         user.setUserName(userName);
         return user;
     }
-    
+
     public UserBuilder withId(long id) {
         this.id = id;
         return this;
     }
-    
+
     public UserBuilder withUserName(String userName) {
         this.userName = userName;
         return this;

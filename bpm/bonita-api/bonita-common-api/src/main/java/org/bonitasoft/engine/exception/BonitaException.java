@@ -41,10 +41,10 @@ public class BonitaException extends Exception implements BonitaContextException
      * Constructs a new exception with the specified detail message and cause.
      * 
      * @param message
-     *            The detail message (which is saved for later retrieval by the {@link Throwable#getMessage()} method).
+     *        The detail message (which is saved for later retrieval by the {@link Throwable#getMessage()} method).
      * @param cause
-     *            The cause (which is saved for later retrieval by the {@link Throwable#getCause()} method). (A null value is permitted, and indicates that the
-     *            cause is nonexistent or unknown.)
+     *        The cause (which is saved for later retrieval by the {@link Throwable#getCause()} method). (A null value is permitted, and indicates that the
+     *        cause is nonexistent or unknown.)
      */
     public BonitaException(final String message, final Throwable cause) {
         super(message, cause);
@@ -54,7 +54,7 @@ public class BonitaException extends Exception implements BonitaContextException
      * Constructs a new exception with the specified detail message.
      * 
      * @param message
-     *            The detail message (which is saved for later retrieval by the {@link Throwable#getMessage()} method).
+     *        The detail message (which is saved for later retrieval by the {@link Throwable#getMessage()} method).
      */
     public BonitaException(final String message) {
         super(message);
@@ -64,8 +64,8 @@ public class BonitaException extends Exception implements BonitaContextException
      * Constructs a new exception with the specified detail cause.
      * 
      * @param cause
-     *            The cause (which is saved for later retrieval by the {@link Throwable#getCause()} method). (A null value is permitted, and indicates that the
-     *            cause is nonexistent or unknown.)
+     *        The cause (which is saved for later retrieval by the {@link Throwable#getCause()} method). (A null value is permitted, and indicates that the
+     *        cause is nonexistent or unknown.)
      */
     public BonitaException(final Throwable cause) {
         super(cause);
@@ -97,7 +97,7 @@ public class BonitaException extends Exception implements BonitaContextException
 
     /**
      * @param id
-     *            The identifier of the process definition to set
+     *        The identifier of the process definition to set
      * @since 6.3
      */
     public void setProcessDefinitionIdOnContext(final Long id) {
@@ -106,7 +106,7 @@ public class BonitaException extends Exception implements BonitaContextException
 
     /**
      * @param name
-     *            The name of the process definition to set
+     *        The name of the process definition to set
      * @since 6.3
      */
     public void setProcessDefinitionNameOnContext(final String name) {
@@ -115,7 +115,7 @@ public class BonitaException extends Exception implements BonitaContextException
 
     /**
      * @param version
-     *            The version of the process definition to set
+     *        The version of the process definition to set
      * @since 6.3
      */
     public void setProcessDefinitionVersionOnContext(final String version) {
@@ -124,7 +124,7 @@ public class BonitaException extends Exception implements BonitaContextException
 
     /**
      * @param id
-     *            The identifier of the process instance to set
+     *        The identifier of the process instance to set
      * @since 6.3
      */
     public void setProcessInstanceIdOnContext(final Long id) {
@@ -133,7 +133,7 @@ public class BonitaException extends Exception implements BonitaContextException
 
     /**
      * @param id
-     *            The identifier of the root process instance to set
+     *        The identifier of the root process instance to set
      * @since 6.3
      */
     public void setRootProcessInstanceIdOnContext(final Long id) {
@@ -142,7 +142,7 @@ public class BonitaException extends Exception implements BonitaContextException
 
     /**
      * @param id
-     *            The identifier of the connector definition
+     *        The identifier of the connector definition
      * @since 6.3
      */
     public void setConnectorDefinitionIdOnContext(final String id) {
@@ -151,7 +151,7 @@ public class BonitaException extends Exception implements BonitaContextException
 
     /**
      * @param name
-     *            The class name of the implementation of the connector definition to set
+     *        The class name of the implementation of the connector definition to set
      * @since 6.3
      */
     public void setConnectorDefinitionImplementationClassNameOnContext(final String name) {
@@ -160,7 +160,7 @@ public class BonitaException extends Exception implements BonitaContextException
 
     /**
      * @param version
-     *            The version of the connector definition
+     *        The version of the connector definition
      * @since 6.3
      */
     public void setConnectorDefinitionVersionOnContext(final String version) {
@@ -169,7 +169,7 @@ public class BonitaException extends Exception implements BonitaContextException
 
     /**
      * @param activationEvent
-     *            The event which activates the connector to set
+     *        The event which activates the connector to set
      * @since 6.3
      */
     public void setConnectorActivationEventOnContext(final String activationEvent) {
@@ -178,7 +178,7 @@ public class BonitaException extends Exception implements BonitaContextException
 
     /**
      * @param id
-     *            The identifier of the connector instance to set
+     *        The identifier of the connector instance to set
      * @since 6.3
      */
     public void setConnectorInstanceIdOnContext(final long id) {
@@ -187,7 +187,7 @@ public class BonitaException extends Exception implements BonitaContextException
 
     /**
      * @param id
-     *            The identifier of the flow node definition to set
+     *        The identifier of the flow node definition to set
      * @since 6.3
      */
     public void setFlowNodeDefinitionIdOnContext(final long id) {
@@ -196,7 +196,7 @@ public class BonitaException extends Exception implements BonitaContextException
 
     /**
      * @param id
-     *            The identifier of the flow node instance to set
+     *        The identifier of the flow node instance to set
      * @since 6.3
      */
     public void setFlowNodeInstanceIdOnContext(final long id) {
@@ -205,7 +205,7 @@ public class BonitaException extends Exception implements BonitaContextException
 
     /**
      * @param name
-     *            The name of the flow node to set
+     *        The name of the flow node to set
      * @since 6.3
      */
     public void setFlowNodeNameOnContext(final String name) {
@@ -214,7 +214,7 @@ public class BonitaException extends Exception implements BonitaContextException
 
     /**
      * @param name
-     *            The name of the message instance to set
+     *        The name of the message instance to set
      * @since 6.3
      */
     public void setMessageInstanceNameOnContext(final String name) {
@@ -223,7 +223,7 @@ public class BonitaException extends Exception implements BonitaContextException
 
     /**
      * @param name
-     *            The target process name of the message instance to set
+     *        The target process name of the message instance to set
      * @since 6.3
      */
     public void setMessageInstanceTargetProcessOnContext(final String name) {
@@ -232,7 +232,7 @@ public class BonitaException extends Exception implements BonitaContextException
 
     /**
      * @param name
-     *            The target flow node name of the message instance to set
+     *        The target flow node name of the message instance to set
      * @since 6.3
      */
     public void setMessageInstanceTargetFlowNodeOnContext(final String name) {
@@ -241,7 +241,7 @@ public class BonitaException extends Exception implements BonitaContextException
 
     /**
      * @param eventType
-     *            The event type of the waiting message instance to set
+     *        The event type of the waiting message instance to set
      * @since 6.3
      */
     public void setWaitingMessageEventTypeOnContext(final String eventType) {
@@ -250,7 +250,7 @@ public class BonitaException extends Exception implements BonitaContextException
 
     /**
      * @param id
-     *            The identifier of the document
+     *        The identifier of the document
      * @since 6.3
      */
     public void setDocumentIdOnContext(final long id) {
@@ -259,7 +259,7 @@ public class BonitaException extends Exception implements BonitaContextException
 
     /**
      * @param userId
-     *            The identifier of the user
+     *        The identifier of the user
      * @since 6.3
      */
     public void setUserIdOnContext(final Long userId) {
@@ -268,7 +268,7 @@ public class BonitaException extends Exception implements BonitaContextException
 
     /**
      * @param groupId
-     *            The identifier of the group
+     *        The identifier of the group
      * @since 6.3
      */
     public void setGroupIdOnContext(final Long groupId) {
@@ -277,7 +277,7 @@ public class BonitaException extends Exception implements BonitaContextException
 
     /**
      * @param roleId
-     *            The identifier of the role
+     *        The identifier of the role
      * @since 6.3
      */
     public void setRoleIdOnContext(final Long roleId) {

@@ -13,8 +13,6 @@
  **/
 package org.bonitasoft.engine.bpm.flownode;
 
-
-
 /**
  * An AutomaticTask is a concrete implementation of a Task. It requires no human interactions.
  * 

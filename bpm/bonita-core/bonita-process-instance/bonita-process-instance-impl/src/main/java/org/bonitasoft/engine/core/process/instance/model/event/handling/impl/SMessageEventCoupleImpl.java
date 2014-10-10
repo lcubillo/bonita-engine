@@ -70,10 +70,9 @@ public class SMessageEventCoupleImpl implements SMessageEventCouple {
         return SMessageEventCouple.class.getName();
     }
 
-	@Override
+    @Override
     public SBPMEventType getWaitingMessageEventType() {
-	    return eventType;
+        return eventType;
     }
-
 
 }

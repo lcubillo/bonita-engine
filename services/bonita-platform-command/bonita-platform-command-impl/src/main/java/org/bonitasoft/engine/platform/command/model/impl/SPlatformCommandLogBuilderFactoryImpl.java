@@ -26,11 +26,10 @@ public class SPlatformCommandLogBuilderFactoryImpl extends CRUDELogBuilderFactor
     public SPlatformCommandLogBuilder createNewInstance() {
         return new SPlatformCommandLogBuilderImpl();
     }
-    
+
     @Override
     public String getObjectIdKey() {
         return SPlatformCommandLogIndexesMapper.COMMAND_INDEX_NAME;
     }
-
 
 }

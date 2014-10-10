@@ -20,7 +20,6 @@ import org.bonitasoft.engine.xml.ElementBinding;
 
 /**
  * @author Elias Ricken de Medeiros
- *
  */
 public class CustomUserInfoValueBinding extends ElementBinding {
 
@@ -40,7 +39,7 @@ public class CustomUserInfoValueBinding extends ElementBinding {
             userInfoValue = new ExportedCustomUserInfoValue(value);
         } else if (OrganizationMappingConstants.VALUE.equals(name)) {
             userInfoValue.setValue(value);
-        } 
+        }
     }
 
     @Override

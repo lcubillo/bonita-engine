@@ -58,7 +58,6 @@ import org.powermock.api.mockito.PowerMockito;
 /**
  * @author Celine Souchet
  * @author Aurelien Pupier
- * 
  */
 @RunWith(MockitoJUnitRunner.class)
 public class ServerAPIImplTest {

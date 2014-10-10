@@ -17,7 +17,6 @@ import java.io.Serializable;
 
 /**
  * @author Baptiste Mesta
- * 
  * @since 6.3.1
  */
 public class ImportError implements Serializable {

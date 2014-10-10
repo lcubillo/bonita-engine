@@ -96,7 +96,7 @@ public class PlatformAPIAccessor {
 
     /**
      * @param session
-     *            a {@link PlatformSession} created using the {@link PlatformLoginAPI}
+     *        a {@link PlatformSession} created using the {@link PlatformLoginAPI}
      * @return
      *         the {@link PlatformAPI}
      * @throws InvalidSessionException
@@ -110,7 +110,7 @@ public class PlatformAPIAccessor {
 
     /**
      * @param session
-     *            a {@link PlatformSession} created using the {@link PlatformLoginAPI}
+     *        a {@link PlatformSession} created using the {@link PlatformLoginAPI}
      * @return
      *         the {@link PlatformCommandAPI}
      * @throws BonitaHomeNotSetException

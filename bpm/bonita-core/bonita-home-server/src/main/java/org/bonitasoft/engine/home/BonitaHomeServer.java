@@ -168,10 +168,10 @@ public class BonitaHomeServer extends BonitaHome {
      * Returns the absolute path to the reports folder inside a specific tenant folder.
      * 
      * @param tenantId
-     *            the ID of the tenant to search for.
+     *        the ID of the tenant to search for.
      * @return the absolute path to the reports folder for the tenant.
      * @throws BonitaHomeNotSetException
-     *             if BonitaHome is not set.
+     *         if BonitaHome is not set.
      */
     public String getTenantReportFolder(final long tenantId) throws BonitaHomeNotSetException {
         final StringBuilder path = new StringBuilder(getTenantsFolder());

@@ -93,6 +93,4 @@ public class TestHandler implements SHandler<SEvent> {
         return identifier;
     }
 
-
-
 }

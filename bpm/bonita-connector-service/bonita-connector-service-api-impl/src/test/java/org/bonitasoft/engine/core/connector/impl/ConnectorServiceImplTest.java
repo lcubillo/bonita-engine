@@ -175,7 +175,7 @@ public class ConnectorServiceImplTest {
         }
         return names;
     }
-    
+
     @Test
     public void setConnectorImplementationOverwritesExistingJars() throws Exception {
         final long tenantId = 98774L;

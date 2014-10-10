@@ -172,7 +172,6 @@ public class SignalEventSubProcessTest extends EventsAPITest {
         disableAndDeleteProcess(process);
     }
 
-
     @Cover(classes = { SubProcessDefinition.class }, concept = BPMNConcept.EVENT_SUBPROCESS, keywords = { "event sub-process", "signal" }, jira = "ENGINE-536")
     @Test
     public void signalEventSubProcessTriggered() throws Exception {
@@ -214,7 +213,7 @@ public class SignalEventSubProcessTest extends EventsAPITest {
     }
 
     @Cover(classes = { SubProcessDefinition.class }, concept = BPMNConcept.EVENT_SUBPROCESS, keywords = { "event sub-process", "signal",
-    "intermediateThrowEvent" }, jira = "ENGINE-1408")
+            "intermediateThrowEvent" }, jira = "ENGINE-1408")
     @Test
     public void signalEventSubProcessTriggeredWithIntermediateThrowEvent() throws Exception {
         final ProcessDefinition process = deployAndEnableProcessWithSignalEventSubProcess(true, false);

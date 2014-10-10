@@ -18,5 +18,4 @@ public class EndEvent extends FlowNode {
         builder.addEndEvent(getName());
     }
 
-
 }

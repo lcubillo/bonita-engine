@@ -40,7 +40,6 @@ public abstract class SFlowNodeInstanceBuilderFactoryImpl extends SFlowElementIn
 
     protected static final String STATE_EXECUTING_KEY = "stateExecuting";
 
-
     @Override
     public String getDisplayDescriptionKey() {
         return DISPLAY_DESCRIPTION;

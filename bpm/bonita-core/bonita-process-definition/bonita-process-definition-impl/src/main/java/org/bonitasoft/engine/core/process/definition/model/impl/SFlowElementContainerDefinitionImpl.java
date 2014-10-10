@@ -601,5 +601,4 @@ public class SFlowElementContainerDefinitionImpl extends SBaseElementImpl implem
         return containsInclusiveGateway;
     }
 
-
 }

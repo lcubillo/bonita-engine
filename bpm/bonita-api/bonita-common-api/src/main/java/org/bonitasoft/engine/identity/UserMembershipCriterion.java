@@ -34,7 +34,7 @@ public enum UserMembershipCriterion {
     /**
      * groupName descending order
      */
-    GROUP_NAME_DESC, 
-    ASSIGNED_DATE_ASC, 
+    GROUP_NAME_DESC,
+    ASSIGNED_DATE_ASC,
     ASSIGNED_DATE_DESC
 }

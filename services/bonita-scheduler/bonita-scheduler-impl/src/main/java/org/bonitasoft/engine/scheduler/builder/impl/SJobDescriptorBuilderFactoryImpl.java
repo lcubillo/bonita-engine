@@ -32,7 +32,7 @@ public class SJobDescriptorBuilderFactoryImpl implements SJobDescriptorBuilderFa
         final SJobDescriptorImpl entity = new SJobDescriptorImpl(jobClassName, jobName, disallowConcurrentExecution);
         return new SJobDescriptorBuilderImpl(entity);
     }
-    
+
     @Override
     public SJobDescriptorBuilder createNewInstance(final String jobClassName, final String jobName) {
         final SJobDescriptorImpl entity = new SJobDescriptorImpl(jobClassName, jobName, false);

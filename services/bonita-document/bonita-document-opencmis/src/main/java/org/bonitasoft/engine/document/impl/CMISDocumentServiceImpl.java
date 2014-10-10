@@ -86,9 +86,9 @@ public class CMISDocumentServiceImpl implements DocumentService {
 
     /**
      * @param tenandId
-     *            one instance of the service per tenant
+     *        one instance of the service per tenant
      * @param cmisServerUrl
-     *            Url of the CMIS
+     *        Url of the CMIS
      * @param repositoryId
      * @param cmisUserProvider
      * @param categoryFolder
@@ -229,11 +229,11 @@ public class CMISDocumentServiceImpl implements DocumentService {
 
     /**
      * @param session
-     *            the CMIS session
+     *        the CMIS session
      * @param folderName
-     *            the new folder name to create
+     *        the new folder name to create
      * @param parentFolderId
-     *            the ID of the parent folder where to create the folder into
+     *        the ID of the parent folder where to create the folder into
      * @return the folderId just created
      * @throws SDocumentException
      */
@@ -324,10 +324,10 @@ public class CMISDocumentServiceImpl implements DocumentService {
      * Get the ID of the root path
      * 
      * @param session
-     *            the CMIS session to act on
+     *        the CMIS session to act on
      * @return the root path ID in CMIS
      * @throws SDocumentException
-     *             in case a CMIS problem occurs
+     *         in case a CMIS problem occurs
      */
     public String getRootFolderId(final Session session) throws SDocumentException {
         Folder folder;
@@ -354,9 +354,9 @@ public class CMISDocumentServiceImpl implements DocumentService {
      * Clears the whole subFolder hierarchy
      * 
      * @param session
-     *            the CMIS Session
+     *        the CMIS Session
      * @param folder
-     *            the folder to delete (with its children)
+     *        the folder to delete (with its children)
      * @throws SDocumentException
      */
     private void clear(final Session session, final Folder folder) throws SDocumentException {

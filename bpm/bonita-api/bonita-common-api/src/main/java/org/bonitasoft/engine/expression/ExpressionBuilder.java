@@ -92,7 +92,7 @@ public class ExpressionBuilder {
      * The name of the built expression is set to the value of the constant.
      *
      * @param value
-     *            the value of this CONSTANT expression
+     *        the value of this CONSTANT expression
      * @since 6.0
      */
     public Expression createConstantStringExpression(final String value) throws InvalidExpressionException {
@@ -108,7 +108,7 @@ public class ExpressionBuilder {
      * Build a constant expression with date type and value in ISO-8601 format
      *
      * @param value
-     *            a date defined with the ISO-8601 format
+     *        a date defined with the ISO-8601 format
      * @return The corresponding expression
      * @throws InvalidExpressionException
      * @since 6.0
@@ -149,12 +149,12 @@ public class ExpressionBuilder {
      * Builds an <code>Expression</code> that evaluates to a Business Object Server DAO.
      * 
      * @param businessObjectDAOName
-     *            name of the DAO to evaluate.
+     *        name of the DAO to evaluate.
      * @param daoInterfaceClassName
-     *            class name of the interface of the DAO to instantiate.
+     *        class name of the interface of the DAO to instantiate.
      * @return the newly created expression.
      * @throws InvalidExpressionException
-     *             if the expression cannot be built because it is invalid.
+     *         if the expression cannot be built because it is invalid.
      */
     public Expression buildBusinessObjectDAOExpression(final String businessObjectDAOName, final String daoInterfaceClassName)
             throws InvalidExpressionException {
@@ -201,7 +201,7 @@ public class ExpressionBuilder {
      *
      * @return the newly built {@link Expression}
      * @throws InvalidExpressionException
-     *             is name or returnType is not set or set to an empty String.
+     *         is name or returnType is not set or set to an empty String.
      * @author Emmanuel Duchastenier
      * @since 6.0
      */
@@ -276,7 +276,7 @@ public class ExpressionBuilder {
      * Sets the type of this expression.
      *
      * @param expressionType
-     *            the expression type to use.
+     *        the expression type to use.
      * @return this ExpressionBuilder itself, for chain calls.
      * @see ExpressionType
      */
@@ -289,10 +289,10 @@ public class ExpressionBuilder {
      * Sets the return type of the underlining expression.
      *
      * @param returnType
-     *            the return type to set on the expression.
+     *        the return type to set on the expression.
      * @return this ExpressionBuilder itself.
      * @throws IllegalArgumentException
-     *             if the return type is a primitive type
+     *         if the return type is a primitive type
      */
     public ExpressionBuilder setReturnType(final String returnType) throws IllegalArgumentException {
         if (INVALID_PRIMITIVE_TYPES.contains(returnType)) {
@@ -523,16 +523,16 @@ public class ExpressionBuilder {
      * Create an expression to call a simple Java method (without parameters)
      *
      * @param name
-     *            the expression name
+     *        the expression name
      * @param methodName
-     *            the name of method to call
+     *        the name of method to call
      * @param returnType
-     *            the method return type
+     *        the method return type
      * @param entityExpression
-     *            the expression representing the entity (Java Object) where the method will be called
+     *        the expression representing the entity (Java Object) where the method will be called
      * @return the created expression
      * @throws InvalidExpressionException
-     *             if the created expression is invalid
+     *         if the created expression is invalid
      * @since 6.0
      */
     public Expression createJavaMethodCallExpression(final String name, final String methodName, final String returnType, final Expression entityExpression)

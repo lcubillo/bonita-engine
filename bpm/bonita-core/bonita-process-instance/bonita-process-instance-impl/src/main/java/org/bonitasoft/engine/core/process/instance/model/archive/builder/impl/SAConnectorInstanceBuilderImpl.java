@@ -23,7 +23,7 @@ import org.bonitasoft.engine.core.process.instance.model.archive.impl.SAConnecto
 public class SAConnectorInstanceBuilderImpl implements SAConnectorInstanceBuilder {
 
     private final SAConnectorInstanceImpl entity;
-    
+
     public SAConnectorInstanceBuilderImpl(final SAConnectorInstanceImpl entity) {
         this.entity = entity;
     }

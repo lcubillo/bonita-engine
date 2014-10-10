@@ -212,7 +212,7 @@ public class PlatformAPIImpl implements PlatformAPI {
     }
 
     protected PlatformServiceAccessor getPlatformAccessor() throws BonitaHomeNotSetException, InstantiationException, IllegalAccessException,
-    ClassNotFoundException, IOException, BonitaHomeConfigurationException {
+            ClassNotFoundException, IOException, BonitaHomeConfigurationException {
         return ServiceAccessorFactory.getInstance().createPlatformServiceAccessor();
     }
 
@@ -295,7 +295,7 @@ public class PlatformAPIImpl implements PlatformAPI {
      */
     private void afterServicesStartOfRestartHandlersOfTenant(final PlatformServiceAccessor platformAccessor, final SessionAccessor sessionAccessor,
             final List<STenant> tenants)
-                    throws SBonitaException {
+            throws SBonitaException {
         final NodeConfiguration platformConfiguration = platformAccessor.getPlaformConfiguration();
         final SessionService sessionService = platformAccessor.getSessionService();
         final TechnicalLoggerService technicalLoggerService = platformAccessor.getTechnicalLoggerService();
@@ -308,7 +308,7 @@ public class PlatformAPIImpl implements PlatformAPI {
             // * flow node that are completed and not deleted : call execute to make it create transitions and so on
             // * all element that are in not stable state
             new StarterThread(platformAccessor, sessionService, platformConfiguration, tenants, sessionAccessor, technicalLoggerService)
-            .start();
+                    .start();
 
         }
     }
@@ -447,7 +447,7 @@ public class PlatformAPIImpl implements PlatformAPI {
     }
 
     protected TenantServiceAccessor getTenantServiceAccessor(final long tenantId) throws SBonitaException, BonitaHomeNotSetException, IOException,
-    BonitaHomeConfigurationException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
+            BonitaHomeConfigurationException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
         return ServiceAccessorFactory.getInstance().createTenantServiceAccessor(tenantId);
     }
 
@@ -645,7 +645,7 @@ public class PlatformAPIImpl implements PlatformAPI {
     }
 
     private String getUserName(final STenant tenant, final Long tenantId, final String targetDir) throws IOException, STenantDeletionException,
-    STenantCreationException {
+            STenantCreationException {
         try {
             return getUserName(tenantId);
         } catch (final Exception e) {

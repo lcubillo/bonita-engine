@@ -115,7 +115,8 @@ public class PlatformCommandServiceIntegrationTest extends CommonServiceTest {
         assertEquals("this is an old command", oldCommand.getDescription());
 
         final String commandName = "new";
-        final EntityUpdateDescriptor updateDescriptor = BuilderFactory.get(SPlatformCommandUpdateBuilderFactory.class).createNewInstance().updateName(commandName)
+        final EntityUpdateDescriptor updateDescriptor = BuilderFactory.get(SPlatformCommandUpdateBuilderFactory.class).createNewInstance()
+                .updateName(commandName)
                 .updateDescription("this is a new command").done();
         platformCommandService.update(oldCommand, updateDescriptor);
         final SPlatformCommand newCommand = platformCommandService.getPlatformCommand(commandName);

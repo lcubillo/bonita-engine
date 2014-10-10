@@ -22,7 +22,7 @@ public class GetNumberOfActorsTest {
 
     @BeforeClass
     public static void setUpClass() throws Exception {
-        processDefinitionService  = mock(ProcessDefinitionService.class);
+        processDefinitionService = mock(ProcessDefinitionService.class);
         definition = mock(SProcessDefinition.class);
         getNumberOfActors = new GetNumberOfActors(processDefinitionService, 1);
         when(processDefinitionService.getProcessDefinition(1)).thenReturn(definition);

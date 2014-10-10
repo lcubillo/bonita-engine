@@ -77,9 +77,9 @@ public class BusinessArchive implements Serializable {
      * Adds a resource to this BusinessArchive
      * 
      * @param resourcePath
-     *            must contain the full path and filename
+     *        must contain the full path and filename
      * @param resourceData
-     *            the byte array of the resource content
+     *        the byte array of the resource content
      */
     protected void addResource(final String resourcePath, final byte[] resourceData) {
         resources.put(resourcePath, resourceData);

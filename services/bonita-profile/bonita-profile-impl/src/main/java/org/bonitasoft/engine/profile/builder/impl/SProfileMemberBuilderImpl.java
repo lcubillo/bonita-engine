@@ -23,7 +23,7 @@ import org.bonitasoft.engine.profile.model.impl.SProfileMemberImpl;
 public class SProfileMemberBuilderImpl implements SProfileMemberBuilder {
 
     private final SProfileMemberImpl profileMember;
-    
+
     public SProfileMemberBuilderImpl(final SProfileMemberImpl profileMember) {
         super();
         this.profileMember = profileMember;

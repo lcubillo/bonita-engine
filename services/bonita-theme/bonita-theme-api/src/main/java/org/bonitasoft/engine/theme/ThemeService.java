@@ -38,10 +38,10 @@ public interface ThemeService {
      * Add a new theme
      * 
      * @param theme
-     *            The theme to create
+     *        The theme to create
      * @return The created theme
      * @throws SThemeCreationException
-     *             If an exception is thrown during sTheme creation
+     *         If an exception is thrown during sTheme creation
      * @since 6.2
      */
     STheme createTheme(STheme theme) throws SThemeCreationException;
@@ -50,12 +50,12 @@ public interface ThemeService {
      * Update a theme by the given theme and the new content
      * 
      * @param theme
-     *            The theme to update
+     *        The theme to update
      * @param descriptor
-     *            All attributes to update
+     *        All attributes to update
      * @return The updated theme
      * @throws SThemeUpdateException
-     *             If an exception is thrown during sTheme update
+     *         If an exception is thrown during sTheme update
      * @since 6.2
      */
     STheme updateTheme(STheme theme, EntityUpdateDescriptor descriptor) throws SThemeUpdateException;
@@ -64,11 +64,11 @@ public interface ThemeService {
      * Delete theme by the given theme
      * 
      * @param theme
-     *            The theme to delete
+     *        The theme to delete
      * @throws SThemeNotFoundException
-     *             If the identifier does not refer to an existing sTheme
+     *         If the identifier does not refer to an existing sTheme
      * @throws SThemeDeletionException
-     *             If an exception is thrown during sTheme deletion
+     *         If an exception is thrown during sTheme deletion
      * @since 6.2
      */
     void deleteTheme(STheme theme) throws SThemeNotFoundException, SThemeDeletionException;
@@ -77,11 +77,11 @@ public interface ThemeService {
      * Delete theme by its id
      * 
      * @param id
-     *            The identifier of the theme to delete
+     *        The identifier of the theme to delete
      * @throws SThemeNotFoundException
-     *             If the identifier does not refer to an existing sTheme
+     *         If the identifier does not refer to an existing sTheme
      * @throws SThemeDeletionException
-     *             If an exception is thrown during sTheme deletion
+     *         If an exception is thrown during sTheme deletion
      * @since 6.2
      */
     void deleteTheme(long id) throws SThemeNotFoundException, SThemeDeletionException;
@@ -90,9 +90,9 @@ public interface ThemeService {
      * Restore default theme by the given type
      * 
      * @param type
-     *            The type of the theme to restore
+     *        The type of the theme to restore
      * @throws SRestoreThemeException
-     *             If an exception is thrown when the default theme is restored
+     *         If an exception is thrown when the default theme is restored
      * @since 6.2
      */
     void restoreDefaultTheme(SThemeType type) throws SRestoreThemeException;
@@ -101,10 +101,10 @@ public interface ThemeService {
      * Get theme by its id
      * 
      * @param id
-     *            The identifier of the theme
+     *        The identifier of the theme
      * @return The theme
      * @throws SThemeNotFoundException
-     *             If the identifier does not refer to an existing sTheme
+     *         If the identifier does not refer to an existing sTheme
      * @throws SThemeReadException
      * @since 6.2
      */
@@ -114,12 +114,12 @@ public interface ThemeService {
      * Get the default or current theme for the specific type.
      * 
      * @param type
-     *            The type of the theme
+     *        The type of the theme
      * @param isDefault
-     *            Theme is default or not
+     *        Theme is default or not
      * @return The theme
      * @throws SThemeNotFoundException
-     *             If the type does not refer to an existing sTheme
+     *         If the type does not refer to an existing sTheme
      * @throws SThemeReadException
      * @since 6.2
      */
@@ -129,10 +129,10 @@ public interface ThemeService {
      * Get the last modified theme for the specific type.
      * 
      * @param type
-     *            The type of the theme
+     *        The type of the theme
      * @return The theme
      * @throws SThemeNotFoundException
-     *             If the type does not refer to an existing sTheme
+     *         If the type does not refer to an existing sTheme
      * @throws SThemeReadException
      * @since 6.2
      */
@@ -142,7 +142,7 @@ public interface ThemeService {
      * Get the number of the themes corresponding to criteria
      * 
      * @param queryOptions
-     *            A map of specific parameters of a query
+     *        A map of specific parameters of a query
      * @return A list of STheme objects
      */
     long getNumberOfThemes(QueryOptions queryOptions) throws SBonitaSearchException;
@@ -151,7 +151,7 @@ public interface ThemeService {
      * Search the themes corresponding to criteria
      * 
      * @param queryOptions
-     *            A map of specific parameters of a query
+     *        A map of specific parameters of a query
      * @return A list of STheme objects
      */
     List<STheme> searchThemes(QueryOptions queryOptions) throws SBonitaSearchException;

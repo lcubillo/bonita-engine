@@ -86,7 +86,7 @@ public class ImportOrganization implements TransactionContentWithResult<List<Str
 
     public ImportOrganization(final TenantServiceAccessor serviceAccessor, final String organizationContent, final ImportPolicy policy,
             final SCustomUserInfoValueAPI userInfoValueAPI)
-                    throws OrganizationImportException {
+            throws OrganizationImportException {
         this.serviceAccessor = serviceAccessor;
         this.userInfoValueAPI = userInfoValueAPI;
         identityService = serviceAccessor.getIdentityService();

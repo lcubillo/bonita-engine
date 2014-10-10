@@ -13,7 +13,6 @@
  **/
 package org.bonitasoft.engine.identity.model.builder;
 
-
 /**
  * @author Baptiste Mesta
  */

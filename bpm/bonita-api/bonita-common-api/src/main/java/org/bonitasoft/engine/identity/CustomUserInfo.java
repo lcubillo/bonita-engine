@@ -3,7 +3,8 @@ package org.bonitasoft.engine.identity;
 import org.bonitasoft.engine.bpm.BonitaObject;
 
 /**
- * Aggregate information of {@link CustomUserInfoDefinition} and {@link CustomUserInfoValue} 
+ * Aggregate information of {@link CustomUserInfoDefinition} and {@link CustomUserInfoValue}
+ * 
  * @author Vincent Elcrin
  */
 public class CustomUserInfo implements BonitaObject {
@@ -19,7 +20,7 @@ public class CustomUserInfo implements BonitaObject {
     public CustomUserInfo(long userId, CustomUserInfoDefinition definition, CustomUserInfoValue value) {
         this.userId = userId;
         this.definition = definition;
-        if(value != null) {
+        if (value != null) {
             this.value = value.getValue();
         }
     }

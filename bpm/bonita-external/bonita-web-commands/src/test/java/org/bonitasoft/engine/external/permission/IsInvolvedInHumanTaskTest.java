@@ -93,7 +93,7 @@ public class IsInvolvedInHumanTaskTest {
 
     @Test
     public final void should_return_true_when_current_user_wants_to_execute_assigned_task() throws SCommandParameterizationException,
-    SCommandExecutionException {
+            SCommandExecutionException {
         // Given
         final Map<String, Serializable> parameters = new HashMap<String, Serializable>();
         parameters.put(IsInvolvedInHumanTask.USER_ID_KEY, -1l);
@@ -109,7 +109,7 @@ public class IsInvolvedInHumanTaskTest {
 
     @Test
     public final void should_return_false_when_current_user_wants_to_execute_someone_else_assigned_task() throws SCommandParameterizationException,
-    SCommandExecutionException {
+            SCommandExecutionException {
         // Given
         final Map<String, Serializable> parameters = new HashMap<String, Serializable>();
         parameters.put(IsInvolvedInHumanTask.USER_ID_KEY, -1l);
@@ -140,7 +140,7 @@ public class IsInvolvedInHumanTaskTest {
 
     @Test
     public final void should_return_true_when_current_user_wants_to_execute_someone_else_assigned_task_with_do_for() throws SCommandParameterizationException,
-    SCommandExecutionException {
+            SCommandExecutionException {
         // Given
         final Map<String, Serializable> parameters = new HashMap<String, Serializable>();
         parameters.put(IsInvolvedInHumanTask.USER_ID_KEY, 5l);

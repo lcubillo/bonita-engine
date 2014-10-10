@@ -17,7 +17,6 @@ import org.bonitasoft.engine.core.process.definition.model.TransitionState;
 
 /**
  * @author Hongwen Zang
- * 
  */
 public interface SATransitionInstance extends SAFlowElementInstance {
 

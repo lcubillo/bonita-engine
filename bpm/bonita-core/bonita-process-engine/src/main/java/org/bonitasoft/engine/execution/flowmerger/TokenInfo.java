@@ -13,17 +13,15 @@
  **/
 package org.bonitasoft.engine.execution.flowmerger;
 
-
 /**
  * @author Elias Ricken de Medeiros
- *
  */
 public class TokenInfo {
-    
+
     public final Long outputTokenRefId;
 
     public final Long outputParentTokenRefId;
-    
+
     public TokenInfo() {
         this(null, null);
     }
@@ -36,12 +34,9 @@ public class TokenInfo {
         this.outputTokenRefId = outputTokenRefId;
         this.outputParentTokenRefId = outputParentTokenRefId;
     }
-    
-    
+
     public boolean mustCreateToken() {
         return outputTokenRefId == null;
     }
-    
-    
 
 }

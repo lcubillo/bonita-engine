@@ -25,7 +25,7 @@ public interface TenantPersistenceService extends PersistenceService {
      * Delete the tenant by given tenant id.
      * 
      * @param tenantId
-     *            the tenant id
+     *        the tenant id
      * @throws SPersistenceException
      * @throws IOException
      * @throws SRetryableException

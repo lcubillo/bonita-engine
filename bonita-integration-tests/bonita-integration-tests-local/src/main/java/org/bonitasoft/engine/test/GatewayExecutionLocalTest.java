@@ -33,7 +33,7 @@ public class GatewayExecutionLocalTest extends CommonAPITest {
     @After
     public void afterTest() throws BonitaException {
         deleteUser(user);
-       logoutOnTenant();
+        logoutOnTenant();
     }
 
     @Before
