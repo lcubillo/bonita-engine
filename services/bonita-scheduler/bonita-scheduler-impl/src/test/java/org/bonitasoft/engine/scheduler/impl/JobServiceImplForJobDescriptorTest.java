@@ -35,7 +35,6 @@ import org.bonitasoft.engine.log.technical.TechnicalLoggerService;
 import org.bonitasoft.engine.persistence.QueryOptions;
 import org.bonitasoft.engine.persistence.ReadPersistenceService;
 import org.bonitasoft.engine.persistence.SBonitaReadException;
-import org.bonitasoft.engine.persistence.SBonitaReadException;
 import org.bonitasoft.engine.persistence.SelectByIdDescriptor;
 import org.bonitasoft.engine.queriablelogger.model.SQueriableLogSeverity;
 import org.bonitasoft.engine.recorder.Recorder;
@@ -117,7 +116,7 @@ public class JobServiceImplForJobDescriptorTest {
 
     @Test
     public final void deleteJobDescriptorById() throws SBonitaReadException, SRecorderException, SJobDescriptorNotFoundException, SJobDescriptorReadException,
-    SJobDescriptorDeletionException {
+            SJobDescriptorDeletionException {
         final SJobDescriptor sJobDescriptor = mock(SJobDescriptor.class);
         doReturn(3L).when(sJobDescriptor).getId();
 
@@ -131,7 +130,7 @@ public class JobServiceImplForJobDescriptorTest {
 
     @Test
     public final void deleteNotExistingJobDescriptorById() throws SBonitaReadException, SJobDescriptorDeletionException, SJobDescriptorNotFoundException,
-    SJobDescriptorReadException {
+            SJobDescriptorReadException {
         when(readPersistenceService.selectById(Matchers.<SelectByIdDescriptor<SJobDescriptor>> any())).thenReturn(null);
 
         jobServiceImpl.deleteJobDescriptor(1);

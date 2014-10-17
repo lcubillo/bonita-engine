@@ -22,7 +22,6 @@ import org.bonitasoft.engine.profile.model.SProfile;
 
 /**
  * @author Baptiste Mesta
- * 
  */
 public class FailOnDuplicateImportStrategy extends ProfileImportStategy {
 
@@ -37,8 +36,7 @@ public class FailOnDuplicateImportStrategy extends ProfileImportStategy {
 
     @Override
     public SProfile whenProfileExists(final long importerId, final ExportedProfile exportedProfile, final SProfile existingProfile)
-            throws ExecutionException,
-            SProfileEntryDeletionException, SProfileMemberDeletionException, SProfileUpdateException {
+            throws ExecutionException, SProfileEntryDeletionException, SProfileMemberDeletionException, SProfileUpdateException {
         throw new ExecutionException("There's a same name profile when import a profile named " + exportedProfile.getName());
     }
 

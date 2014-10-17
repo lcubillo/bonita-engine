@@ -36,7 +36,6 @@ import org.bonitasoft.engine.events.model.SInsertEvent;
 import org.bonitasoft.engine.persistence.QueryOptions;
 import org.bonitasoft.engine.persistence.ReadPersistenceService;
 import org.bonitasoft.engine.persistence.SBonitaReadException;
-import org.bonitasoft.engine.persistence.SBonitaReadException;
 import org.bonitasoft.engine.persistence.SelectByIdDescriptor;
 import org.bonitasoft.engine.queriablelogger.model.SQueriableLogSeverity;
 import org.bonitasoft.engine.recorder.Recorder;
@@ -81,7 +80,7 @@ public class JobServiceImplForJobParameterTest {
 
     /**
      * method for {@link org.bonitasoft.engine.scheduler.impl.JobServiceImpl#createJobParameters(java.util.List, long, long)}.
-     * 
+     *
      * @throws SJobParameterCreationException
      * @throws SRecorderException
      */
@@ -139,7 +138,7 @@ public class JobServiceImplForJobParameterTest {
     /**
      * method for
      * {@link org.bonitasoft.engine.scheduler.impl.JobServiceImpl#createJobParameter(org.bonitasoft.engine.scheduler.model.SJobParameter, long, long)}.
-     * 
+     *
      * @throws SJobParameterCreationException
      * @throws SRecorderException
      */
@@ -183,7 +182,7 @@ public class JobServiceImplForJobParameterTest {
 
     /**
      * method for {@link org.bonitasoft.engine.scheduler.impl.JobServiceImpl#deleteJobParameter(long)}.
-     * 
+     *
      * @throws SBonitaReadException
      * @throws SRecorderException
      * @throws SJobParameterDeletionException
@@ -226,7 +225,7 @@ public class JobServiceImplForJobParameterTest {
 
     /**
      * method for {@link org.bonitasoft.engine.scheduler.impl.JobServiceImpl#deleteJobParameter(org.bonitasoft.engine.scheduler.model.SJobParameter)}.
-     * 
+     *
      * @throws SRecorderException
      * @throws SJobParameterDeletionException
      */
@@ -260,7 +259,7 @@ public class JobServiceImplForJobParameterTest {
 
     /**
      * Test method for {@link org.bonitasoft.engine.scheduler.impl.JobServiceImpl#getJobParameter(long)}.
-     * 
+     *
      * @throws SJobParameterReadException
      * @throws SJobParameterNotFoundException
      * @throws SBonitaReadException
@@ -294,7 +293,7 @@ public class JobServiceImplForJobParameterTest {
 
     /**
      * Test method for {@link org.bonitasoft.engine.scheduler.impl.JobServiceImpl#searchJobParameters(org.bonitasoft.engine.persistence.QueryOptions)}.
-     * 
+     *
      * @throws SBonitaReadException
      * @throws SBonitaReadException
      */
@@ -317,7 +316,7 @@ public class JobServiceImplForJobParameterTest {
 
     /**
      * method for {@link org.bonitasoft.engine.scheduler.impl.JobServiceImpl#setJobParameters(long, long, java.util.List)}.
-     * 
+     *
      * @throws SJobParameterCreationException
      * @throws SBonitaReadException
      * @throws SBonitaReadException

@@ -71,7 +71,7 @@ public class DocumentServiceImplTest {
 
     @Before
     public void setUp() {
-        documentService = spy(new DocumentServiceImpl(recorder, persistenceService, urlProvider, eventService, technicalLogger, archiveService));
+        documentService = spy(new DocumentServiceImpl(recorder, persistenceService, urlProvider, eventService, archiveService));
     }
 
     @Test
