@@ -16,34 +16,22 @@
 package org.bonitasoft.engine.operation;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.doThrow;
-import static org.mockito.Mockito.verify;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
 import org.bonitasoft.engine.bpm.document.DocumentValue;
-import org.bonitasoft.engine.commons.exceptions.SObjectNotFoundException;
 import org.bonitasoft.engine.core.document.api.DocumentService;
 import org.bonitasoft.engine.core.document.api.impl.DocumentHelper;
 import org.bonitasoft.engine.core.operation.exception.SOperationExecutionException;
 import org.bonitasoft.engine.core.operation.model.impl.SLeftOperandImpl;
 import org.bonitasoft.engine.core.process.definition.ProcessDefinitionService;
-import org.bonitasoft.engine.core.process.definition.exception.SProcessDefinitionNotFoundException;
-import org.bonitasoft.engine.core.process.definition.exception.SProcessDefinitionReadException;
-import org.bonitasoft.engine.core.process.definition.model.SDocumentListDefinition;
 import org.bonitasoft.engine.core.process.definition.model.SFlowElementContainerDefinition;
 import org.bonitasoft.engine.core.process.definition.model.SProcessDefinition;
-import org.bonitasoft.engine.core.process.definition.model.impl.SDocumentListDefinitionImpl;
 import org.bonitasoft.engine.core.process.instance.api.ActivityInstanceService;
 import org.bonitasoft.engine.core.process.instance.api.ProcessInstanceService;
-import org.bonitasoft.engine.core.process.instance.api.exceptions.SProcessInstanceNotFoundException;
-import org.bonitasoft.engine.core.process.instance.api.exceptions.SProcessInstanceReadException;
 import org.bonitasoft.engine.core.process.instance.model.SProcessInstance;
-import org.bonitasoft.engine.persistence.SBonitaReadException;
 import org.bonitasoft.engine.session.SessionService;
 import org.bonitasoft.engine.sessionaccessor.SessionAccessor;
 import org.junit.Before;
@@ -85,12 +73,11 @@ public class DocumentListLeftOperandHandlerTest {
     @Mock
     private DocumentHelper documentHelper;
 
-
     @InjectMocks
     private DocumentListLeftOperandHandler handler;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
 
     }
 
@@ -113,24 +100,26 @@ public class DocumentListLeftOperandHandlerTest {
         exception.expectMessage("Document operation only accepts an expression returning a list of DocumentValue");
         handler.toCheckedList(null);
     }
+
     @Test
     public void should_toCheckedList_check_not_list() throws Exception {
         exception.expect(SOperationExecutionException.class);
         exception.expectMessage("Document operation only accepts an expression returning a list of DocumentValue");
         handler.toCheckedList(new Object());
     }
+
     @Test
     public void should_toCheckedList_check_not_all_doc() throws Exception {
         exception.expect(SOperationExecutionException.class);
         exception.expectMessage("Document operation only accepts an expression returning a list of DocumentValue");
         handler.toCheckedList(Arrays.asList(new DocumentValue("theUrl"), new Object()));
     }
+
     @Test
     public void should_toCheckedList_returns_the_list_if_ok() throws Exception {
-        List<DocumentValue> inputList = Arrays.asList(new DocumentValue("theUrl"));
-        List<DocumentValue> result = handler.toCheckedList(inputList);
+        final List<DocumentValue> inputList = Arrays.asList(new DocumentValue("theUrl"));
+        final List<DocumentValue> result = handler.toCheckedList(inputList);
         assertThat(result).isEqualTo(inputList);
     }
-
 
 }

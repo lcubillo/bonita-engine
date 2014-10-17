@@ -3,7 +3,6 @@ package org.bonitasoft.engine.persistence;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 
-import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -15,7 +14,6 @@ import org.bonitasoft.engine.log.technical.TechnicalLoggerService;
 import org.bonitasoft.engine.sequence.SequenceManager;
 import org.bonitasoft.engine.services.SPersistenceException;
 import org.bonitasoft.engine.services.UpdateDescriptor;
-import org.bonitasoft.engine.sessionaccessor.STenantIdNotSetException;
 import org.junit.Test;
 
 public class AbstractDBPersistenceServiceTest {
@@ -24,40 +22,39 @@ public class AbstractDBPersistenceServiceTest {
      * Dummy implementation for testing purpose : we are not interested in the data manipulation behaviour.
      *
      * @author Laurent Vaills
-     *
      */
     class DummyDBPersistenceService extends AbstractDBPersistenceService {
 
         public DummyDBPersistenceService(final String name, final DBConfigurationsProvider dbConfigurationsProvider, final String statementDelimiter,
                 final String likeEscapeCharacter, final SequenceManager sequenceManager,
                 final DataSource datasource, final boolean enableWordSearch, final Set<String> wordSearchExclusionMappings, final TechnicalLoggerService logger)
-                        throws ClassNotFoundException {
+                throws ClassNotFoundException {
             super(name, dbConfigurationsProvider, statementDelimiter, likeEscapeCharacter, sequenceManager, datasource, enableWordSearch,
                     wordSearchExclusionMappings, logger);
         }
 
         @Override
-        public <T> T selectOne(final SelectOneDescriptor<T> selectDescriptor) throws SBonitaReadException {
+        public <T> T selectOne(final SelectOneDescriptor<T> selectDescriptor) {
             return null;
         }
 
         @Override
-        public <T> List<T> selectList(final SelectListDescriptor<T> selectDescriptor) throws SBonitaReadException {
+        public <T> List<T> selectList(final SelectListDescriptor<T> selectDescriptor) {
             return null;
         }
 
         @Override
-        public <T extends PersistentObject> T selectById(final SelectByIdDescriptor<T> selectDescriptor) throws SBonitaReadException {
+        public <T extends PersistentObject> T selectById(final SelectByIdDescriptor<T> selectDescriptor) {
             return null;
         }
 
         @Override
-        public void update(final UpdateDescriptor desc) throws SPersistenceException {
+        public void update(final UpdateDescriptor desc) {
 
         }
 
         @Override
-        public void purge(final String classToPurge) throws SPersistenceException {
+        public void purge(final String classToPurge) {
 
         }
 
@@ -67,63 +64,63 @@ public class AbstractDBPersistenceServiceTest {
         }
 
         @Override
-        public void insertInBatch(final List<PersistentObject> entities) throws SPersistenceException {
+        public void insertInBatch(final List<PersistentObject> entities) {
 
         }
 
         @Override
-        public void insert(final PersistentObject entity) throws SPersistenceException {
+        public void insert(final PersistentObject entity) {
 
         }
 
         @Override
-        public void flushStatements() throws SPersistenceException {
+        public void flushStatements() {
 
         }
 
         @Override
-        public void deleteByTenant(final Class<? extends PersistentObject> entityClass, final List<FilterOption> filters) throws SPersistenceException {
+        public void deleteByTenant(final Class<? extends PersistentObject> entityClass, final List<FilterOption> filters) {
 
         }
 
         @Override
-        public void deleteAll(final Class<? extends PersistentObject> entityClass) throws SPersistenceException {
+        public void deleteAll(final Class<? extends PersistentObject> entityClass) {
 
         }
 
         @Override
-        public void delete(final List<Long> ids, final Class<? extends PersistentObject> entityClass) throws SPersistenceException {
+        public void delete(final List<Long> ids, final Class<? extends PersistentObject> entityClass) {
 
         }
 
         @Override
-        public void delete(final long id, final Class<? extends PersistentObject> entityClass) throws SPersistenceException {
+        public void delete(final long id, final Class<? extends PersistentObject> entityClass) {
 
         }
 
         @Override
-        public void delete(final PersistentObject entity) throws SPersistenceException {
+        public void delete(final PersistentObject entity) {
 
         }
 
         @Override
-        protected long getTenantId() throws STenantIdNotSetException {
+        protected long getTenantId() {
             return 0;
         }
 
         @Override
         protected void doExecuteSQL(final String sqlResource, final String statementDelimiter, final Map<String, String> replacements,
-                final boolean useDataSourceConnection) throws SPersistenceException, IOException {
+                final boolean useDataSourceConnection) {
 
         }
 
         @Override
-        public int update(final String updateQueryName) throws SPersistenceException {
+        public int update(final String updateQueryName) {
             return 0;
         }
 
         @Override
-        public int update(final String updateQueryName, final Map<String, Object> inputParameters) throws SPersistenceException {
+        public int update(final String updateQueryName, final Map<String, Object> inputParameters) {
             return 0;
         }
     }
@@ -274,7 +271,7 @@ public class AbstractDBPersistenceServiceTest {
 
     private void executeIsWordSearchEnabled(final boolean enableWordSearch, final Set<String> wordSearchExclusionMappings,
             final Class<? extends PersistentObject> entityClass, final boolean expectedResult)
-                    throws ClassNotFoundException {
+            throws ClassNotFoundException {
         final DBConfigurationsProvider dbConfigurationsProvider = mock(DBConfigurationsProvider.class);
         final SequenceManager sequenceManager = mock(SequenceManager.class);
         final DataSource datasource = mock(DataSource.class);

@@ -14,30 +14,18 @@
  */
 package org.bonitasoft.engine.operation;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.bonitasoft.engine.bpm.document.DocumentValue;
 import org.bonitasoft.engine.commons.exceptions.SBonitaException;
-import org.bonitasoft.engine.commons.exceptions.SObjectNotFoundException;
 import org.bonitasoft.engine.core.document.api.DocumentService;
 import org.bonitasoft.engine.core.document.api.impl.DocumentHelper;
-import org.bonitasoft.engine.core.document.model.SMappedDocument;
 import org.bonitasoft.engine.core.expression.control.model.SExpressionContext;
 import org.bonitasoft.engine.core.operation.exception.SOperationExecutionException;
 import org.bonitasoft.engine.core.operation.model.SLeftOperand;
 import org.bonitasoft.engine.core.process.definition.ProcessDefinitionService;
-import org.bonitasoft.engine.core.process.definition.exception.SProcessDefinitionNotFoundException;
-import org.bonitasoft.engine.core.process.definition.exception.SProcessDefinitionReadException;
-import org.bonitasoft.engine.core.process.definition.model.SDocumentListDefinition;
-import org.bonitasoft.engine.core.process.definition.model.SProcessDefinition;
 import org.bonitasoft.engine.core.process.instance.api.ActivityInstanceService;
 import org.bonitasoft.engine.core.process.instance.api.ProcessInstanceService;
-import org.bonitasoft.engine.core.process.instance.api.exceptions.SProcessInstanceNotFoundException;
-import org.bonitasoft.engine.core.process.instance.api.exceptions.SProcessInstanceReadException;
-import org.bonitasoft.engine.core.process.instance.model.SProcessInstance;
-import org.bonitasoft.engine.persistence.QueryOptions;
-import org.bonitasoft.engine.persistence.SBonitaReadException;
 import org.bonitasoft.engine.session.SessionService;
 import org.bonitasoft.engine.sessionaccessor.SessionAccessor;
 
@@ -53,14 +41,15 @@ public class DocumentListLeftOperandHandler extends AbstractDocumentLeftOperandH
     final DocumentService documentService;
 
     public DocumentListLeftOperandHandler(final DocumentService documentService, final ActivityInstanceService activityInstanceService,
-            final SessionAccessor sessionAccessor, final SessionService sessionService, ProcessDefinitionService processDefinitionService,
-            ProcessInstanceService processInstanceService) {
+            final SessionAccessor sessionAccessor, final SessionService sessionService, final ProcessDefinitionService processDefinitionService,
+            final ProcessInstanceService processInstanceService) {
         super(activityInstanceService, sessionAccessor, sessionService, documentService);
         this.documentService = documentService;
-        documentHelper = new DocumentHelper(documentService,processDefinitionService,processInstanceService);
+        documentHelper = new DocumentHelper(documentService, processDefinitionService, processInstanceService);
     }
 
-    public DocumentListLeftOperandHandler(ActivityInstanceService activityInstanceService, SessionAccessor sessionAccessor, SessionService sessionService, DocumentService documentService, DocumentHelper documentHelper, DocumentService documentService1) {
+    public DocumentListLeftOperandHandler(final ActivityInstanceService activityInstanceService, final SessionAccessor sessionAccessor,
+            final SessionService sessionService, final DocumentService documentService, final DocumentHelper documentHelper) {
         super(activityInstanceService, sessionAccessor, sessionService, documentService);
         this.documentHelper = documentHelper;
         this.documentService = documentService;
@@ -69,32 +58,30 @@ public class DocumentListLeftOperandHandler extends AbstractDocumentLeftOperandH
     @Override
     public Object update(final SLeftOperand sLeftOperand, final Object newValue, final long containerId, final String containerType)
             throws SOperationExecutionException {
-        List<DocumentValue> documentList = toCheckedList(newValue);
+        final List<DocumentValue> documentList = toCheckedList(newValue);
         final String documentName = sLeftOperand.getName();
         try {
-            long processInstanceId = getProcessInstanceId(containerId, containerType);
+            final long processInstanceId = getProcessInstanceId(containerId, containerType);
             documentHelper.setDocumentList(documentList, documentName, processInstanceId, getAuthorId());
             return documentList;
         } catch (final SBonitaException e) {
-            throw new SOperationExecutionException(e.getMessage(),e);
+            throw new SOperationExecutionException(e.getMessage(), e);
         }
 
     }
 
-
     @SuppressWarnings("unchecked")
-    public List<DocumentValue> toCheckedList(Object newValue) throws SOperationExecutionException {
+    public List<DocumentValue> toCheckedList(final Object newValue) throws SOperationExecutionException {
         if (!(newValue instanceof List)) {
             throw new SOperationExecutionException("Document operation only accepts an expression returning a list of DocumentValue");
         }
-        for (Object item : ((List) newValue)) {
+        for (final Object item : (List) newValue) {
             if (!(item instanceof DocumentValue)) {
                 throw new SOperationExecutionException("Document operation only accepts an expression returning a list of DocumentValue");
             }
         }
         return (List<DocumentValue>) newValue;
     }
-
 
     @Override
     public String getType() {

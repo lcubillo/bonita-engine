@@ -20,7 +20,6 @@ import org.bonitasoft.engine.bpm.flownode.ActivityInstance;
 import org.bonitasoft.engine.bpm.flownode.ActivityInstanceSearchDescriptor;
 import org.bonitasoft.engine.bpm.flownode.FlowNodeType;
 import org.bonitasoft.engine.bpm.flownode.TimerType;
-import org.bonitasoft.engine.bpm.process.InvalidProcessDefinitionException;
 import org.bonitasoft.engine.bpm.process.ProcessDefinition;
 import org.bonitasoft.engine.bpm.process.ProcessInstance;
 import org.bonitasoft.engine.bpm.process.impl.CallActivityBuilder;
@@ -29,7 +28,6 @@ import org.bonitasoft.engine.bpm.process.impl.UserTaskDefinitionBuilder;
 import org.bonitasoft.engine.exception.BonitaException;
 import org.bonitasoft.engine.expression.Expression;
 import org.bonitasoft.engine.expression.ExpressionBuilder;
-import org.bonitasoft.engine.expression.InvalidExpressionException;
 import org.bonitasoft.engine.identity.User;
 import org.bonitasoft.engine.search.SearchOptionsBuilder;
 import org.bonitasoft.engine.search.SearchResult;
@@ -61,7 +59,7 @@ public abstract class AbstractTimerBoundaryEventTest extends CommonAPITest {
 
     /**
      * Deploy and enable a process with a human task having a timer boundary event followed by another human task without boundary
-     * 
+     *
      * @param timerValue
      *        after how long time the boundary will be triggered
      * @param interrupting
@@ -83,7 +81,7 @@ public abstract class AbstractTimerBoundaryEventTest extends CommonAPITest {
 
     /**
      * Deploy and enable a process with a human task having a timer boundary event followed by another human task without boundary
-     * 
+     *
      * @param timerType
      *        the timer time
      * @param timerValue
@@ -109,7 +107,7 @@ public abstract class AbstractTimerBoundaryEventTest extends CommonAPITest {
 
     /**
      * Deploy and enable a process with a human task having a timer boundary event followed by another human task without boundary
-     * 
+     *
      * @param timerType
      *        the timer time
      * @param timerExpr
@@ -148,7 +146,7 @@ public abstract class AbstractTimerBoundaryEventTest extends CommonAPITest {
 
     /**
      * Deploy and enable a process containing a timer boundary event attached to a call activity
-     * 
+     *
      * @param timerDuration
      *        after how long time the boundary will be triggered
      * @param interrupting
@@ -185,7 +183,7 @@ public abstract class AbstractTimerBoundaryEventTest extends CommonAPITest {
 
     /**
      * Deploy and enable a simple process: start event -> user task -> end event
-     * 
+     *
      * @param processName
      *        the process name
      * @param userTaskName
@@ -204,7 +202,7 @@ public abstract class AbstractTimerBoundaryEventTest extends CommonAPITest {
 
     /**
      * Deploy and enable a process with a timer boundary event attached to a multi-instance
-     * 
+     *
      * @param timerValue
      *        after how long time the boundary will be triggered
      * @param interrupting
@@ -246,7 +244,7 @@ public abstract class AbstractTimerBoundaryEventTest extends CommonAPITest {
 
     /**
      * Deploy and enable a process with a timer boundary event attached to a loop activity
-     * 
+     *
      * @param timerValue
      *        after how long time the boundary will be triggered
      * @param interrupting

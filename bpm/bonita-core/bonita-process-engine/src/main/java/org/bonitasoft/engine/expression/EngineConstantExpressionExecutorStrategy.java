@@ -41,7 +41,6 @@ import org.bonitasoft.engine.core.process.instance.model.archive.SAFlowNodeInsta
 import org.bonitasoft.engine.core.process.instance.model.archive.SAHumanTaskInstance;
 import org.bonitasoft.engine.core.process.instance.model.archive.SAProcessInstance;
 import org.bonitasoft.engine.data.instance.api.DataInstanceContainer;
-import org.bonitasoft.engine.expression.exception.SExpressionDependencyMissingException;
 import org.bonitasoft.engine.expression.exception.SExpressionEvaluationException;
 import org.bonitasoft.engine.expression.exception.SInvalidExpressionException;
 import org.bonitasoft.engine.expression.model.ExpressionKind;
@@ -131,7 +130,7 @@ public class EngineConstantExpressionExecutorStrategy implements ExpressionExecu
         } catch (final SActivityInstanceNotFoundException e) {
             throw new SExpressionEvaluationException("Error retrieving activity instance while building EngineExecutionContext as EngineConstantExpression", e,
                     expressionName);
-        } catch (SBonitaReadException e) {
+        } catch (final SBonitaReadException e) {
             throw new SExpressionEvaluationException("Error while building EngineExecutionContext as EngineConstantExpression", e, expressionName);
         }
     }
@@ -336,7 +335,7 @@ public class EngineConstantExpressionExecutorStrategy implements ExpressionExecu
 
     @Override
     public List<Object> evaluate(final List<SExpression> expressions, final Map<String, Object> context, final Map<Integer, Object> resolvedExpressions,
-            final ContainerState containerState) throws SExpressionEvaluationException, SExpressionDependencyMissingException {
+            final ContainerState containerState) throws SExpressionEvaluationException {
         final List<Object> results = new ArrayList<Object>();
         for (final SExpression sExpression : expressions) {
             results.add(evaluate(sExpression, context, resolvedExpressions, containerState));

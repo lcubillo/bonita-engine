@@ -339,7 +339,6 @@ import org.bonitasoft.engine.persistence.OrderByType;
 import org.bonitasoft.engine.persistence.QueryOptions;
 import org.bonitasoft.engine.persistence.ReadPersistenceService;
 import org.bonitasoft.engine.persistence.SBonitaReadException;
-import org.bonitasoft.engine.persistence.SBonitaReadException;
 import org.bonitasoft.engine.recorder.model.EntityUpdateDescriptor;
 import org.bonitasoft.engine.scheduler.JobService;
 import org.bonitasoft.engine.scheduler.SchedulerService;
@@ -438,11 +437,9 @@ public class ProcessAPIImpl implements ProcessAPI {
 
     private final DocumentAPIImpl documentAPIImpl = new DocumentAPIImpl();
 
-
     protected ProcessManagementAPIImplDelegate instantiateProcessManagementAPIDelegate() {
         return new ProcessManagementAPIImplDelegate();
     }
-
 
     @Override
     public SearchResult<HumanTaskInstance> searchHumanTaskInstances(final SearchOptions searchOptions) throws SearchException {
@@ -2814,7 +2811,7 @@ public class ProcessAPIImpl implements ProcessAPI {
         }
     }
 
-    private boolean checkIfUserIsActorMemberOrManagerOfActorMember(final long userId, final long actorId) throws SBonitaReadException, SUserNotFoundException {
+    private boolean checkIfUserIsActorMemberOrManagerOfActorMember(final long userId, final long actorId) throws SBonitaReadException {
         final TenantServiceAccessor tenantAccessor = getTenantAccessor();
         final ActorMappingService actorMappingService = tenantAccessor.getActorMappingService();
 
@@ -4306,21 +4303,22 @@ public class ProcessAPIImpl implements ProcessAPI {
             throws DocumentAttachmentException {
         return documentAPIImpl.attachDocument(processInstanceId, documentName, fileName, mimeType, url);
     }
+
     @Override
     public Document attachDocument(final long processInstanceId, final String documentName, final String fileName, final String mimeType,
-                                   final byte[] documentContent) throws DocumentAttachmentException {
+            final byte[] documentContent) throws DocumentAttachmentException {
         return documentAPIImpl.attachDocument(processInstanceId, documentName, fileName, mimeType, documentContent);
     }
 
     @Override
     public Document attachNewDocumentVersion(final long processInstanceId, final String documentName, final String fileName, final String mimeType,
-                                             final String url) throws DocumentAttachmentException {
+            final String url) throws DocumentAttachmentException {
         return documentAPIImpl.attachNewDocumentVersion(processInstanceId, documentName, fileName, mimeType, url);
     }
 
     @Override
     public Document attachNewDocumentVersion(final long processInstanceId, final String documentName, final String contentFileName,
-                                             final String contentMimeType, final byte[] documentContent) throws DocumentAttachmentException {
+            final String contentMimeType, final byte[] documentContent) throws DocumentAttachmentException {
         return documentAPIImpl.attachNewDocumentVersion(processInstanceId, documentName, contentFileName, contentMimeType, documentContent);
     }
 
@@ -4918,7 +4916,6 @@ public class ProcessAPIImpl implements ProcessAPI {
         final SearchResult<Comment> searchResult = searchComments(searchOptionsBuilder.done());
         return searchResult.getCount();
     }
-
 
     @Override
     public long countAttachments(final SearchOptions searchOptions) throws SearchException {
@@ -5647,24 +5644,24 @@ public class ProcessAPIImpl implements ProcessAPI {
         return searcher.getResult();
     }
 
-
     @Override
-    public Document removeDocument(long documentId) throws DocumentNotFoundException, DeletionException {
+    public Document removeDocument(final long documentId) throws DocumentNotFoundException, DeletionException {
         return documentAPIImpl.removeDocument(documentId);
     }
 
     @Override
-    public List<Document> getDocumentList(long processInstanceId, String name, int from, int numberOfResult) throws DocumentNotFoundException {
+    public List<Document> getDocumentList(final long processInstanceId, final String name, final int from, final int numberOfResult)
+            throws DocumentNotFoundException {
         return documentAPIImpl.getDocumentList(processInstanceId, name, from, numberOfResult);
     }
 
     @Override
-    public void setDocumentList(long processInstanceId, String name, List<DocumentValue> documentsValues) throws DocumentException {
+    public void setDocumentList(final long processInstanceId, final String name, final List<DocumentValue> documentsValues) throws DocumentException {
         documentAPIImpl.setDocumentList(processInstanceId, name, documentsValues);
     }
 
     @Override
-    public void deleteContentOfArchivedDocument(long documentId) throws DocumentException, DocumentNotFoundException {
+    public void deleteContentOfArchivedDocument(final long documentId) throws DocumentException, DocumentNotFoundException {
         documentAPIImpl.deleteContentOfArchivedDocument(documentId);
     }
 
@@ -5672,17 +5669,18 @@ public class ProcessAPIImpl implements ProcessAPI {
         return APIUtils.getTenantAccessor();
     }
 
-    long getUserId(){
+    long getUserId() {
         return APIUtils.getUserId();
     }
 
     @Override
-    public Document addDocument(long processInstanceId, String documentName, String description, DocumentValue documentValue) throws ProcessInstanceNotFoundException, DocumentAttachmentException, AlreadyExistsException {
+    public Document addDocument(final long processInstanceId, final String documentName, final String description, final DocumentValue documentValue)
+            throws ProcessInstanceNotFoundException, DocumentAttachmentException, AlreadyExistsException {
         return documentAPIImpl.addDocument(processInstanceId, documentName, description, documentValue);
     }
 
     @Override
-    public Document updateDocument(long documentId, DocumentValue documentValue) throws ProcessInstanceNotFoundException, DocumentAttachmentException, AlreadyExistsException {
+    public Document updateDocument(final long documentId, final DocumentValue documentValue) throws DocumentAttachmentException {
         return documentAPIImpl.updateDocument(documentId, documentValue);
     }
 
@@ -5694,7 +5692,8 @@ public class ProcessAPIImpl implements ProcessAPI {
         private final ProcessExecutor processExecutor;
         private final TechnicalLoggerService logger;
 
-        public ExecuteFlowNode(long userId, ActivityInstanceService activityInstanceService, long flownodeInstanceId, ProcessExecutor processExecutor, TechnicalLoggerService logger) {
+        public ExecuteFlowNode(final long userId, final ActivityInstanceService activityInstanceService, final long flownodeInstanceId,
+                final ProcessExecutor processExecutor, final TechnicalLoggerService logger) {
             this.userId = userId;
             this.activityInstanceService = activityInstanceService;
             this.flownodeInstanceId = flownodeInstanceId;
