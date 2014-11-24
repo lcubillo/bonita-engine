@@ -91,11 +91,11 @@
 	</query>
 
 	<query name="getChildrenOfAnActivity">
-		SELECT flowNode
-		FROM org.bonitasoft.engine.core.process.instance.model.impl.SFlowNodeInstanceImpl AS flowNode
-		WHERE flowNode.logicalGroup3 = :parentActivityInstanceId
-		AND flowNode.deleted = FALSE
-		AND flowNode.terminal = FALSE
+		SELECT f
+		FROM org.bonitasoft.engine.core.process.instance.model.impl.SFlowNodeInstanceImpl AS f
+		WHERE f.logicalGroup3 = :parentActivityInstanceId
+		AND f.deleted = FALSE
+		AND f.terminal = FALSE
 	</query>
 
 	<query name="getAssignedUserTasks">
@@ -1229,27 +1229,31 @@
 	<query name="getNumberOfSProcessInstanceFailed">
 		SELECT COUNT(DISTINCT p)
 		FROM org.bonitasoft.engine.core.process.instance.model.impl.SProcessInstanceImpl AS p
-		WHERE p.stateId = 7 
-		OR EXISTS (
-			SELECT f.id 
-			FROM org.bonitasoft.engine.core.process.instance.model.impl.SFlowNodeInstanceImpl AS f
-			WHERE f.logicalGroup4 = p.id 
-			AND f.stateId = 3
-			AND f.deleted = FALSE
-		)
+		WHERE (
+            p.stateId = 7 
+            OR EXISTS (
+    			SELECT f.id 
+    			FROM org.bonitasoft.engine.core.process.instance.model.impl.SFlowNodeInstanceImpl AS f
+    			WHERE f.logicalGroup4 = p.id 
+    			AND f.stateId = 3
+    			AND f.deleted = FALSE
+    		)
+        )
 	</query>
 	
 	<query name="searchSProcessInstanceFailed">
 		SELECT DISTINCT p
 		FROM org.bonitasoft.engine.core.process.instance.model.impl.SProcessInstanceImpl AS p
-		WHERE p.stateId = 7 
-		OR EXISTS (
-			SELECT f.id 
-			FROM org.bonitasoft.engine.core.process.instance.model.impl.SFlowNodeInstanceImpl AS f
-			WHERE f.logicalGroup4 = p.id 
-			AND f.stateId = 3
-			AND f.deleted = FALSE
-		)
+		WHERE (
+            p.stateId = 7 
+            OR EXISTS (
+    			SELECT f.id 
+    			FROM org.bonitasoft.engine.core.process.instance.model.impl.SFlowNodeInstanceImpl AS f
+    			WHERE f.logicalGroup4 = p.id 
+    			AND f.stateId = 3
+    			AND f.deleted = FALSE
+    		)
+        )
 	</query>
 	
 	<query name="getProcessInstancesInStates">
