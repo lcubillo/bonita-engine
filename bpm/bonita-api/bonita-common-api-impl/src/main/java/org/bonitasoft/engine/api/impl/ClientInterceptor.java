@@ -42,7 +42,6 @@ public class ClientInterceptor implements InvocationHandler, Serializable {
      * It is used to (and only to) convert the call into a "serverAPI" call
      * Server API has only one operation
      * This interceptor is used to login as we do not transmit any session to server side.
-     * 
      * For other operations, a child of this class is used: ClientSessionInterceptor
      */
     private static final long serialVersionUID = -6284726148297940515L;

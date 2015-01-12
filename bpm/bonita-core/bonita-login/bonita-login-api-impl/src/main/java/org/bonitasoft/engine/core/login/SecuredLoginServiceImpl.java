@@ -131,9 +131,9 @@ public class SecuredLoginServiceImpl implements LoginService {
      * process the failed SpringTenantFileSystemBeanAccessor.java:127authentication behaviour
      * 
      * @param authenticationException
-     *            the authentication that may have risen from authentication service
+     *        the authentication that may have risen from authentication service
      * @throws SLoginException
-     *             the appropriate exception
+     *         the appropriate exception
      */
     protected void authenticationFailed() throws SLoginException {
         try {
@@ -149,9 +149,8 @@ public class SecuredLoginServiceImpl implements LoginService {
      * 
      * @since 6.3
      *        Ensure backward compatibility with previous version
-     * 
      * @param credentials
-     *            the credentials to use to login
+     *        the credentials to use to login
      * @return the username of the logged in user
      */
     protected String loginChoosingAppropriateAuthenticationService(final Map<String, Serializable> credentials) throws AuthenticationException, SLoginException {
@@ -172,10 +171,10 @@ public class SecuredLoginServiceImpl implements LoginService {
      * retrieve password from credentials assuming it is stored under the {@link AuthenticationConstants.BASIC_PASSWORD} key
      * 
      * @param credentials
-     *            the credentials to check
+     *        the credentials to check
      * @return the password
      * @throws SLoginException
-     *             if password is absent or if credentials is null
+     *         if password is absent or if credentials is null
      */
     protected String retrievePasswordFromCredentials(final Map<String, Serializable> credentials) throws SLoginException {
         if (credentials == null || !credentials.containsKey(AuthenticationConstants.BASIC_PASSWORD)
@@ -189,10 +188,10 @@ public class SecuredLoginServiceImpl implements LoginService {
      * retrieve username from credentials assuming it is stored under the {@link AuthenticationConstants.BASIC_USERNAME} key
      * 
      * @param credentials
-     *            the credentials to check
+     *        the credentials to check
      * @return the username
      * @throws SLoginException
-     *             if username is absent, blank or if credentials is null
+     *         if username is absent, blank or if credentials is null
      */
     protected String retrieveUsernameFromCredentials(final Map<String, Serializable> credentials) throws SLoginException {
         String userName;

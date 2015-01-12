@@ -27,9 +27,9 @@ public interface TenantService {
      * Update the tenant where you are logged with the new content, only if you are the technical user.
      * 
      * @param updater
-     *            new content
+     *        new content
      * @throws STenantUpdateException
-     *             occurs when an exception is thrown during sTenant update
+     *         occurs when an exception is thrown during sTenant update
      * @since 6.4.0
      */
     void updateTenant(EntityUpdateDescriptor descriptor) throws STenantUpdateException;
@@ -39,7 +39,7 @@ public interface TenantService {
      * 
      * @return sTenant
      * @throws STenantNotFoundException
-     *             occurs when the identifier does not refer to an existing sTenant
+     *         occurs when the identifier does not refer to an existing sTenant
      * @since 6.0
      */
     STenant getTenant() throws STenantNotFoundException;

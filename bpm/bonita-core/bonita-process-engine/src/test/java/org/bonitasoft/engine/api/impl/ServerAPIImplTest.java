@@ -62,7 +62,6 @@ import org.powermock.api.mockito.PowerMockito;
 /**
  * @author Celine Souchet
  * @author Aurelien Pupier
- * 
  */
 @RunWith(MockitoJUnitRunner.class)
 public class ServerAPIImplTest {
@@ -135,19 +134,23 @@ public class ServerAPIImplTest {
         APIAccessResolver accessResolver = mock(APIAccessResolver.class);
         when(accessResolver.getAPIImplementation(apiInterfaceName)).thenReturn(new Object());
         final ServerAPIImpl mockedServerAPIImpl = PowerMockito.spy(new ServerAPIImpl(true, accessResolver));
-        doThrow(BonitaRuntimeException.class).when(mockedServerAPIImpl).checkMethodAccessibility(any(), eq(apiInterfaceName), any(Method.class), eq(session), eq(false));
-        doReturn(new UserTransactionService(){
+        doThrow(BonitaRuntimeException.class).when(mockedServerAPIImpl).checkMethodAccessibility(any(), eq(apiInterfaceName), any(Method.class), eq(session),
+                eq(false));
+        doReturn(new UserTransactionService() {
+
             @Override
             public <T> T executeInTransaction(Callable<T> callable) throws Exception {
                 return callable.call();
             }
+
             @Override
             public void registerBonitaSynchronization(BonitaTransactionSynchronization txSync) throws STransactionNotFoundException {
             }
+
             @Override
             public void registerBeforeCommitCallable(Callable<Void> callable) throws STransactionNotFoundException {
             }
-        }).when(mockedServerAPIImpl).selectUserTransactionService(any(Session.class),any(ServerAPIImpl.SessionType.class));
+        }).when(mockedServerAPIImpl).selectUserTransactionService(any(Session.class), any(ServerAPIImpl.SessionType.class));
         try {
             // when:
             mockedServerAPIImpl.invokeAPI(apiInterfaceName, methodName, classNameParameters, parametersValues, session);
@@ -222,7 +225,8 @@ public class ServerAPIImplTest {
         when(accessResolver.getAPIImplementation(apiInterfaceName)).thenReturn(apiImpl);
         final ServerAPIImpl mockedServerAPIImpl = PowerMockito.spy(new ServerAPIImpl(true, accessResolver));
         doNothing().when(mockedServerAPIImpl).checkMethodAccessibility(any(), eq(apiInterfaceName), any(Method.class), eq(session), eq(false));
-        doReturn(null).when(mockedServerAPIImpl).invokeAPIInTransaction(parametersValues, apiImpl, FakeAPI.class.getMethod(methodName), session, apiInterfaceName);
+        doReturn(null).when(mockedServerAPIImpl).invokeAPIInTransaction(parametersValues, apiImpl, FakeAPI.class.getMethod(methodName), session,
+                apiInterfaceName);
 
         try {
             // when:

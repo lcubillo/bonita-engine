@@ -15,15 +15,13 @@ package org.bonitasoft.engine.test.persistence.builder;
 
 import org.bonitasoft.engine.identity.model.impl.SCustomUserInfoDefinitionImpl;
 
-
 /**
  * @author Elias Ricken de Medeiros
- *
  */
 public class CustomUserInfoDefinitionBuilder extends PersistentObjectBuilder<SCustomUserInfoDefinitionImpl, CustomUserInfoDefinitionBuilder> {
 
     private String name;
-    
+
     public static CustomUserInfoDefinitionBuilder aCustomUserInfoDefinition() {
         return new CustomUserInfoDefinitionBuilder();
     }
@@ -39,7 +37,7 @@ public class CustomUserInfoDefinitionBuilder extends PersistentObjectBuilder<SCu
         infoDef.setName(name);
         return infoDef;
     }
-    
+
     public CustomUserInfoDefinitionBuilder withName(String name) {
         this.name = name;
         return this;

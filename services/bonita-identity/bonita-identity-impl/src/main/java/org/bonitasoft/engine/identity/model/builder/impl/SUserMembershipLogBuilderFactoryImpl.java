@@ -43,12 +43,12 @@ public class SUserMembershipLogBuilderFactoryImpl extends CRUDELogBuilderFactory
     public SUserMembershipLogBuilder createNewInstance() {
         return new SUserMembershipLogBuilderImpl();
     }
-    
+
     @Override
     public String getObjectIdKey() {
         return USER_MEMBERSHIP_INDEX_NAME;
     }
-    
+
     @Override
     public String getRoleNameKey() {
         return ROLE_INDEX_NAME;

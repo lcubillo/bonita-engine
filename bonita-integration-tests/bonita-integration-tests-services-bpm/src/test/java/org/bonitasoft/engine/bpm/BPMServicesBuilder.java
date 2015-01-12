@@ -342,7 +342,6 @@ public class BPMServicesBuilder implements PlatformServiceAccessor, TenantServic
         return getInstanceOf(CommandService.class);
     }
 
-
     @Override
     public DocumentService getDocumentService() {
         return getInstanceOf(DocumentService.class);

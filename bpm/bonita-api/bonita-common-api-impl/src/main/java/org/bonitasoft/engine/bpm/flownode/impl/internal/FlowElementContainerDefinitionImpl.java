@@ -218,6 +218,7 @@ public class FlowElementContainerDefinitionImpl extends BaseElementImpl implemen
     public List<DocumentDefinition> getDocumentDefinitions() {
         return Collections.unmodifiableList(documentDefinitions);
     }
+
     @Override
     public List<DocumentListDefinition> getDocumentListDefinitions() {
         return Collections.unmodifiableList(documentListDefinitions);
@@ -273,6 +274,7 @@ public class FlowElementContainerDefinitionImpl extends BaseElementImpl implemen
     public void addDocumentDefinition(final DocumentDefinition documentDefinition) {
         documentDefinitions.add(documentDefinition);
     }
+
     public void addDocumentListDefinition(final DocumentListDefinition documentListDefinition) {
         documentListDefinitions.add(documentListDefinition);
     }
@@ -280,7 +282,6 @@ public class FlowElementContainerDefinitionImpl extends BaseElementImpl implemen
     public void addConnector(final ConnectorDefinition connectorDefinition) {
         connectors.add(connectorDefinition);
     }
-
 
     @Override
     public BusinessDataDefinition getBusinessDataDefinition(final String name) {

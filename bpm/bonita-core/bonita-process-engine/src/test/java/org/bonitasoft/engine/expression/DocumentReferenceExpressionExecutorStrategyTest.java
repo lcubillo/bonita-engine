@@ -108,8 +108,6 @@ public class DocumentReferenceExpressionExecutorStrategyTest {
         assertThat(result).hasSize(1).contains(ModelConvertor.toDocument(document, documentService));
     }
 
-
-
     @Test
     public void evaluate_result_should_contains_parent_process_document_when_container_is_not_a_process_instance() throws Exception {
         final Map<String, Object> dependencies = new HashMap<String, Object>();

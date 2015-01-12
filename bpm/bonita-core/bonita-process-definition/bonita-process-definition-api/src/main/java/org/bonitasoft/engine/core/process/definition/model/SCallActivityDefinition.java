@@ -20,7 +20,6 @@ import org.bonitasoft.engine.expression.model.SExpression;
 
 /**
  * @author Elias Ricken de Medeiros
- *
  */
 public interface SCallActivityDefinition extends SActivityDefinition {
 

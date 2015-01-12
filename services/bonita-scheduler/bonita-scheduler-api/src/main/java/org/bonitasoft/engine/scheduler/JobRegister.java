@@ -25,38 +25,31 @@ import org.bonitasoft.engine.scheduler.trigger.Trigger;
 public interface JobRegister {
 
     /**
-     * 
      * Return the name to register the job with
-     * 
      */
     String getJobName();
 
     /**
-     * 
      * @return true if the job can be executed concurrently
      */
     boolean canBeExecutedConcurrently();
 
     /**
-     * 
      * @return the trigger to register the job with
      */
     Trigger getTrigger();
 
     /**
-     * 
      * @return the class of the job
      */
     Class<?> getJobClass();
 
     /**
-     * 
      * @return the map of parameters to run the job with or empty if there is none
      */
     Map<String, Serializable> getJobParameters();
 
     /**
-     * 
      * @return a description of the job and its configuration
      */
     String getJobDescription();

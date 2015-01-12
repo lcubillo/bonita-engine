@@ -16,9 +16,7 @@ package org.bonitasoft.engine.core.document.model;
 import org.bonitasoft.engine.persistence.PersistentObject;
 
 /**
- *
  * Mapping for a document
- *
  * can be part of a list of document, in that case all documents have the same name and an index
  * If it's standalone documents index = -1
  *

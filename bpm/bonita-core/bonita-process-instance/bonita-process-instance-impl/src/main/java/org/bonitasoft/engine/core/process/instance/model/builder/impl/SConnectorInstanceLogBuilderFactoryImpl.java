@@ -26,7 +26,7 @@ public class SConnectorInstanceLogBuilderFactoryImpl extends CRUDELogBuilderFact
     public SConnectorInstanceLogBuilder createNewInstance() {
         return new SConnectorInstanceLogBuilderImpl();
     }
-    
+
     @Override
     public String getObjectIdKey() {
         return "numericIndex2";

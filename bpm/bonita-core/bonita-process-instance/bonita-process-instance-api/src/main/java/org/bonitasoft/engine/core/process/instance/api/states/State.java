@@ -28,7 +28,7 @@ public interface State<T> {
      * @param processDefinition
      * @param parentInstance
      * @param childInstance
-     *            TODO
+     *        TODO
      * @return
      *         true if the state is finished (the execution will continue automatically)
      * @throws SActivityStateExecutionException

@@ -47,7 +47,7 @@ public class CacheConfiguration {
      * by default set to LRU
      *
      * @param evictionPolicy
-     *            the evictionPolicy to set
+     *        the evictionPolicy to set
      */
     public void setEvictionPolicy(final String evictionPolicy) {
         this.evictionPolicy = evictionPolicy;
@@ -64,7 +64,7 @@ public class CacheConfiguration {
 
     /**
      * @param eternal
-     *            the eternal to set
+     *        the eternal to set
      */
     public void setEternal(final boolean eternal) {
         this.eternal = eternal;
@@ -109,7 +109,7 @@ public class CacheConfiguration {
 
     /**
      * @param timeToLiveSeconds
-     *            the timeToLiveSeconds to set
+     *        the timeToLiveSeconds to set
      */
     public void setTimeToLiveSeconds(final long timeToLiveSeconds) {
         this.timeToLiveSeconds = timeToLiveSeconds;
@@ -117,7 +117,7 @@ public class CacheConfiguration {
 
     /**
      * @param maxElementsInMemory
-     *            the maxElementsInMemory to set
+     *        the maxElementsInMemory to set
      */
     public void setMaxElementsInMemory(final int maxElementsInMemory) {
         this.maxElementsInMemory = maxElementsInMemory;
@@ -125,7 +125,7 @@ public class CacheConfiguration {
 
     /**
      * @param maxElementsOnDisk
-     *            the maxElementsOnDisk to set
+     *        the maxElementsOnDisk to set
      */
     public void setMaxElementsOnDisk(final int maxElementsOnDisk) {
         this.maxElementsOnDisk = maxElementsOnDisk;
@@ -133,7 +133,7 @@ public class CacheConfiguration {
 
     /**
      * @param inMemoryOnly
-     *            the inMemoryOnly to set
+     *        the inMemoryOnly to set
      */
     public void setInMemoryOnly(final boolean inMemoryOnly) {
         this.inMemoryOnly = inMemoryOnly;
@@ -150,7 +150,7 @@ public class CacheConfiguration {
     /**
      * Are the elements stored in the cache read more often than written ?
      *
-     * @return  readIntensive
+     * @return readIntensive
      */
     public boolean isReadIntensive() {
         return readIntensive;
@@ -158,7 +158,7 @@ public class CacheConfiguration {
 
     /**
      * @param readIntensive
-     *            the readIntensive to set
+     *        the readIntensive to set
      */
     public void setReadIntensive(final boolean readIntensive) {
         this.readIntensive = readIntensive;

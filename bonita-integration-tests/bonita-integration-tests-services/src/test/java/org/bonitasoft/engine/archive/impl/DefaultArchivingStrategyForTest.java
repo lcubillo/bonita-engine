@@ -13,7 +13,6 @@
  **/
 package org.bonitasoft.engine.archive.impl;
 
-
 /**
  * @author Celine Souchet
  */

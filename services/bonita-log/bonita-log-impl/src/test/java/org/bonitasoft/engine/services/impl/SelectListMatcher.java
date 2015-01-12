@@ -19,13 +19,10 @@ import org.bonitasoft.engine.persistence.QueryOptions;
 import org.bonitasoft.engine.persistence.SelectListDescriptor;
 import org.mockito.ArgumentMatcher;
 
-
 /**
  * @author Elias Ricken de Medeiros
- *
  */
 public class SelectListMatcher extends ArgumentMatcher<SelectListDescriptor<?>> {
-    
 
     private int startIndex;
     private int maxResults;
@@ -40,10 +37,10 @@ public class SelectListMatcher extends ArgumentMatcher<SelectListDescriptor<?>> 
         this.orderByField = orderByField;
         this.orderByType = orderByType;
     }
-    
+
     @Override
     public boolean matches(Object argument) {
-        if(!(argument instanceof SelectListDescriptor<?>)) {
+        if (!(argument instanceof SelectListDescriptor<?>)) {
             return false;
         }
         SelectListDescriptor<?> selectDescr = (SelectListDescriptor<?>) argument;

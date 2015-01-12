@@ -35,6 +35,7 @@ public class IntermediateThrowEventDefinitionBuilder extends FlowElementContaine
 
     /**
      * Adds a message on this event
+     * 
      * @param messageName name of message to be sent
      * @param targetProcess target process
      * @param targetFlowNode target flow node
@@ -46,6 +47,7 @@ public class IntermediateThrowEventDefinitionBuilder extends FlowElementContaine
 
     /**
      * Adds a message on this event
+     * 
      * @param messageName name of message to be sent
      * @param targetProcess target process
      * @return
@@ -54,9 +56,9 @@ public class IntermediateThrowEventDefinitionBuilder extends FlowElementContaine
         return new ThrowMessageEventTriggerBuilder(getProcessBuilder(), getContainer(), event, messageName, targetProcess);
     }
 
-
     /**
      * Adds a signal on this event
+     * 
      * @param signalName name of the signal to be thrown
      * @return
      */
@@ -74,7 +76,7 @@ public class IntermediateThrowEventDefinitionBuilder extends FlowElementContaine
      * Sets the display description on this event
      * 
      * @param displayDescription
-     *            expression representing the display description
+     *        expression representing the display description
      * @return
      */
     public IntermediateThrowEventDefinitionBuilder addDisplayDescription(final Expression displayDescription) {
@@ -86,7 +88,7 @@ public class IntermediateThrowEventDefinitionBuilder extends FlowElementContaine
      * Sets the display name on this event
      * 
      * @param displayName
-     *            expression representing the display name
+     *        expression representing the display name
      * @return
      */
     public IntermediateThrowEventDefinitionBuilder addDisplayName(final Expression displayName) {
@@ -99,7 +101,7 @@ public class IntermediateThrowEventDefinitionBuilder extends FlowElementContaine
      * execution
      * 
      * @param displayDescriptionAfterCompletion
-     *            expression representing the new display description after the event completion.
+     *        expression representing the new display description after the event completion.
      * @return
      */
     public IntermediateThrowEventDefinitionBuilder addDisplayDescriptionAfterCompletion(final Expression displayDescriptionAfterCompletion) {

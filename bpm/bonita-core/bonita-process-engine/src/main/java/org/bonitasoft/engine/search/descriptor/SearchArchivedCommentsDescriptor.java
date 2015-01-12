@@ -44,7 +44,8 @@ public class SearchArchivedCommentsDescriptor extends SearchEntityDescriptor {
         searchEntityKeys.put(ArchivedCommentsSearchDescriptor.POSTED_BY_ID, new FieldDescriptor(SAComment.class, saCommentBuilderFact.getUserIdKey()));
         searchEntityKeys.put(ArchivedCommentsSearchDescriptor.ID, new FieldDescriptor(SAComment.class, saCommentBuilderFact.getIdKey()));
         searchEntityKeys.put(ArchivedCommentsSearchDescriptor.POSTDATE, new FieldDescriptor(SAComment.class, saCommentBuilderFact.getPostDateKey()));
-        searchEntityKeys.put(ArchivedCommentsSearchDescriptor.USER_NAME, new FieldDescriptor(SUser.class, BuilderFactory.get(SUserBuilderFactory.class).getUserNameKey()));
+        searchEntityKeys.put(ArchivedCommentsSearchDescriptor.USER_NAME, new FieldDescriptor(SUser.class, BuilderFactory.get(SUserBuilderFactory.class)
+                .getUserNameKey()));
 
         archivedCommentsAllFields = new HashMap<Class<? extends PersistentObject>, Set<String>>(1);
         final Set<String> archivedCommentFields = new HashSet<String>(1);

@@ -13,7 +13,6 @@
  **/
 package org.bonitasoft.engine.core.process.instance.model.builder.event.trigger;
 
-
 /**
  * @author Elias Ricken de Medeiros
  * @author Celine Souchet

@@ -25,12 +25,12 @@ public interface AuthenticationService {
      * Check user credentials by give user name and passwordHash
      * 
      * @param username
-     *            Name of user
+     *        Name of user
      * @param password
-     *            Password of user
+     *        Password of user
      * @return user corresponding to the user name and password
      * @throws AuthenticationException
-     *             Error thrown if either the password is invalid or the user is not found.
+     *         Error thrown if either the password is invalid or the user is not found.
      */
     boolean checkUserCredentials(final String username, final String password) throws AuthenticationException;
 }

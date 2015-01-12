@@ -23,7 +23,7 @@ import org.bonitasoft.engine.core.process.instance.model.event.trigger.impl.SThr
 public class SThrowErrorEventTriggerInstanceBuilderImpl implements SThrowErrorEventTriggerInstanceBuilder {
 
     private final SThrowErrorEventTriggerInstanceImpl entity;
-    
+
     public SThrowErrorEventTriggerInstanceBuilderImpl(final SThrowErrorEventTriggerInstanceImpl entity) {
         super();
         this.entity = entity;

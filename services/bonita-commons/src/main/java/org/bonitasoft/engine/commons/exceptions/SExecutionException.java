@@ -27,6 +27,6 @@ public class SExecutionException extends SBonitaException {
     }
 
     public SExecutionException(String message, Throwable cause) {
-        super(message,cause);
+        super(message, cause);
     }
 }

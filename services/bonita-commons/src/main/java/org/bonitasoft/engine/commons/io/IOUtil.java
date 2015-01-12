@@ -553,7 +553,7 @@ public class IOUtil {
     }
 
     private static void extractZipEntry(final ZipInputStream zipInputstream, final ZipEntry zipEntry, final File outputFolder) throws FileNotFoundException,
-    IOException {
+            IOException {
         try {
             final String entryName = zipEntry.getName();
 

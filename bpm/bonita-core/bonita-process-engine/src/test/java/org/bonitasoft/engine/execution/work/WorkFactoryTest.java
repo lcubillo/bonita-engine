@@ -35,7 +35,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 /**
  * @author Aurelien Pupier
  * @author Celine Souchet
- * 
  */
 @RunWith(MockitoJUnitRunner.class)
 public class WorkFactoryTest {

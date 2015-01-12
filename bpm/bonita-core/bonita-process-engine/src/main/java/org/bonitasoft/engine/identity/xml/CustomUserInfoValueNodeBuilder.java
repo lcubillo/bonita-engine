@@ -20,10 +20,8 @@ import org.bonitasoft.engine.identity.ExportedCustomUserInfoValue;
 import org.bonitasoft.engine.xml.ElementBinding;
 import org.bonitasoft.engine.xml.XMLNode;
 
-
 /**
  * @author Elias Ricken de Medeiros
- *
  */
 public class CustomUserInfoValueNodeBuilder {
 
@@ -32,11 +30,10 @@ public class CustomUserInfoValueNodeBuilder {
     static {
         BINDINGS.add(CustomUserInfoValueBinding.class);
     }
-    
-    
+
     private CustomUserInfoValueNodeBuilder() {
     }
-    
+
     public static XMLNode buildNode(List<ExportedCustomUserInfoValue> userInfoValues) {
         XMLNode node = new XMLNode(OrganizationMappingConstants.CUSTOM_USER_INFO_VALUES);
         for (ExportedCustomUserInfoValue userInfoValue : userInfoValues) {
@@ -57,5 +54,5 @@ public class CustomUserInfoValueNodeBuilder {
         node.setContent(nodeValue);
         return node;
     }
-    
+
 }

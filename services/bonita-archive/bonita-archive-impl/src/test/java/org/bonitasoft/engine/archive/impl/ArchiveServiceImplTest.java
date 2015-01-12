@@ -28,7 +28,8 @@ public class ArchiveServiceImplTest {
         final ArchivingStrategy archivingStrategy = null;
         final TransactionService transactionService = mock(TransactionService.class);
 
-        ArchiveServiceImpl archiveService = spy(new ArchiveServiceImpl(definitiveArchiveDescriptor, definitiveArchivePersistenceService, logger, archivingStrategy, transactionService));
+        ArchiveServiceImpl archiveService = spy(new ArchiveServiceImpl(definitiveArchiveDescriptor, definitiveArchivePersistenceService, logger,
+                archivingStrategy, transactionService));
 
         final ArchivedPersistentObjectWithSetter mockArchivedPersistentObject = mock(ArchivedPersistentObjectWithSetter.class);
         ArchiveInsertRecord record = new ArchiveInsertRecord(mockArchivedPersistentObject);
@@ -43,12 +44,12 @@ public class ArchiveServiceImplTest {
         verify(transactionService, times(1)).registerBeforeCommitCallable(eq(mockBatchArchiveCallable));
     }
 
-
     // Test with exception on TxService
 
     // Seen with Nicolas C. for this "interface extension" :)
     // Needed as the implementation calls setArchiveDate through reflection.
     interface ArchivedPersistentObjectWithSetter extends ArchivedPersistentObject {
+
         void setArchiveDate(long archiveDate);
     }
 

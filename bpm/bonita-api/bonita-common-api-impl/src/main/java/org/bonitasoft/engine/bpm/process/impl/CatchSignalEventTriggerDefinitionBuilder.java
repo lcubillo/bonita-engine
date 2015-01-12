@@ -17,7 +17,6 @@ import org.bonitasoft.engine.bpm.flownode.impl.internal.CatchEventDefinitionImpl
 import org.bonitasoft.engine.bpm.flownode.impl.internal.CatchSignalEventTriggerDefinitionImpl;
 import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowElementContainerDefinitionImpl;
 
-
 /**
  * @author Matthieu Chaffotte
  */

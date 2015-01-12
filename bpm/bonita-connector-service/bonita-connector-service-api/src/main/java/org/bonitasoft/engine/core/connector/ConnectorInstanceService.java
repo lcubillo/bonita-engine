@@ -46,14 +46,14 @@ public interface ConnectorInstanceService {
      * Get a list of connectorInstances for specified container
      * 
      * @param containerId
-     *            Identifier of container
+     *        Identifier of container
      * @param containerType
-     *            Type of container
+     *        Type of container
      * @param activationEvent
-     *            The event to indicate when the connector will be activated
+     *        The event to indicate when the connector will be activated
      * @return list of connectorInstance objects
      * @throws SConnectorInstanceReadException
-     *             Error thrown if has exceptions during the connector retrieve
+     *         Error thrown if has exceptions during the connector retrieve
      */
     List<SConnectorInstance> getConnectorInstances(long containerId, String containerType, ConnectorEvent activationEvent, int from, int numberOfResult,
             String state) throws SConnectorInstanceReadException;
@@ -62,9 +62,9 @@ public interface ConnectorInstanceService {
      * Create connector instance by give connector instance, the connector instance will be stored in database
      * 
      * @param connectorInstance
-     *            Connector instance
+     *        Connector instance
      * @throws SConnectorInstanceCreationException
-     *             Error thrown if has exceptions during the connector instance creation
+     *         Error thrown if has exceptions during the connector instance creation
      */
     void createConnectorInstance(SConnectorInstance connectorInstance) throws SConnectorInstanceCreationException;
 
@@ -72,9 +72,9 @@ public interface ConnectorInstanceService {
      * Delete the given connector instance from the database
      * 
      * @param connectorInstance
-     *            the connector instance
+     *        the connector instance
      * @throws SConnectorInstanceDeletionException
-     *             if has exceptions during the connector instance deletion
+     *         if has exceptions during the connector instance deletion
      */
     void deleteConnectorInstance(SConnectorInstance connectorInstance) throws SConnectorInstanceDeletionException;
 
@@ -87,6 +87,7 @@ public interface ConnectorInstanceService {
 
     /**
      * Defines the exception associated to the connector failure
+     * 
      * @param connectorInstanceWithFailure failed connector instance
      * @param throwable exception responsible for connector failure
      * @throws SConnectorInstanceModificationException

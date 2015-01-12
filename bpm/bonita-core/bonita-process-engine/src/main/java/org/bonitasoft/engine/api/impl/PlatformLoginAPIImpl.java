@@ -49,10 +49,10 @@ public class PlatformLoginAPIImpl extends AbstractLoginApiImpl implements Platfo
             throw new PlatformLoginException(e.getMessage());
         }
         final PlatformLoginService platformLoginService = platformAccessor.getPlatformLoginService();
-//        PlatformService platformService = platformAccessor.getPlatformService(); // TO UNCOMMENT lvaills
+        //        PlatformService platformService = platformAccessor.getPlatformService(); // TO UNCOMMENT lvaills
 
         // first call before create session: put the platform in cache if necessary
-//        putPlatformInCacheIfNecessary(platformAccessor, platformService); // TO UNCOMMENT lvaills
+        //        putPlatformInCacheIfNecessary(platformAccessor, platformService); // TO UNCOMMENT lvaills
 
         try {
             final SPlatformSession platformSession = platformLoginService.login(userName, password);

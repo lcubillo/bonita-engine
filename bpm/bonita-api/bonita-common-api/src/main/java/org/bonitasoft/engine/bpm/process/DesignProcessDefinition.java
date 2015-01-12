@@ -56,7 +56,7 @@ public interface DesignProcessDefinition extends ProcessDefinition {
     /**
      * Retrieves the definition of the FlowElementContainerDefinition of the process container.
      * <p>
-     *     This method is deprecated. Please, use {@link #getFlowElementContainer()} instead.
+     * This method is deprecated. Please, use {@link #getFlowElementContainer()} instead.
      * </p>
      * Th
      *
@@ -69,6 +69,7 @@ public interface DesignProcessDefinition extends ProcessDefinition {
 
     /**
      * Returns a {@link org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition} containing all flow elements of this process.
+     * 
      * @return a {@code FlowElementContainerDefinition} containing all flow elements of this process.
      * @see org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition
      * @since 6.4.1
@@ -110,7 +111,6 @@ public interface DesignProcessDefinition extends ProcessDefinition {
      * @since 6.1
      */
     ActorDefinition getActorInitiator();
-
 
     /**
      * Retrieves the label for the ProcessDefinition given search index.

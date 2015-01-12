@@ -32,7 +32,8 @@ public class GetProcessDefinitionDeployInfosWithActorOnlyForUsers extends Abstra
 
     private final ProcessDefinitionService processDefinitionService;
 
-    public GetProcessDefinitionDeployInfosWithActorOnlyForUsers(final ProcessDefinitionService processDefinitionService, final SearchEntityDescriptor searchDescriptor,
+    public GetProcessDefinitionDeployInfosWithActorOnlyForUsers(final ProcessDefinitionService processDefinitionService,
+            final SearchEntityDescriptor searchDescriptor,
             final int fromIndex, final int numberOfResults, final ProcessDeploymentInfoCriterion criterion, final List<Long> userIds) {
         super(searchDescriptor, fromIndex, numberOfResults, criterion);
         this.userIds = userIds;

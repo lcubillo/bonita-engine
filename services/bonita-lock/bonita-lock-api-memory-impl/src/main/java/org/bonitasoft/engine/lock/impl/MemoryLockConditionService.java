@@ -77,7 +77,7 @@ public final class MemoryLockConditionService implements LockService {
      * @param logger
      * @param sessionAccessor
      * @param lockTimeout
-     *            timeout to obtain a lock in seconds
+     *        timeout to obtain a lock in seconds
      */
     public MemoryLockConditionService(final TechnicalLoggerService logger, final ReadSessionAccessor sessionAccessor, final int lockTimeout,
             final int lockPoolSize) {

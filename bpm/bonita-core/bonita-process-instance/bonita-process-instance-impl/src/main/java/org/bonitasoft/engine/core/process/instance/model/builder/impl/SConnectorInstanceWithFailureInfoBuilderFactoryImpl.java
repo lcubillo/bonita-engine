@@ -15,12 +15,11 @@ package org.bonitasoft.engine.core.process.instance.model.builder.impl;
 
 import org.bonitasoft.engine.core.process.instance.model.builder.SConnectorInstanceWithFailureInfoBuilderFactory;
 
-
 /**
  * @author Elias Ricken de Medeiros
- *
  */
-public class SConnectorInstanceWithFailureInfoBuilderFactoryImpl extends SConnectorInstanceBuilderFactoryImpl implements SConnectorInstanceWithFailureInfoBuilderFactory {
+public class SConnectorInstanceWithFailureInfoBuilderFactoryImpl extends SConnectorInstanceBuilderFactoryImpl implements
+        SConnectorInstanceWithFailureInfoBuilderFactory {
 
     @Override
     public String getExceptionMessageKey() {

@@ -53,7 +53,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 /**
  * @author Celine Souchet
- *
  */
 @SuppressWarnings("javadoc")
 @RunWith(MockitoJUnitRunner.class)

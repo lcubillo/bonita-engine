@@ -22,7 +22,7 @@ import org.bonitasoft.engine.events.model.builders.SEventBuilder;
 public class SEventBuilderImpl implements SEventBuilder {
 
     private final SEvent event;
-    
+
     public SEventBuilderImpl(final SEvent event) {
         super();
         this.event = event;

@@ -71,7 +71,7 @@ public class XMLHandler {
     private final Transformer transformer;
 
     public XMLHandler(final List<Class<? extends ElementBinding>> bindings, final URL schemaURL) throws ParserConfigurationException,
-    TransformerConfigurationException, InvalidSchemaException, IOException {
+            TransformerConfigurationException, InvalidSchemaException, IOException {
         this.bindings = bindings;
 
         schema = new SchemaLoader().loadSchema(schemaURL);

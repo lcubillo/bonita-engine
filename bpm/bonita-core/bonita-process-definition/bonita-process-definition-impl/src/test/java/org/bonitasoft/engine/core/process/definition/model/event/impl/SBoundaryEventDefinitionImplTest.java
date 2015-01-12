@@ -19,7 +19,6 @@ import org.junit.Test;
 
 /**
  * @author Celine Souchet
- * 
  */
 public class SBoundaryEventDefinitionImplTest {
 

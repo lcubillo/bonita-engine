@@ -54,7 +54,8 @@ public class SelectDescriptorBuilder {
         final Map<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("userId", userId);
 
-        final OrderByOption orderByOption = new OrderByOption(SProcessSupervisor.class, BuilderFactory.get(SProcessSupervisorBuilderFactory.class).getProcessDefIdKey(),
+        final OrderByOption orderByOption = new OrderByOption(SProcessSupervisor.class, BuilderFactory.get(SProcessSupervisorBuilderFactory.class)
+                .getProcessDefIdKey(),
                 orderByType);
         final QueryOptions queryOptions = new QueryOptions(fromIndex, maxResult, Collections.singletonList(orderByOption));
 

@@ -15,7 +15,6 @@ package org.bonitasoft.engine.dependency.model.builder;
 
 import org.bonitasoft.engine.dependency.model.SDependencyMapping;
 
-
 public interface SPlatformDependencyMappingBuilder {
 
     SDependencyMapping done();

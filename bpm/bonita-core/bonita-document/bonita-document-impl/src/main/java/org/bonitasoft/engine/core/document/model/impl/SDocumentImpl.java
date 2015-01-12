@@ -26,13 +26,10 @@ public class SDocumentImpl extends SLightDocumentImpl implements SDocument {
 
     private static final long serialVersionUID = 3494829428880067405L;
 
-
-
     private byte[] content;
 
     public SDocumentImpl() {
     }
-
 
     public void setContent(byte[] content) {
         this.content = content;
@@ -45,13 +42,17 @@ public class SDocumentImpl extends SLightDocumentImpl implements SDocument {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        if (!super.equals(o))
+            return false;
 
         SDocumentImpl sDocument = (SDocumentImpl) o;
 
-        if (!Arrays.equals(content, sDocument.content)) return false;
+        if (!Arrays.equals(content, sDocument.content))
+            return false;
 
         return true;
     }
@@ -62,6 +63,5 @@ public class SDocumentImpl extends SLightDocumentImpl implements SDocument {
         result = 31 * result + (content != null ? Arrays.hashCode(content) : 0);
         return result;
     }
-
 
 }

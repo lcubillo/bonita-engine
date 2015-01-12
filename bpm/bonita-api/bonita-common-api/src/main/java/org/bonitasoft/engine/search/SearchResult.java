@@ -22,7 +22,7 @@ import java.util.List;
  * result count {@link #getCount()} that is the total number of results matching the provided criteria.
  * 
  * @param <T>
- *            the type of the objects being returned by the search.
+ *        the type of the objects being returned by the search.
  * @author Emmanuel Duchastenier
  * @author Matthieu Chaffotte
  * @author Elias Ricken de Medeiros

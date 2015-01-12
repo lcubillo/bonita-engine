@@ -12,7 +12,7 @@ import bitronix.tm.internal.BitronixRollbackException;
 
 public class TestBitronix {
 
-    @Test(expected=BitronixRollbackException.class)
+    @Test(expected = BitronixRollbackException.class)
     public void testSetupTransactionManager() throws Exception {
         Configuration conf = TransactionManagerServices.getConfiguration();
         conf.setServerId("jvm-1");

@@ -30,8 +30,8 @@ public class TimerEventTriggerInstanceNotFoundException extends NotFoundExceptio
      * Constructs a new exception with the specified detail cause.
      * 
      * @param cause
-     *            The cause (which is saved for later retrieval by the {@link Throwable#getCause()} method). (A null value is permitted, and indicates that the
-     *            cause is nonexistent or unknown.)
+     *        The cause (which is saved for later retrieval by the {@link Throwable#getCause()} method). (A null value is permitted, and indicates that the
+     *        cause is nonexistent or unknown.)
      */
     public TimerEventTriggerInstanceNotFoundException(final Throwable cause) {
         super(cause);
@@ -39,7 +39,7 @@ public class TimerEventTriggerInstanceNotFoundException extends NotFoundExceptio
 
     /**
      * @param timerEventTriggerInstanceId
-     *            The identifier of the timer trigger instance who doesn't find
+     *        The identifier of the timer trigger instance who doesn't find
      */
     public TimerEventTriggerInstanceNotFoundException(final long timerEventTriggerInstanceId) {
         super("Can't find the TimerEventInstance with id=" + timerEventTriggerInstanceId);

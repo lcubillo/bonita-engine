@@ -33,7 +33,7 @@ public interface ExpressionResolverService {
      * Evaluate the specific expression
      * 
      * @param expression
-     *            the expression will be evaluated
+     *        the expression will be evaluated
      * @return the evaluated expression result
      * @throws SExpressionTypeUnknownException
      * @throws SExpressionEvaluationException
@@ -47,9 +47,9 @@ public interface ExpressionResolverService {
      * Evaluate the specific expression with the given expressionContext.
      * 
      * @param expression
-     *            the expression will be evaluated
+     *        the expression will be evaluated
      * @param contextDependency
-     *            the expressionContext, it can contain some value informations or evaluated enviorenment for expressions
+     *        the expressionContext, it can contain some value informations or evaluated enviorenment for expressions
      * @return the evaluated expression result
      * @throws SExpressionTypeUnknownException
      * @throws SExpressionEvaluationException
@@ -63,9 +63,9 @@ public interface ExpressionResolverService {
      * Evaluate the specific expressions with the given expressionContext.
      * 
      * @param expressions
-     *            a list of expressions will be evaluated
+     *        a list of expressions will be evaluated
      * @param contextDependency
-     *            the expressionContext, it can contain some value information or evaluated environment for expressions
+     *        the expressionContext, it can contain some value information or evaluated environment for expressions
      * @return the evaluated expression result
      * @throws SExpressionTypeUnknownException
      * @throws SExpressionEvaluationException

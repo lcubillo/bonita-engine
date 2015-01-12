@@ -117,22 +117,23 @@ public abstract class DataInstanceServiceTest extends CommonServiceTest {
     @Test
     public void testCreateAndRetrieveDateDataInstance() throws Exception {
         long time = System.currentTimeMillis();
-        verifyCreateAndRetrieveDataInstance("createDate", Date.class.getName(), "creates new Date", "new java.util.Date("+time+")", 9L, "process", false, new Date(time));
+        verifyCreateAndRetrieveDataInstance("createDate", Date.class.getName(), "creates new Date", "new java.util.Date(" + time + ")", 9L, "process", false,
+                new Date(time));
     }
 
-//    private SDataInstance buildDateDataInstance(final String instanceName, final String description, final String content, final long containerId,
-//            final String containerType, final Boolean isTransient) throws SBonitaException {
-//        // create definition
-//        final SDataDefinitionBuilder dataDefinitionBuilder = BuilderFactory.get(SDataDefinitionBuilderFactory.class).createNewInstance(instanceName, Date.class.getName());
-//
-//        initializeBuilder(dataDefinitionBuilder, description, content, Date.class.getName(), isTransient);
-//        final SDataDefinition dataDefinition = dataDefinitionBuilder.done();
-//        final SDataInstanceBuilder dataInstanceBuilder = BuilderFactory.get(SDataInstanceBuilderFactory.class).createNewInstance(dataDefinition)
-//                .setContainerId(containerId).setContainerType(containerType);
-//        // create data instance
-//        evaluateDefaultValueOf(dataDefinition, dataInstanceBuilder);
-//        return dataInstanceBuilder.done();
-//    }
+    //    private SDataInstance buildDateDataInstance(final String instanceName, final String description, final String content, final long containerId,
+    //            final String containerType, final Boolean isTransient) throws SBonitaException {
+    //        // create definition
+    //        final SDataDefinitionBuilder dataDefinitionBuilder = BuilderFactory.get(SDataDefinitionBuilderFactory.class).createNewInstance(instanceName, Date.class.getName());
+    //
+    //        initializeBuilder(dataDefinitionBuilder, description, content, Date.class.getName(), isTransient);
+    //        final SDataDefinition dataDefinition = dataDefinitionBuilder.done();
+    //        final SDataInstanceBuilder dataInstanceBuilder = BuilderFactory.get(SDataInstanceBuilderFactory.class).createNewInstance(dataDefinition)
+    //                .setContainerId(containerId).setContainerType(containerType);
+    //        // create data instance
+    //        evaluateDefaultValueOf(dataDefinition, dataInstanceBuilder);
+    //        return dataInstanceBuilder.done();
+    //    }
 
     private SDataInstance buildXMLDataInstance(final String instanceName, final String description, final String namespace, final String xmlElement,
             final String content, final long containerId, final String containerType) throws SBonitaException {

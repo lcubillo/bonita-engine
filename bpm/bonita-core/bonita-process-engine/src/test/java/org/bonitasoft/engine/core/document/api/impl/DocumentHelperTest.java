@@ -288,7 +288,7 @@ public class DocumentHelperTest {
         //when
         documentHelper.processDocumentOnIndex(documentValue, "theList", PROCESS_INSTANCE_ID, list, 3, AUTHOR_ID);
         //then
-        verify(documentService).attachDocumentToProcessInstance(any(SDocument.class), eq(PROCESS_INSTANCE_ID), eq("theList"),anyString(),eq(3));
+        verify(documentService).attachDocumentToProcessInstance(any(SDocument.class), eq(PROCESS_INSTANCE_ID), eq("theList"), anyString(), eq(3));
     }
 
     @Test
@@ -296,7 +296,7 @@ public class DocumentHelperTest {
         //given
         DocumentHelper documentHelperSpy = spy(documentHelper);
         List<SMappedDocument> list = createList(5);
-        SMappedDocument documentToUpdate = list.get(list.size()-1);
+        SMappedDocument documentToUpdate = list.get(list.size() - 1);
         DocumentValue documentValue = new DocumentValue(documentToUpdate.getId(), "new url");
         //when
         documentHelperSpy.processDocumentOnIndex(documentValue, "theList", PROCESS_INSTANCE_ID, list, 3, AUTHOR_ID);
@@ -315,7 +315,6 @@ public class DocumentHelperTest {
         //then exception
     }
 
-
     @Test
     public void should_updateExistingDocument_with_unmodified_content_update_only_index() throws Exception {
         //given
@@ -323,11 +322,10 @@ public class DocumentHelperTest {
         SMappedDocumentImpl documentToUpdate = new SMappedDocumentImpl();
         documentToUpdate.setIndex(1);
         //when
-        documentHelper.updateExistingDocument(documentToUpdate,2,documentValue,AUTHOR_ID);
+        documentHelper.updateExistingDocument(documentToUpdate, 2, documentValue, AUTHOR_ID);
         //then
-        verify(documentService).updateDocumentIndex(documentToUpdate,2);
+        verify(documentService).updateDocumentIndex(documentToUpdate, 2);
     }
-
 
     @Test
     public void should_updateExistingDocument_with_unmodified_content_and_index_do_nothing() throws Exception {
@@ -336,11 +334,10 @@ public class DocumentHelperTest {
         SMappedDocumentImpl documentToUpdate = new SMappedDocumentImpl();
         documentToUpdate.setIndex(2);
         //when
-        documentHelper.updateExistingDocument(documentToUpdate,2,documentValue,AUTHOR_ID);
+        documentHelper.updateExistingDocument(documentToUpdate, 2, documentValue, AUTHOR_ID);
         //then
-        verify(documentService,times(0)).updateDocumentIndex(documentToUpdate,2);
+        verify(documentService, times(0)).updateDocumentIndex(documentToUpdate, 2);
     }
-
 
     @Test
     public void should_updateExistingDocument_with_modified_content_update_everything() throws Exception {
@@ -349,9 +346,9 @@ public class DocumentHelperTest {
         SMappedDocumentImpl documentToUpdate = new SMappedDocumentImpl();
         documentToUpdate.setIndex(1);
         //when
-        documentHelper.updateExistingDocument(documentToUpdate,2,documentValue,AUTHOR_ID);
+        documentHelper.updateExistingDocument(documentToUpdate, 2, documentValue, AUTHOR_ID);
         //then
-        verify(documentService).updateDocumentOfList(eq(documentToUpdate),any(SDocument.class),eq(2));
+        verify(documentService).updateDocumentOfList(eq(documentToUpdate), any(SDocument.class), eq(2));
     }
 
 }

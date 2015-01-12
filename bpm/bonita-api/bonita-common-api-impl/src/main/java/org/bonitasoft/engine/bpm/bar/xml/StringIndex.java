@@ -47,7 +47,7 @@ public class StringIndex {
 
     /**
      * @param index
-     *            the index to set
+     *        the index to set
      */
     public void setIndex(final int index) {
         this.index = index;
@@ -62,7 +62,7 @@ public class StringIndex {
 
     /**
      * @param label
-     *            the label to set
+     *        the label to set
      */
     public void setLabel(final String label) {
         this.label = label;
@@ -77,7 +77,7 @@ public class StringIndex {
 
     /**
      * @param value
-     *            the value to set
+     *        the value to set
      */
     public void setValue(final Expression value) {
         this.value = value;

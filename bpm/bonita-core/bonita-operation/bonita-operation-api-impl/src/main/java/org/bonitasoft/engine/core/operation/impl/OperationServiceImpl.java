@@ -81,7 +81,7 @@ public class OperationServiceImpl implements OperationService {
     @Override
     public void execute(final List<SOperation> operations, final long leftOperandContainerId, final String leftOperandContainerType,
             final SExpressionContext expressionContext) throws SOperationExecutionException {
-        if(operations.isEmpty()) {
+        if (operations.isEmpty()) {
             return;
         }
         // retrieve all left operand to set and put it in context

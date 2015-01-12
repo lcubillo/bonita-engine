@@ -1,5 +1,4 @@
 /*
- *
  * Copyright (C) 2014 BonitaSoft S.A.
  * BonitaSoft, 32 rue Gustave Eiffel - 38000 Grenoble
  * This program is free software: you can redistribute it and/or modify
@@ -12,7 +11,6 @@
  * GNU General Public License for more details.
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
- *
  */
 package org.bonitasoft.engine.api.impl;
 
@@ -26,12 +24,9 @@ import org.bonitasoft.engine.sessionaccessor.SessionAccessor;
  */
 public class APIUtils {
 
-
-
     protected static long getUserId() {
         return SessionInfos.getUserIdFromSession();
     }
-
 
     protected static TenantServiceAccessor getTenantAccessor() {
         try {

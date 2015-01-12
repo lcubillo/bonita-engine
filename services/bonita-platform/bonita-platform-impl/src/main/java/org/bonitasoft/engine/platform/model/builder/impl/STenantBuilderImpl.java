@@ -24,7 +24,7 @@ import org.bonitasoft.engine.platform.model.impl.STenantImpl;
 public class STenantBuilderImpl implements STenantBuilder {
 
     private final STenantImpl object;
-    
+
     public STenantBuilderImpl(final STenantImpl object) {
         super();
         this.object = object;

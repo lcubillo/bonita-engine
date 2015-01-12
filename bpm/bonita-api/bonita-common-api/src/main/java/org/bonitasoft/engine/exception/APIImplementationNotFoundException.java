@@ -15,7 +15,6 @@ package org.bonitasoft.engine.exception;
 
 /**
  * Thrown when it's not possible to find a API implementation.
- * 
  * The class APIImplementationNotFoundException is a form of Throwable that indicates conditions that a reasonable application might want to catch.
  * The class APIImplementationNotFoundException that is not also subclasses of {@link RuntimeException} are checked exceptions.
  * Checked exceptions need to be declared in a method or constructor's {@literal throws} clause if they can be thrown by the execution of the method or
@@ -32,7 +31,7 @@ public class APIImplementationNotFoundException extends BonitaException {
      * Constructs a new exception with the specified detail message.
      * 
      * @param message
-     *            The detail message (which is saved for later retrieval by the {@link Throwable#getMessage()} method).
+     *        The detail message (which is saved for later retrieval by the {@link Throwable#getMessage()} method).
      */
     public APIImplementationNotFoundException(final String message) {
         super(message);

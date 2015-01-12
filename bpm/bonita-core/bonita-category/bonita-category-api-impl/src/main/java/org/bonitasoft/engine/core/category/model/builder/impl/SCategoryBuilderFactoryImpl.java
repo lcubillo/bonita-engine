@@ -56,7 +56,6 @@ public class SCategoryBuilderFactoryImpl implements SCategoryBuilderFactory {
         return new SCategoryBuilderImpl(category);
     }
 
-
     @Override
     public String getIdKey() {
         return ID;

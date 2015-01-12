@@ -185,8 +185,6 @@ public class PermissionServiceImplTest {
         verify(logger).log(argThat(new HasName("MyCustomRule")), eq(TechnicalLogSeverity.WARNING), eq("Executing my custom rule"));
     }
 
-
-
     @Test
     public void should_checkAPICallWithScript_run_the_class_with_package_in_script_root_folder() throws SBonitaException, ClassNotFoundException, IOException {
         //given

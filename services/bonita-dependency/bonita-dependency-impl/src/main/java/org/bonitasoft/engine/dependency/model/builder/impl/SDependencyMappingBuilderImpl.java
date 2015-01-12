@@ -20,7 +20,7 @@ import org.bonitasoft.engine.dependency.model.impl.SDependencyMappingImpl;
 public class SDependencyMappingBuilderImpl implements SDependencyMappingBuilder {
 
     private final SDependencyMappingImpl object;
-    
+
     public SDependencyMappingBuilderImpl(final SDependencyMappingImpl object) {
         super();
         this.object = object;

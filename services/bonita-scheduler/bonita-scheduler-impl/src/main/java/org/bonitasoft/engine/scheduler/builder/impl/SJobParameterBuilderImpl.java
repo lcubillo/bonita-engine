@@ -20,7 +20,7 @@ import org.bonitasoft.engine.scheduler.model.impl.SJobParameterImpl;
 public class SJobParameterBuilderImpl implements SJobParameterBuilder {
 
     private final SJobParameterImpl entity;
-    
+
     public SJobParameterBuilderImpl(final SJobParameterImpl entity) {
         super();
         this.entity = entity;
