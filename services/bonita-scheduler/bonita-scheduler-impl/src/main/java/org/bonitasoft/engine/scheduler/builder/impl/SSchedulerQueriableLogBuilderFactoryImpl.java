@@ -27,5 +27,5 @@ public class SSchedulerQueriableLogBuilderFactoryImpl extends CRUDELogBuilderFac
     public SSchedulerQueriableLogBuilder createNewInstance() {
         return new SSchedulerQueriableLogBuilderImpl();
     }
-    
+
 }

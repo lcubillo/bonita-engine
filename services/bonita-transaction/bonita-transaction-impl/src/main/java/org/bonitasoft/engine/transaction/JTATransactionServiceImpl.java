@@ -196,18 +196,18 @@ public class JTATransactionServiceImpl implements TransactionService {
             final int status = txManager.getStatus();
 
             switch (status) {
-            case Status.STATUS_ACTIVE:
-                return TransactionState.ACTIVE;
-            case Status.STATUS_COMMITTED:
-                return TransactionState.COMMITTED;
-            case Status.STATUS_MARKED_ROLLBACK:
-                return TransactionState.ROLLBACKONLY;
-            case Status.STATUS_ROLLEDBACK:
-                return TransactionState.ROLLEDBACK;
-            case Status.STATUS_NO_TRANSACTION:
-                return TransactionState.NO_TRANSACTION;
-            default:
-                throw new STransactionException("Can't map the JTA status : " + status);
+                case Status.STATUS_ACTIVE:
+                    return TransactionState.ACTIVE;
+                case Status.STATUS_COMMITTED:
+                    return TransactionState.COMMITTED;
+                case Status.STATUS_MARKED_ROLLBACK:
+                    return TransactionState.ROLLBACKONLY;
+                case Status.STATUS_ROLLEDBACK:
+                    return TransactionState.ROLLEDBACK;
+                case Status.STATUS_NO_TRANSACTION:
+                    return TransactionState.NO_TRANSACTION;
+                default:
+                    throw new STransactionException("Can't map the JTA status : " + status);
             }
         } catch (final SystemException e) {
             throw new STransactionException(e);

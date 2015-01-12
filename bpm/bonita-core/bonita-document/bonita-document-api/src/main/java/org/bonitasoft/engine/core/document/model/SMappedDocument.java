@@ -18,5 +18,4 @@ package org.bonitasoft.engine.core.document.model;
  */
 public interface SMappedDocument extends SLightDocument, SDocumentMapping {
 
-
 }

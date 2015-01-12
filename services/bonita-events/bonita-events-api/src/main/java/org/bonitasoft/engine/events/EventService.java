@@ -15,10 +15,10 @@ package org.bonitasoft.engine.events;
 
 import java.util.Set;
 
-import org.bonitasoft.engine.events.model.SFireEventException;
 import org.bonitasoft.engine.events.model.HandlerRegistrationException;
 import org.bonitasoft.engine.events.model.HandlerUnregistrationException;
 import org.bonitasoft.engine.events.model.SEvent;
+import org.bonitasoft.engine.events.model.SFireEventException;
 import org.bonitasoft.engine.events.model.SHandler;
 
 /**
@@ -35,7 +35,7 @@ public interface EventService {
      * Fire the specified Event to the registered handlers.
      *
      * @param event
-     *            A specific Event
+     *        A specific Event
      */
     void fireEvent(final SEvent event) throws SFireEventException;
 
@@ -43,7 +43,7 @@ public interface EventService {
      * Allows to check if an handler is listening to this event type
      *
      * @param eventType
-     *            the type of the event
+     *        the type of the event
      * @return
      *         true if an handler is interested by the event having type eventType
      */
@@ -54,7 +54,7 @@ public interface EventService {
      *
      * @param eventType The type of the event the handler is interested in.
      * @param userHandler
-     *            The handler to register in the Event Manager
+     *        The handler to register in the Event Manager
      * @throws HandlerRegistrationException
      */
     void addHandler(final String eventType, final SHandler<SEvent> userHandler) throws HandlerRegistrationException;
@@ -63,7 +63,7 @@ public interface EventService {
      * Remove the given handler from the Event Service's handlers lists.
      *
      * @param handler
-     *            The handler to remove
+     *        The handler to remove
      */
     void removeAllHandlers(final SHandler<SEvent> handler) throws HandlerUnregistrationException;
 
@@ -71,7 +71,7 @@ public interface EventService {
      * Remove the given handler from the given event type filter
      *
      * @param handler
-     *            The handler to remove from the given event type
+     *        The handler to remove from the given event type
      */
     void removeHandler(final String eventType, final SHandler<SEvent> handler) throws HandlerUnregistrationException;
 

@@ -15,8 +15,6 @@
 
 package org.bonitasoft.engine.service.impl;
 
-import groovy.lang.GroovyClassLoader;
-
 import java.io.File;
 
 import org.bonitasoft.engine.api.impl.APIAccessorImpl;
@@ -34,6 +32,8 @@ import org.bonitasoft.engine.session.APISession;
 import org.bonitasoft.engine.session.SessionService;
 import org.bonitasoft.engine.session.model.SSession;
 import org.bonitasoft.engine.sessionaccessor.SessionAccessor;
+
+import groovy.lang.GroovyClassLoader;
 
 /**
  * Permission service implementation

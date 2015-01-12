@@ -20,7 +20,6 @@ import org.bonitasoft.engine.log.technical.TechnicalLogSeverity;
 import org.bonitasoft.engine.log.technical.TechnicalLoggerService;
 
 /**
- *
  * Wrap the technical logger service to be available to client extensions
  *
  * @author Baptiste Mesta

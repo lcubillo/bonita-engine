@@ -45,7 +45,6 @@ import org.bonitasoft.engine.log.technical.TechnicalLoggerService;
 import org.bonitasoft.engine.operation.Operation;
 import org.bonitasoft.engine.service.TenantServiceAccessor;
 import org.bonitasoft.engine.service.TenantServiceSingleton;
-import org.bonitasoft.engine.session.model.SSession;
 
 /**
  * @author Ruiheng Fan

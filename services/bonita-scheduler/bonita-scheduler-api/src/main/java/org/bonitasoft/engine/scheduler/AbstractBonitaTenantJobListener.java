@@ -13,7 +13,6 @@
  **/
 package org.bonitasoft.engine.scheduler;
 
-
 /**
  * @author Celine Souchet
  */

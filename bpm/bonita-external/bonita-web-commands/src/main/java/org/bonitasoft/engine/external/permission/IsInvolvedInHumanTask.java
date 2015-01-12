@@ -20,7 +20,6 @@ import java.util.Map;
 import org.bonitasoft.engine.actor.mapping.ActorMappingService;
 import org.bonitasoft.engine.actor.mapping.SActorNotFoundException;
 import org.bonitasoft.engine.actor.mapping.model.SActor;
-import org.bonitasoft.engine.api.impl.SessionInfos;
 import org.bonitasoft.engine.command.SCommandExecutionException;
 import org.bonitasoft.engine.command.SCommandParameterizationException;
 import org.bonitasoft.engine.command.system.CommandWithParameters;
@@ -33,7 +32,6 @@ import org.bonitasoft.engine.core.process.instance.model.archive.SAHumanTaskInst
 import org.bonitasoft.engine.persistence.SBonitaReadException;
 import org.bonitasoft.engine.service.TenantServiceAccessor;
 import org.bonitasoft.engine.session.SessionService;
-import org.bonitasoft.engine.session.model.SSession;
 import org.bonitasoft.engine.sessionaccessor.SessionAccessor;
 
 /**

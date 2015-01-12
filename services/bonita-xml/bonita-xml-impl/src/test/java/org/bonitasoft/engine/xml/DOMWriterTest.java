@@ -11,50 +11,50 @@ import org.junit.Test;
 
 public class DOMWriterTest {
 
-  private static final String currentDir = System.getProperty("user.dir");
-  
-  @Test
-  public void test() throws IOException, TransformerConfigurationException, ParserConfigurationException {
-    Person john = new Person("John", "Doe");
-    Person jane = new Person("Jane", "Doe");
+    private static final String currentDir = System.getProperty("user.dir");
 
-    AddressBook addressBook = new AddressBook("family", "1.0");
-    addressBook.addPerson(jane);
-    addressBook.addPerson(john);
+    @Test
+    public void test() throws IOException, TransformerConfigurationException, ParserConfigurationException {
+        Person john = new Person("John", "Doe");
+        Person jane = new Person("Jane", "Doe");
 
-    XMLNode johnNode = new XMLNode("person");
-    XMLNode johnLastName = new XMLNode("lastName");
-    johnLastName.setContent(john.getLastName());
-    XMLNode johnFirstName = new XMLNode("firstName");
-    johnFirstName.setContent(john.getFirstName());
-    johnNode.addChild(johnFirstName);
-    johnNode.addChild(johnLastName);
+        AddressBook addressBook = new AddressBook("family", "1.0");
+        addressBook.addPerson(jane);
+        addressBook.addPerson(john);
 
-    XMLNode janeNode = new XMLNode("person");
-    XMLNode janeLastName = new XMLNode("lastName");
-    janeLastName.setContent(jane.getLastName());
-    XMLNode janeFirstName = new XMLNode("firstName");
-    janeFirstName.setContent(jane.getFirstName());
-    janeNode.addChild(janeFirstName);
-    janeNode.addChild(janeLastName);
+        XMLNode johnNode = new XMLNode("person");
+        XMLNode johnLastName = new XMLNode("lastName");
+        johnLastName.setContent(john.getLastName());
+        XMLNode johnFirstName = new XMLNode("firstName");
+        johnFirstName.setContent(john.getFirstName());
+        johnNode.addChild(johnFirstName);
+        johnNode.addChild(johnLastName);
 
-    XMLNode persons= new XMLNode("persons");
-    persons.addChild(johnNode);
-    persons.addChild(janeNode);
+        XMLNode janeNode = new XMLNode("person");
+        XMLNode janeLastName = new XMLNode("lastName");
+        janeLastName.setContent(jane.getLastName());
+        XMLNode janeFirstName = new XMLNode("firstName");
+        janeFirstName.setContent(jane.getFirstName());
+        janeNode.addChild(janeFirstName);
+        janeNode.addChild(janeLastName);
 
-    XMLNode rootNode = new XMLNode("addressbook");
-    rootNode.addAttribute("name", addressBook.getName());
-    rootNode.addAttribute("version", addressBook.getVersion());
-    rootNode.addChild(persons);
+        XMLNode persons = new XMLNode("persons");
+        persons.addChild(johnNode);
+        persons.addChild(janeNode);
 
-    final StringBuilder pathBuiler = new StringBuilder(currentDir);
-    pathBuiler.append(File.separator).append("target").append(File.separator)
-    .append(addressBook.getName()).append(".xml");
+        XMLNode rootNode = new XMLNode("addressbook");
+        rootNode.addAttribute("name", addressBook.getName());
+        rootNode.addAttribute("version", addressBook.getVersion());
+        rootNode.addChild(persons);
 
-    FileOutputStream fos = new FileOutputStream(new File(pathBuiler.toString()));
-    DOMWriter writer = new DOMWriter(null);
-    writer.write(rootNode, fos);
-    fos.close();
-  }
+        final StringBuilder pathBuiler = new StringBuilder(currentDir);
+        pathBuiler.append(File.separator).append("target").append(File.separator)
+                .append(addressBook.getName()).append(".xml");
+
+        FileOutputStream fos = new FileOutputStream(new File(pathBuiler.toString()));
+        DOMWriter writer = new DOMWriter(null);
+        writer.write(rootNode, fos);
+        fos.close();
+    }
 
 }

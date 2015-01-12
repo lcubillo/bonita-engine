@@ -13,6 +13,18 @@
  */
 package org.bonitasoft.engine.expression;
 
+import static java.util.Arrays.asList;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Matchers.eq;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.doThrow;
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.bonitasoft.engine.bpm.document.Document;
 import org.bonitasoft.engine.commons.exceptions.SObjectNotFoundException;
 import org.bonitasoft.engine.core.document.api.DocumentService;
@@ -28,18 +40,6 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import static java.util.Arrays.asList;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Matchers.anyString;
-import static org.mockito.Matchers.eq;
-import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.doThrow;
 
 /**
  * @author Vincent Elcrin
@@ -107,8 +107,6 @@ public class DocumentReferenceExpressionExecutorStrategyTest {
 
         assertThat(result).hasSize(1).contains(ModelConvertor.toDocument(document, documentService));
     }
-
-
 
     @Test
     public void evaluate_result_should_contains_parent_process_document_when_container_is_not_a_process_instance() throws Exception {

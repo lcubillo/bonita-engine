@@ -27,7 +27,7 @@ public class LogMessageBuilder {
      * 
      * @param flowNodeInstance
      * @param initialMessage
-     *            the initial message
+     *        the initial message
      * @return the message log built using the flow node's context.
      */
     public static String buildFlowNodeContextMessage(final SFlowNodeInstance flowNodeInstance) {

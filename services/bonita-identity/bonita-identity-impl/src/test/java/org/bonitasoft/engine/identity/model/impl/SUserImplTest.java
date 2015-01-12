@@ -2,7 +2,6 @@ package org.bonitasoft.engine.identity.model.impl;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.bonitasoft.engine.identity.model.impl.SUserImpl;
 import org.junit.Test;
 
 public class SUserImplTest {

@@ -23,7 +23,7 @@ import org.bonitasoft.engine.dependency.model.impl.SDependencyImpl;
 public class SDependencyBuilderImpl implements SDependencyBuilder {
 
     protected final SDependencyImpl object;
-    
+
     public SDependencyBuilderImpl(final SDependencyImpl object) {
         super();
         this.object = object;

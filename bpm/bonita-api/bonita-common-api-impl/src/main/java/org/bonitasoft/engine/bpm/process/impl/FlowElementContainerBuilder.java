@@ -44,7 +44,7 @@ public class FlowElementContainerBuilder implements FlowElementBuilder {
      * @return
      *         the process being build
      * @throws InvalidProcessDefinitionException
-     *             when the process definition is inconsistent. The exception contains causes
+     *         when the process definition is inconsistent. The exception contains causes
      */
     public DesignProcessDefinition getProcess() throws InvalidProcessDefinitionException {
         return processDefinitionBuilder.done();

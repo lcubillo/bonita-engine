@@ -2,14 +2,14 @@ package org.bonitasoft.engine;
 
 import org.bonitasoft.engine.event.InterruptingTimerBoundaryEventIT;
 import org.bonitasoft.engine.event.MessageBoundaryEventIT;
-import org.bonitasoft.engine.event.MessageEventSubProcessIT;
 import org.bonitasoft.engine.event.MessageEventIT;
+import org.bonitasoft.engine.event.MessageEventSubProcessIT;
 import org.bonitasoft.engine.event.NonInterruptingTimerBoundaryEventIT;
 import org.bonitasoft.engine.event.TimerBoundaryEventIT;
-import org.bonitasoft.engine.event.TimerEventSubProcessIT;
 import org.bonitasoft.engine.event.TimerEventIT;
-import org.bonitasoft.engine.platform.PlatformLoginIT;
+import org.bonitasoft.engine.event.TimerEventSubProcessIT;
 import org.bonitasoft.engine.platform.PlatformIT;
+import org.bonitasoft.engine.platform.PlatformLoginIT;
 import org.bonitasoft.engine.test.APIMethodIT;
 import org.bonitasoft.engine.test.BPMLocalSuiteTests;
 import org.bonitasoft.engine.test.runner.BonitaSuiteRunner;

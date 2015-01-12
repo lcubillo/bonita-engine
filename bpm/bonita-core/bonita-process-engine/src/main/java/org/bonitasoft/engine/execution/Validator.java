@@ -17,15 +17,14 @@ import java.util.List;
 
 import org.bonitasoft.engine.commons.exceptions.SBonitaException;
 
-
 /**
  * @author Elias Ricken de Medeiros
- *
  */
 public interface Validator<E> {
-    
+
     /**
      * Validate an element. If problems are found during the validation, their descriptions will be returned in a list
+     * 
      * @param element to validate
      * @return the list of problems encountered during validation
      * @throws SBonitaException if an exception occurs during validation

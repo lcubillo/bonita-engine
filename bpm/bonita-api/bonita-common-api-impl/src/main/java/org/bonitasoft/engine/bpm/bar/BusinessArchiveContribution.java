@@ -25,7 +25,8 @@ import java.io.IOException;
 public interface BusinessArchiveContribution {
 
     /**
-     * Updates the {@link BusinessArchive} with information read from the file system and returns true if the information was successfully read or false otherwise.
+     * Updates the {@link BusinessArchive} with information read from the file system and returns true if the information was successfully read or false
+     * otherwise.
      * 
      * @param businessArchive the {@code BusinessArchive} to be filled with information read from the file system
      * @param barFolder the folder storing the information to be filled in the {@code BusinessArchive}
@@ -48,12 +49,14 @@ public interface BusinessArchiveContribution {
 
     /**
      * Checks if this {@code BusinessArchiveContribution} is mandatory
+     * 
      * @return true if this {@code BusinessArchiveContribution} is mandatory; false otherwise
      */
     boolean isMandatory();
 
     /**
      * Retrieves the {@code BusinessArchiveContribution} name
+     * 
      * @return the {@code BusinessArchiveContribution} name
      */
     String getName();

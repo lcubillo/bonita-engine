@@ -36,13 +36,13 @@ public class AssignmentOperationExecutorStrategy implements OperationExecutorStr
 
     /**
      * Builds a new AssignmentOperationExecutorStrategy, which is the strategy to execute data assignment operations
-     *
      */
     public AssignmentOperationExecutorStrategy() {
     }
 
     @Override
-    public Object computeNewValueForLeftOperand(final SOperation operation, final Object value, final SExpressionContext expressionContext) throws SOperationExecutionException {
+    public Object computeNewValueForLeftOperand(final SOperation operation, final Object value, final SExpressionContext expressionContext)
+            throws SOperationExecutionException {
         // do not check if value is external, see ENGINE-1739
         if (operation.getLeftOperand().getType().equals(SLeftOperand.TYPE_DATA)) {
             checkReturnType(value, operation, expressionContext);

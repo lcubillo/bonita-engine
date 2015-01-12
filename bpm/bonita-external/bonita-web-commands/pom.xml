@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<artifactId>bonita-external</artifactId>
-		<groupId>org.bonitasoft.engine.external</groupId>
-		<version>6.5.0-SNAPSHOT</version>
-	</parent>
+    <parent>
+        <artifactId>bonita-external</artifactId>
+        <groupId>org.bonitasoft.engine.external</groupId>
+        <version>6.5.0-SNAPSHOT</version>
+    </parent>
 
-	<artifactId>bonita-web-commands</artifactId>
+    <artifactId>bonita-web-commands</artifactId>
 
-	<name>Bonita Web Commands</name>
+    <name>Bonita Web Commands</name>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.bonitasoft.engine.command</groupId>
-			<artifactId>bonita-command-api</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.bonitasoft.engine.core.process.definition</groupId>
-			<artifactId>bonita-process-definition-impl</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.bonitasoft.engine.core</groupId>
-			<artifactId>bonita-process-engine</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.bonitasoft.engine.core</groupId>
-			<artifactId>bonita-expression-resolver-api</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-        
+    <dependencies>
+        <dependency>
+            <groupId>org.bonitasoft.engine.command</groupId>
+            <artifactId>bonita-command-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.bonitasoft.engine.core.process.definition</groupId>
+            <artifactId>bonita-process-definition-impl</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.bonitasoft.engine.core</groupId>
+            <artifactId>bonita-process-engine</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.bonitasoft.engine.core</groupId>
+            <artifactId>bonita-expression-resolver-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
         <!-- Tests -->
         <dependency>
             <groupId>junit</groupId>
@@ -48,5 +48,5 @@
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
         </dependency>
-	</dependencies>
+    </dependencies>
 </project>

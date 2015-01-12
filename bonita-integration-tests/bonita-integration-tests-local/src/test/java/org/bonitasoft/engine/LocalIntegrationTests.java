@@ -11,9 +11,9 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(BonitaSuiteRunner.class)
 @SuiteClasses({
-    BPMLocalSuiteTests.class,
-    BPMRemoteTests.class,
-    APIMethodIT.class })
+        BPMLocalSuiteTests.class,
+        BPMRemoteTests.class,
+        APIMethodIT.class })
 @Initializer(TestsInitializer.class)
 public class LocalIntegrationTests {
 

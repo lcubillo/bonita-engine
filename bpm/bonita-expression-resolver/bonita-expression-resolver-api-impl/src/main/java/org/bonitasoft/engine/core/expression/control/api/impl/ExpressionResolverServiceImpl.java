@@ -115,7 +115,7 @@ public class ExpressionResolverServiceImpl implements ExpressionResolverService 
             resolvedExpressions.putAll(evaluateAllExpressionsWithNoDependencies(dependencyValues, dataReplacement, expressions, newEvaluationContext));
 
             for (final SExpression sExpression : expressions) {
-                if(sExpression != null){
+                if (sExpression != null) {
                     // Then evaluate recursively all remaining expressions:
                     resolvedExpressions.putAll(evaluateExpressionWithResolvedDependencies(sExpression, dependencyValues, dataReplacement, resolvedExpressions,
                             newEvaluationContext.getContainerState()));
@@ -253,7 +253,7 @@ public class ExpressionResolverServiceImpl implements ExpressionResolverService 
     private Map<ExpressionKind, List<SExpression>> flattenDependencies(final Collection<SExpression> collection) {
         final Map<ExpressionKind, List<SExpression>> expressionMapByKind = new HashMap<ExpressionKind, List<SExpression>>();
         for (final SExpression sExpression : collection) {
-            if(sExpression == null){
+            if (sExpression == null) {
                 continue;
             }
             final ExpressionKind expressionKind = sExpression.getExpressionKind();

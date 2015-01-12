@@ -24,7 +24,7 @@ import org.bonitasoft.engine.data.instance.model.archive.impl.SADataInstanceImpl
 public class SADataInstanceBuilderImpl implements SADataInstanceBuilder {
 
     private final SADataInstanceImpl saDataInstanceImpl;
-    
+
     public SADataInstanceBuilderImpl(final SADataInstanceImpl saDataInstanceImpl) {
         super();
         this.saDataInstanceImpl = saDataInstanceImpl;

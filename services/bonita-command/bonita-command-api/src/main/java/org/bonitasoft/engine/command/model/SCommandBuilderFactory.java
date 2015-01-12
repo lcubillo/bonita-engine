@@ -29,7 +29,7 @@ public interface SCommandBuilderFactory {
     String getDescriptionKey();
 
     String getImplementationClassKey();
-    
+
     String getSystemKey();
 
 }

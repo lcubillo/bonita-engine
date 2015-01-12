@@ -8,7 +8,7 @@ import java.util.Map;
 public class MethodCall implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
+
     private final Map<String, Serializable> options;
     private final String apiInterfaceName;
     private final String methodName;
@@ -52,5 +52,4 @@ public class MethodCall implements Serializable {
                 + "]";
     }
 
-    
 }

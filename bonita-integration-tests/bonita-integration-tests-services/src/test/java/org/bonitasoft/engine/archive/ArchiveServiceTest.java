@@ -1,5 +1,8 @@
 package org.bonitasoft.engine.archive;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import org.bonitasoft.engine.CommonServiceTest;
 import org.bonitasoft.engine.archive.model.Address;
 import org.bonitasoft.engine.archive.model.Employee;
@@ -20,9 +23,6 @@ import org.bonitasoft.engine.test.util.TestUtil;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 public class ArchiveServiceTest extends CommonServiceTest {
 

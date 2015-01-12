@@ -5,12 +5,10 @@
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 2.0 of the License, or
  * (at your option) any later version.
- *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
- *
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
@@ -79,15 +77,14 @@ public class StepExpectation {
         }
     }
 
-
     private SearchResult<ArchivedFlowNodeInstance> getArchives(String step, boolean terminal, String state) throws SearchException {
         SearchOptionsBuilder builder = new SearchOptionsBuilder(0, 0);
         builder.filter(ArchivedFlowNodeInstanceSearchDescriptor.NAME, step);
         builder.filter(ArchivedFlowNodeInstanceSearchDescriptor.ROOT_PROCESS_INSTANCE_ID, process.getId());
-        if(terminal) {
+        if (terminal) {
             builder.filter(ArchivedFlowNodeInstanceSearchDescriptor.TERMINAL, true);
         }
-        if(state != null) {
+        if (state != null) {
             builder.filter(ArchivedFlowNodeInstanceSearchDescriptor.STATE_NAME, state);
         }
         return testCase.getProcessAPI().searchArchivedFlowNodeInstances(builder.done());

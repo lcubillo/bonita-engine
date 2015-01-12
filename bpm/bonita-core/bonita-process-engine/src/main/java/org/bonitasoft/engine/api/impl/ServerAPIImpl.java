@@ -224,7 +224,7 @@ public class ServerAPIImpl implements ServerAPI {
     }
 
     private ClassLoader beforeInvokeMethodForAPISession(final SessionAccessor sessionAccessor, final ServiceAccessorFactory serviceAccessorFactory,
-            final PlatformServiceAccessor platformServiceAccessor, final Session session) throws  SBonitaException, BonitaHomeNotSetException, IOException,
+            final PlatformServiceAccessor platformServiceAccessor, final Session session) throws SBonitaException, BonitaHomeNotSetException, IOException,
             BonitaHomeConfigurationException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
         final SessionService sessionService = platformServiceAccessor.getSessionService();
 
@@ -270,17 +270,19 @@ public class ServerAPIImpl implements ServerAPI {
         // No session required means that there is no transaction
         if (method.isAnnotationPresent(CustomTransactions.class) || method.isAnnotationPresent(NoSessionRequired.class)) {
             return invokeAPIOutsideTransaction(parametersValues, apiImpl, method, apiInterfaceName, session);
-        }else{
+        } else {
             return invokeAPIInTransaction(parametersValues, apiImpl, method, session, apiInterfaceName);
         }
     }
 
-    protected Object invokeAPIOutsideTransaction(Object[] parametersValues, Object apiImpl, Method method, String apiInterfaceName, Session session) throws Throwable {
+    protected Object invokeAPIOutsideTransaction(Object[] parametersValues, Object apiImpl, Method method, String apiInterfaceName, Session session)
+            throws Throwable {
         checkMethodAccessibility(apiImpl, apiInterfaceName, method, session, /* Not in transaction */false);
         return invokeAPI(parametersValues, apiImpl, method);
     }
 
-    protected void checkMethodAccessibility(final Object apiImpl, final String apiInterfaceName, final Method method, final Session session, boolean isInTransaction) {
+    protected void checkMethodAccessibility(final Object apiImpl, final String apiInterfaceName, final Method method, final Session session,
+            boolean isInTransaction) {
         if (!isNodeInAValidStateFor(method)) {
             logNodeNotStartedMessage(apiInterfaceName, method.getName());
             throw new NodeNotStartedException();
@@ -317,7 +319,8 @@ public class ServerAPIImpl implements ServerAPI {
         }
     }
 
-    protected Object invokeAPIInTransaction(final Object[] parametersValues, final Object apiImpl, final Method method, final Session session, final String apiInterfaceName) throws Throwable {
+    protected Object invokeAPIInTransaction(final Object[] parametersValues, final Object apiImpl, final Method method, final Session session,
+            final String apiInterfaceName) throws Throwable {
         if (session == null) {
             throw new BonitaRuntimeException("session is null");
         }

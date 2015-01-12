@@ -13,12 +13,6 @@
  **/
 package org.bonitasoft.engine.expression.impl;
 
-import groovy.lang.Binding;
-import groovy.lang.GroovyRuntimeException;
-import groovy.lang.GroovyShell;
-import groovy.lang.MissingPropertyException;
-import groovy.lang.Script;
-
 import java.util.Map;
 
 import org.bonitasoft.engine.cache.CacheService;
@@ -30,6 +24,12 @@ import org.bonitasoft.engine.expression.exception.SExpressionEvaluationException
 import org.bonitasoft.engine.expression.model.SExpression;
 import org.bonitasoft.engine.log.technical.TechnicalLogSeverity;
 import org.bonitasoft.engine.log.technical.TechnicalLoggerService;
+
+import groovy.lang.Binding;
+import groovy.lang.GroovyRuntimeException;
+import groovy.lang.GroovyShell;
+import groovy.lang.MissingPropertyException;
+import groovy.lang.Script;
 
 /**
  * @author Zhao na

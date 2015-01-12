@@ -29,40 +29,37 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-
-
 /**
  * @author Elias Ricken de Medeiros
- *
  */
 @RunWith(MockitoJUnitRunner.class)
 public class BoundaryCreationTokenProviderTest {
-    
+
     private static final long PARENT_TOKEN_REF_ID = 21L;
 
     private static final long PROCESS_INSTANCE_ID = 5L;
 
     private static final long FLOW_NODE_TOKEN_REF_ID = 6L;
-    
+
     private static final long FLOW_NODE_INSTANCE_ID = 7L;
-    
+
     private static final long BOUNDARY_DEFINITION_ID = 456L;
-    
-    @Mock 
+
+    @Mock
     private TokenService tokenService;
-    
+
     @Mock
     private SToken token;
-    
+
     @Mock
     private SActivityInstance relatedActivityInstance;
 
     @Mock
     private SBoundaryEventDefinition boundaryDefinition;
-    
+
     @InjectMocks
     BoundaryCreationTokenProvider tokenProvider;
-    
+
     @Before
     public void setUp() throws Exception {
         doReturn(BOUNDARY_DEFINITION_ID).when(boundaryDefinition).getId();
@@ -78,7 +75,7 @@ public class BoundaryCreationTokenProviderTest {
     @Test
     public void getTokenInfo_returns_current_tokenInfo_for_interrupting_boundary_event() throws Exception {
         doReturn(true).when(boundaryDefinition).isInterrupting();
-        
+
         TokenInfo tokenInfo = tokenProvider.getOutputTokenInfo();
         assertEquals(Long.valueOf(FLOW_NODE_TOKEN_REF_ID), tokenInfo.outputTokenRefId);
         assertEquals(Long.valueOf(PARENT_TOKEN_REF_ID), tokenInfo.outputParentTokenRefId);
@@ -87,7 +84,7 @@ public class BoundaryCreationTokenProviderTest {
     @Test
     public void getTokenInfo_returns_new_tokenInfo_with_boundary_definition_id_for_non_interrupting_boundary_event() throws Exception {
         doReturn(false).when(boundaryDefinition).isInterrupting();
-        
+
         TokenInfo tokenInfo = tokenProvider.getOutputTokenInfo();
         assertEquals(Long.valueOf(BOUNDARY_DEFINITION_ID), tokenInfo.outputTokenRefId);
         assertNull(tokenInfo.outputParentTokenRefId);

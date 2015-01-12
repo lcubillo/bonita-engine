@@ -27,7 +27,6 @@ import org.bonitasoft.engine.work.BonitaWork;
  * Don't use this work with {@link org.bonitasoft.engine.execution.work.TxBonitaWork}
  * 
  * @author Celine Souchet
- * 
  */
 public abstract class TxInHandleFailureWrappingWork extends WrappingBonitaWork {
 

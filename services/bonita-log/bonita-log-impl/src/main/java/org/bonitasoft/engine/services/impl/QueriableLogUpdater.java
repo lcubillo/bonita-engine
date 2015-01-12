@@ -22,13 +22,10 @@ import org.bonitasoft.engine.queriablelogger.model.builder.SQueriableLogBuilder;
 import org.bonitasoft.engine.queriablelogger.model.builder.SQueriableLogBuilderFactory;
 import org.bonitasoft.engine.services.QueriableLogSessionProvider;
 
-
 /**
  * @author Elias Ricken de Medeiros
- *
  */
 public class QueriableLogUpdater {
-
 
     /**
      *

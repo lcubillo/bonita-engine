@@ -22,14 +22,11 @@ import org.bonitasoft.engine.core.process.definition.model.SFlowNodeDefinition;
 import org.bonitasoft.engine.core.process.definition.model.SFlowNodeType;
 import org.bonitasoft.engine.core.process.definition.model.SProcessDefinition;
 
-
 /**
  * @author Elias Ricken de Medeiros
- *
  */
 public class AdvancedStartProcessValidator implements Validator<List<String>> {
-    
-    
+
     private final ProcessDefinitionService processDefinitionService;
     private final long processDefinitionId;
 
@@ -41,7 +38,7 @@ public class AdvancedStartProcessValidator implements Validator<List<String>> {
     @Override
     public List<String> validate(List<String> flowNodeNames) throws SBonitaException {
         List<String> problems = new ArrayList<String>();
-        if(flowNodeNames.isEmpty()) {
+        if (flowNodeNames.isEmpty()) {
             problems.add("The list of activity names to start cannot be empty!");
         }
         List<String> foundFlowNodes = new ArrayList<String>(flowNodeNames.size());
@@ -63,7 +60,7 @@ public class AdvancedStartProcessValidator implements Validator<List<String>> {
     private List<String> checkForNotFoundFlowNodes(List<String> flowNodeNames, List<String> foundFlowNodes, SProcessDefinition processDefinition) {
         List<String> problems = new ArrayList<String>();
         for (String flowNodeName : flowNodeNames) {
-            if(!foundFlowNodes.contains(flowNodeName)) {
+            if (!foundFlowNodes.contains(flowNodeName)) {
                 problems.add(buildFlowNodeNotFoundErroMessage(processDefinition, flowNodeName));
             }
         }

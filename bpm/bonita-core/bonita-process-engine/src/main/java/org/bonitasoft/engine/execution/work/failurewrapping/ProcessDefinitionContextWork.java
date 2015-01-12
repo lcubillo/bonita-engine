@@ -34,9 +34,9 @@ public class ProcessDefinitionContextWork extends TxInHandleFailureWrappingWork 
 
     /**
      * @param wrappedWork
-     *            The work to wrap
+     *        The work to wrap
      * @param processDefinitionId
-     *            The identifier of the process definition
+     *        The identifier of the process definition
      */
     public ProcessDefinitionContextWork(final BonitaWork wrappedWork, final long processDefinitionId) {
         super(wrappedWork);
@@ -64,7 +64,7 @@ public class ProcessDefinitionContextWork extends TxInHandleFailureWrappingWork 
 
     /**
      * @param processDefinitionId
-     *            The identifier of the process definition
+     *        The identifier of the process definition
      * @since 6.3
      */
     protected void setProcessDefinitionId(long processDefinitionId) {

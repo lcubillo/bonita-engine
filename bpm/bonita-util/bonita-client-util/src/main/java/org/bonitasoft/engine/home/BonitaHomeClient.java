@@ -45,7 +45,7 @@ public final class BonitaHomeClient extends BonitaHome {
     }
 
     /**
-     * @return the path to the client part of the  bonita home
+     * @return the path to the client part of the bonita home
      * @throws BonitaHomeNotSetException
      *         when bonita.home system property is not set
      * @since 6.0.0

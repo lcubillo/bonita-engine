@@ -171,14 +171,19 @@ public class QueryOptions implements Serializable {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof QueryOptions)) return false;
+        if (this == o)
+            return true;
+        if (!(o instanceof QueryOptions))
+            return false;
 
         QueryOptions that = (QueryOptions) o;
 
-        if (fromIndex != that.fromIndex) return false;
-        if (numberOfResults != that.numberOfResults) return false;
-        if (filters != null ? !filters.equals(that.filters) : that.filters != null) return false;
+        if (fromIndex != that.fromIndex)
+            return false;
+        if (numberOfResults != that.numberOfResults)
+            return false;
+        if (filters != null ? !filters.equals(that.filters) : that.filters != null)
+            return false;
         if (multipleFilter != null ? !multipleFilter.equals(that.multipleFilter) : that.multipleFilter != null)
             return false;
         if (orderByOptions != null ? !orderByOptions.equals(that.orderByOptions) : that.orderByOptions != null)

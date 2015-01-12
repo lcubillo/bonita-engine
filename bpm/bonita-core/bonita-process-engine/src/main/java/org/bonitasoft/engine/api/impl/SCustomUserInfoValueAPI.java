@@ -72,7 +72,7 @@ public class SCustomUserInfoValueAPI {
             SBonitaReadException {
 
         SCustomUserInfoValue customUserInfoValue = searchValue(definitionId, userId);
-        if(value == null || value.isEmpty()) {
+        if (value == null || value.isEmpty()) {
             delete(customUserInfoValue);
             return createValue(definitionId, userId, value);
         }
@@ -87,7 +87,7 @@ public class SCustomUserInfoValueAPI {
     }
 
     public void delete(SCustomUserInfoValue value) throws SIdentityException {
-        if(value != null) {
+        if (value != null) {
             service.deleteCustomUserInfoValue(value);
         }
     }
@@ -103,12 +103,12 @@ public class SCustomUserInfoValueAPI {
         List<SCustomUserInfoValue> result = service.searchCustomUserInfoValue(new QueryOptions(
                 0,
                 1,
-                Collections.<OrderByOption>emptyList(),
+                Collections.<OrderByOption> emptyList(),
                 Arrays.asList(
                         new FilterOption(SCustomUserInfoValue.class, creatorFactory.getDefinitionIdKey(), definitionId),
                         new FilterOption(SCustomUserInfoValue.class, creatorFactory.getUserIdKey(), userId)),
                 null));
-        if(result.size() == 0) {
+        if (result.size() == 0) {
             return null;
         }
         return result.get(0);

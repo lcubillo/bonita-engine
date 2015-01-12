@@ -16,10 +16,8 @@ package org.bonitasoft.engine.scheduler.impl;
 import org.bonitasoft.engine.scheduler.model.SJobLog;
 import org.mockito.ArgumentMatcher;
 
-
 /**
  * @author Elias Ricken de Medeiros
- *
  */
 public class SJobLogMatcher extends ArgumentMatcher<SJobLog> {
 
@@ -32,17 +30,17 @@ public class SJobLogMatcher extends ArgumentMatcher<SJobLog> {
         this.exceptionClass = exceptionClass;
         this.retryNumber = retryNumber;
     }
-    
+
     @Override
     public boolean matches(Object argument) {
         SJobLog jobLog = (SJobLog) argument;
-        if(jobLog == null) {
+        if (jobLog == null) {
             return false;
         }
-        if(jobLog.getJobDescriptorId() != jobDescriptorId) {
+        if (jobLog.getJobDescriptorId() != jobDescriptorId) {
             return false;
         }
-        if(!jobLog.getLastMessage().contains(exceptionClass)) {
+        if (!jobLog.getLastMessage().contains(exceptionClass)) {
             return false;
         }
         if (jobLog.getRetryNumber() != retryNumber) {

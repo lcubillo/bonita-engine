@@ -13,6 +13,8 @@
  **/
 package org.bonitasoft.engine.data.instance.model.builder.impl;
 
+import java.util.Date;
+
 import org.bonitasoft.engine.data.definition.model.SDataDefinition;
 import org.bonitasoft.engine.data.definition.model.STextDataDefinition;
 import org.bonitasoft.engine.data.definition.model.SXMLDataDefinition;
@@ -31,8 +33,6 @@ import org.bonitasoft.engine.data.instance.model.impl.SShortTextDataInstanceImpl
 import org.bonitasoft.engine.data.instance.model.impl.SXMLDataInstanceImpl;
 import org.bonitasoft.engine.data.instance.model.impl.SXMLObjectDataInstanceImpl;
 import org.bonitasoft.engine.expression.model.SExpression;
-
-import java.util.Date;
 
 /**
  * @author Zhao Na

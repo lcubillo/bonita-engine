@@ -14,7 +14,7 @@
 
 package org.bonitasoft.engine.scheduler.impl;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;

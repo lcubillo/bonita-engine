@@ -25,7 +25,6 @@ import org.bonitasoft.engine.search.descriptor.SearchEntityDescriptor;
 
 /**
  * @author Hongwen Zang
- * 
  */
 public class SearchCommentsManagedBy extends AbstractCommentSearchEntity {
 

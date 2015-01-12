@@ -24,7 +24,6 @@ import javax.xml.validation.SchemaFactory;
 
 /**
  * @author Elias Ricken de Medeiros
- *
  */
 public class SchemaLoader {
 

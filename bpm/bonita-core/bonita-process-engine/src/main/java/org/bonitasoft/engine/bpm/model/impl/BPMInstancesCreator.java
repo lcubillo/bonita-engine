@@ -556,7 +556,7 @@ public class BPMInstancesCreator {
                     .createNewInstance(sConnectorDefinition.getName(), container.getId(), containerType,
                             sConnectorDefinition.getConnectorId(), sConnectorDefinition.getVersion(), sConnectorDefinition.getActivationEvent(),
                             executionOrder++)
-                            .done());
+                    .done());
         }
         final CreateConnectorInstances transaction = new CreateConnectorInstances(connectorInstances, connectorInstanceService);
         transaction.execute();
@@ -650,7 +650,7 @@ public class BPMInstancesCreator {
 
     private void createDataForProcess(final SProcessInstance processInstance, final SProcessDefinition processDefinition,
             final List<SDataInstance> sDataInstances)
-                    throws SDataInstanceException, SFlowNodeNotFoundException, SFlowNodeReadException {
+            throws SDataInstanceException, SFlowNodeNotFoundException, SFlowNodeReadException {
         if (!sDataInstances.isEmpty()) {
             for (final SDataInstance sDataInstance : sDataInstances) {
                 dataInstanceService.createDataInstance(sDataInstance);
@@ -696,7 +696,7 @@ public class BPMInstancesCreator {
 
     private void createDataInstances(final List<SDataDefinition> dataDefinitions, final long containerId, final DataInstanceContainer containerType,
             final SExpressionContext expressionContext, final String loopDataInputRef, final int index, final String dataInputRef, final long parentContainerId)
-                    throws SDataInstanceException, SExpressionException {
+            throws SDataInstanceException, SExpressionException {
         for (final SDataDefinition dataDefinition : dataDefinitions) {
             Serializable dataValue = null;
             if (dataDefinition.getName().equals(dataInputRef)) {

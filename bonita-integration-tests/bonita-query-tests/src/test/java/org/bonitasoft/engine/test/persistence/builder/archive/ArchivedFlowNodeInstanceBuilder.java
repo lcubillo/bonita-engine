@@ -15,7 +15,6 @@
 package org.bonitasoft.engine.test.persistence.builder.archive;
 
 import org.bonitasoft.engine.core.process.instance.model.archive.impl.SAFlowNodeInstanceImpl;
-import org.bonitasoft.engine.test.persistence.builder.PersistentObjectBuilder;
 
 public abstract class ArchivedFlowNodeInstanceBuilder<T extends SAFlowNodeInstanceImpl, B extends ArchivedFlowNodeInstanceBuilder<T, B>> extends
         ArchivedPersistentObjectBuilder<T, B> {

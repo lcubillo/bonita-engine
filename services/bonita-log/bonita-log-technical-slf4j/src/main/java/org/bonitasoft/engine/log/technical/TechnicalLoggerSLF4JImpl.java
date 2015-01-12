@@ -169,7 +169,7 @@ public class TechnicalLoggerSLF4JImpl implements TechnicalLoggerService {
      * Get the logger from the logger "cache", or retrieves it if not found (and then put it in "cache")
      * 
      * @param clazz
-     *            the class of the logger to retrieve
+     *        the class of the logger to retrieve
      * @return the logger for the given class
      * @since 6.0
      */

@@ -4,8 +4,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Matchers.anyLong;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.doReturn;
-import groovy.lang.GroovyShell;
-import groovy.lang.Script;
 
 import java.util.Arrays;
 
@@ -20,6 +18,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+
+import groovy.lang.GroovyShell;
+import groovy.lang.Script;
 
 @RunWith(MockitoJUnitRunner.class)
 public class GroovyScriptExpressionExecutorCacheStrategyTest {

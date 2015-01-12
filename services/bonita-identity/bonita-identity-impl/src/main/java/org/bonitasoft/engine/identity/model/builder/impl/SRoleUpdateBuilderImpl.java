@@ -81,4 +81,5 @@ public class SRoleUpdateBuilderImpl implements SRoleUpdateBuilder {
     public SRoleUpdateBuilder updateLastUpdate(final long lastUpdate) {
         descriptor.addField(SRoleBuilderFactoryImpl.LAST_UPDATE, lastUpdate);
         return this;
-    }}
+    }
+}

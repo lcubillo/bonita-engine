@@ -28,5 +28,5 @@ public class SProcessDefinitionDeployInfoUpdateBuilderFactoryImpl implements SPr
     public SProcessDefinitionDeployInfoUpdateBuilder createNewInstance() {
         return new SProcessDefinitionDeployInfoUpdateBuilderImpl(new EntityUpdateDescriptor());
     }
-    
+
 }

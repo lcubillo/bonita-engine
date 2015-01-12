@@ -299,8 +299,7 @@ public class ProcessDefinitionServiceImplTest {
     }
 
     /**
-     * Test method for
-     * {@link ProcessDefinitionService#getProcessDefinitionId(String, String)}.
+     * Test method for {@link ProcessDefinitionService#getProcessDefinitionId(String, String)}.
      */
     @Test
     public void getProcessDefinitionId_should_return_id_of_process_definition_with_given_name_and_version() throws Exception {

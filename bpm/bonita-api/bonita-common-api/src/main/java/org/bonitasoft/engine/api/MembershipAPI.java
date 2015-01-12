@@ -38,18 +38,18 @@ public interface MembershipAPI {
      * The association is called a user membership.
      * 
      * @param userId
-     *            the identifier of the user
+     *        the identifier of the user
      * @param groupId
-     *            the identifier of the group
+     *        the identifier of the group
      * @param roleId
-     *            the identifier of the role
+     *        the identifier of the role
      * @return the user membership
      * @throws AlreadyExistsException
-     *             If the triplet userId/groupId/roleId is already taken by an existing user membership
+     *         If the triplet userId/groupId/roleId is already taken by an existing user membership
      * @throws CreationException
-     *             If an exception occurs during the user membership creation
+     *         If an exception occurs during the user membership creation
      * @throws InvalidSessionException
-     *             If the session is invalid (expired, unknown, ...)
+     *         If the session is invalid (expired, unknown, ...)
      * @since 6.0
      */
     UserMembership addUserMembership(long userId, long groupId, long roleId) throws AlreadyExistsException, CreationException;
@@ -59,17 +59,17 @@ public interface MembershipAPI {
      * The association is called a user membership.
      * 
      * @param userIds
-     *            the identifiers of the users
+     *        the identifiers of the users
      * @param groupId
-     *            the identifier of the group
+     *        the identifier of the group
      * @param roleId
-     *            the identifier of the role
+     *        the identifier of the role
      * @throws AlreadyExistsException
-     *             If the triplet userId/groupId/roleId is already taken by an existing user membership
+     *         If the triplet userId/groupId/roleId is already taken by an existing user membership
      * @throws CreationException
-     *             If an exception occurs during the user membership creation
+     *         If an exception occurs during the user membership creation
      * @throws InvalidSessionException
-     *             If the session is invalid (expired, unknown, ...)
+     *         If the session is invalid (expired, unknown, ...)
      * @since 6.0
      */
     void addUserMemberships(List<Long> userIds, long groupId, long roleId) throws AlreadyExistsException, CreationException;
@@ -79,18 +79,18 @@ public interface MembershipAPI {
      * It associates the user membership to the new role and group identifiers.
      * 
      * @param userMembershipId
-     *            the identifier of the user membership
+     *        the identifier of the user membership
      * @param newGroupId
-     *            the identifier of the new group
+     *        the identifier of the new group
      * @param newRoleId
-     *            the identifier of the new role
+     *        the identifier of the new role
      * @return the updated user membership
      * @throws MembershipNotFoundException
-     *             If the identifier of the user membership does not refer to an existing user membership
+     *         If the identifier of the user membership does not refer to an existing user membership
      * @throws UpdateException
-     *             If an exception occurs during the user membership update
+     *         If an exception occurs during the user membership update
      * @throws InvalidSessionException
-     *             If the session is invalid (expired, unknown, ...)
+     *         If the session is invalid (expired, unknown, ...)
      * @since 6.0
      */
     UserMembership updateUserMembership(long userMembershipId, long newGroupId, long newRoleId) throws MembershipNotFoundException, UpdateException;
@@ -99,11 +99,11 @@ public interface MembershipAPI {
      * Deletes the user membership.
      * 
      * @param userMembershipId
-     *            the identifier of the user membership
+     *        the identifier of the user membership
      * @throws DeletionException
-     *             If an exception occurs during the user membership deletion
+     *         If an exception occurs during the user membership deletion
      * @throws InvalidSessionException
-     *             If the session is invalid (expired, unknown, ...)
+     *         If the session is invalid (expired, unknown, ...)
      * @since 6.0
      */
     void deleteUserMembership(long userMembershipId) throws DeletionException;
@@ -112,15 +112,15 @@ public interface MembershipAPI {
      * Deletes the user membership.
      * 
      * @param userId
-     *            the identifier of the user
+     *        the identifier of the user
      * @param groupId
-     *            the identifier of the group
+     *        the identifier of the group
      * @param roleId
-     *            the identifier of the role
+     *        the identifier of the role
      * @throws DeletionException
-     *             If an exception occurs during the user membership deletion
+     *         If an exception occurs during the user membership deletion
      * @throws InvalidSessionException
-     *             If the session is invalid (expired, unknown, ...)
+     *         If the session is invalid (expired, unknown, ...)
      * @since 6.0
      */
     void deleteUserMembership(long userId, long groupId, long roleId) throws DeletionException;
@@ -129,15 +129,15 @@ public interface MembershipAPI {
      * Deletes the user memberships.
      * 
      * @param userIds
-     *            the identifiers of the users
+     *        the identifiers of the users
      * @param groupId
-     *            the identifier of the group
+     *        the identifier of the group
      * @param roleId
-     *            the identifier of the role
+     *        the identifier of the role
      * @throws DeletionException
-     *             If an exception occurs during the user membership deletion
+     *         If an exception occurs during the user membership deletion
      * @throws InvalidSessionException
-     *             If the session is invalid (expired, unknown, ...)
+     *         If the session is invalid (expired, unknown, ...)
      * @since 6.0
      */
     void deleteUserMemberships(List<Long> userIds, long groupId, long roleId) throws DeletionException;
@@ -146,14 +146,14 @@ public interface MembershipAPI {
      * Retrieves the user membership.
      * 
      * @param membershipId
-     *            the identifier of the user membership to retrieve.
+     *        the identifier of the user membership to retrieve.
      * @return the found <code>UserMembership</code> with the provided id
      * @throws MembershipNotFoundException
-     *             If the identifier of the user membership does not refer to an existing user membership
+     *         If the identifier of the user membership does not refer to an existing user membership
      * @throws RetrieveException
-     *             If an exception occurs during the user membership retrieving
+     *         If an exception occurs during the user membership retrieving
      * @throws InvalidSessionException
-     *             If the session is invalid (expired, unknown, ...)
+     *         If the session is invalid (expired, unknown, ...)
      */
     UserMembership getUserMembership(long membershipId) throws MembershipNotFoundException;
 
@@ -161,12 +161,12 @@ public interface MembershipAPI {
      * Returns the total number of memberships of the user.
      * 
      * @param userId
-     *            the identifier of the user
+     *        the identifier of the user
      * @return the total number of memberships of the user
      * @throws RetrieveException
-     *             If an exception occurs during the count retrieving
+     *         If an exception occurs during the count retrieving
      * @throws InvalidSessionException
-     *             If the session is invalid (expired, unknown, ...)
+     *         If the session is invalid (expired, unknown, ...)
      */
     long getNumberOfUserMemberships(long userId);
 
@@ -175,18 +175,18 @@ public interface MembershipAPI {
      * It retrieves from the startIndex to the startIndex + maxResults.
      * 
      * @param userId
-     *            the identifier of the user
+     *        the identifier of the user
      * @param startIndex
-     *            the start index
+     *        the start index
      * @param maxResults
-     *            the max number of user memberships
+     *        the max number of user memberships
      * @param criterion
-     *            the sorting criterion
+     *        the sorting criterion
      * @return the paginated list of user memberships
      * @throws RetrieveException
-     *             If an exception occurs during the count retrieving
+     *         If an exception occurs during the count retrieving
      * @throws InvalidSessionException
-     *             If the session is invalid (expired, unknown, ...)
+     *         If the session is invalid (expired, unknown, ...)
      * @since 6.0
      */
     List<UserMembership> getUserMemberships(long userId, int startIndex, int maxResults, UserMembershipCriterion criterion);
@@ -196,16 +196,16 @@ public interface MembershipAPI {
      * It retrieves from the startIndex to the startIndex + maxResults.
      * 
      * @param groupId
-     *            the identifier of the group
+     *        the identifier of the group
      * @param startIndex
-     *            the start index
+     *        the start index
      * @param maxResults
-     *            the max number of user memberships
+     *        the max number of user memberships
      * @return the paginated list of user memberships
      * @throws RetrieveException
-     *             If an exception occurs during the count retrieving
+     *         If an exception occurs during the count retrieving
      * @throws InvalidSessionException
-     *             If the session is invalid (expired, unknown, ...)
+     *         If the session is invalid (expired, unknown, ...)
      * @since 6.0
      */
     List<UserMembership> getUserMembershipsByGroup(long groupId, final int startIndex, final int maxResults);
@@ -215,16 +215,16 @@ public interface MembershipAPI {
      * It retrieves from the startIndex to the startIndex + maxResults.
      * 
      * @param roleId
-     *            the identifier of the role
+     *        the identifier of the role
      * @param startIndex
-     *            the start index
+     *        the start index
      * @param maxResults
-     *            the max number of user memberships
+     *        the max number of user memberships
      * @return the paginated list of user memberships
      * @throws RetrieveException
-     *             If an exception occurs during the count retrieving
+     *         If an exception occurs during the count retrieving
      * @throws InvalidSessionException
-     *             If the session is invalid (expired, unknown, ...)
+     *         If the session is invalid (expired, unknown, ...)
      * @since 6.0
      */
     List<UserMembership> getUserMembershipsByRole(long roleId, int startIndex, int maxResults);

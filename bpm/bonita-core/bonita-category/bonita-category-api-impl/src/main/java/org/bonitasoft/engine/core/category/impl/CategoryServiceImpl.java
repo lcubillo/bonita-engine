@@ -59,11 +59,8 @@ import org.bonitasoft.engine.recorder.model.EntityUpdateDescriptor;
 import org.bonitasoft.engine.recorder.model.InsertRecord;
 import org.bonitasoft.engine.recorder.model.UpdateRecord;
 import org.bonitasoft.engine.services.QueriableLoggerService;
-import org.bonitasoft.engine.session.SSessionNotFoundException;
 import org.bonitasoft.engine.session.SessionService;
-import org.bonitasoft.engine.session.model.SSession;
 import org.bonitasoft.engine.sessionaccessor.ReadSessionAccessor;
-import org.bonitasoft.engine.sessionaccessor.SessionIdNotSetException;
 
 /**
  * @author Yanyan Liu

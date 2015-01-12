@@ -13,9 +13,12 @@
  **/
 package org.bonitasoft.engine.external.permission;
 
-import static org.assertj.core.api.Assertions.*;
-import static org.mockito.Matchers.*;
-import static org.mockito.Mockito.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Matchers.anyLong;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -27,16 +30,13 @@ import org.bonitasoft.engine.command.SCommandExecutionException;
 import org.bonitasoft.engine.command.SCommandParameterizationException;
 import org.bonitasoft.engine.core.process.instance.api.ActivityInstanceService;
 import org.bonitasoft.engine.core.process.instance.model.SHumanTaskInstance;
-import org.bonitasoft.engine.service.ServiceAccessor;
 import org.bonitasoft.engine.service.TenantServiceAccessor;
 import org.bonitasoft.engine.session.SessionService;
-import org.bonitasoft.engine.session.model.SSession;
 import org.bonitasoft.engine.sessionaccessor.SessionAccessor;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.Spy;
 import org.mockito.runners.MockitoJUnitRunner;
 
 /**
@@ -64,7 +64,6 @@ public class IsInvolvedInHumanTaskTest {
     SessionService sessionService;
 
     IsInvolvedInHumanTask isInvolvedInHumanTask = new IsInvolvedInHumanTask();
-
 
     @Before
     public void setup() throws Exception {
@@ -100,7 +99,7 @@ public class IsInvolvedInHumanTaskTest {
 
     @Test
     public final void should_return_true_when_current_user_wants_to_execute_assigned_task() throws SCommandParameterizationException,
-    SCommandExecutionException {
+            SCommandExecutionException {
         // Given
         final Map<String, Serializable> parameters = new HashMap<String, Serializable>();
         parameters.put(IsInvolvedInHumanTask.USER_ID_KEY, -1l);
@@ -116,7 +115,7 @@ public class IsInvolvedInHumanTaskTest {
 
     @Test
     public final void should_return_false_when_current_user_wants_to_execute_someone_else_assigned_task() throws SCommandParameterizationException,
-    SCommandExecutionException {
+            SCommandExecutionException {
         // Given
         final Map<String, Serializable> parameters = new HashMap<String, Serializable>();
         parameters.put(IsInvolvedInHumanTask.USER_ID_KEY, -1l);
@@ -147,7 +146,7 @@ public class IsInvolvedInHumanTaskTest {
 
     @Test
     public final void should_return_true_when_current_user_wants_to_execute_someone_else_assigned_task_with_do_for() throws SCommandParameterizationException,
-    SCommandExecutionException {
+            SCommandExecutionException {
         // Given
         final Map<String, Serializable> parameters = new HashMap<String, Serializable>();
         parameters.put(IsInvolvedInHumanTask.USER_ID_KEY, 5l);

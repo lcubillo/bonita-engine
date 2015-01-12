@@ -1,8 +1,10 @@
 package org.bonitasoft.engine.service.impl;
 
-import static org.assertj.core.api.Assertions.*;
-import static org.mockito.Matchers.*;
-import static org.mockito.Mockito.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 import java.util.Properties;
 
@@ -17,7 +19,6 @@ import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
-
 @PrepareForTest({ SpringPlatformFileSystemBeanAccessor.class })
 @RunWith(PowerMockRunner.class)
 public class SpringTenantFileSystemBeanAccessorTest {
@@ -31,10 +32,10 @@ public class SpringTenantFileSystemBeanAccessorTest {
     AbsoluteFileSystemXmlApplicationContext absoluteFileSystemXmlApplicationContext;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         MockitoAnnotations.initMocks(this);
     }
-    
+
     @Test
     public void testInitializeContextShouldExecuteCorrectly() throws Exception {
         Properties props = new Properties();

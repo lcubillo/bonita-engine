@@ -29,7 +29,7 @@ import org.bonitasoft.engine.identity.UserMembership;
 public class OrganizationCreator {
 
     private final List<CustomUserInfoDefinitionCreator> customUserInfoDefinitionCreators;
-    
+
     private final List<ExportedUser> users;
 
     private final List<RoleCreator> roles;
@@ -38,7 +38,8 @@ public class OrganizationCreator {
 
     private final List<UserMembership> memberships;
 
-    public OrganizationCreator(final List<ExportedUser> users, final List<RoleCreator> roles, final List<GroupCreator> groups, final List<UserMembership> memberships,
+    public OrganizationCreator(final List<ExportedUser> users, final List<RoleCreator> roles, final List<GroupCreator> groups,
+            final List<UserMembership> memberships,
             List<CustomUserInfoDefinitionCreator> customUserInfoDefinitionCreators) {
         this.users = users;
         this.roles = roles;
@@ -46,7 +47,7 @@ public class OrganizationCreator {
         this.memberships = memberships;
         this.customUserInfoDefinitionCreators = customUserInfoDefinitionCreators;
     }
-    
+
     public List<CustomUserInfoDefinitionCreator> getCustomUserInfoDefinitionCreators() {
         return customUserInfoDefinitionCreators;
     }

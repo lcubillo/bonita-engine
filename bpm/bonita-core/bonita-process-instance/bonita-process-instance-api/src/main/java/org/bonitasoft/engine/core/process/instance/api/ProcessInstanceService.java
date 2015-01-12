@@ -574,5 +574,4 @@ public interface ProcessInstanceService {
 
     long getNumberOfProcessInstances(long processDefinitionId) throws SBonitaReadException;
 
-
 }

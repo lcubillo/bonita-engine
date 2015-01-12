@@ -33,7 +33,8 @@ public class SMessageInstanceBuilderFactoryImpl implements SMessageInstanceBuild
 
     @Override
     public SMessageInstanceBuilder createNewInstance(final SMessageInstance message) {
-        final SMessageInstanceImpl entity = new SMessageInstanceImpl(message.getMessageName(), message.getTargetProcess(), message.getTargetFlowNode(), message.getProcessDefinitionId(),
+        final SMessageInstanceImpl entity = new SMessageInstanceImpl(message.getMessageName(), message.getTargetProcess(), message.getTargetFlowNode(),
+                message.getProcessDefinitionId(),
                 message.getFlowNodeName());
         return new SMessageInstanceBuilderImpl(entity);
     }

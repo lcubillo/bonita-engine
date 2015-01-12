@@ -14,10 +14,9 @@
 package org.bonitasoft.engine.test.persistence.repository;
 
 import java.util.List;
-import java.util.Map;
 
-import org.bonitasoft.engine.core.process.instance.model.SHumanTaskInstance;
 import org.bonitasoft.engine.core.process.instance.model.SFlowNodeInstanceStateCounter;
+import org.bonitasoft.engine.core.process.instance.model.SHumanTaskInstance;
 import org.bonitasoft.engine.persistence.QueryOptions;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;

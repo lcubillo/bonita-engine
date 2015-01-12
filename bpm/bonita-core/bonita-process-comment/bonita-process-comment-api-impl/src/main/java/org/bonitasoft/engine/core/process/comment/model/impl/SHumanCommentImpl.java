@@ -17,7 +17,6 @@ import org.bonitasoft.engine.core.process.comment.model.SHumanComment;
 
 /**
  * @author Hongwen Zang
- * 
  */
 public class SHumanCommentImpl extends SCommentImpl implements SHumanComment {
 

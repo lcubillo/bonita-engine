@@ -110,9 +110,9 @@ public class SelectDescriptorBuilder {
      * Returns the list of all activities with specific state (within a Set of states), and for a specific process instance.
      * 
      * @param clazz
-     *            the <code>Class</code> of the persistent object.
+     *        the <code>Class</code> of the persistent object.
      * @param processInstanceId
-     *            the process
+     *        the process
      * @param stateIds
      * @param queryOptions
      * @return

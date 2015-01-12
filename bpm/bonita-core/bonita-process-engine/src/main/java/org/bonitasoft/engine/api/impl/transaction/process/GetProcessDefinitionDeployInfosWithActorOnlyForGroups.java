@@ -32,7 +32,8 @@ public class GetProcessDefinitionDeployInfosWithActorOnlyForGroups extends Abstr
 
     private final ProcessDefinitionService processDefinitionService;
 
-    public GetProcessDefinitionDeployInfosWithActorOnlyForGroups(final ProcessDefinitionService processDefinitionService, final SearchEntityDescriptor searchDescriptor,
+    public GetProcessDefinitionDeployInfosWithActorOnlyForGroups(final ProcessDefinitionService processDefinitionService,
+            final SearchEntityDescriptor searchDescriptor,
             final int fromIndex, final int numberOfResults, final ProcessDeploymentInfoCriterion criterion, final List<Long> groupIds) {
         super(searchDescriptor, fromIndex, numberOfResults, criterion);
         this.groupIds = groupIds;

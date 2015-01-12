@@ -24,14 +24,13 @@ public class AbstractDBPersistenceServiceTest {
      * Dummy implementation for testing purpose : we are not interested in the data manipulation behaviour.
      *
      * @author Laurent Vaills
-     *
      */
     class DummyDBPersistenceService extends AbstractDBPersistenceService {
 
         public DummyDBPersistenceService(final String name, final DBConfigurationsProvider dbConfigurationsProvider, final String statementDelimiter,
                 final String likeEscapeCharacter, final SequenceManager sequenceManager,
                 final DataSource datasource, final boolean enableWordSearch, final Set<String> wordSearchExclusionMappings, final TechnicalLoggerService logger)
-                        throws ClassNotFoundException {
+                throws ClassNotFoundException {
             super(name, dbConfigurationsProvider, statementDelimiter, likeEscapeCharacter, sequenceManager, datasource, enableWordSearch,
                     wordSearchExclusionMappings, logger);
         }
@@ -274,7 +273,7 @@ public class AbstractDBPersistenceServiceTest {
 
     private void executeIsWordSearchEnabled(final boolean enableWordSearch, final Set<String> wordSearchExclusionMappings,
             final Class<? extends PersistentObject> entityClass, final boolean expectedResult)
-                    throws ClassNotFoundException {
+            throws ClassNotFoundException {
         final DBConfigurationsProvider dbConfigurationsProvider = mock(DBConfigurationsProvider.class);
         final SequenceManager sequenceManager = mock(SequenceManager.class);
         final DataSource datasource = mock(DataSource.class);

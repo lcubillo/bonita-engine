@@ -13,7 +13,6 @@
  **/
 package org.bonitasoft.engine.data.instance.model.builder;
 
-
 /**
  * @author Baptiste Mesta
  */

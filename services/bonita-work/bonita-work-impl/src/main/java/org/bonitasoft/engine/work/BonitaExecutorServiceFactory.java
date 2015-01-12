@@ -13,7 +13,6 @@
  **/
 package org.bonitasoft.engine.work;
 
-
 /**
  * A factory to create executor service that will be given to the WorkService
  * 

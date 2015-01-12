@@ -13,7 +13,6 @@
  */
 package org.bonitasoft.engine.cache;
 
-
 /**
  * Service that helps you to cache objects
  * Objects must be stored in a specific cache and this cache must exists

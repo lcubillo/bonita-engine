@@ -22,7 +22,6 @@ public interface Trigger {
 
     /**
      * Specify what to do when some job were not triggered in time.
-     * 
      */
     public enum MisfireRestartPolicy {
         /**
@@ -66,7 +65,6 @@ public interface Trigger {
     int getPriority();
 
     /**
-     * 
      * Tell the scheduler how to handle jobs that were not executed in time.
      * 
      * @return the MisfireHandlingPolicy for this trigger

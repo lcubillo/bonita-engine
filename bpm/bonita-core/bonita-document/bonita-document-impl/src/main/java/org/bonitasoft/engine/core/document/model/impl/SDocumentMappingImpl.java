@@ -32,7 +32,6 @@ public class SDocumentMappingImpl implements SDocumentMapping {
     private String version;
     private int index;
 
-
     public SDocumentMappingImpl() {
     }
 
@@ -46,7 +45,6 @@ public class SDocumentMappingImpl implements SDocumentMapping {
     public String getDiscriminator() {
         return SDocumentMappingImpl.class.getName();
     }
-
 
     public long getId() {
         return id;
@@ -114,19 +112,29 @@ public class SDocumentMappingImpl implements SDocumentMapping {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
 
         SDocumentMappingImpl that = (SDocumentMappingImpl) o;
 
-        if (documentId != that.documentId) return false;
-        if (id != that.id) return false;
-        if (index != that.index) return false;
-        if (processInstanceId != that.processInstanceId) return false;
-        if (tenantId != that.tenantId) return false;
-        if (description != null ? !description.equals(that.description) : that.description != null) return false;
-        if (name != null ? !name.equals(that.name) : that.name != null) return false;
-        if (version != null ? !version.equals(that.version) : that.version != null) return false;
+        if (documentId != that.documentId)
+            return false;
+        if (id != that.id)
+            return false;
+        if (index != that.index)
+            return false;
+        if (processInstanceId != that.processInstanceId)
+            return false;
+        if (tenantId != that.tenantId)
+            return false;
+        if (description != null ? !description.equals(that.description) : that.description != null)
+            return false;
+        if (name != null ? !name.equals(that.name) : that.name != null)
+            return false;
+        if (version != null ? !version.equals(that.version) : that.version != null)
+            return false;
 
         return true;
     }

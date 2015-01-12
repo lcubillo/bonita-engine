@@ -21,8 +21,8 @@ import java.util.Map.Entry;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.locks.Lock;
 
-import org.bonitasoft.engine.cache.SCacheException;
 import org.bonitasoft.engine.cache.CommonCacheService;
+import org.bonitasoft.engine.cache.SCacheException;
 import org.bonitasoft.engine.log.technical.TechnicalLogSeverity;
 import org.bonitasoft.engine.log.technical.TechnicalLoggerService;
 

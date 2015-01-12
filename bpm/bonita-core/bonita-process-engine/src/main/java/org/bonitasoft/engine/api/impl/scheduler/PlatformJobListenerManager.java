@@ -22,6 +22,7 @@ import org.bonitasoft.engine.scheduler.exception.SSchedulerException;
 
 /**
  * Manage {@link org.bonitasoft.engine.scheduler.AbstractBonitaPlatformJobListener}s.
+ * 
  * @author Elias Ricken de Medeiros
  */
 public class PlatformJobListenerManager {
@@ -34,6 +35,7 @@ public class PlatformJobListenerManager {
 
     /**
      * Register {@link org.bonitasoft.engine.scheduler.AbstractBonitaPlatformJobListener}s
+     * 
      * @param jobListeners
      * @throws SSchedulerException
      */
