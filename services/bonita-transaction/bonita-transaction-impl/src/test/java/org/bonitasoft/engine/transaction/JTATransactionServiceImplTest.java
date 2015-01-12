@@ -25,7 +25,6 @@ import org.bonitasoft.engine.transaction.MyTransactionManager.MyTransaction;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-
 public class JTATransactionServiceImplTest {
 
     @Test
@@ -43,7 +42,7 @@ public class JTATransactionServiceImplTest {
         assertEquals(1, txService.getNumberOfActiveTransactions());
     }
 
-    @Test(expected=STransactionCreationException.class)
+    @Test(expected = STransactionCreationException.class)
     public void doNotSupportNestedCalls() throws Exception {
         TechnicalLoggerService logger = mock(TechnicalLoggerService.class);
         TransactionManager txManager = mock(TransactionManager.class);
@@ -81,6 +80,7 @@ public class JTATransactionServiceImplTest {
         TechnicalLoggerService logger = mock(TechnicalLoggerService.class);
 
         MyTransactionManager.MyTransaction transaction = new MyTransactionManager.MyTransaction() {
+
             @Override
             public int internalCommit() throws SystemException {
                 throw new SystemException("Mocked");
@@ -100,7 +100,6 @@ public class JTATransactionServiceImplTest {
             assertEquals(0, txService.getNumberOfActiveTransactions());
         }
     }
-
 
     @Test
     public void beginTransactionEventFailed() throws Exception {
@@ -138,6 +137,7 @@ public class JTATransactionServiceImplTest {
 
     /**
      * The method call has to be executed between a transaction.
+     * 
      * @throws Exception
      */
     @Test
@@ -160,6 +160,7 @@ public class JTATransactionServiceImplTest {
 
     /**
      * The method call has to be executed between a transaction.
+     * 
      * @throws Exception
      */
     @Test
@@ -227,7 +228,6 @@ public class JTATransactionServiceImplTest {
         // 2 : for the ResetCounter and DecrementNumberOfActiveTransactions
         verify(transaction, times(2)).registerSynchronization(Mockito.any(Synchronization.class));
     }
-
 
     private class MyBeforeCommitCallable implements Callable<Void> {
 

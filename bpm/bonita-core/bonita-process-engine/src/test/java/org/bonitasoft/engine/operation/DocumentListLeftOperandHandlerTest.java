@@ -109,14 +109,14 @@ public class DocumentListLeftOperandHandlerTest {
     public void should_update_check_it_is_a_list() throws Exception {
         exception.expect(SOperationExecutionException.class);
         exception.expectMessage("Document operation only accepts an expression returning a list of DocumentValue");
-        handler.update(createLeftOperand("myDoc"), Collections.<String, Object>emptyMap(), new HashMap<Object, Object>(), 45l, "container");
+        handler.update(createLeftOperand("myDoc"), Collections.<String, Object> emptyMap(), new HashMap<Object, Object>(), 45l, "container");
     }
 
     @Test
     public void should_update_setDocumentList() throws Exception {
         doNothing().when(documentHelper).setDocumentList(anyList(), anyString(), anyLong(), anyLong());
         List<DocumentValue> newValue = Arrays.asList(documentValue("doc1"), documentValue("doc2"));
-        handler.update(createLeftOperand("myDoc"), Collections.<String, Object>emptyMap(), newValue, CONTAINER_ID, CONTAINER_TYPE);
+        handler.update(createLeftOperand("myDoc"), Collections.<String, Object> emptyMap(), newValue, CONTAINER_ID, CONTAINER_TYPE);
         verify(documentHelper).setDocumentList(newValue, "myDoc", PROCESS_INSTANCE_ID, LOGGED_USER_ID);
     }
 

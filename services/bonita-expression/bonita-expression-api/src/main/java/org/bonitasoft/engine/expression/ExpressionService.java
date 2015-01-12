@@ -35,7 +35,7 @@ public interface ExpressionService {
      * Evaluate the specific expression
      * 
      * @param expression
-     *            the expression will be evaluated
+     *        the expression will be evaluated
      * @return the evaluated expression result
      * @throws SExpressionTypeUnknownException
      * @throws SExpressionEvaluationException
@@ -49,9 +49,9 @@ public interface ExpressionService {
      * Evaluate the specific expression with dependency values
      * 
      * @param expression
-     *            the expression will be evaluated
+     *        the expression will be evaluated
      * @param dependencyValues
-     *            the dependency values, it may contain values for expression
+     *        the dependency values, it may contain values for expression
      * @return the evaluated expression result
      * @throws SExpressionTypeUnknownException
      * @throws SExpressionEvaluationException
@@ -65,11 +65,11 @@ public interface ExpressionService {
      * Evaluate type specified expressions with dependency values
      * 
      * @param expressionKind
-     *            the expression kind to indicate which type of ExpressionExecutorStrategy will be used to evaluate the expressions
+     *        the expression kind to indicate which type of ExpressionExecutorStrategy will be used to evaluate the expressions
      * @param expressions
-     *            a list of expressions to be evaluated
+     *        a list of expressions to be evaluated
      * @param dependencyValues
-     *            the dependency values for the expressions, it may contain value informations for expressions
+     *        the dependency values for the expressions, it may contain value informations for expressions
      * @return a list of evaluated expression results
      * @throws SExpressionTypeUnknownException
      * @throws SExpressionEvaluationException
@@ -91,7 +91,7 @@ public interface ExpressionService {
      * Should an expression result of a specified {@link ExpressionKind} must be put in the evaluation context?
      * 
      * @param expressionKind
-     *            the {@link ExpressionKind}
+     *        the {@link ExpressionKind}
      */
     boolean mustPutEvaluatedExpressionInContext(ExpressionKind expressionKind);
 }

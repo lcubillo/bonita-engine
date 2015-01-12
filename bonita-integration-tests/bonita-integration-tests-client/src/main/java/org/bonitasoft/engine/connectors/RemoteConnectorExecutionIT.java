@@ -1401,7 +1401,7 @@ public class RemoteConnectorExecutionIT extends ConnectorExecutionIT {
     }
 
     public ProcessDefinition deployAndEnableProcessWithActorAndTestConnectorThatThrowException(final ProcessDefinitionBuilder processDefinitionBuilder,
-                                                                                               final String actor, final User user) throws BonitaException, IOException {
+            final String actor, final User user) throws BonitaException, IOException {
         return deployAndEnableProcessWithActorAndConnectorAndParameter(processDefinitionBuilder, actor, user, null,
                 "TestConnectorThatThrowException.impl", TestConnectorThatThrowException.class, "TestConnectorThatThrowException.jar");
     }

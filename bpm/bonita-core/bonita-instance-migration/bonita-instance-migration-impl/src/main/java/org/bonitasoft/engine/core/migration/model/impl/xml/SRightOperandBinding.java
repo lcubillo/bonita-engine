@@ -13,7 +13,6 @@
  **/
 package org.bonitasoft.engine.core.migration.model.impl.xml;
 
-
 /**
  * @author Elias Ricken de Medeiros
  */

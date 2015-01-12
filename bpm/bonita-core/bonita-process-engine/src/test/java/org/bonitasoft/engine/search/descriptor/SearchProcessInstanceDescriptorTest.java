@@ -360,7 +360,7 @@ public class SearchProcessInstanceDescriptorTest {
 
     /**
      * Test method for
-     * {@link org.bonitasoft.engine.search.descriptor.SearchProcessInstanceDescriptor#constructFilterOption(org.bonitasoft.engine.search.impl.SearchFilter, FieldDescriptor)
+     * {@link org.bonitasoft.engine.search.descriptor.SearchProcessInstanceDescriptor#constructFilterOption(org.bonitasoft.engine.search.impl.SearchFilter, FieldDescriptor)
      */
     @Test
     public final void constructFilterOption_should_convert_SearchFilter_to_FilterOption_when_SearchFilterOperation_is_GREATER_OR_EQUAL() {
@@ -381,7 +381,7 @@ public class SearchProcessInstanceDescriptorTest {
 
     /**
      * Test method for
-     * {@link org.bonitasoft.engine.search.descriptor.SearchProcessInstanceDescriptor#constructFilterOption(org.bonitasoft.engine.search.impl.SearchFilter, FieldDescriptor)
+     * {@link org.bonitasoft.engine.search.descriptor.SearchProcessInstanceDescriptor#constructFilterOption(org.bonitasoft.engine.search.impl.SearchFilter, FieldDescriptor)
      */
     @Test
     public final void constructFilterOption_should_convert_SearchFilter_to_FilterOption_when_SearchFilterOperation_is_GREATER_THAN() {
@@ -402,7 +402,7 @@ public class SearchProcessInstanceDescriptorTest {
 
     /**
      * Test method for
-     * {@link org.bonitasoft.engine.search.descriptor.SearchProcessInstanceDescriptor#constructFilterOption(org.bonitasoft.engine.search.impl.SearchFilter, FieldDescriptor)
+     * {@link org.bonitasoft.engine.search.descriptor.SearchProcessInstanceDescriptor#constructFilterOption(org.bonitasoft.engine.search.impl.SearchFilter, FieldDescriptor)
      */
     @Test
     public final void constructFilterOption_should_convert_SearchFilter_to_FilterOption_when_SearchFilterOperation_is_LESS_OR_EQUAL() {
@@ -423,7 +423,7 @@ public class SearchProcessInstanceDescriptorTest {
 
     /**
      * Test method for
-     * {@link org.bonitasoft.engine.search.descriptor.SearchProcessInstanceDescriptor#constructFilterOption(org.bonitasoft.engine.search.impl.SearchFilter, FieldDescriptor)
+     * {@link org.bonitasoft.engine.search.descriptor.SearchProcessInstanceDescriptor#constructFilterOption(org.bonitasoft.engine.search.impl.SearchFilter, FieldDescriptor)
      */
     @Test
     public final void constructFilterOption_should_convert_SearchFilter_to_FilterOption_when_SearchFilterOperation_is_LESS_THAN() {
@@ -444,7 +444,7 @@ public class SearchProcessInstanceDescriptorTest {
 
     /**
      * Test method for
-     * {@link org.bonitasoft.engine.search.descriptor.SearchProcessInstanceDescriptor#constructFilterOption(org.bonitasoft.engine.search.impl.SearchFilter, FieldDescriptor)
+     * {@link org.bonitasoft.engine.search.descriptor.SearchProcessInstanceDescriptor#constructFilterOption(org.bonitasoft.engine.search.impl.SearchFilter, FieldDescriptor)
      */
     @Test
     public final void constructFilterOption_should_convert_SearchFilter_to_FilterOption_when_SearchFilterOperation_is_BETWEEN() {
@@ -469,7 +469,7 @@ public class SearchProcessInstanceDescriptorTest {
 
     /**
      * Test method for
-     * {@link org.bonitasoft.engine.search.descriptor.SearchProcessInstanceDescriptor#constructFilterOption(org.bonitasoft.engine.search.impl.SearchFilter, FieldDescriptor)
+     * {@link org.bonitasoft.engine.search.descriptor.SearchProcessInstanceDescriptor#constructFilterOption(org.bonitasoft.engine.search.impl.SearchFilter, FieldDescriptor)
      */
     @Test
     public final void constructFilterOption_should_convert_SearchFilter_to_FilterOption_when_SearchFilterOperation_is_AND() throws IncorrectParameterException {
@@ -488,7 +488,7 @@ public class SearchProcessInstanceDescriptorTest {
 
     /**
      * Test method for
-     * {@link org.bonitasoft.engine.search.descriptor.SearchProcessInstanceDescriptor#constructFilterOption(org.bonitasoft.engine.search.impl.SearchFilter, FieldDescriptor)
+     * {@link org.bonitasoft.engine.search.descriptor.SearchProcessInstanceDescriptor#constructFilterOption(org.bonitasoft.engine.search.impl.SearchFilter, FieldDescriptor)
      */
     @Test
     public final void constructFilterOption_should_convert_SearchFilter_to_FilterOption_when_SearchFilterOperation_is_OR() throws IncorrectParameterException {
@@ -507,7 +507,7 @@ public class SearchProcessInstanceDescriptorTest {
 
     /**
      * Test method for
-     * {@link org.bonitasoft.engine.search.descriptor.SearchProcessInstanceDescriptor#constructFilterOption(org.bonitasoft.engine.search.impl.SearchFilter, FieldDescriptor)
+     * {@link org.bonitasoft.engine.search.descriptor.SearchProcessInstanceDescriptor#constructFilterOption(org.bonitasoft.engine.search.impl.SearchFilter, FieldDescriptor)
      */
     @Test
     public final void constructFilterOption_should_convert_SearchFilter_to_FilterOption_when_SearchFilterOperation_is_L_PARENTHESIS()
@@ -527,7 +527,7 @@ public class SearchProcessInstanceDescriptorTest {
 
     /**
      * Test method for
-     * {@link org.bonitasoft.engine.search.descriptor.SearchProcessInstanceDescriptor#constructFilterOption(org.bonitasoft.engine.search.impl.SearchFilter, FieldDescriptor)
+     * {@link org.bonitasoft.engine.search.descriptor.SearchProcessInstanceDescriptor#constructFilterOption(org.bonitasoft.engine.search.impl.SearchFilter, FieldDescriptor)
      */
     @Test
     public final void constructFilterOption_should_convert_SearchFilter_to_FilterOption_when_SearchFilterOperation_is_R_PARENTHESIS()

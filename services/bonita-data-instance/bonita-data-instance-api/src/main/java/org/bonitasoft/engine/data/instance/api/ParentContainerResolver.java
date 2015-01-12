@@ -10,6 +10,7 @@ public interface ParentContainerResolver {
 
     public List<Pair<Long, String>> getContainerHierarchy(final Pair<Long, String> currentContainer) throws SObjectNotFoundException, SObjectReadException;
 
-    public List<Pair<Long, String>> getArchivedContainerHierarchy(final Pair<Long, String> currentContainer) throws SObjectNotFoundException, SObjectReadException;
+    public List<Pair<Long, String>> getArchivedContainerHierarchy(final Pair<Long, String> currentContainer) throws SObjectNotFoundException,
+            SObjectReadException;
 
 }

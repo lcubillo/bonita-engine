@@ -29,9 +29,9 @@ public interface ArchiveService {
      * Archive the given entity in sliding archive if relevant and in the appropriate definitive archive
      * 
      * @param time
-     *            The archive date
+     *        The archive date
      * @param record
-     *            Archive insert record containing the entity to be archived
+     *        Archive insert record containing the entity to be archived
      * @throws SRecorderException
      */
     void recordInsert(long time, ArchiveInsertRecord record) throws SRecorderException;
@@ -40,11 +40,11 @@ public interface ArchiveService {
      * Archive the given entities in the definitive archive
      *
      * @param time
-     *            the time of archiving
+     *        the time of archiving
      * @param records
-     *            Archive inserts record containing the entity to be archived
+     *        Archive inserts record containing the entity to be archived
      * @throws SRecorderException
-     *             in case of a write error
+     *         in case of a write error
      */
     void recordInserts(long time, ArchiveInsertRecord... records) throws SRecorderException;
 
@@ -53,7 +53,7 @@ public interface ArchiveService {
      * This operation should normally to be used. This is for admin purpose only
      * 
      * @param record
-     *            The delete record containing archived entity to be deleted
+     *        The delete record containing archived entity to be deleted
      * @throws SRecorderException
      */
     void recordDelete(DeleteRecord record) throws SRecorderException;
@@ -74,7 +74,7 @@ public interface ArchiveService {
 
     /**
      * @param sourceObjectClass
-     *            Persistent object to be judged achievable or not
+     *        Persistent object to be judged achievable or not
      * @return Return true if the objects of the given class can be archived.
      */
     boolean isArchivable(Class<? extends PersistentObject> sourceObjectClass);

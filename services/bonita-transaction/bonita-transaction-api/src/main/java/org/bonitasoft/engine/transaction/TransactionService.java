@@ -37,9 +37,9 @@ public interface TransactionService extends UserTransactionService {
      * Complete the transaction : either commit or rollback.
      *
      * @throws STransactionCommitException
-     *             TODO
+     *         TODO
      * @throws STransactionRollbackException
-     *             TODO
+     *         TODO
      */
     void complete() throws STransactionCommitException, STransactionRollbackException;
 
@@ -50,8 +50,8 @@ public interface TransactionService extends UserTransactionService {
      *         the current thread, this method returns the Status.NoTransaction
      *         value.
      * @exception STransactionException
-     *                Thrown if the transaction manager
-     *                encounters an unexpected error condition.
+     *            Thrown if the transaction manager
+     *            encounters an unexpected error condition.
      */
     TransactionState getState() throws STransactionException;
 
@@ -64,11 +64,11 @@ public interface TransactionService extends UserTransactionService {
      * transaction.
      *
      * @exception IllegalStateException
-     *                Thrown if the current thread is
-     *                not associated with a transaction.
+     *            Thrown if the current thread is
+     *            not associated with a transaction.
      * @exception STransactionException
-     *                Thrown if the transaction manager
-     *                encounters an unexpected error condition.
+     *            Thrown if the transaction manager
+     *            encounters an unexpected error condition.
      */
     void setRollbackOnly() throws STransactionException;
 
@@ -77,6 +77,7 @@ public interface TransactionService extends UserTransactionService {
     /**
      * Get the number of active transactions (i.e. transactions that opened but not yet completed or rolledback).
      * A transaction that was just mark as "rollbackOnly" is considered as an active one.
+     * 
      * @return
      */
     long getNumberOfActiveTransactions();

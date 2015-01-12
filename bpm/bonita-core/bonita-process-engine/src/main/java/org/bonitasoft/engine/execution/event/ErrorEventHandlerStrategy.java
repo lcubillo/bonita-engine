@@ -148,20 +148,20 @@ public class ErrorEventHandlerStrategy extends CoupleEventHandlerStrategy {
             eventsHandler.triggerCatchEvent(waitingErrorEvent, sThrowEventInstance.getId());
             hasActionToExecute = true;
         } else if (logger.isLoggable(getClass(), TechnicalLogSeverity.WARNING)) {
-                final StringBuilder logBuilder = new StringBuilder();
-                logBuilder.append("No catch error event was defined to handle the error code '");
-                logBuilder.append(errorTrigger.getErrorCode());
-                logBuilder.append("' defined in the process [name: ");
-                logBuilder.append(processDefinition.getName());
-                logBuilder.append(", version: ");
-                logBuilder.append(processDefinition.getVersion());
-                logBuilder.append("]");
-                if (sEventDefinition != null) {
-                    logBuilder.append(", throw event: ");
-                    logBuilder.append(sEventDefinition.getName());
-                }
-                logBuilder.append(". This throw error event will act as a Terminate Event.");
-                logger.log(this.getClass(), TechnicalLogSeverity.WARNING, logBuilder.toString());
+            final StringBuilder logBuilder = new StringBuilder();
+            logBuilder.append("No catch error event was defined to handle the error code '");
+            logBuilder.append(errorTrigger.getErrorCode());
+            logBuilder.append("' defined in the process [name: ");
+            logBuilder.append(processDefinition.getName());
+            logBuilder.append(", version: ");
+            logBuilder.append(processDefinition.getVersion());
+            logBuilder.append("]");
+            if (sEventDefinition != null) {
+                logBuilder.append(", throw event: ");
+                logBuilder.append(sEventDefinition.getName());
+            }
+            logBuilder.append(". This throw error event will act as a Terminate Event.");
+            logger.log(this.getClass(), TechnicalLogSeverity.WARNING, logBuilder.toString());
         }
         return hasActionToExecute;
     }

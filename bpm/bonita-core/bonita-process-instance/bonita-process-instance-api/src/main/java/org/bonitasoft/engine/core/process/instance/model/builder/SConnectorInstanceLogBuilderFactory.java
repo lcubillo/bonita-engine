@@ -22,7 +22,7 @@ import org.bonitasoft.engine.queriablelogger.model.builder.SPersistenceLogBuilde
 public interface SConnectorInstanceLogBuilderFactory extends SPersistenceLogBuilderFactory, HasCRUDEActionFactory {
 
     SConnectorInstanceLogBuilder createNewInstance();
-    
+
     String getContainerIdKey();
 
 }

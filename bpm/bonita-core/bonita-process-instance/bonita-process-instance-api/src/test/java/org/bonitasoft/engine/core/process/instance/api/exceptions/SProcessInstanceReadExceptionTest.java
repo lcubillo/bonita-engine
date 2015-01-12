@@ -23,9 +23,7 @@ import org.bonitasoft.engine.persistence.SelectOneDescriptor;
 import org.junit.Test;
 
 /**
- * 
  * @author Celine Souchet
- * 
  */
 public class SProcessInstanceReadExceptionTest {
 

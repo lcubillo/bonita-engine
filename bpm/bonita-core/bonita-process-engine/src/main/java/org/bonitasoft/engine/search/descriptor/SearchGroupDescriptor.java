@@ -38,7 +38,8 @@ public class SearchGroupDescriptor extends SearchEntityDescriptor {
         groupKeys.put(GroupSearchDescriptor.ID, new FieldDescriptor(SGroup.class, BuilderFactory.get(SGroupBuilderFactory.class).getIdKey()));
         groupKeys.put(GroupSearchDescriptor.NAME, new FieldDescriptor(SGroup.class, BuilderFactory.get(SGroupBuilderFactory.class).getNameKey()));
         groupKeys.put(GroupSearchDescriptor.PARENT_PATH, new FieldDescriptor(SGroup.class, BuilderFactory.get(SGroupBuilderFactory.class).getParentPathKey()));
-        groupKeys.put(GroupSearchDescriptor.DISPLAY_NAME, new FieldDescriptor(SGroup.class, BuilderFactory.get(SGroupBuilderFactory.class).getDisplayNameKey()));
+        groupKeys
+                .put(GroupSearchDescriptor.DISPLAY_NAME, new FieldDescriptor(SGroup.class, BuilderFactory.get(SGroupBuilderFactory.class).getDisplayNameKey()));
 
         groupAllFields = new HashMap<Class<? extends PersistentObject>, Set<String>>(1);
         final Set<String> groupFields = new HashSet<String>(6);

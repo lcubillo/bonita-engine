@@ -211,7 +211,8 @@ public class ProcessArchiver {
             long processInstanceId = processInstance.getId();
             final int archiveBatchSize = 50;
             int currentIndex = 0;
-            List<SDataInstance> sDataInstances = dataInstanceService.getLocalDataInstances(processInstanceId, DataInstanceContainer.PROCESS_INSTANCE.toString(), currentIndex,
+            List<SDataInstance> sDataInstances = dataInstanceService.getLocalDataInstances(processInstanceId,
+                    DataInstanceContainer.PROCESS_INSTANCE.toString(), currentIndex,
                     archiveBatchSize);
 
             while (sDataInstances != null && sDataInstances.size() > 0) {
@@ -219,7 +220,8 @@ public class ProcessArchiver {
                     dataInstanceService.archiveDataInstance(sDataInstance, archiveDate);
                 }
                 currentIndex += archiveBatchSize;
-                sDataInstances = dataInstanceService.getLocalDataInstances(processInstanceId, DataInstanceContainer.PROCESS_INSTANCE.toString(), currentIndex, archiveBatchSize);
+                sDataInstances = dataInstanceService.getLocalDataInstances(processInstanceId, DataInstanceContainer.PROCESS_INSTANCE.toString(), currentIndex,
+                        archiveBatchSize);
             }
         } catch (final SDataInstanceException e) {
             setExceptionContext(processDefinition, processInstance, e);

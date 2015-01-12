@@ -27,7 +27,8 @@ public class SBoundaryEventInstanceBuilderFactoryImpl extends SEventInstanceBuil
     public SBoundaryEventInstanceBuilder createNewBoundaryEventInstance(final String name, final boolean isInterrupting, final long flowNodeDefinitionId,
             final long rootContainerId, final long parentContainerId, final long processDefinitionId, final long rootProcessInstanceId,
             final long parentProcessInstanceId, final long activityInstanceId) {
-        final SBoundaryEventInstanceImpl entity = new SBoundaryEventInstanceImpl(name, flowNodeDefinitionId, rootContainerId, parentContainerId, processDefinitionId, rootProcessInstanceId);
+        final SBoundaryEventInstanceImpl entity = new SBoundaryEventInstanceImpl(name, flowNodeDefinitionId, rootContainerId, parentContainerId,
+                processDefinitionId, rootProcessInstanceId);
         entity.setLogicalGroup(PARENT_PROCESS_INSTANCE_INDEX, parentProcessInstanceId);
         entity.setActivityInstanceId(activityInstanceId);
         entity.setInterrupting(isInterrupting);

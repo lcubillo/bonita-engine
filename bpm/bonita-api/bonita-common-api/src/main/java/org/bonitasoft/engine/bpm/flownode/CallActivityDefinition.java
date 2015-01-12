@@ -20,7 +20,6 @@ import org.bonitasoft.engine.operation.Operation;
 
 /**
  * @author Elias Ricken de Medeiros
- *
  */
 public interface CallActivityDefinition extends ActivityDefinition {
 

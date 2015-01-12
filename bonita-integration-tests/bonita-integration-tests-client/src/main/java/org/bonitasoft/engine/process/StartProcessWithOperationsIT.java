@@ -74,13 +74,16 @@ public class StartProcessWithOperationsIT extends TestWithUser {
         ProcessDefinitionBuilder processWithOps = new ProcessDefinitionBuilder().createNewInstance("processWithOps", "1.0");
         User john = createUser("john", "bpm");
         processWithOps.addActor("actor");
-        processWithOps.addData("data1", ArrayList.class.getName(), new ExpressionBuilder().createGroovyScriptExpression("createList", "new java.util.ArrayList<String>()", ArrayList.class.getName()));
+        processWithOps.addData("data1", ArrayList.class.getName(),
+                new ExpressionBuilder().createGroovyScriptExpression("createList", "new java.util.ArrayList<String>()", ArrayList.class.getName()));
         processWithOps.addUserTask("step1", "actor");
         ProcessDefinition processDefinition = deployAndEnableProcessWithActor(processWithOps.done(), "actor", john);
 
-        ProcessInstance processInstance = getProcessAPI().startProcess(processDefinition.getId(),
+        ProcessInstance processInstance = getProcessAPI().startProcess(
+                processDefinition.getId(),
                 Arrays.asList(
-                        new OperationBuilder().createJavaMethodOperation("data1", "add", String.class.getName(), new ExpressionBuilder().createConstantStringExpression("listValue"))),
+                        new OperationBuilder().createJavaMethodOperation("data1", "add", String.class.getName(),
+                                new ExpressionBuilder().createConstantStringExpression("listValue"))),
                 new HashMap<String, Serializable>());
 
         waitForUserTask("step1");

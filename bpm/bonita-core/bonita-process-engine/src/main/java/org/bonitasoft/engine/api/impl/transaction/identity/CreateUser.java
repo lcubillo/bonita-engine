@@ -49,10 +49,12 @@ public class CreateUser implements TransactionContentWithResult<SUser> {
     public void execute() throws SBonitaException {
         user = identityService.createUser(sUser);
         if (sPersonalData != null) {
-            identityService.createUserContactInfo(BuilderFactory.get(SContactInfoBuilderFactory.class).createNewInstance(sPersonalData).setUserId(user.getId()).done());
+            identityService.createUserContactInfo(BuilderFactory.get(SContactInfoBuilderFactory.class).createNewInstance(sPersonalData).setUserId(user.getId())
+                    .done());
         }
         if (sProfessionalData != null) {
-            identityService.createUserContactInfo(BuilderFactory.get(SContactInfoBuilderFactory.class).createNewInstance(sProfessionalData).setUserId(user.getId()).done());
+            identityService.createUserContactInfo(BuilderFactory.get(SContactInfoBuilderFactory.class).createNewInstance(sProfessionalData)
+                    .setUserId(user.getId()).done());
         }
     }
 

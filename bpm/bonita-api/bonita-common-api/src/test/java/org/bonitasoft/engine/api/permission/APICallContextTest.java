@@ -25,7 +25,6 @@ import org.junit.Test;
 
 public class APICallContextTest {
 
-
     @Test
     public void getFilters() {
         final APICallContext apiCallContext = new APICallContext();

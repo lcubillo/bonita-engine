@@ -1,5 +1,4 @@
 /*
- *
  * Copyright (C) 2014 BonitaSoft S.A.
  * BonitaSoft, 32 rue Gustave Eiffel - 38000 Grenoble
  * This program is free software: you can redistribute it and/or modify
@@ -12,7 +11,6 @@
  * GNU General Public License for more details.
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
- *
  */
 
 package org.bonitasoft.engine.execution;
@@ -49,8 +47,6 @@ import static org.mockito.Mockito.*;
 @RunWith(MockitoJUnitRunner.class)
 public class TransitionEvaluatorTest {
 
-
-
     @Rule
     public ExpectedException thrown = ExpectedException.none();
 
@@ -83,7 +79,8 @@ public class TransitionEvaluatorTest {
         TransitionEvaluator transitionEvaluatorSpy = spy(transitionEvaluator);
 
         doReturn(defaultTransition).when(transitionEvaluatorSpy).getDefaultTransition(processDefinition, flowNodeInstance);
-        doReturn(null).when(transitionEvaluatorSpy).evaluateTransitionsForImplicitGateway(eq(processDefinition), eq(flowNodeInstance), eq(transitionDefinitions),
+        doReturn(null).when(transitionEvaluatorSpy).evaluateTransitionsForImplicitGateway(eq(processDefinition), eq(flowNodeInstance),
+                eq(transitionDefinitions),
                 any(SExpressionContext.class));
         when(flowNodeInstance.getStateCategory()).thenReturn(SStateCategory.NORMAL);
         List<STransitionDefinition> results = transitionEvaluatorSpy.evaluateOutgoingTransitions(transitionDefinitions, processDefinition, flowNodeInstance);
@@ -91,8 +88,6 @@ public class TransitionEvaluatorTest {
         assertThat(results).containsExactly(defaultTransition);
         verify(transitionEvaluatorSpy, times(1)).getDefaultTransition(processDefinition, flowNodeInstance);
     }
-
-
 
     @Test
     public void testEvaluateTransitionsForImpliciteGateway_without_valid_transitions_should_throw_SActivityExecutionException() throws Exception {
@@ -107,7 +102,6 @@ public class TransitionEvaluatorTest {
         SFlowNodeInstance flowNodeInstance = mock(SFlowNodeInstance.class);
         when(flowNodeInstance.getParentProcessInstanceId()).thenReturn(42L);
 
-
         thrown.expect(SActivityExecutionException.class);
         thrown.expect(new BaseMatcher<Object>() {
 
@@ -116,12 +110,12 @@ public class TransitionEvaluatorTest {
             @Override
             public boolean matches(Object item) {
 
-
-                if(item instanceof SActivityExecutionException) {
+                if (item instanceof SActivityExecutionException) {
                     SActivityExecutionException exception = (SActivityExecutionException) item;
 
                     Map<SExceptionContext, Serializable> context = exception.getContext();
-                    return (hasProcessNameInContext(processName, context) && hasProcessInstanceIDInContext(expectedProcessInstanceID, context) && hasProcessVersionInContext(processVersion, context));
+                    return (hasProcessNameInContext(processName, context) && hasProcessInstanceIDInContext(expectedProcessInstanceID, context) && hasProcessVersionInContext(
+                            processVersion, context));
                 }
                 return false;
             }
@@ -131,7 +125,7 @@ public class TransitionEvaluatorTest {
             }
 
             private boolean hasProcessInstanceIDInContext(long processInstanceId, Map<SExceptionContext, Serializable> context) {
-                return processInstanceId == (Long)context.get(SExceptionContext.PROCESS_INSTANCE_ID);
+                return processInstanceId == (Long) context.get(SExceptionContext.PROCESS_INSTANCE_ID);
             }
 
             private boolean hasProcessNameInContext(final String processName, Map<SExceptionContext, Serializable> context) {
@@ -140,17 +134,17 @@ public class TransitionEvaluatorTest {
 
             @Override
             public void describeTo(Description description) {
-                description.appendText("Having context containing Process Name: " + processName + " and Version: " + processVersion + " and Process Instance ID: " + expectedProcessInstanceID);
+                description.appendText("Having context containing Process Name: " + processName + " and Version: " + processVersion
+                        + " and Process Instance ID: " + expectedProcessInstanceID);
 
             }
         });
-
 
         TransitionEvaluator transitionEvaluatorSpy = spy(transitionEvaluator);
         doReturn(null).when(transitionEvaluatorSpy).getDefaultTransition(processDefinition, flowNodeInstance);
 
         // When
-        transitionEvaluatorSpy.evaluateTransitionsInclusively(processDefinition, flowNodeInstance, Collections.<STransitionDefinition>emptyList(), null);
+        transitionEvaluatorSpy.evaluateTransitionsInclusively(processDefinition, flowNodeInstance, Collections.<STransitionDefinition> emptyList(), null);
 
     }
 

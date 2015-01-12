@@ -16,10 +16,7 @@ package org.bonitasoft.engine.lock;
 import java.util.concurrent.locks.Lock;
 
 /**
- * 
- * 
  * @author Baptiste Mesta
- * 
  */
 public class BonitaLock {
 

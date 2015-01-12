@@ -128,7 +128,6 @@ public class OperationServiceImplTest {
     @Captor
     private ArgumentCaptor<List<SLeftOperand>> leftOperandCaptor2;
 
-
     private OperationServiceImpl operationServiceImpl;
 
     private SLeftOperandImpl buildLeftOperand(final String type, final String dataName) {
@@ -180,7 +179,8 @@ public class OperationServiceImplTest {
         operationServiceImpl.updateLeftOperands(updates, 123, "containerType", expressionContext);
 
         // then
-        verify(leftOperandHandler1).update(argThat(new MatchLeftOperandName("data1")), anyMapOf(String.class, Object.class), eq("value1"), eq(123l), eq("containerType"));
+        verify(leftOperandHandler1).update(argThat(new MatchLeftOperandName("data1")), anyMapOf(String.class, Object.class), eq("value1"), eq(123l),
+                eq("containerType"));
         verify(leftOperandHandler2).delete(argThat(new MatchLeftOperandName("data2")), eq(123l), eq("containerType"));
     }
 
@@ -206,14 +206,15 @@ public class OperationServiceImplTest {
     public void should_retrieveLeftOperandsAndPutItInExpressionContextIfNotIn_do_not_override_value_in_map() throws Exception {
         // given
         final SOperation op1 = buildOperation(TYPE_2, "data1", SOperatorType.XPATH_UPDATE_QUERY);
-        final SExpressionContext expressionContext = new SExpressionContext(123l, "containerType", Collections.<String, Object>singletonMap("data1",
+        final SExpressionContext expressionContext = new SExpressionContext(123l, "containerType", Collections.<String, Object> singletonMap("data1",
                 "originalValue"));
 
         // when
         operationServiceImpl.retrieveLeftOperandsAndPutItInExpressionContextIfNotIn(Arrays.asList(op1), 123, "containerType", expressionContext);
 
         // then
-        verify(leftOperandHandler2, times(1)).loadLeftOperandInContext(eq(Arrays.asList(op1.getLeftOperand())), any(SExpressionContext.class), anyMapOf(String.class, Object.class));
+        verify(leftOperandHandler2, times(1)).loadLeftOperandInContext(eq(Arrays.asList(op1.getLeftOperand())), any(SExpressionContext.class),
+                anyMapOf(String.class, Object.class));
         assertThat(expressionContext.getInputValues().get("data1")).isEqualTo("originalValue");
     }
 
@@ -223,7 +224,7 @@ public class OperationServiceImplTest {
         final List<SOperation> operations = new ArrayList<SOperation>();
         operations.add(buildOperation(TYPE_1, "data1", SOperatorType.JAVA_METHOD));
         operations.add(buildOperation(TYPE_1, "data1", SOperatorType.JAVA_METHOD));
-        final SExpressionContext expressionContext = new SExpressionContext(123l, "containerType", Collections.<String, Object>singletonMap("data1",
+        final SExpressionContext expressionContext = new SExpressionContext(123l, "containerType", Collections.<String, Object> singletonMap("data1",
                 "givenValue"));
         final OperationServiceImpl spy = spy(operationServiceImpl);
 
@@ -240,7 +241,7 @@ public class OperationServiceImplTest {
         final List<SOperation> operations = new ArrayList<SOperation>();
         operations.add(buildOperation(TYPE_1, "data2", SOperatorType.JAVA_METHOD));
         operations.add(buildOperation(TYPE_1, "data1", SOperatorType.JAVA_METHOD));
-        final SExpressionContext expressionContext = new SExpressionContext(123l, "containerType", Collections.<String, Object>singletonMap("data1",
+        final SExpressionContext expressionContext = new SExpressionContext(123l, "containerType", Collections.<String, Object> singletonMap("data1",
                 "givenValue"));
         final OperationServiceImpl spy = spy(operationServiceImpl);
 
@@ -250,7 +251,6 @@ public class OperationServiceImplTest {
         // then
         assertThat(updates).containsExactly(MapEntry.entry(buildLeftOperand("type1", "data2"), true), MapEntry.entry(buildLeftOperand("type1", "data1"), true));
     }
-
 
     @Test
     public void executeOperationShouldDoBatchGet() throws SOperationExecutionException, SBonitaReadException {
@@ -265,19 +265,16 @@ public class OperationServiceImplTest {
         final SExpressionContext expressionContext = new SExpressionContext(123l, "containerType", inputValues);
 
         //when
-        operationServiceImpl.retrieveLeftOperandsAndPutItInExpressionContextIfNotIn(operations, 123l/*data container*/, "containerType", expressionContext);
+        operationServiceImpl.retrieveLeftOperandsAndPutItInExpressionContextIfNotIn(operations, 123l/* data container */, "containerType", expressionContext);
 
         //then
-        verify(leftOperandHandler1,times(1)).loadLeftOperandInContext(leftOperandCaptor1.capture(), eq(expressionContext), eq(inputValues));
-        verify(leftOperandHandler2,times(1)).loadLeftOperandInContext(leftOperandCaptor2.capture(), eq(expressionContext), eq(inputValues));
+        verify(leftOperandHandler1, times(1)).loadLeftOperandInContext(leftOperandCaptor1.capture(), eq(expressionContext), eq(inputValues));
+        verify(leftOperandHandler2, times(1)).loadLeftOperandInContext(leftOperandCaptor2.capture(), eq(expressionContext), eq(inputValues));
         List<SLeftOperand> value1 = leftOperandCaptor1.getValue();
         List<SLeftOperand> value2 = leftOperandCaptor2.getValue();
         assertThat(value1).containsOnly(operations.get(0).getLeftOperand(), operations.get(1).getLeftOperand());
-        assertThat(value2).containsOnly(operations.get(2).getLeftOperand(),operations.get(3).getLeftOperand(), operations.get(4).getLeftOperand());
+        assertThat(value2).containsOnly(operations.get(2).getLeftOperand(), operations.get(3).getLeftOperand(), operations.get(4).getLeftOperand());
     }
-
-
-
 
     @Test
     public void executeOperationShouldNotGetWhenInAnOtherContainer() throws SOperationExecutionException, SBonitaReadException {
@@ -289,10 +286,13 @@ public class OperationServiceImplTest {
         final SExpressionContext expressionContext = new SExpressionContext(123l, "containerType", inputValues);
 
         //when
-        operationServiceImpl.retrieveLeftOperandsAndPutItInExpressionContextIfNotIn(operations, 124l/*an other data container*/, "containerType", expressionContext);
+        operationServiceImpl.retrieveLeftOperandsAndPutItInExpressionContextIfNotIn(operations, 124l/* an other data container */, "containerType",
+                expressionContext);
 
         //then
-        verify(leftOperandHandler1,times(0)).loadLeftOperandInContext(anyListOf(SLeftOperand.class), any(SExpressionContext.class), anyMapOf(String.class,Object.class));
-        verify(leftOperandHandler1,times(0)).loadLeftOperandInContext(any(SLeftOperand.class), any(SExpressionContext.class), anyMapOf(String.class,Object.class));
+        verify(leftOperandHandler1, times(0)).loadLeftOperandInContext(anyListOf(SLeftOperand.class), any(SExpressionContext.class),
+                anyMapOf(String.class, Object.class));
+        verify(leftOperandHandler1, times(0)).loadLeftOperandInContext(any(SLeftOperand.class), any(SExpressionContext.class),
+                anyMapOf(String.class, Object.class));
     }
 }

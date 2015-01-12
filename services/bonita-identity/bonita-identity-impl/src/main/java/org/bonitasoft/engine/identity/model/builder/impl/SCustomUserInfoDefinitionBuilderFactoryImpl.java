@@ -31,7 +31,6 @@ public class SCustomUserInfoDefinitionBuilderFactoryImpl implements SCustomUserI
 
     static final String DISPLAY_NAME = "displayName";
 
-    
     @Override
     public SCustomUserInfoDefinitionBuilder createNewInstance() {
         final SCustomUserInfoDefinitionImpl entity = new SCustomUserInfoDefinitionImpl();

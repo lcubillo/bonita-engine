@@ -15,17 +15,15 @@ package org.bonitasoft.engine.test.persistence.builder;
 
 import org.bonitasoft.engine.identity.model.impl.SCustomUserInfoValueImpl;
 
-
 /**
  * @author Elias Ricken de Medeiros
- *
  */
-public class CustomUserInfoValueBuilder extends PersistentObjectBuilder<SCustomUserInfoValueImpl, CustomUserInfoValueBuilder>{
+public class CustomUserInfoValueBuilder extends PersistentObjectBuilder<SCustomUserInfoValueImpl, CustomUserInfoValueBuilder> {
 
     private long infoDefId;
     private long userId;
     private String value;
-    
+
     public static CustomUserInfoValueBuilder aCustomUserInfoValue() {
         return new CustomUserInfoValueBuilder();
     }
@@ -43,17 +41,17 @@ public class CustomUserInfoValueBuilder extends PersistentObjectBuilder<SCustomU
         infoValueImpl.setValue(value);
         return infoValueImpl;
     }
-    
+
     public CustomUserInfoValueBuilder withCustomUserInfoDefinitionId(long infoDefId) {
         this.infoDefId = infoDefId;
         return this;
     }
-    
+
     public CustomUserInfoValueBuilder withUserId(long userId) {
         this.userId = userId;
         return this;
     }
-    
+
     public CustomUserInfoValueBuilder withValue(String value) {
         this.value = value;
         return this;

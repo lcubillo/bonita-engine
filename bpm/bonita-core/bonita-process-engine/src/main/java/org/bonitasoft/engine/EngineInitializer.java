@@ -29,7 +29,6 @@ import org.bonitasoft.engine.service.impl.ServiceAccessorFactory;
 import org.bonitasoft.engine.sessionaccessor.SessionAccessor;
 
 /**
- * 
  * Initialize the engine and create/start or not the platform based on bonita-platform.xml
  * properties used are:
  * platform.create -- create the platform on startup
@@ -37,7 +36,6 @@ import org.bonitasoft.engine.sessionaccessor.SessionAccessor;
  * node.stop -- stop the platform (node) on shutdown
  *
  * @author Baptiste Mesta
- * 
  */
 public class EngineInitializer {
 

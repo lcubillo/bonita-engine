@@ -61,14 +61,12 @@ public interface SFlowNodeDefinition extends SNamedElement {
     List<SConnectorDefinition> getConnectors();
 
     /**
-     * 
      * @return
      * @since 6.3
      */
     boolean hasConnectors();
 
     /**
-     * 
      * @param name
      * @return
      * @since 6.1

@@ -48,7 +48,7 @@ public class HumanTasksIT extends TestWithUser {
     }
 
     @Cover(classes = { FlowNodeInstance.class }, concept = BPMNConcept.ACTIVITIES, jira = "BS-6831", keywords = { "Non-ASCII characters", "Oracle",
-    "Column too short" })
+            "Column too short" })
     @Test
     public void can_creatte_FlowNodeInstance_with_several_non_ascii_characters() throws Exception {
         final String taskDisplayName = "Žingsnis, kuriame paraiškos teikėjas gali laisvai užpildyti duomenis, ąčęė ";
@@ -57,8 +57,8 @@ public class HumanTasksIT extends TestWithUser {
         final ProcessDefinitionBuilder processBuilder = new ProcessDefinitionBuilder().createNewInstance(PROCESS_NAME, PROCESS_VERSION);
         processBuilder.addActor(ACTOR_NAME);
         processBuilder.addUserTask(taskName, ACTOR_NAME)
-        .addDisplayName(new ExpressionBuilder().createConstantStringExpression(taskDisplayName))
-        .addDescription("description");
+                .addDisplayName(new ExpressionBuilder().createConstantStringExpression(taskDisplayName))
+                .addDescription("description");
 
         final ProcessDefinition processDef1 = deployAndEnableProcessWithActor(processBuilder.done(), ACTOR_NAME, user);
         getProcessAPI().startProcess(processDef1.getId());

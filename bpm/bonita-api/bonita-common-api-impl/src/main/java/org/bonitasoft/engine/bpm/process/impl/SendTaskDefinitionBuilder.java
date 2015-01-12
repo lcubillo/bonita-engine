@@ -33,6 +33,7 @@ public class SendTaskDefinitionBuilder extends ActivityDefinitionBuilder {
 
     /**
      * Sets the target flow node.
+     * 
      * @param targetFlowNode expression representing the flow node that will receive the message.
      * @return
      */
@@ -43,6 +44,7 @@ public class SendTaskDefinitionBuilder extends ActivityDefinitionBuilder {
 
     /**
      * Adds a content to this message.
+     * 
      * @param displayName expression representing the content display name.
      * @param messageContent expression representing the content value.
      * @return
@@ -56,10 +58,10 @@ public class SendTaskDefinitionBuilder extends ActivityDefinitionBuilder {
 
     /**
      * Adds a correlation on this send task.
-     * <p> 
+     * <p>
      * It's possible to define up to five correlations. If more then five correlations are defined, the process becomes invalid.
      * <p>
-     * The expressions representing correlation key and correlation value are evaluated once during the flow node initialization. 
+     * The expressions representing correlation key and correlation value are evaluated once during the flow node initialization.
      * 
      * @param correlationKey expression representing the correlation key.
      * @param value expression representing the correlation value.

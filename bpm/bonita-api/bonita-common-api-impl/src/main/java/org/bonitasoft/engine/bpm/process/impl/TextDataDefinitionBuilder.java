@@ -52,6 +52,7 @@ public class TextDataDefinitionBuilder extends DataDefinitionBuilder {
 
     /**
      * Sets this data as long text (more than 255 characters).
+     * 
      * @return
      */
     public TextDataDefinitionBuilder isLongText() {

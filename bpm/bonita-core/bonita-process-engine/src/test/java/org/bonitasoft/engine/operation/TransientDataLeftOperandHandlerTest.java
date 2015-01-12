@@ -69,7 +69,7 @@ public class TransientDataLeftOperandHandlerTest {
         final SShortTextDataInstanceImpl data = createData();
         when(transientDataService.getDataInstance("myData", 42, "ctype")).thenReturn(data);
         // when
-        transientDataLeftOperandHandler.update(createLeftOperand("myData"), Collections.<String,Object>emptyMap(), "new Value", 42, "ctype");
+        transientDataLeftOperandHandler.update(createLeftOperand("myData"), Collections.<String, Object> emptyMap(), "new Value", 42, "ctype");
 
         // then
         final EntityUpdateDescriptor entityUpdateDescriptor = new EntityUpdateDescriptor();
@@ -129,11 +129,12 @@ public class TransientDataLeftOperandHandlerTest {
         Map<String, Object> contextToSet = new HashMap<String, Object>();
 
         // when
-        transientDataLeftOperandHandler.loadLeftOperandInContext(createLeftOperand("myData"), new SExpressionContext(taskId, "ctype", processDefId), contextToSet);
+        transientDataLeftOperandHandler.loadLeftOperandInContext(createLeftOperand("myData"), new SExpressionContext(taskId, "ctype", processDefId),
+                contextToSet);
 
         // then
         assertThat(contextToSet).containsOnly(entry("myData", data.getValue()), entry("%TRANSIENT_DATA%_myData", data));
-        verify(bpmInstancesCreator, times(1)).createDataInstances(eq(Arrays.<SDataDefinition>asList(sTextDefinitionImpl)), eq(taskId),
+        verify(bpmInstancesCreator, times(1)).createDataInstances(eq(Arrays.<SDataDefinition> asList(sTextDefinitionImpl)), eq(taskId),
                 eq(DataInstanceContainer.ACTIVITY_INSTANCE), any(SExpressionContext.class));
         verify(logger).log(eq(TransientDataLeftOperandHandler.class), eq(TechnicalLogSeverity.WARNING), anyString());
     }
@@ -161,10 +162,10 @@ public class TransientDataLeftOperandHandlerTest {
         doThrow(SDataInstanceNotFoundException.class).doReturn(data).when(transientDataService).getDataInstance("myData", taskId, "ctype");
 
         // when
-        transientDataLeftOperandHandler.update(createLeftOperand("myData"), Collections.<String,Object>emptyMap(), "newValue", taskId, "ctype");
+        transientDataLeftOperandHandler.update(createLeftOperand("myData"), Collections.<String, Object> emptyMap(), "newValue", taskId, "ctype");
 
         // then
-        verify(bpmInstancesCreator, times(1)).createDataInstances(eq(Arrays.<SDataDefinition>asList(sTextDefinitionImpl)), eq(taskId),
+        verify(bpmInstancesCreator, times(1)).createDataInstances(eq(Arrays.<SDataDefinition> asList(sTextDefinitionImpl)), eq(taskId),
                 eq(DataInstanceContainer.ACTIVITY_INSTANCE), any(SExpressionContext.class));
         verify(logger, times(2)).log(eq(TransientDataLeftOperandHandler.class), eq(TechnicalLogSeverity.WARNING), anyString());
     }

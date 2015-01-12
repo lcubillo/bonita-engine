@@ -381,13 +381,13 @@ public class StateBehaviors {
      * Return the phases and connectors to execute, as a couple of (phase, couple of (connector instance, connector definition))
      * 
      * @param processDefinition
-     *            the process where the connectors are defined.
+     *        the process where the connectors are defined.
      * @param flowNodeInstance
-     *            the instance of the flow node to execute possible connectors on.
+     *        the instance of the flow node to execute possible connectors on.
      * @param executeConnectorsOnEnter
-     *            do we want to consider the connectors ON_ENTER or ignore them?
+     *        do we want to consider the connectors ON_ENTER or ignore them?
      * @param executeConnectorsOnFinish
-     *            do we want to consider the connectors ON_FINISH or ignore them?
+     *        do we want to consider the connectors ON_FINISH or ignore them?
      * @return the phases and connectors to execute
      * @throws SActivityStateExecutionException
      */

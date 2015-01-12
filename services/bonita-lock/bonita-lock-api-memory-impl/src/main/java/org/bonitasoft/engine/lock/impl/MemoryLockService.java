@@ -54,7 +54,7 @@ public class MemoryLockService implements LockService {
      * @param logger
      * @param sessionAccessor
      * @param lockTimeout
-     *            timeout to obtain a lock in seconds
+     *        timeout to obtain a lock in seconds
      */
     public MemoryLockService(final TechnicalLoggerService logger, final int lockTimeout, final int lockPoolSize) {
         this.logger = logger;

@@ -54,7 +54,8 @@ public class UpdateProcessDeploymentInfo implements TransactionContent {
     }
 
     private EntityUpdateDescriptor buildDescriptor() {
-        final SProcessDefinitionDeployInfoUpdateBuilder processDeploymentInfoUpdateBuilder = BuilderFactory.get(SProcessDefinitionDeployInfoUpdateBuilderFactory.class).createNewInstance();
+        final SProcessDefinitionDeployInfoUpdateBuilder processDeploymentInfoUpdateBuilder = BuilderFactory.get(
+                SProcessDefinitionDeployInfoUpdateBuilderFactory.class).createNewInstance();
         final Map<ProcessDeploymentInfoField, Serializable> updatedFieldsMap = processDeploymentInfoUpdateDescriptor.getFields();
         for (final Entry<ProcessDeploymentInfoField, Serializable> field : updatedFieldsMap.entrySet()) {
             switch (field.getKey()) {

@@ -94,7 +94,8 @@ public class CompletingCallActivityStateImpl extends CompletingActivityStateImpl
             final SExpressionContext expressionContext = new SExpressionContext(childProcInst.getId(), DataInstanceContainer.PROCESS_INSTANCE.name(),
                     childProcInst.getProcessDefinitionId());
             expressionContext.setParentProcessDefinitionId(instance.getProcessDefinitionId());
-            operationService.execute(callActivityDef.getDataOutputOperations(), instance.getId(), DataInstanceContainer.ACTIVITY_INSTANCE.name(), expressionContext);
+            operationService.execute(callActivityDef.getDataOutputOperations(), instance.getId(), DataInstanceContainer.ACTIVITY_INSTANCE.name(),
+                    expressionContext);
             // archive child process instance
             ProcessArchiver.archiveProcessInstance(childProcInst, archiveService, processInstanceService, dataInstanceService, documentService, logger,
                     commentService, processDefinitionService, connectorInstanceService);

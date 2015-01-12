@@ -20,7 +20,6 @@ import org.bonitasoft.engine.core.process.instance.model.SFlowNodeInstance;
 
 /**
  * @author Elias Ricken de Medeiros
- * 
  */
 public class NormalStateTransitionsManager {
 

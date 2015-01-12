@@ -17,14 +17,11 @@ import org.bonitasoft.engine.persistence.AbstractSelectDescriptor;
 import org.bonitasoft.engine.persistence.SelectOneDescriptor;
 import org.mockito.ArgumentMatcher;
 
-
 /**
  * @author Elias Ricken de Medeiros
- *
  */
-public class SelectOneMatcher extends ArgumentMatcher<SelectOneDescriptor<?>>{
-    
-    
+public class SelectOneMatcher extends ArgumentMatcher<SelectOneDescriptor<?>> {
+
     private String queryName;
 
     public SelectOneMatcher(String queryName) {
@@ -34,7 +31,7 @@ public class SelectOneMatcher extends ArgumentMatcher<SelectOneDescriptor<?>>{
     @Override
     public boolean matches(Object argument) {
         return (argument instanceof AbstractSelectDescriptor)
-                && queryName.equals(((AbstractSelectDescriptor<?>)argument).getQueryName());
+                && queryName.equals(((AbstractSelectDescriptor<?>) argument).getQueryName());
     }
 
 }

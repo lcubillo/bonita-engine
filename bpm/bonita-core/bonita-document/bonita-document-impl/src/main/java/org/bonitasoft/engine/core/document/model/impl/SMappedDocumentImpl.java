@@ -34,7 +34,6 @@ public class SMappedDocumentImpl implements SMappedDocument {
     private int index;
     private SLightDocument document;
 
-
     public SMappedDocumentImpl() {
     }
 
@@ -169,20 +168,31 @@ public class SMappedDocumentImpl implements SMappedDocument {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
 
         SMappedDocumentImpl that = (SMappedDocumentImpl) o;
 
-        if (documentId != that.documentId) return false;
-        if (id != that.id) return false;
-        if (index != that.index) return false;
-        if (processInstanceId != that.processInstanceId) return false;
-        if (tenantId != that.tenantId) return false;
-        if (description != null ? !description.equals(that.description) : that.description != null) return false;
-        if (document != null ? !document.equals(that.document) : that.document != null) return false;
-        if (name != null ? !name.equals(that.name) : that.name != null) return false;
-        if (version != null ? !version.equals(that.version) : that.version != null) return false;
+        if (documentId != that.documentId)
+            return false;
+        if (id != that.id)
+            return false;
+        if (index != that.index)
+            return false;
+        if (processInstanceId != that.processInstanceId)
+            return false;
+        if (tenantId != that.tenantId)
+            return false;
+        if (description != null ? !description.equals(that.description) : that.description != null)
+            return false;
+        if (document != null ? !document.equals(that.document) : that.document != null)
+            return false;
+        if (name != null ? !name.equals(that.name) : that.name != null)
+            return false;
+        if (version != null ? !version.equals(that.version) : that.version != null)
+            return false;
 
         return true;
     }

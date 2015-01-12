@@ -26,7 +26,7 @@ public class SProcessDefinitionLogBuilderFactoryImpl extends CRUDELogBuilderFact
     public SProcessDefinitionLogBuilder createNewInstance() {
         return new SProcessDefinitionLogBuilderImpl();
     }
-    
+
     @Override
     public String getObjectIdKey() {
         return ProcessDefinitionLogIndexesMapper.PROCESS_DEFINITION_NAME;

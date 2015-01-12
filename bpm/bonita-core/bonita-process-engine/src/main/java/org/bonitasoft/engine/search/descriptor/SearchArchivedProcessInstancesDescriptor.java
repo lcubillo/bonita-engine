@@ -67,11 +67,13 @@ public class SearchArchivedProcessInstancesDescriptor extends SearchEntityDescri
         searchEntityKeys.put(ArchivedProcessInstancesSearchDescriptor.CALLER_ID,
                 new FieldDescriptor(SAProcessInstance.class, instanceBuilder.getCallerIdKey()));
         searchEntityKeys
-                .put(ArchivedProcessInstancesSearchDescriptor.USER_ID, new FieldDescriptor(SProcessSupervisor.class, BuilderFactory.get(SProcessSupervisorBuilderFactory.class).getUserIdKey()));
+                .put(ArchivedProcessInstancesSearchDescriptor.USER_ID,
+                        new FieldDescriptor(SProcessSupervisor.class, BuilderFactory.get(SProcessSupervisorBuilderFactory.class).getUserIdKey()));
         searchEntityKeys.put(ArchivedProcessInstancesSearchDescriptor.GROUP_ID,
                 new FieldDescriptor(SProcessSupervisor.class, BuilderFactory.get(SProcessSupervisorBuilderFactory.class).getGroupIdKey()));
         searchEntityKeys
-                .put(ArchivedProcessInstancesSearchDescriptor.ROLE_ID, new FieldDescriptor(SProcessSupervisor.class, BuilderFactory.get(SProcessSupervisorBuilderFactory.class).getRoleIdKey()));
+                .put(ArchivedProcessInstancesSearchDescriptor.ROLE_ID,
+                        new FieldDescriptor(SProcessSupervisor.class, BuilderFactory.get(SProcessSupervisorBuilderFactory.class).getRoleIdKey()));
         searchEntityKeys.put(ArchivedProcessInstancesSearchDescriptor.ASSIGNEE_ID,
                 new FieldDescriptor(SUserTaskInstance.class, sUserTaskInstanceBuilder.getAssigneeIdKey()));
 

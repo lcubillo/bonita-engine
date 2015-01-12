@@ -27,6 +27,7 @@ import org.bonitasoft.engine.data.instance.api.ParentContainerResolver;
  * @author Baptiste Mesta
  */
 public class TestParentContainerResolver implements ParentContainerResolver {
+
     @Override
     public List<Pair<Long, String>> getContainerHierarchy(Pair<Long, String> currentContainer) throws SObjectNotFoundException, SObjectReadException {
         return Collections.singletonList(currentContainer);

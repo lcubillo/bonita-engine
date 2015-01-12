@@ -33,9 +33,7 @@ import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
 /**
- * 
  * @author Baptiste Mesta
- * 
  */
 @RunWith(PowerMockRunner.class)
 @PrepareForTest(BonitaHomeServer.class)

@@ -77,13 +77,14 @@ public class TransientDataLeftOperandHandler implements LeftOperandHandler {
     }
 
     @Override
-    public Object update(final SLeftOperand sLeftOperand, Map<String, Object> inputValues, final Object newValue, final long containerId, final String containerType)
+    public Object update(final SLeftOperand sLeftOperand, Map<String, Object> inputValues, final Object newValue, final long containerId,
+            final String containerType)
             throws SOperationExecutionException {
         SDataInstance dataInstance;
         try {
 
             dataInstance = (SDataInstance) inputValues.get(TRANSIENT_DATA + sLeftOperand.getName());
-            if(dataInstance == null){
+            if (dataInstance == null) {
                 dataInstance = retrieve(sLeftOperand, containerId, containerType);
             }
             final EntityUpdateDescriptor descriptor = new EntityUpdateDescriptor();
@@ -114,7 +115,8 @@ public class TransientDataLeftOperandHandler implements LeftOperandHandler {
     }
 
     @Override
-    public void loadLeftOperandInContext(final SLeftOperand sLeftOperand, final SExpressionContext expressionContext, Map<String, Object> contextToSet) throws SBonitaReadException {
+    public void loadLeftOperandInContext(final SLeftOperand sLeftOperand, final SExpressionContext expressionContext, Map<String, Object> contextToSet)
+            throws SBonitaReadException {
         final Long containerId = expressionContext.getContainerId();
         final String containerType = expressionContext.getContainerType();
         String name = sLeftOperand.getName();
@@ -165,7 +167,7 @@ public class TransientDataLeftOperandHandler implements LeftOperandHandler {
             if (theTransientData == null) {
                 throw new SBonitaReadException(
                         "Transient data was not found and we were unable to reevaluate it because it was not found in the definition, name=<" + name
-                        + "> process definition=<" + processDefinition.getName() + "," + processDefinition.getVersion() + "> flow node=<"
+                                + "> process definition=<" + processDefinition.getName() + "," + processDefinition.getVersion() + "> flow node=<"
                                 + flowNode.getName() + ">");
             }
             bpmInstancesCreator.createDataInstances(Arrays.asList(theTransientData), containerId, DataInstanceContainer.ACTIVITY_INSTANCE,
@@ -189,9 +191,9 @@ public class TransientDataLeftOperandHandler implements LeftOperandHandler {
         throw new SBonitaReadException("Transient data was not found and we were unable to reevaluate it, name=<" + name + ">", e);
     }
 
-
     @Override
-    public void loadLeftOperandInContext(final List<SLeftOperand> sLeftOperand, final SExpressionContext expressionContext, Map<String, Object> contextToSet) throws SBonitaReadException {
+    public void loadLeftOperandInContext(final List<SLeftOperand> sLeftOperand, final SExpressionContext expressionContext, Map<String, Object> contextToSet)
+            throws SBonitaReadException {
         for (SLeftOperand leftOperand : sLeftOperand) {
             loadLeftOperandInContext(leftOperand, expressionContext, contextToSet);
         }

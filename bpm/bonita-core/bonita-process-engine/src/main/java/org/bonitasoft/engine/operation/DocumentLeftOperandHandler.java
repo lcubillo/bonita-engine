@@ -51,7 +51,8 @@ public class DocumentLeftOperandHandler extends AbstractDocumentLeftOperandHandl
     }
 
     @Override
-    public Object update(final SLeftOperand sLeftOperand, Map<String, Object> inputValues, final Object newValue, final long containerId, final String containerType)
+    public Object update(final SLeftOperand sLeftOperand, Map<String, Object> inputValues, final Object newValue, final long containerId,
+            final String containerType)
             throws SOperationExecutionException {
         final DocumentValue documentValue = toCheckedDocumentValue(newValue);
         final String documentName = sLeftOperand.getName();
@@ -90,9 +91,9 @@ public class DocumentLeftOperandHandler extends AbstractDocumentLeftOperandHandl
         //do nothing
     }
 
-
     @Override
-    public void loadLeftOperandInContext(final List<SLeftOperand> sLeftOperand, final SExpressionContext expressionContext, Map<String, Object> contextToSet) throws SBonitaReadException {
+    public void loadLeftOperandInContext(final List<SLeftOperand> sLeftOperand, final SExpressionContext expressionContext, Map<String, Object> contextToSet)
+            throws SBonitaReadException {
         for (SLeftOperand leftOperand : sLeftOperand) {
             loadLeftOperandInContext(leftOperand, expressionContext, contextToSet);
         }

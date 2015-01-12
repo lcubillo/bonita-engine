@@ -23,5 +23,5 @@ import org.bonitasoft.engine.queriablelogger.model.builder.SLogBuilderFactory;
 public interface SSchedulerQueriableLogBuilderFactory extends SLogBuilderFactory, HasCRUDEActionFactory {
 
     SSchedulerQueriableLogBuilder createNewInstance();
-    
+
 }

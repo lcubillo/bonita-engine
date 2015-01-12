@@ -135,7 +135,7 @@ public class EvaluateExpressionIT extends TestWithUser {
         expressions.put(floatExpression, new HashMap<String, Serializable>());
         expressions.put(integerExpression, new HashMap<String, Serializable>());
         expressions.put(constantStringExpression, new HashMap<String, Serializable>());
-        expressions.put(new ExpressionBuilder().createDataExpression("processData",String.class.getName()), new HashMap<String, Serializable>());
+        expressions.put(new ExpressionBuilder().createDataExpression("processData", String.class.getName()), new HashMap<String, Serializable>());
     }
 
     @Override
@@ -235,7 +235,6 @@ public class EvaluateExpressionIT extends TestWithUser {
         assertEquals("processData", result.get("processData"));
     }
 
-
     @Cover(classes = ProcessAPI.class, concept = BPMNConcept.EXPRESSIONS, keywords = { "Expression", "Evaluate", "Completed activity" }, story = "Evaluate an expression on completed activity instance.", jira = "")
     @Test
     public void evaluateExpressionsOnCompletedActivityInstanceWithArchivedProcess() throws Exception {
@@ -252,11 +251,13 @@ public class EvaluateExpressionIT extends TestWithUser {
         assertEquals("4plop", result.get("IntegerScript"));
         assertEquals("processData", result.get("processData"));
     }
+
     @Cover(classes = ProcessAPI.class, concept = BPMNConcept.EXPRESSIONS, keywords = { "Expression", "Evaluate", "Completed activity" }, story = "Evaluate an expression on completed activity instance.", jira = "")
     @Test
     public void evaluateExpressionsOnCompletedActivityInstanceInSubProcess() throws Exception {
         ProcessDefinitionBuilder caller = new ProcessDefinitionBuilder().createNewInstance("Caller", "1");
-        caller.addCallActivity("callActivity",new ExpressionBuilder().createConstantStringExpression(PROCESS_NAME),new ExpressionBuilder().createConstantStringExpression(PROCESS_VERSION));
+        caller.addCallActivity("callActivity", new ExpressionBuilder().createConstantStringExpression(PROCESS_NAME),
+                new ExpressionBuilder().createConstantStringExpression(PROCESS_VERSION));
         ProcessDefinition callerProcess = deployAndEnableProcess(caller.done());
         ProcessInstance callerInstance = getProcessAPI().startProcess(callerProcess.getId());
 

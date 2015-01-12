@@ -34,7 +34,6 @@ import org.bonitasoft.engine.supervisor.mapping.SupervisorMappingService;
 
 /**
  * @author Elias Ricken de Medeiros
- * 
  */
 public class OrganizationAPIImpl {
 

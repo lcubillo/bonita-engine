@@ -32,7 +32,8 @@ public class GetProcessDefinitionDeployInfosWithActorOnlyForRoles extends Abstra
 
     private final ProcessDefinitionService processDefinitionService;
 
-    public GetProcessDefinitionDeployInfosWithActorOnlyForRoles(final ProcessDefinitionService processDefinitionService, final SearchEntityDescriptor searchDescriptor,
+    public GetProcessDefinitionDeployInfosWithActorOnlyForRoles(final ProcessDefinitionService processDefinitionService,
+            final SearchEntityDescriptor searchDescriptor,
             final int fromIndex, final int numberOfResults, final ProcessDeploymentInfoCriterion criterion, final List<Long> roleIds) {
         super(searchDescriptor, fromIndex, numberOfResults, criterion);
         this.roleIds = roleIds;

@@ -35,6 +35,7 @@ public class IncrementItselfJob extends GroupJob {
     public static synchronized List<Date> getExecutionDates() {
         return new ArrayList<Date>(executionDates);
     }
+
     synchronized void addToExecutionDates(Date date) {
         executionDates.add(date);
     }

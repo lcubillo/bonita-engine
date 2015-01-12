@@ -51,7 +51,6 @@ public class DataLeftOperandHandlerTest {
         handler.delete(createLeftOperand("myData"), 45l, "container");
     }
 
-
     @Test
     public void loadLeftOperandInContext_should_do_one_request() throws Exception {
         //given
@@ -59,14 +58,17 @@ public class DataLeftOperandHandlerTest {
         HashMap<String, Object> context = new HashMap<String, Object>();
         SDataInstance data1 = data("data1", "value1");
         SDataInstance data2 = data("data2", "value2");
-        doReturn(Arrays.asList(data1, data2)).when(dataInstanceService).getDataInstances(Arrays.asList("data2", "data1"), CONTAINER_ID, CONTAINER_TYPE, parentContainerResolver);
+        doReturn(Arrays.asList(data1, data2)).when(dataInstanceService).getDataInstances(Arrays.asList("data2", "data1"), CONTAINER_ID, CONTAINER_TYPE,
+                parentContainerResolver);
         //when
         handler.loadLeftOperandInContext(Arrays.asList(leftOperand("data2"), leftOperand("data1")), sExpressionContext, context);
         verify(dataInstanceService).getDataInstances(Arrays.asList("data2", "data1"), CONTAINER_ID, CONTAINER_TYPE, parentContainerResolver);
         verifyNoMoreInteractions(dataInstanceService);
         //then
-        assertThat(context).containsOnly(entry("data1", "value1"), entry("%DATA_INSTANCE%_data1", data1), entry("data2", "value2"), entry("%DATA_INSTANCE%_data2", data2));
+        assertThat(context).containsOnly(entry("data1", "value1"), entry("%DATA_INSTANCE%_data1", data1), entry("data2", "value2"),
+                entry("%DATA_INSTANCE%_data2", data2));
     }
+
     @Test
     public void loadLeftOperandInContext_on_single_left_operand() throws Exception {
         //given
@@ -81,7 +83,6 @@ public class DataLeftOperandHandlerTest {
         //then
         assertThat(context).containsOnly(entry("data1", "value1"), entry("%DATA_INSTANCE%_data1", data1));
     }
-
 
     @Test
     public void update_should_get_from_context_data_instances() throws Exception {

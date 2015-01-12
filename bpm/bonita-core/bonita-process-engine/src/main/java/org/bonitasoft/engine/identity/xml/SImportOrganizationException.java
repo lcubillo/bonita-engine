@@ -12,12 +12,11 @@
  * Floor, Boston, MA 02110-1301, USA.
  **/
 package org.bonitasoft.engine.identity.xml;
-import org.bonitasoft.engine.commons.exceptions.SBonitaException;
 
+import org.bonitasoft.engine.commons.exceptions.SBonitaException;
 
 /**
  * @author Elias Ricken de Medeiros
- *
  */
 public class SImportOrganizationException extends SBonitaException {
 

@@ -36,9 +36,9 @@ public class ProcessInstanceContextWork extends TxInHandleFailureWrappingWork {
 
     /**
      * @param wrappedWork
-     *            The work to wrap
+     *        The work to wrap
      * @param processInstanceId
-     *            The identifier of the process instance
+     *        The identifier of the process instance
      */
     public ProcessInstanceContextWork(final WrappingBonitaWork wrappedWork, final long processInstanceId) {
         this(wrappedWork, processInstanceId, -1);
@@ -46,13 +46,13 @@ public class ProcessInstanceContextWork extends TxInHandleFailureWrappingWork {
 
     /**
      * @param wrappedWork
-     *            The work to wrap
+     *        The work to wrap
      * @param processDefinitionId
-     *            The identifier of the process definition
+     *        The identifier of the process definition
      * @param processInstanceId
-     *            The identifier of the process instance
+     *        The identifier of the process instance
      * @param rootProcessInstanceId
-     *            The identifier of the root process instance
+     *        The identifier of the root process instance
      */
     public ProcessInstanceContextWork(final WrappingBonitaWork wrappedWork, final long processInstanceId, final long rootProcessInstanceId) {
         super(wrappedWork);

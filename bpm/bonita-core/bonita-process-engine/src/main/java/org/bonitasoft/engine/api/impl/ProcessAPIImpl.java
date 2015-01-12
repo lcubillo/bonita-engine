@@ -2504,7 +2504,8 @@ public class ProcessAPIImpl implements ProcessAPI {
             final long processDefinitionId = processInstanceService.getProcessInstance(processInstanceId).getProcessDefinitionId();
             final ClassLoader processClassLoader = classLoaderService.getLocalClassLoader(ScopeType.PROCESS.name(), processDefinitionId);
             Thread.currentThread().setContextClassLoader(processClassLoader);
-            final List<SDataInstance> dataInstances = dataInstanceService.getDataInstances(processInstanceId, DataInstanceContainer.PROCESS_INSTANCE.name(), parentContainerResolver,
+            final List<SDataInstance> dataInstances = dataInstanceService.getDataInstances(processInstanceId, DataInstanceContainer.PROCESS_INSTANCE.name(),
+                    parentContainerResolver,
                     startIndex, maxResults);
             return convertModelToDataInstances(dataInstances);
         } catch (final SBonitaException e) {
@@ -2635,7 +2636,8 @@ public class ProcessAPIImpl implements ProcessAPI {
             final long parentProcessInstanceId = activityInstanceService.getFlowNodeInstance(activityInstanceId).getLogicalGroup(processDefinitionIndex);
             final ClassLoader processClassLoader = classLoaderService.getLocalClassLoader(ScopeType.PROCESS.name(), parentProcessInstanceId);
             Thread.currentThread().setContextClassLoader(processClassLoader);
-            final List<SDataInstance> dataInstances = dataInstanceService.getDataInstances(activityInstanceId, DataInstanceContainer.ACTIVITY_INSTANCE.name(), parentContainerResolver,
+            final List<SDataInstance> dataInstances = dataInstanceService.getDataInstances(activityInstanceId, DataInstanceContainer.ACTIVITY_INSTANCE.name(),
+                    parentContainerResolver,
                     startIndex, maxResults);
             return convertModelToDataInstances(dataInstances);
         } catch (final SBonitaException e) {
@@ -2661,7 +2663,8 @@ public class ProcessAPIImpl implements ProcessAPI {
             final long parentProcessInstanceId = flowNodeInstance.getLogicalGroup(processDefinitionIndex);
             final ClassLoader processClassLoader = classLoaderService.getLocalClassLoader(ScopeType.PROCESS.name(), parentProcessInstanceId);
             Thread.currentThread().setContextClassLoader(processClassLoader);
-            data = dataInstanceService.getDataInstance(dataName, activityInstanceId, DataInstanceContainer.ACTIVITY_INSTANCE.toString(), parentContainerResolver);
+            data = dataInstanceService.getDataInstance(dataName, activityInstanceId, DataInstanceContainer.ACTIVITY_INSTANCE.toString(),
+                    parentContainerResolver);
             return convertModeltoDataInstance(data);
         } catch (final SBonitaException e) {
             throw new DataNotFoundException(e);
@@ -2997,8 +3000,8 @@ public class ProcessAPIImpl implements ProcessAPI {
             Thread.currentThread().setContextClassLoader(processClassLoader);
             List<SDataInstance> dataInstances = dataInstanceService.getDataInstances(new ArrayList<String>(variables.keySet()), activityInstanceId,
                     DataInstanceContainer.ACTIVITY_INSTANCE.toString(), parentContainerResolver);
-            if(dataInstances.size()<variables.size()){
-                throw new UpdateException("Some data does not exists, wanted to update "+variables.keySet()+" but there is only "+dataInstances);
+            if (dataInstances.size() < variables.size()) {
+                throw new UpdateException("Some data does not exists, wanted to update " + variables.keySet() + " but there is only " + dataInstances);
             }
             for (SDataInstance dataInstance : dataInstances) {
                 Serializable newValue = variables.get(dataInstance.getName());
@@ -3032,7 +3035,7 @@ public class ProcessAPIImpl implements ProcessAPI {
                     activityInstance.getProcessDefinitionId());
             sExpressionContext.setSerializableInputValues(expressionContexts);
 
-            operationService.execute(sOperations,sExpressionContext);
+            operationService.execute(sOperations, sExpressionContext);
         } catch (final SBonitaException e) {
             throw new UpdateException(e);
         } finally {
@@ -3043,6 +3046,7 @@ public class ProcessAPIImpl implements ProcessAPI {
     protected SOperation convertOperation(final Operation operation) {
         return ModelConvertor.convertOperation(operation);
     }
+
     protected List<SOperation> convertOperations(final List<Operation> operations) {
         return ModelConvertor.convertOperations(operations);
     }

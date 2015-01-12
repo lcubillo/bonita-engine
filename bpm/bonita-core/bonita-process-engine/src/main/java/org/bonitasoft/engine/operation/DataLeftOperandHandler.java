@@ -54,7 +54,8 @@ public class DataLeftOperandHandler implements LeftOperandHandler {
     }
 
     @Override
-    public Object update(final SLeftOperand leftOperand, Map<String, Object> inputValues, final Object newValue, final long containerId, final String containerType)
+    public Object update(final SLeftOperand leftOperand, Map<String, Object> inputValues, final Object newValue, final long containerId,
+            final String containerType)
             throws SOperationExecutionException {
         updateDataInstance(leftOperand, containerId, containerType, inputValues, newValue);
         return newValue;
@@ -86,13 +87,14 @@ public class DataLeftOperandHandler implements LeftOperandHandler {
         }
     }
 
-    private void updateDataInstance(final SLeftOperand leftOperand, final long containerId, final String containerType, Map<String, Object> inputValues, final Object expressionResult)
+    private void updateDataInstance(final SLeftOperand leftOperand, final long containerId, final String containerType, Map<String, Object> inputValues,
+            final Object expressionResult)
             throws SOperationExecutionException {
         final String dataInstanceName = leftOperand.getName();
         SDataInstance dataInstance;
         try {
             dataInstance = (SDataInstance) inputValues.get(DATA_INSTANCE + dataInstanceName);
-            if(dataInstance == null){
+            if (dataInstance == null) {
                 dataInstance = getDataInstance(dataInstanceName, containerId, containerType);
             }
             // Specific return type check for Data:
@@ -109,7 +111,8 @@ public class DataLeftOperandHandler implements LeftOperandHandler {
     }
 
     @Override
-    public void loadLeftOperandInContext(final SLeftOperand sLeftOperand, final SExpressionContext expressionContext, Map<String, Object> contextToSet) throws SBonitaReadException {
+    public void loadLeftOperandInContext(final SLeftOperand sLeftOperand, final SExpressionContext expressionContext, Map<String, Object> contextToSet)
+            throws SBonitaReadException {
         try {
             putInContext(sLeftOperand, expressionContext, contextToSet);
         } catch (final SDataInstanceException e) {
@@ -131,15 +134,16 @@ public class DataLeftOperandHandler implements LeftOperandHandler {
         }
     }
 
-
     @Override
-    public void loadLeftOperandInContext(final List<SLeftOperand> sLeftOperand, final SExpressionContext expressionContext, Map<String, Object> contextToSet) throws SBonitaReadException {
+    public void loadLeftOperandInContext(final List<SLeftOperand> sLeftOperand, final SExpressionContext expressionContext, Map<String, Object> contextToSet)
+            throws SBonitaReadException {
         try {
             ArrayList<String> names = new ArrayList<String>(sLeftOperand.size());
             for (SLeftOperand leftOperand : sLeftOperand) {
                 names.add(leftOperand.getName());
             }
-            List<SDataInstance> dataInstances = dataInstanceService.getDataInstances(names, expressionContext.getContainerId(), expressionContext.getContainerType(), parentContainerResolver);
+            List<SDataInstance> dataInstances = dataInstanceService.getDataInstances(names, expressionContext.getContainerId(),
+                    expressionContext.getContainerType(), parentContainerResolver);
             for (SDataInstance dataInstance : dataInstances) {
                 putDataInContext(contextToSet, dataInstance);
             }
@@ -147,7 +151,6 @@ public class DataLeftOperandHandler implements LeftOperandHandler {
             throw new SBonitaReadException("Unable to retrieve the data", e);
         }
     }
-
 
     protected SDataInstance getDataInstance(final String dataInstanceName, final long containerId, final String containerType) throws SDataInstanceException {
         return dataInstanceService.getDataInstance(dataInstanceName, containerId, containerType, parentContainerResolver);
