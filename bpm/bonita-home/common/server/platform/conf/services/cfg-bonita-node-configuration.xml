@@ -20,6 +20,7 @@
             <list>
                 <ref bean="classLoaderService" />
                 <ref bean="platformCacheService" />
+                <ref bean="cacheService" />
             </list>
         </property>
 	</bean>

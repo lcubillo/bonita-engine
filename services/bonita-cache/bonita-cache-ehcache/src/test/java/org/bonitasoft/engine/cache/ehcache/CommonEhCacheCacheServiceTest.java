@@ -34,7 +34,7 @@ public class CommonEhCacheCacheServiceTest {
     @Mock
     private Cache cache;
 
-    private EhCacheCacheService cacheService;
+    private CommonEhCacheCacheService cacheService;
 
     @Before
     public void setup() {
@@ -49,7 +49,7 @@ public class CommonEhCacheCacheServiceTest {
 
     @Test
     public void should_getKeys_return_empty_list_when_cache_manager_is_null() throws Exception {
-        final List<Object> keys = cacheService.getKeys("unknownCache");
+        List<Object> keys = cacheService.getKeys("unknownCache");
 
         assertTrue(keys.isEmpty());
     }
@@ -58,7 +58,7 @@ public class CommonEhCacheCacheServiceTest {
     public void should_getKeys_return_empty_list_when_cache_manager_have_no_cache() throws Exception {
         cacheService.start();
 
-        final List<Object> keys = cacheService.getKeys("unknownCache");
+        List<Object> keys = cacheService.getKeys("unknownCache");
 
         assertTrue(keys.isEmpty());
     }

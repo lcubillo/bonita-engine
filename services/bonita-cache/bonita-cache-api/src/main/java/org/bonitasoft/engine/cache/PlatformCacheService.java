@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2013, 2015 BonitaSoft S.A.
+ * Copyright (C) 2013 BonitaSoft S.A.
  * BonitaSoft, 32 rue Gustave Eiffel - 38000 Grenoble
  * This library is free software; you can redistribute it and/or modify it under the terms
  * of the GNU Lesser General Public License as published by the Free Software Foundation
@@ -13,7 +13,6 @@
  */
 package org.bonitasoft.engine.cache;
 
-import org.bonitasoft.engine.commons.PlatformLifecycleService;
 
 /**
  * Service that helps you to cache objects on a platform level
@@ -23,6 +22,6 @@ import org.bonitasoft.engine.commons.PlatformLifecycleService;
  * @author Matthieu Chaffotte
  * @since 6.0
  */
-public interface PlatformCacheService extends CommonCacheService, PlatformLifecycleService {
+public interface PlatformCacheService extends CommonCacheService {
 
 }
