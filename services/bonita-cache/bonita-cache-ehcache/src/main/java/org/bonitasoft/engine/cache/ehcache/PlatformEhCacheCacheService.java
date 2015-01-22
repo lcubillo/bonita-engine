@@ -94,7 +94,9 @@ public class PlatformEhCacheCacheService extends CommonEhCacheCacheService imple
 
     @Override
     public void resume() {
-        // nothing to do
+        if (cacheManager == null) {
+            start();
+        }
     }
 
 }
