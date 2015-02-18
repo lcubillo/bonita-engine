@@ -174,4 +174,14 @@ public class DOMWriter implements XMLWriter {
         }
     }
 
+    @Override
+    public String toString() {
+        return this.getClass().getName() + ": \n" +
+        "transformer class: " + transformer.getClass().getName() + "\n" +
+                "transformer: " + transformer + "\n" +
+                "documentBuilder class: " + documentBuilder.getClass().getName() + "\n" +
+                "documentBuilder: " + documentBuilder + "\n" +
+                "validator class: " + validator.getClass().getName() + "\n" +
+                "validator: " + validator + "\n";
+    }
 }

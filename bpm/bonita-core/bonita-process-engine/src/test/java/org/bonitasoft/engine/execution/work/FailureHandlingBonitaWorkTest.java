@@ -185,8 +185,8 @@ public class FailureHandlingBonitaWorkTest {
         doThrow(e).when(wrappedWork).work(context);
         txBonitawork.work(context);
         verify(wrappedWork, never()).handleFailure(e, context);
-        verify(loggerService).isLoggable(txBonitawork.getClass(), TechnicalLogSeverity.TRACE);
-        verify(loggerService).isLoggable(txBonitawork.getClass(), TechnicalLogSeverity.DEBUG);
+        verify(loggerService).isLoggable(txBonitawork.getClass(), TechnicalLogSeverity.ERROR);
+        verify(loggerService).isLoggable(txBonitawork.getClass(), TechnicalLogSeverity.ERROR);
     }
 
     @Test
@@ -196,8 +196,8 @@ public class FailureHandlingBonitaWorkTest {
         doThrow(flownodeNotFound).when(wrappedWork).work(context);
         txBonitawork.work(context);
         verify(wrappedWork, never()).handleFailure(flownodeNotFound, context);
-        verify(loggerService).isLoggable(txBonitawork.getClass(), TechnicalLogSeverity.TRACE);
-        verify(loggerService).isLoggable(txBonitawork.getClass(), TechnicalLogSeverity.DEBUG);
+        verify(loggerService).isLoggable(txBonitawork.getClass(), TechnicalLogSeverity.ERROR);
+        verify(loggerService).isLoggable(txBonitawork.getClass(), TechnicalLogSeverity.ERROR);
     }
 
     @Test
@@ -208,8 +208,8 @@ public class FailureHandlingBonitaWorkTest {
         when(wrappedWork.getDescription()).thenReturn("");
         txBonitawork.work(context);
         verify(wrappedWork, never()).handleFailure(e, context);
-        verify(loggerService).isLoggable(txBonitawork.getClass(), TechnicalLogSeverity.TRACE);
-        verify(loggerService).isLoggable(txBonitawork.getClass(), TechnicalLogSeverity.DEBUG);
+        verify(loggerService).isLoggable(txBonitawork.getClass(), TechnicalLogSeverity.ERROR);
+        verify(loggerService).isLoggable(txBonitawork.getClass(), TechnicalLogSeverity.ERROR);
     }
 
     @Test
@@ -219,8 +219,8 @@ public class FailureHandlingBonitaWorkTest {
         doThrow(e).when(wrappedWork).work(context);
         txBonitawork.work(context);
         verify(wrappedWork, never()).handleFailure(e, context);
-        verify(loggerService).isLoggable(txBonitawork.getClass(), TechnicalLogSeverity.TRACE);
-        verify(loggerService).isLoggable(txBonitawork.getClass(), TechnicalLogSeverity.DEBUG);
+        verify(loggerService).isLoggable(txBonitawork.getClass(), TechnicalLogSeverity.ERROR);
+        verify(loggerService).isLoggable(txBonitawork.getClass(), TechnicalLogSeverity.ERROR);
     }
 
     public void doNotHandleFailureWhenIsIllegalTransitionFromTerminalState() throws Exception {
@@ -229,7 +229,7 @@ public class FailureHandlingBonitaWorkTest {
         doThrow(e).when(wrappedWork).work(context);
         txBonitawork.work(context);
         verify(wrappedWork, never()).handleFailure(e, context);
-        verify(loggerService).isLoggable(FailureHandlingBonitaWork.class, TechnicalLogSeverity.DEBUG);
+        verify(loggerService).isLoggable(FailureHandlingBonitaWork.class, TechnicalLogSeverity.ERROR);
     }
 
     @Test

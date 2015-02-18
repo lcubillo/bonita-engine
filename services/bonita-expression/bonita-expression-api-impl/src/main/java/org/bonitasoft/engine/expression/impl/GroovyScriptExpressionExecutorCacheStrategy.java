@@ -62,52 +62,84 @@ public class GroovyScriptExpressionExecutorCacheStrategy extends NonEmptyContent
         this.cacheService = cacheService;
         this.classLoaderService = classLoaderService;
         this.logger = logger;
-        debugEnabled = logger.isLoggable(this.getClass(), TechnicalLogSeverity.DEBUG);
+        debugEnabled = true;
     }
 
     Script getScriptFromCache(final String expressionContent, final Long definitionId) throws SCacheException, SClassLoaderException {
+        if (debugEnabled) {
+            logger.log(this.getClass(), TechnicalLogSeverity.ERROR, "***getScriptFromCache(" + Thread.currentThread().getId() + "-" + Thread.currentThread().getName() + " ), definitionId=" + definitionId + ", expressionContent="+expressionContent, new Exception());
+        }
         final GroovyShell shell = getShell(definitionId);
+        if (debugEnabled) {
+            logger.log(this.getClass(), TechnicalLogSeverity.ERROR, "***getScriptFromCache(\" + Thread.currentThread().getId() + \"-\" + Thread.currentThread().getName() + \" ), found shell=" + shell);
+        }
         /*
          * We use the current thread id is the key because Scripts are not thread safe (because of binding)
          * This way we store one script for each thread, it is like a thread local cache.
          */
         final String key = Thread.currentThread().getId() + SCRIPT_KEY + definitionId + expressionContent.hashCode();
+        if (debugEnabled) {
+            logger.log(this.getClass(), TechnicalLogSeverity.ERROR, "***getScriptFromCache(\" + Thread.currentThread().getId() + \"-\" + Thread.currentThread().getName() + \" ), key=" + key);
+        }
         Script script = (Script) cacheService.get(GROOVY_SCRIPT_CACHE_NAME, key);
+        if (debugEnabled) {
+            logger.log(this.getClass(), TechnicalLogSeverity.ERROR, "***getScriptFromCache(\" + Thread.currentThread().getId() + \"-\" + Thread.currentThread().getName() + \" ), script=" + script);
+        }
 
         // getClassLoader return the InnerClassLoader getParent return the shell classloader
         if (script != null && script.getClass().getClassLoader().getParent() != shell.getClassLoader()) {
             ClassLoader classLoader = script.getClass().getClassLoader();
+            if (debugEnabled) {
+                logger.log(this.getClass(), TechnicalLogSeverity.ERROR, "***getScriptFromCache(\" + Thread.currentThread().getId() + \"-\" + Thread.currentThread().getName() + \" ), scriptClassloader=" + classLoader + ", shellClassloader=" + shell.getClassLoader());
+            }
             script = null;
             cacheService.remove(GROOVY_SCRIPT_CACHE_NAME, key);
             if (debugEnabled) {
-                logger.log(this.getClass(), TechnicalLogSeverity.DEBUG, "Invalidating script because expected classloader <" + classLoader + "> but was <"
+                logger.log(this.getClass(), TechnicalLogSeverity.ERROR, "Invalidating script because expected classloader <" + classLoader + "> but was <"
                         + shell.getClassLoader() + ">");
             }
         }
-
+        if (debugEnabled) {
+            logger.log(this.getClass(), TechnicalLogSeverity.ERROR, "***getScriptFromCache(\" + Thread.currentThread().getId() + \"-\" + Thread.currentThread().getName() + \" ), script2=" + script);
+        }
         if (script == null) {
             script = shell.parse(expressionContent);
             cacheService.store(GROOVY_SCRIPT_CACHE_NAME, key, script);
+        }
+        if (debugEnabled) {
+            logger.log(this.getClass(), TechnicalLogSeverity.ERROR, "***getScriptFromCache(\" + Thread.currentThread().getId() + \"-\" + Thread.currentThread().getName() + \" ), script3=" + script);
         }
         return script;
     }
 
     GroovyShell getShell(final Long definitionId) throws SClassLoaderException, SCacheException {
+        if (debugEnabled) {
+            logger.log(this.getClass(), TechnicalLogSeverity.ERROR, "***getShell(" + Thread.currentThread().getId() + "-" + Thread.currentThread().getName() + " ), definitionId=" + definitionId, new Exception());
+        }
         String key = null;
         GroovyShell shell = null;
         if (definitionId != null) {
             key = SHELL_KEY + definitionId;
             shell = (GroovyShell) cacheService.get(GROOVY_SCRIPT_CACHE_NAME, key);
         }
+        if (debugEnabled) {
+            logger.log(this.getClass(), TechnicalLogSeverity.ERROR, "***getShell(" + Thread.currentThread().getId() + "-" + Thread.currentThread().getName() + " ), shell (from cache)=" + shell);
+        }
         if (shell == null) {
             ClassLoader classLoader;
             if (definitionId != null) {
                 classLoader = classLoaderService.getLocalClassLoader(DEFINITION_TYPE, definitionId);
+                if (debugEnabled) {
+                    logger.log(this.getClass(), TechnicalLogSeverity.ERROR, "***getShell(" + Thread.currentThread().getId() + "-" + Thread.currentThread().getName() + " ), using a processClassloader:" + classLoader + ", definitionId = " + definitionId);
+                }
             } else {
                 classLoader = Thread.currentThread().getContextClassLoader();
+                if (debugEnabled) {
+                    logger.log(this.getClass(), TechnicalLogSeverity.ERROR, "***getShell(" + Thread.currentThread().getId() + "-" + Thread.currentThread().getName() + " ), using thread context classloader:" + classLoader);
+                }
             }
             if (debugEnabled) {
-                logger.log(this.getClass(), TechnicalLogSeverity.DEBUG, "Create a new groovy classloader for " + definitionId + " " + classLoader);
+                logger.log(this.getClass(), TechnicalLogSeverity.ERROR, "***getShell(" + Thread.currentThread().getId() + "-" + Thread.currentThread().getName() + " ), creating new shell=" + shell + " with classloader=" + classLoader);
             }
             shell = new GroovyShell(classLoader);
             cacheService.store(GROOVY_SCRIPT_CACHE_NAME, key, shell);
@@ -124,6 +156,11 @@ public class GroovyScriptExpressionExecutorCacheStrategy extends NonEmptyContent
             final Script script = getScriptFromCache(expressionContent, (Long) context.get(DEFINITION_ID));
             final Binding binding = new Binding(context);
             script.setBinding(binding);
+
+            if (debugEnabled) {
+                logger.log(this.getClass(), TechnicalLogSeverity.ERROR, "***evaluate(" + Thread.currentThread().getId() + "-" + Thread.currentThread().getName() + " ), expressionContent=" + expressionContent + ", expressionName=" + expressionName + ", context=" + context + ", script=" + script + ", binding=" + binding);
+            }
+
             return script.run();
         } catch (final MissingPropertyException e) {
             final String property = e.getProperty();

@@ -117,8 +117,8 @@ public class ClassLoaderServiceImpl implements ClassLoaderService {
     }
 
     private void warnOnShuttingDown(final String key) {
-        if (shuttingDown && logger.isLoggable(getClass(), TechnicalLogSeverity.WARNING)) {
-            logger.log(getClass(), TechnicalLogSeverity.WARNING, "Using local classloader on after ClassLoaderService shuttingdown: " + key);
+        if (shuttingDown && logger.isLoggable(getClass(), TechnicalLogSeverity.ERROR)) {
+            logger.log(getClass(), TechnicalLogSeverity.ERROR, "Using local classloader on after ClassLoaderService shuttingdown: " + key);
         }
     }
 
@@ -138,6 +138,9 @@ public class ClassLoaderServiceImpl implements ClassLoaderService {
             synchronized (mutex) {
                 // here we have to check again the classloader is still not null as it can be not null if the thread executing now is the "second" one
                 if (!localClassLoaders.containsKey(key)) {
+                    if (logger.isLoggable(this.getClass(), TechnicalLogSeverity.ERROR)) {
+                        logger.log(this.getClass(), TechnicalLogSeverity.ERROR, "***getLocalClassLoader(" + Thread.currentThread().getId() + "-" + Thread.currentThread().getName() + " ), new classloader created for type=" + type + ", id=" + id);
+                    }
                     final VirtualClassLoader virtualClassLoader = new VirtualClassLoader(type, id, new ParentRedirectClassLoader(getGlobalClassLoader(),
                             parentClassLoaderResolver, this, type, id));
                     localClassLoaders.put(key, virtualClassLoader);
@@ -158,8 +161,8 @@ public class ClassLoaderServiceImpl implements ClassLoaderService {
 
     @Override
     public void removeLocalClassLoader(final String type, final long id) {
-        if (logger.isLoggable(this.getClass(), TechnicalLogSeverity.TRACE)) {
-            logger.log(this.getClass(), TechnicalLogSeverity.TRACE, LogUtil.getLogBeforeMethod(this.getClass(), "removeLocalClassLoader")
+        if (logger.isLoggable(this.getClass(), TechnicalLogSeverity.ERROR)) {
+            logger.log(this.getClass(), TechnicalLogSeverity.ERROR, LogUtil.getLogBeforeMethod(this.getClass(), "removeLocalClassLoader")
                     + ": Removing local classloader for type " + type + " of id " + id);
         }
         NullCheckingUtil.checkArgsNotNull(id, type);
@@ -194,8 +197,8 @@ public class ClassLoaderServiceImpl implements ClassLoaderService {
 
     @Override
     public void removeAllLocalClassLoaders(final String application) {
-        if (logger.isLoggable(this.getClass(), TechnicalLogSeverity.TRACE)) {
-            logger.log(this.getClass(), TechnicalLogSeverity.TRACE, LogUtil.getLogBeforeMethod(this.getClass(), "removeAllLocalClassLoaders"));
+        if (logger.isLoggable(this.getClass(), TechnicalLogSeverity.ERROR)) {
+            logger.log(this.getClass(), TechnicalLogSeverity.ERROR, LogUtil.getLogBeforeMethod(this.getClass(), "removeAllLocalClassLoaders"));
         }
         NullCheckingUtil.checkArgsNotNull(application);
         final Set<String> keySet = new HashSet<String>(localClassLoaders.keySet());
@@ -204,8 +207,8 @@ public class ClassLoaderServiceImpl implements ClassLoaderService {
                 destroyLocalClassLoader(key);
             }
         }
-        if (logger.isLoggable(this.getClass(), TechnicalLogSeverity.TRACE)) {
-            logger.log(this.getClass(), TechnicalLogSeverity.TRACE, LogUtil.getLogAfterMethod(this.getClass(), "removeAllLocalClassLoaders"));
+        if (logger.isLoggable(this.getClass(), TechnicalLogSeverity.ERROR)) {
+            logger.log(this.getClass(), TechnicalLogSeverity.ERROR, LogUtil.getLogAfterMethod(this.getClass(), "removeAllLocalClassLoaders"));
         }
     }
 

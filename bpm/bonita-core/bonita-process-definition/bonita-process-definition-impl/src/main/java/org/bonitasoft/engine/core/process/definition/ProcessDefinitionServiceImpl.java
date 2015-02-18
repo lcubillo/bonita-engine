@@ -93,6 +93,7 @@ import org.bonitasoft.engine.sessionaccessor.SessionIdNotSetException;
 import org.bonitasoft.engine.xml.ElementBindingsFactory;
 import org.bonitasoft.engine.xml.Parser;
 import org.bonitasoft.engine.xml.ParserFactory;
+import org.bonitasoft.engine.xml.XMLNode;
 import org.bonitasoft.engine.xml.XMLWriter;
 
 /**
@@ -392,7 +393,10 @@ public class ProcessDefinitionServiceImpl implements ProcessDefinitionService {
             }
             final FileOutputStream outputStream = new FileOutputStream(new File(processFolder, SERVER_PROCESS_DEFINITION_XML));
             try {
-                xmlWriter.write(BuilderFactory.get(SProcessDefinitionBuilderFactory.class).getXMLProcessDefinition(definition), outputStream);
+                System.err.println("***XMLWriter: " + xmlWriter.toString());
+                final XMLNode xmlProcessDefinition = BuilderFactory.get(SProcessDefinitionBuilderFactory.class).getXMLProcessDefinition(definition);
+                System.err.println("***XMLNode: " + xmlProcessDefinition.getContent());
+                xmlWriter.write(xmlProcessDefinition, outputStream);
             } finally {
                 outputStream.close();
             }
