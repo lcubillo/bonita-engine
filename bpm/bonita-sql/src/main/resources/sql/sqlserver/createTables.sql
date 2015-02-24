@@ -166,11 +166,11 @@ CREATE TABLE arch_process_instance (
   callerId NUMERIC(19, 0),
   migration_plan NUMERIC(19, 0),
   sourceObjectId NUMERIC(19, 0) NOT NULL,
-  stringIndex1 NVARCHAR(50),
-  stringIndex2 NVARCHAR(50),
-  stringIndex3 NVARCHAR(50),
-  stringIndex4 NVARCHAR(50),
-  stringIndex5 NVARCHAR(50),
+  stringIndex1 NVARCHAR(255),
+  stringIndex2 NVARCHAR(255),
+  stringIndex3 NVARCHAR(255),
+  stringIndex4 NVARCHAR(255),
+  stringIndex5 NVARCHAR(255),
   PRIMARY KEY (tenantid, id)
 )
 GO
@@ -190,8 +190,8 @@ CREATE TABLE arch_flownode_instance (
   archiveDate NUMERIC(19, 0) NOT NULL,
   rootContainerId NUMERIC(19, 0) NOT NULL,
   parentContainerId NUMERIC(19, 0) NOT NULL,
-  name NVARCHAR(50) NOT NULL,
-  displayName NVARCHAR(75),
+  name NVARCHAR(255) NOT NULL,
+  displayName NVARCHAR(255),
   displayDescription NVARCHAR(255),
   stateId INT NOT NULL,
   stateName NVARCHAR(50),
@@ -301,25 +301,16 @@ CREATE TABLE process_instance (
   callerType NVARCHAR(50),
   interruptingEventId NUMERIC(19, 0),
   migration_plan NUMERIC(19, 0),
-  stringIndex1 NVARCHAR(50),
-  stringIndex2 NVARCHAR(50),
-  stringIndex3 NVARCHAR(50),
-  stringIndex4 NVARCHAR(50),
-  stringIndex5 NVARCHAR(50),
+  stringIndex1 NVARCHAR(255),
+  stringIndex2 NVARCHAR(255),
+  stringIndex3 NVARCHAR(255),
+  stringIndex4 NVARCHAR(255),
+  stringIndex5 NVARCHAR(255),
   PRIMARY KEY (tenantid, id)
 )
 GO
 
-CREATE TABLE token (
-  tenantid NUMERIC(19, 0) NOT NULL,
-  id NUMERIC(19, 0) NOT NULL,
-  processInstanceId NUMERIC(19, 0) NOT NULL,
-  ref_id NUMERIC(19, 0) NOT NULL,
-  parent_ref_id NUMERIC(19, 0) NULL,
-  PRIMARY KEY (tenantid, id)
-)
-GO
-CREATE INDEX idx1_token ON token(tenantid,processInstanceId)
+CREATE INDEX idx1_proc_inst_pdef_state ON process_instance (tenantid, processdefinitionid, stateid)
 GO
 
 CREATE TABLE flownode_instance (
@@ -329,8 +320,8 @@ CREATE TABLE flownode_instance (
   kind NVARCHAR(25) NOT NULL,
   rootContainerId NUMERIC(19, 0) NOT NULL,
   parentContainerId NUMERIC(19, 0) NOT NULL,
-  name NVARCHAR(50) NOT NULL,
-  displayName NVARCHAR(75),
+  name NVARCHAR(255) NOT NULL,
+  displayName NVARCHAR(255),
   displayDescription NVARCHAR(255),
   stateId INT NOT NULL,
   stateName NVARCHAR(50),
@@ -371,7 +362,6 @@ CREATE TABLE flownode_instance (
   triggeredByEvent BIT,
   interrupting BIT,
   tokenCount INT NOT NULL,
-  token_ref_id NUMERIC(19, 0) NULL,
   PRIMARY KEY (tenantid, id)
 )
 GO
@@ -767,9 +757,9 @@ GO
 CREATE TABLE group_ (
   tenantid NUMERIC(19, 0) NOT NULL,
   id NUMERIC(19, 0) NOT NULL,
-  name NVARCHAR(50) NOT NULL,
+  name NVARCHAR(125) NOT NULL,
   parentPath NVARCHAR(255),
-  displayName NVARCHAR(75),
+  displayName NVARCHAR(255),
   description NVARCHAR(MAX),
   iconName NVARCHAR(50),
   iconPath NVARCHAR(50),
@@ -784,8 +774,8 @@ GO
 CREATE TABLE role (
   tenantid NUMERIC(19, 0) NOT NULL,
   id NUMERIC(19, 0) NOT NULL,
-  name NVARCHAR(50) NOT NULL,
-  displayName NVARCHAR(75),
+  name NVARCHAR(255) NOT NULL,
+  displayName NVARCHAR(255),
   description NVARCHAR(MAX),
   iconName NVARCHAR(50),
   iconPath NVARCHAR(50),
@@ -811,7 +801,6 @@ CREATE TABLE user_ (
   title NVARCHAR(50),
   jobTitle NVARCHAR(255),
   managerUserId NUMERIC(19, 0),
-  delegeeUserName NVARCHAR(50),
   iconName NVARCHAR(50),
   iconPath NVARCHAR(50),
   createdBy NUMERIC(19, 0),
@@ -845,10 +834,10 @@ CREATE TABLE user_contactinfo (
   room NVARCHAR(50),
   address NVARCHAR(255),
   zipCode NVARCHAR(50),
-  city NVARCHAR(50),
-  state NVARCHAR(50),
-  country NVARCHAR(50),
-  website NVARCHAR(50),
+  city NVARCHAR(255),
+  state NVARCHAR(255),
+  country NVARCHAR(255),
+  website NVARCHAR(255),
   personal BIT NOT NULL,
   UNIQUE (tenantid, userId, personal),
   PRIMARY KEY (tenantid, id)
