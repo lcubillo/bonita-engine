@@ -31,6 +31,9 @@ import org.bonitasoft.engine.api.impl.transaction.actor.ImportActorMapping;
 import org.bonitasoft.engine.archive.ArchiveService;
 import org.bonitasoft.engine.bpm.model.impl.BPMInstancesCreator;
 import org.bonitasoft.engine.business.application.ApplicationService;
+import org.bonitasoft.engine.business.data.BusinessDataModelRepository;
+import org.bonitasoft.engine.business.data.BusinessDataRepository;
+import org.bonitasoft.engine.business.data.BusinessDataService;
 import org.bonitasoft.engine.cache.CacheService;
 import org.bonitasoft.engine.classloader.ClassLoaderService;
 import org.bonitasoft.engine.command.CommandService;
@@ -51,7 +54,7 @@ import org.bonitasoft.engine.core.process.definition.ProcessDefinitionService;
 import org.bonitasoft.engine.core.process.instance.api.ActivityInstanceService;
 import org.bonitasoft.engine.core.process.instance.api.GatewayInstanceService;
 import org.bonitasoft.engine.core.process.instance.api.ProcessInstanceService;
-import org.bonitasoft.engine.core.process.instance.api.TokenService;
+import org.bonitasoft.engine.core.process.instance.api.RefBusinessDataService;
 import org.bonitasoft.engine.core.process.instance.api.TransitionService;
 import org.bonitasoft.engine.core.process.instance.api.event.EventInstanceService;
 import org.bonitasoft.engine.data.instance.api.DataInstanceService;
@@ -130,8 +133,6 @@ public class SpringTenantServiceAccessor implements TenantServiceAccessor {
     private ActivityInstanceService activityInstanceService;
 
     private ProcessInstanceService processInstanceService;
-
-    private TokenService tokenCountService;
 
     private FlowNodeExecutor flowNodeExecutor;
 
@@ -243,6 +244,15 @@ public class SpringTenantServiceAccessor implements TenantServiceAccessor {
 
     private ApplicationService applicationService;
 
+    private BusinessDataRepository businessDataRespository;
+
+    private RefBusinessDataService refBusinessDataService;
+
+    private BusinessDataModelRepository businessDataModelRespository;
+
+    private BusinessDataService businessDataService;
+
+
     @Override
     public ParentContainerResolver getParentContainerResolver() {
         if (parentContainerResolver == null) {
@@ -346,14 +356,6 @@ public class SpringTenantServiceAccessor implements TenantServiceAccessor {
             processInstanceService = beanAccessor.getService(ProcessInstanceService.class);
         }
         return processInstanceService;
-    }
-
-    @Override
-    public TokenService getTokenService() {
-        if (tokenCountService == null) {
-            tokenCountService = beanAccessor.getService(TokenService.class);
-        }
-        return tokenCountService;
     }
 
     @Override
@@ -844,6 +846,38 @@ public class SpringTenantServiceAccessor implements TenantServiceAccessor {
             applicationService = beanAccessor.getService(ApplicationService.class);
         }
         return applicationService;
+    }
+
+    @Override
+    public BusinessDataRepository getBusinessDataRepository() {
+        if (businessDataRespository == null) {
+            businessDataRespository = beanAccessor.getService(BusinessDataRepository.class);
+        }
+        return businessDataRespository;
+    }
+
+    @Override
+    public BusinessDataModelRepository getBusinessDataModelRepository() {
+        if (businessDataModelRespository == null) {
+            businessDataModelRespository = beanAccessor.getService(BusinessDataModelRepository.class);
+        }
+        return businessDataModelRespository;
+    }
+
+    @Override
+    public RefBusinessDataService getRefBusinessDataService() {
+        if (refBusinessDataService == null) {
+            refBusinessDataService = beanAccessor.getService(RefBusinessDataService.class);
+        }
+        return refBusinessDataService;
+    }
+
+    @Override
+    public BusinessDataService getBusinessDataService() {
+        if (businessDataService == null) {
+            businessDataService = beanAccessor.getService(BusinessDataService.class);
+        }
+        return businessDataService;
     }
 
 }
