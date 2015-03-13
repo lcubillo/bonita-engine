@@ -728,6 +728,16 @@ public class ActivityInstanceServiceImpl extends FlowNodeInstancesServiceImpl im
     }
 
     @Override
+    public List<Long> isTaskPendingForUser(final long humanTaskInstanceId, final int userId) throws SBonitaReadException {
+        final Map<String, Object> parameters = new HashMap<String, Object>();
+        parameters.put("humanTaskInstanceId", humanTaskInstanceId);
+        final QueryOptions queryOptions = new QueryOptions(startIndex, maxResults);
+        final SelectListDescriptor<Long> elements = new SelectListDescriptor<Long>("getPossibleUserIdsOfPendingTasks", parameters, SActivityInstance.class,
+                queryOptions);
+        return getPersistenceService().selectList(elements);
+    }
+
+    @Override
     public long getNumberOfUsersWhoCanExecutePendingHumanTaskDeploymentInfo(final long humanTaskInstanceId, final QueryOptions searchOptions)
             throws SBonitaReadException {
         final Map<String, Object> parameters = Collections.singletonMap("humanTaskInstanceId", (Object) humanTaskInstanceId);

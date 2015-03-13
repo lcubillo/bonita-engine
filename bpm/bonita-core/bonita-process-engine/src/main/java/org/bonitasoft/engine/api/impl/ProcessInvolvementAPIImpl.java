@@ -17,6 +17,10 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import org.bonitasoft.engine.actor.mapping.ActorMappingService;
+import org.bonitasoft.engine.actor.mapping.SActorNotFoundException;
+import org.bonitasoft.engine.actor.mapping.model.SActor;
+import org.bonitasoft.engine.bpm.flownode.ActivityInstanceNotFoundException;
 import org.bonitasoft.engine.bpm.flownode.HumanTaskInstanceSearchDescriptor;
 import org.bonitasoft.engine.bpm.process.ArchivedProcessInstance;
 import org.bonitasoft.engine.bpm.process.ProcessInstance;
@@ -24,12 +28,15 @@ import org.bonitasoft.engine.bpm.process.ProcessInstanceNotFoundException;
 import org.bonitasoft.engine.builder.BuilderFactory;
 import org.bonitasoft.engine.commons.exceptions.SBonitaException;
 import org.bonitasoft.engine.core.process.instance.api.ActivityInstanceService;
+import org.bonitasoft.engine.core.process.instance.api.exceptions.SActivityInstanceNotFoundException;
 import org.bonitasoft.engine.core.process.instance.model.SHumanTaskInstance;
+import org.bonitasoft.engine.core.process.instance.model.archive.SAActivityInstance;
 import org.bonitasoft.engine.core.process.instance.model.archive.SAHumanTaskInstance;
 import org.bonitasoft.engine.core.process.instance.model.archive.builder.SAUserTaskInstanceBuilderFactory;
 import org.bonitasoft.engine.core.process.instance.model.builder.SUserTaskInstanceBuilderFactory;
 import org.bonitasoft.engine.exception.BonitaException;
 import org.bonitasoft.engine.exception.BonitaRuntimeException;
+import org.bonitasoft.engine.exception.RetrieveException;
 import org.bonitasoft.engine.exception.SearchException;
 import org.bonitasoft.engine.identity.IdentityService;
 import org.bonitasoft.engine.identity.SUserNotFoundException;
@@ -107,6 +114,65 @@ public class ProcessInvolvementAPIImpl {
             // no rollback, read only method
             throw new BonitaRuntimeException(e);// TODO refactor Exceptions!
         }
+    }
+
+
+
+    public boolean isInvolvedInHumanTaskInstance(long userId, long humanTaskInstanceId)  throws ActivityInstanceNotFoundException {
+        try {
+            return isInvolvedInHumanTaskInstance(userId, humanTaskInstanceId, processAPI.getTenantAccessor());
+        } catch (SActivityInstanceNotFoundException e) {
+            throw new ActivityInstanceNotFoundException(humanTaskInstanceId);
+        } catch (SBonitaReadException e) {
+            throw new RetrieveException(e);
+        } catch (SActorNotFoundException e) {
+            throw new RetrieveException(e);
+        }
+    }
+
+
+    private Boolean isInvolvedInHumanTaskInstance(final long userId, final long humanTaskInstanceId, final TenantServiceAccessor serviceAccessor)
+            throws SActivityInstanceNotFoundException, SActorNotFoundException, SBonitaReadException {
+        final ActorMappingService actorMappingService = serviceAccessor.getActorMappingService();
+        final ActivityInstanceService activityInstanceService = serviceAccessor.getActivityInstanceService();
+
+        long actorId;
+        long assigneeId;
+        long processDefinitionId;
+        try {
+            final SHumanTaskInstance humanTaskInstance = activityInstanceService.getHumanTaskInstance(humanTaskInstanceId);
+            actorId = humanTaskInstance.getActorId();
+            assigneeId = humanTaskInstance.getAssigneeId();
+            processDefinitionId = humanTaskInstance.getProcessDefinitionId();
+        } catch (final SActivityInstanceNotFoundException e) {
+            final SAActivityInstance archivedActivityInstance = activityInstanceService.getMostRecentArchivedActivityInstance(humanTaskInstanceId);
+            if (archivedActivityInstance instanceof SAHumanTaskInstance) {
+                final SAHumanTaskInstance saHumanTaskInstance = (SAHumanTaskInstance) archivedActivityInstance;
+                actorId = saHumanTaskInstance.getActorId();
+                assigneeId = saHumanTaskInstance.getAssigneeId();
+                processDefinitionId = saHumanTaskInstance.getProcessDefinitionId();
+            } else {
+                throw new SActivityInstanceNotFoundException(humanTaskInstanceId);
+            }
+        }
+        if (assigneeId > 0) {
+            //check if the user is the assigned user
+            return userId == assigneeId;
+        } else {
+            //if the task is not assigned check if the user is mapped to the actor of the task
+            return isMappedToActor(userId, actorId, actorMappingService, processDefinitionId);
+        }
+    }
+
+    private boolean isMappedToActor(long userId, long actorId, ActorMappingService actorMappingService, long processDefinitionId) throws SBonitaReadException,
+            SActorNotFoundException {
+        List<SActor> actors = actorMappingService.getActors(Collections.singleton(processDefinitionId), userId);
+        for (SActor actor : actors) {
+            if (actor.getId() == actorId) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public boolean isManagerOfUserInvolvedInProcessInstance(final long managerUserId, final long processInstanceId) throws ProcessInstanceNotFoundException,
@@ -247,5 +313,4 @@ public class ProcessInvolvementAPIImpl {
         }
         return false;
     }
-
 }

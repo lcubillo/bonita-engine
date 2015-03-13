@@ -1201,6 +1201,29 @@
 			)
 	</query>
 
+
+
+	<query name="isTaskPendingForUser">
+		SELECT COUNT(DISTINCT mapping.id)
+		FROM  org.bonitasoft.engine.core.process.instance.model.impl.SPendingActivityMappingImpl AS mapping,
+			org.bonitasoft.engine.actor.mapping.model.impl.SActorMemberImpl AS actormember,
+			org.bonitasoft.engine.identity.model.impl.SUserMembershipImpl AS user_membership
+		WHERE
+			mapping.activityId = :humanTaskInstanceId
+		AND (
+			mapping.userId = :userId
+			OR (
+				mapping.actorId = actormember.actorId
+				AND (
+					actormember.userId = :userId
+					OR (AND user_membership.userId = :userId AND ((actormember.roleId = -1 AND actormember.groupId = user_membership.groupId)
+					OR (actormember.groupId = -1 AND actormember.roleId = user_membership.roleId)
+					OR (actormember.roleId = user_membership.roleId AND actormember.groupId = user_membership.groupId)
+					)
+			)
+		)
+	</query>
+
 	<query name="getPossibleUserIdsOfPendingTasks">
         SELECT user.id
         FROM org.bonitasoft.engine.identity.model.impl.SUserImpl AS user
