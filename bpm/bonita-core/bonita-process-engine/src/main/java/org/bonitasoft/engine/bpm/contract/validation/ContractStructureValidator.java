@@ -13,10 +13,11 @@
  **/
 package org.bonitasoft.engine.bpm.contract.validation;
 
-import static org.bonitasoft.engine.log.technical.TechnicalLogSeverity.*;
+import static org.bonitasoft.engine.log.technical.TechnicalLogSeverity.DEBUG;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -39,7 +40,7 @@ public class ContractStructureValidator {
     }
 
     public void validate(final SContractDefinition contract, final Map<String, Serializable> inputs) throws ContractViolationException {
-        final List<String> messages = new ArrayList<String>();
+        final List<String> messages = new ArrayList<>();
         messages.addAll(recursive(contract.getSimpleInputs(), contract.getComplexInputs(), inputs));
         if (!messages.isEmpty()) {
             throw new ContractViolationException("Error while validating expected inputs", messages);
@@ -52,7 +53,7 @@ public class ContractStructureValidator {
 
         logInputsWhichAreNotInContract(DEBUG, simpleInputs, inputs);
 
-        final List<String> message = new ArrayList<String>();
+        final List<String> message = new ArrayList<>();
         for (final SInputDefinition def : union(simpleInputs, complexInputs)) {
             try {
                 validateInput(def, inputs);
@@ -80,7 +81,7 @@ public class ContractStructureValidator {
     }
 
     private List<SInputDefinition> union(final List<SSimpleInputDefinition> simpleInputs, final List<SComplexInputDefinition> complexInputs) {
-        final List<SInputDefinition> all = new ArrayList<SInputDefinition>();
+        final List<SInputDefinition> all = new ArrayList<>();
         all.addAll(simpleInputs);
         all.addAll(complexInputs);
         return all;
@@ -88,7 +89,7 @@ public class ContractStructureValidator {
 
     private void validateInput(final SInputDefinition definition, final Map<String, Serializable> inputs) throws InputValidationException {
         final String inputName = definition.getName();
-        if (!inputs.containsKey(inputName)) {
+        if (inputs == null || !inputs.containsKey(inputName)) {
             throw new InputValidationException("Expected input [" + inputName + "] is missing");
         } else {
             typeValidator.validate(definition, inputs.get(inputName));
@@ -105,10 +106,14 @@ public class ContractStructureValidator {
     }
 
     private List<String> getInputsWhichAreNotInContract(final List<SSimpleInputDefinition> simpleInputs, final Map<String, Serializable> inputs) {
-        final List<String> keySet = new ArrayList<String>(inputs.keySet());
-        for (final SInputDefinition def : simpleInputs) {
-            keySet.remove(def.getName());
+        if (inputs != null) {
+            final List<String> keySet = new ArrayList<>(inputs.keySet());
+            for (final SInputDefinition def : simpleInputs) {
+                keySet.remove(def.getName());
+            }
+            return keySet;
+        } else {
+            return Collections.emptyList();
         }
-        return keySet;
     }
 }

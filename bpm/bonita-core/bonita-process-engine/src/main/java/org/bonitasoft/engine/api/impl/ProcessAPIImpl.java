@@ -2814,7 +2814,6 @@ public class ProcessAPIImpl implements ProcessAPI {
         return new ProcessInvolvementAPIImpl(this).isInvolvedInProcessInstance(userId, processInstanceId);
     }
 
-
     public boolean isInvolvedInHumanTaskInstance(long userId, long humanTaskInstanceId) throws ActivityInstanceNotFoundException, UserNotFoundException {
         return new ProcessInvolvementAPIImpl(this).isInvolvedInHumanTaskInstance(userId, humanTaskInstanceId);
     }
@@ -3276,6 +3275,10 @@ public class ProcessAPIImpl implements ProcessAPI {
         } catch (SProcessDefinitionNotFoundException | SProcessDefinitionReadException e) {
             throw new ProcessDefinitionNotFoundException(processDefinitionId, e);
         }
+        validateContract(contractDefinition, inputs);
+    }
+
+    private void validateContract(SContractDefinition contractDefinition, Map<String, Serializable> inputs) throws ContractViolationException {
         final ContractValidator validator = new ContractValidatorFactory().createContractValidator(getTenantAccessor().getTechnicalLoggerService());
         if (!validator.isValid(contractDefinition, inputs)) {
             throw new ContractViolationException("Contract is not valid: ", validator.getComments());
@@ -6006,11 +6009,7 @@ public class ProcessAPIImpl implements ProcessAPI {
         final GetContractOfUserTaskInstance contractOfUserTaskInstance = new GetContractOfUserTaskInstance(tenantAccessor.getProcessDefinitionService(),
                 (SUserTaskInstance) flowNodeInstance);
         executeTransactionContent(tenantAccessor, contractOfUserTaskInstance, wrapInTransaction);
-        final SContractDefinition contractDefinition = contractOfUserTaskInstance.getResult();
-        final ContractValidator validator = new ContractValidatorFactory().createContractValidator(tenantAccessor.getTechnicalLoggerService());
-        if (!validator.isValid(contractDefinition, inputs)) {
-            throw new ContractViolationException("Contract is not valid: ", validator.getComments());
-        }
+        validateContract(contractOfUserTaskInstance.getResult(), inputs);
     }
 
     @Override

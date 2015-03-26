@@ -13,14 +13,15 @@
  **/
 package org.bonitasoft.engine.bpm.contract.validation;
 
-import static org.assertj.core.api.Assertions.*;
-import static org.bonitasoft.engine.bpm.contract.validation.builder.MapBuilder.*;
-import static org.bonitasoft.engine.bpm.contract.validation.builder.SComplexInputDefinitionBuilder.*;
-import static org.bonitasoft.engine.bpm.contract.validation.builder.SContractDefinitionBuilder.*;
-import static org.bonitasoft.engine.bpm.contract.validation.builder.SSimpleInputDefinitionBuilder.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.fail;
+import static org.bonitasoft.engine.bpm.contract.validation.builder.MapBuilder.aMap;
+import static org.bonitasoft.engine.bpm.contract.validation.builder.SComplexInputDefinitionBuilder.aComplexInput;
+import static org.bonitasoft.engine.bpm.contract.validation.builder.SContractDefinitionBuilder.aContract;
+import static org.bonitasoft.engine.bpm.contract.validation.builder.SSimpleInputDefinitionBuilder.aSimpleInput;
 import static org.bonitasoft.engine.core.process.definition.model.SType.*;
-import static org.bonitasoft.engine.log.technical.TechnicalLogSeverity.*;
-import static org.mockito.Matchers.*;
+import static org.bonitasoft.engine.log.technical.TechnicalLogSeverity.DEBUG;
+import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.*;
 
 import java.io.Serializable;
@@ -75,6 +76,12 @@ public class ContractStructureValidatorTest {
     }
 
     @Test
+    public void nullInputsShouldNotThrowNPE() throws Exception {
+        final SContractDefinition contract = aContract().build();
+        validator.validate(contract, null);
+    }
+
+    @Test
     public void should_pass_when_inputs_are_provided_and_valid() throws Exception {
         final SContractDefinition contract = aContract()
                 .withInput(aSimpleInput(TEXT).withName("aText"))
@@ -111,7 +118,7 @@ public class ContractStructureValidatorTest {
         final SContractDefinition contract = aContract()
                 .withInput(
                         aComplexInput().withName("complex").withMultiple(true)
-                        .withInput(aSimpleInput(TEXT).withName("name").build(), aSimpleInput(SType.INTEGER).withName("value").build())).build();
+                                .withInput(aSimpleInput(TEXT).withName("name").build(), aSimpleInput(SType.INTEGER).withName("value").build())).build();
 
         final List<Map<String, Serializable>> complexList = new ArrayList<Map<String, Serializable>>();
         complexList.add(aMap().put("name", "value1").put("value", 5).build());
@@ -154,7 +161,7 @@ public class ContractStructureValidatorTest {
             fail("Expected ContractViolationException");
         } catch (final ContractViolationException e) {
             assertThat(e.getExplanations())
-            .containsOnly("Expected input [aText] is missing", "Expected input [anotherText] is missing");
+                    .containsOnly("Expected input [aText] is missing", "Expected input [anotherText] is missing");
         }
     }
 
@@ -168,7 +175,7 @@ public class ContractStructureValidatorTest {
             fail("Expected ContractViolationException");
         } catch (final ContractViolationException e) {
             assertThat(e.getExplanations())
-            .containsOnly("Expected input [complex] is missing");
+                    .containsOnly("Expected input [complex] is missing");
         }
     }
 
@@ -183,7 +190,7 @@ public class ContractStructureValidatorTest {
             fail("expected exception has not been thrown");
         } catch (final ContractViolationException e) {
             assertThat(e.getExplanations())
-            .containsOnly("Expected input [embedded] is missing");
+                    .containsOnly("Expected input [embedded] is missing");
         }
     }
 
@@ -193,7 +200,7 @@ public class ContractStructureValidatorTest {
                 .withInput(aSimpleInput(INTEGER).withName("anInteger"))
                 .withInput(aComplexInput().withName("complex").withInput(aSimpleInput(SType.TEXT).withName("embedded"))).build();
         doThrow(new InputValidationException("type error explanation"))
-        .when(typeValidator).validate(any(SInputDefinition.class), any(Object.class));
+                .when(typeValidator).validate(any(SInputDefinition.class), any(Object.class));
         final Map<String, Serializable> taskInputs = aMap().put("anInteger", "thisIsNotAnInteger").put("complex", "thisIsNotAComplex").build();
 
         try {
@@ -201,7 +208,7 @@ public class ContractStructureValidatorTest {
             fail("expected exception has not been thrown");
         } catch (final ContractViolationException e) {
             assertThat(e.getExplanations())
-            .containsOnly("type error explanation", "type error explanation");
+                    .containsOnly("type error explanation", "type error explanation");
         }
     }
 }
