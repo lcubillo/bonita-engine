@@ -19,7 +19,7 @@ import org.bonitasoft.engine.bpm.contract.ComplexInputDefinition;
 import org.junit.Test;
 
 
-public class ComplexInputDefinitionImplTest {
+public class ComplexInputDefinitionTest {
 
     private static final String DESCRIPTION = "description";
     private static final String NAME = "name";
@@ -27,7 +27,7 @@ public class ComplexInputDefinitionImplTest {
 
     @Test
     public void constructor_multiple() throws Exception {
-        complexInputDefinition = new ComplexInputDefinitionImpl(NAME, DESCRIPTION, true);
+        complexInputDefinition = new ComplexInputDefinition(NAME, DESCRIPTION, true);
 
         //then
         assertThat(complexInputDefinition.isMultiple()).as("should be multiple").isTrue();
@@ -39,7 +39,7 @@ public class ComplexInputDefinitionImplTest {
     @Test
     public void constructor_not_multiple() throws Exception {
         //given
-        complexInputDefinition = new ComplexInputDefinitionImpl(NAME, DESCRIPTION, false);
+        complexInputDefinition = new ComplexInputDefinition(NAME, DESCRIPTION, false);
 
         //then
         assertThat(complexInputDefinition.isMultiple()).as("should not be multiple").isFalse();
@@ -48,7 +48,7 @@ public class ComplexInputDefinitionImplTest {
     @Test
     public void toString_should_mention_multiple() throws Exception {
         //given
-        complexInputDefinition = new ComplexInputDefinitionImpl(NAME, DESCRIPTION);
+        complexInputDefinition = new ComplexInputDefinition(NAME, DESCRIPTION);
 
         //then
         assertThat(complexInputDefinition.toString()).containsIgnoringCase("multiple");

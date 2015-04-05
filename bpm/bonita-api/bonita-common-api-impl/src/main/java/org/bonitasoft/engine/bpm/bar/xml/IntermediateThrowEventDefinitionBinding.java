@@ -13,7 +13,8 @@
  **/
 package org.bonitasoft.engine.bpm.bar.xml;
 
-import org.bonitasoft.engine.bpm.flownode.impl.internal.IntermediateThrowEventDefinitionImpl;
+
+import org.bonitasoft.engine.bpm.flownode.IntermediateThrowEventDefinition;
 
 /**
  * @author Elias Ricken de Medeiros
@@ -23,7 +24,7 @@ public class IntermediateThrowEventDefinitionBinding extends ThrowEventDefinitio
 
     @Override
     public Object getObject() {
-        final IntermediateThrowEventDefinitionImpl intermediateThrowEventDefinitionImpl = new IntermediateThrowEventDefinitionImpl(id, name);
+        final IntermediateThrowEventDefinition intermediateThrowEventDefinitionImpl = new IntermediateThrowEventDefinition(id, name);
         fillNode(intermediateThrowEventDefinitionImpl);
         return intermediateThrowEventDefinitionImpl;
     }

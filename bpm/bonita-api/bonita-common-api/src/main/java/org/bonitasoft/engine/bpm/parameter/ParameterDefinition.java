@@ -18,8 +18,19 @@ import org.bonitasoft.engine.bpm.DescriptionElement;
 /**
  * @author Matthieu Chaffotte
  */
-public interface ParameterDefinition extends DescriptionElement {
+public class ParameterDefinition extends DescriptionElement {
 
-    String getType();
+    private static final long serialVersionUID = -3997656451808629180L;
 
+    private final String type;
+
+
+    public ParameterDefinition(final String parameterName, final String type) {
+        super(parameterName);
+        this.type = type;
+    }
+
+    public String getType() {
+        return type;
+    }
 }

@@ -17,7 +17,9 @@ import java.util.Date;
 
 import org.bonitasoft.engine.bpm.ArchivedElement;
 import org.bonitasoft.engine.bpm.BaseElement;
+import org.bonitasoft.engine.bpm.BaseElementInstance;
 import org.bonitasoft.engine.bpm.NamedElement;
+import org.bonitasoft.engine.bpm.NamedElementInstance;
 
 /**
  * Represents an archived instance of a process.
@@ -30,7 +32,7 @@ import org.bonitasoft.engine.bpm.NamedElement;
  * @version 6.3.5
  * @since 6.0.0
  */
-public interface ArchivedProcessInstance extends NamedElement, BaseElement, ArchivedElement {
+public interface ArchivedProcessInstance extends NamedElementInstance, BaseElementInstance, ArchivedElement {
 
     /**
      * Get the state of this process instance when it was archived.

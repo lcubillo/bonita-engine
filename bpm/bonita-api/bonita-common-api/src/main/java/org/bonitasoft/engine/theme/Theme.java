@@ -16,11 +16,12 @@ package org.bonitasoft.engine.theme;
 import java.util.Date;
 
 import org.bonitasoft.engine.bpm.BaseElement;
+import org.bonitasoft.engine.bpm.BaseElementInstance;
 
 /**
  * @author Celine Souchet
  */
-public interface Theme extends BaseElement {
+public interface Theme extends BaseElementInstance {
 
     /**
      * @return The zip file associated with this theme, as a binary content.

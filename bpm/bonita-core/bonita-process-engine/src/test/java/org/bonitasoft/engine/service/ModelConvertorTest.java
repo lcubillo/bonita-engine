@@ -35,9 +35,6 @@ import org.bonitasoft.engine.bpm.contract.ConstraintDefinition;
 import org.bonitasoft.engine.bpm.contract.ContractDefinition;
 import org.bonitasoft.engine.bpm.contract.SimpleInputDefinition;
 import org.bonitasoft.engine.bpm.contract.Type;
-import org.bonitasoft.engine.bpm.contract.impl.ComplexInputDefinitionImpl;
-import org.bonitasoft.engine.bpm.contract.impl.ConstraintDefinitionImpl;
-import org.bonitasoft.engine.bpm.contract.impl.SimpleInputDefinitionImpl;
 import org.bonitasoft.engine.bpm.data.DataInstance;
 import org.bonitasoft.engine.bpm.document.Document;
 import org.bonitasoft.engine.bpm.flownode.ArchivedUserTaskInstance;
@@ -442,10 +439,10 @@ public class ModelConvertorTest {
     @Test
     public void convertSContractDefinition() {
         //given
-        final SimpleInputDefinition expectedSimpleInput = new SimpleInputDefinitionImpl("name", Type.TEXT, "description");
-        final ComplexInputDefinition expectedComplexInput = new ComplexInputDefinitionImpl("complex input", "complex description",
+        final SimpleInputDefinition expectedSimpleInput = new SimpleInputDefinition("name", Type.TEXT, "description");
+        final ComplexInputDefinition expectedComplexInput = new ComplexInputDefinition("complex input", "complex description",
                 Arrays.asList(expectedSimpleInput), null);
-        final ConstraintDefinition expectedRule = new ConstraintDefinitionImpl("name", "expression", "explanation");
+        final ConstraintDefinition expectedRule = new ConstraintDefinition("name", "expression", "explanation");
         expectedRule.getInputNames().add("input1");
         expectedRule.getInputNames().add("input2");
 
@@ -470,13 +467,13 @@ public class ModelConvertorTest {
     @Test
     public void convertMultipleSContractDefinition() {
         //given
-        final SimpleInputDefinition expectedSimpleInput = new SimpleInputDefinitionImpl("name", Type.TEXT, "description", true);
-        final ComplexInputDefinition expectedComplexInput = new ComplexInputDefinitionImpl("complex input", "complex description", true,
+        final SimpleInputDefinition expectedSimpleInput = new SimpleInputDefinition("name", Type.TEXT, "description", true);
+        final ComplexInputDefinition expectedComplexInput = new ComplexInputDefinition("complex input", "complex description", true,
                 Arrays.asList(expectedSimpleInput), null);
-        final ComplexInputDefinition expectedComplexWithComplexInput = new ComplexInputDefinitionImpl("complex in complext", "complex description", true,
+        final ComplexInputDefinition expectedComplexWithComplexInput = new ComplexInputDefinition("complex in complext", "complex description", true,
                 null, Arrays.asList(expectedComplexInput));
 
-        final ConstraintDefinition expectedRule = new ConstraintDefinitionImpl("name", "expression", "explanation");
+        final ConstraintDefinition expectedRule = new ConstraintDefinition("name", "expression", "explanation");
         expectedRule.getInputNames().add("input1");
         expectedRule.getInputNames().add("input2");
 

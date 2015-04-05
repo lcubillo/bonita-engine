@@ -10,9 +10,10 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.contract;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,10 +22,48 @@ import java.util.List;
  * @author Laurent Leseigneur
  * @since 7.0
  */
-public interface ComplexInputDefinition extends InputDefinition {
+public class ComplexInputDefinition extends InputDefinition {
 
-    List<SimpleInputDefinition> getSimpleInputs();
+    private static final long serialVersionUID = 2836592506382887928L;
+    private final List<SimpleInputDefinition> simpleInputDefinitions;
+    private final List<ComplexInputDefinition> complexInputDefinitions;
 
-    List<ComplexInputDefinition> getComplexInputs();
+    public ComplexInputDefinition(final String name, final String description) {
+        this(name, description, false, null, null);
+    }
 
+    public ComplexInputDefinition(final String name, final String description, final boolean multiple) {
+        this(name, description, multiple, null, null);
+    }
+
+    public ComplexInputDefinition(final String name, final String description, final List<SimpleInputDefinition> simpleInputDefinitions,
+                                  final List<ComplexInputDefinition> complexInputDefinitions) {
+        this(name, description, false, simpleInputDefinitions, complexInputDefinitions);
+    }
+
+    public ComplexInputDefinition(final String name, final String description, final boolean multiple,
+                                  final List<SimpleInputDefinition> simpleInputDefinitions,
+                                  final List<ComplexInputDefinition> complexInputDefinitions) {
+        super(name, description, multiple);
+        this.simpleInputDefinitions = new ArrayList<>();
+        this.complexInputDefinitions = new ArrayList<>();
+        if (simpleInputDefinitions != null) {
+            for (final SimpleInputDefinition simpleInputDefinition : simpleInputDefinitions) {
+                this.simpleInputDefinitions.add(simpleInputDefinition);
+            }
+        }
+        if (complexInputDefinitions != null) {
+            for (final ComplexInputDefinition complexInputDefinition : complexInputDefinitions) {
+                this.complexInputDefinitions.add(complexInputDefinition);
+            }
+        }
+    }
+
+    public List<SimpleInputDefinition> getSimpleInputs() {
+        return simpleInputDefinitions;
+    }
+
+    public List<ComplexInputDefinition> getComplexInputs() {
+        return complexInputDefinitions;
+    }
 }

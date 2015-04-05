@@ -16,6 +16,7 @@ package org.bonitasoft.engine.bpm.connector;
 import org.bonitasoft.engine.bpm.ArchivedElement;
 import org.bonitasoft.engine.bpm.BaseElement;
 import org.bonitasoft.engine.bpm.NamedElement;
+import org.bonitasoft.engine.bpm.NamedElementInstance;
 
 /**
  * The archived connector
@@ -24,7 +25,7 @@ import org.bonitasoft.engine.bpm.NamedElement;
  * @author Matthieu Chaffotte
  * @author Celine Souchet
  */
-public interface ArchivedConnectorInstance extends NamedElement, BaseElement, ArchivedElement {
+public interface ArchivedConnectorInstance extends NamedElementInstance, ArchivedElement {
 
     /**
      * Container type : FlowNode

@@ -10,20 +10,34 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.flownode;
 
-import java.io.Serializable;
-
+import org.bonitasoft.engine.bpm.BonitaObject;
 import org.bonitasoft.engine.expression.Expression;
 
 /**
  * @author Baptiste Mesta
  */
-public interface CorrelationDefinition extends Serializable {
+public class CorrelationDefinition implements BonitaObject {
+    private static final long serialVersionUID = 2L;
 
-    Expression getKey();
+    private final Expression value;
 
-    Expression getValue();
+    private final Expression key;
+
+    public CorrelationDefinition(final Expression key, final Expression value) {
+        super();
+        this.key = key;
+        this.value = value;
+    }
+
+    public Expression getKey() {
+        return key;
+    }
+
+    public Expression getValue() {
+        return value;
+    }
 
 }

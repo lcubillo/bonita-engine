@@ -13,9 +13,9 @@
  **/
 package org.bonitasoft.engine.bpm.process.impl;
 
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowElementContainerDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.ThrowEventDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.ThrowMessageEventTriggerDefinitionImpl;
+import org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition;
+import org.bonitasoft.engine.bpm.flownode.ThrowEventDefinition;
+import org.bonitasoft.engine.bpm.flownode.ThrowMessageEventTriggerDefinition;
 import org.bonitasoft.engine.expression.Expression;
 
 /**
@@ -25,23 +25,23 @@ import org.bonitasoft.engine.expression.Expression;
  */
 public class ThrowMessageEventTriggerBuilder extends FlowElementContainerBuilder {
 
-    private final ThrowMessageEventTriggerDefinitionImpl messageTrigger;
+    private final ThrowMessageEventTriggerDefinition messageTrigger;
 
     private final ProcessDefinitionBuilder processDefinitionBuilder2;
 
-    protected ThrowMessageEventTriggerBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinitionImpl container,
-            final ThrowEventDefinitionImpl event, final String messageName, final Expression targetProcess, final Expression targetFlowNode) {
+    protected ThrowMessageEventTriggerBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinition container,
+            final ThrowEventDefinition event, final String messageName, final Expression targetProcess, final Expression targetFlowNode) {
         super(container, processDefinitionBuilder);
         processDefinitionBuilder2 = processDefinitionBuilder;
-        messageTrigger = new ThrowMessageEventTriggerDefinitionImpl(messageName, targetProcess, targetFlowNode);
+        messageTrigger = new ThrowMessageEventTriggerDefinition(messageName, targetProcess, targetFlowNode);
         event.addMessageEventTriggerDefinition(messageTrigger);
     }
 
-    protected ThrowMessageEventTriggerBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinitionImpl container,
-            final ThrowEventDefinitionImpl event, final String messageName, final Expression targetProcess) {
+    protected ThrowMessageEventTriggerBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinition container,
+            final ThrowEventDefinition event, final String messageName, final Expression targetProcess) {
         super(container, processDefinitionBuilder);
         processDefinitionBuilder2 = processDefinitionBuilder;
-        messageTrigger = new ThrowMessageEventTriggerDefinitionImpl(messageName, targetProcess);
+        messageTrigger = new ThrowMessageEventTriggerDefinition(messageName, targetProcess);
         event.addMessageEventTriggerDefinition(messageTrigger);
     }
 

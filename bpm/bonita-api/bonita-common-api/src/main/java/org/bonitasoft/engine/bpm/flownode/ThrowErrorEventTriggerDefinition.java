@@ -20,6 +20,9 @@ package org.bonitasoft.engine.bpm.flownode;
  * @author Elias Ricken de Medeiros
  *
  */
-public interface ThrowErrorEventTriggerDefinition extends ErrorEventTriggerDefinition {
+public class ThrowErrorEventTriggerDefinition extends ErrorEventTriggerDefinition {
 
+    public ThrowErrorEventTriggerDefinition(String errorCode) {
+        super(errorCode);
+    }
 }

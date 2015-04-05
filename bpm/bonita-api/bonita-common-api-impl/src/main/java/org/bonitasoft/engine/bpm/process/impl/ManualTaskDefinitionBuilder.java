@@ -13,9 +13,10 @@
  **/
 package org.bonitasoft.engine.bpm.process.impl;
 
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowElementContainerDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.HumanTaskDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.ManualTaskDefinitionImpl;
+
+import org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition;
+import org.bonitasoft.engine.bpm.flownode.HumanTaskDefinition;
+import org.bonitasoft.engine.bpm.flownode.ManualTaskDefinition;
 
 /**
  * @author Baptiste Mesta
@@ -25,13 +26,13 @@ import org.bonitasoft.engine.bpm.flownode.impl.internal.ManualTaskDefinitionImpl
  */
 public class ManualTaskDefinitionBuilder extends ActivityDefinitionBuilder {
 
-    public ManualTaskDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinitionImpl container,
+    public ManualTaskDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinition container,
             final String name, final String actorName) {
         super(container, processDefinitionBuilder, getManualTask(name, actorName));
     }
 
-    private static ManualTaskDefinitionImpl getManualTask(final String name, final String actorName) {
-        return new ManualTaskDefinitionImpl(name, actorName);
+    private static ManualTaskDefinition getManualTask(final String name, final String actorName) {
+        return new ManualTaskDefinition(name, actorName);
     }
 
     /**
@@ -42,7 +43,7 @@ public class ManualTaskDefinitionBuilder extends ActivityDefinitionBuilder {
      * @return
      */
     public UserFilterDefinitionBuilder addUserFilter(final String name, final String userFilterId, final String version) {
-        return new UserFilterDefinitionBuilder(getProcessBuilder(), getContainer(), name, userFilterId, version, (HumanTaskDefinitionImpl) getActivity());
+        return new UserFilterDefinitionBuilder(getProcessBuilder(), getContainer(), name, userFilterId, version, (HumanTaskDefinition) getActivity());
     }
 
     /**
@@ -51,7 +52,7 @@ public class ManualTaskDefinitionBuilder extends ActivityDefinitionBuilder {
      * @return
      */
     public ManualTaskDefinitionBuilder addExpectedDuration(final long time) {
-        ((ManualTaskDefinitionImpl) getActivity()).setExpectedDuration(time);
+        ((ManualTaskDefinition) getActivity()).setExpectedDuration(time);
         return this;
     }
 
@@ -61,7 +62,7 @@ public class ManualTaskDefinitionBuilder extends ActivityDefinitionBuilder {
      * @return
      */
     public ManualTaskDefinitionBuilder addPriority(final String priority) {
-        ((ManualTaskDefinitionImpl) getActivity()).setPriority(priority);
+        ((ManualTaskDefinition) getActivity()).setPriority(priority);
         return this;
     }
 

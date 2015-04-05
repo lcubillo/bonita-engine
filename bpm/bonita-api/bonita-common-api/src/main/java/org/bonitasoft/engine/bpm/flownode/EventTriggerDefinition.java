@@ -13,11 +13,11 @@
  **/
 package org.bonitasoft.engine.bpm.flownode;
 
-import java.io.Serializable;
+import org.bonitasoft.engine.bpm.BonitaObject;
 
 /**
  * @author Elias Ricken de Medeiros
  */
-public interface EventTriggerDefinition extends Serializable {
+public abstract class EventTriggerDefinition implements BonitaObject {
 
 }

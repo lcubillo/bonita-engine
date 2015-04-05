@@ -16,7 +16,9 @@ package org.bonitasoft.engine.bpm.process;
 import java.util.Date;
 
 import org.bonitasoft.engine.bpm.BaseElement;
+import org.bonitasoft.engine.bpm.BaseElementInstance;
 import org.bonitasoft.engine.bpm.NamedElement;
+import org.bonitasoft.engine.bpm.NamedElementInstance;
 
 /**
  * Represents a running instance of a process.
@@ -28,7 +30,7 @@ import org.bonitasoft.engine.bpm.NamedElement;
  * @version 6.3.5
  * @since 6.0.0
  */
-public interface ProcessInstance extends NamedElement, BaseElement {
+public interface ProcessInstance extends NamedElementInstance, BaseElementInstance {
 
     /**
      * Get the state of this process instance.

@@ -17,16 +17,14 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.bonitasoft.engine.bpm.contract.ComplexInputDefinition;
+import org.bonitasoft.engine.bpm.contract.ConstraintDefinition;
 import org.bonitasoft.engine.bpm.contract.ConstraintType;
+import org.bonitasoft.engine.bpm.contract.ContractDefinition;
 import org.bonitasoft.engine.bpm.contract.SimpleInputDefinition;
 import org.bonitasoft.engine.bpm.contract.Type;
-import org.bonitasoft.engine.bpm.contract.impl.ComplexInputDefinitionImpl;
-import org.bonitasoft.engine.bpm.contract.impl.ConstraintDefinitionImpl;
-import org.bonitasoft.engine.bpm.contract.impl.ContractDefinitionImpl;
-import org.bonitasoft.engine.bpm.contract.impl.SimpleInputDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowElementContainerDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.UserTaskDefinitionImpl;
-import org.bonitasoft.engine.bpm.process.impl.internal.DesignProcessDefinitionImpl;
+import org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition;
+import org.bonitasoft.engine.bpm.flownode.UserTaskDefinition;
+import org.bonitasoft.engine.bpm.process.DesignProcessDefinition;
 
 /**
  * @author Matthieu Chaffotte
@@ -34,17 +32,17 @@ import org.bonitasoft.engine.bpm.process.impl.internal.DesignProcessDefinitionIm
  */
 public class ContractDefinitionBuilder extends FlowElementContainerBuilder {
 
-    private final ContractDefinitionImpl contract;
+    private final ContractDefinition contract;
 
-    public ContractDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinitionImpl container,
-                                     final UserTaskDefinitionImpl activity) {
+    public ContractDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinition container,
+                                     final UserTaskDefinition activity) {
         super(container, processDefinitionBuilder);
-        contract = new ContractDefinitionImpl();
+        contract = new ContractDefinition();
         activity.setContract(contract);
     }
-    public ContractDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final DesignProcessDefinitionImpl container) {
-        super((FlowElementContainerDefinitionImpl) container.getProcessContainer(), processDefinitionBuilder);
-        contract = new ContractDefinitionImpl();
+    public ContractDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final DesignProcessDefinition container) {
+        super(container.getProcessContainer(), processDefinitionBuilder);
+        contract = new ContractDefinition();
         container.setContract(contract);
     }
 
@@ -53,7 +51,7 @@ public class ContractDefinitionBuilder extends FlowElementContainerBuilder {
     }
 
     public ContractDefinitionBuilder addSimpleInput(final String name, final Type type, final String description, final boolean multiple) {
-        final SimpleInputDefinition input = new SimpleInputDefinitionImpl(name, type, description, multiple);
+        final SimpleInputDefinition input = new SimpleInputDefinition(name, type, description, multiple);
         contract.addSimpleInput(input);
         return this;
     }
@@ -65,22 +63,22 @@ public class ContractDefinitionBuilder extends FlowElementContainerBuilder {
 
     public ContractDefinitionBuilder addComplexInput(final String name, final String description, final boolean multiple,
             final List<SimpleInputDefinition> simpleInputs, final List<ComplexInputDefinition> complexInputs) {
-        final ComplexInputDefinitionImpl input = new ComplexInputDefinitionImpl(name, description, multiple, simpleInputs, complexInputs);
+        final ComplexInputDefinition input = new ComplexInputDefinition(name, description, multiple, simpleInputs, complexInputs);
         contract.addComplexInput(input);
         return this;
     }
 
     public ContractDefinitionBuilder addFileInput(final String name, final String description) {
-        final SimpleInputDefinitionImpl nameInput= new SimpleInputDefinitionImpl("name", Type.TEXT, "The file name");
-        final SimpleInputDefinitionImpl contentInput= new SimpleInputDefinitionImpl("content", Type.BYTE_ARRAY, "The file content");
-        final ComplexInputDefinitionImpl fileInput = new ComplexInputDefinitionImpl(name, description,
+        final SimpleInputDefinition nameInput= new SimpleInputDefinition("name", Type.TEXT, "The file name");
+        final SimpleInputDefinition contentInput= new SimpleInputDefinition("content", Type.BYTE_ARRAY, "The file content");
+        final ComplexInputDefinition fileInput = new ComplexInputDefinition(name, description,
                 Arrays.<SimpleInputDefinition> asList(nameInput, contentInput), null);
         contract.addComplexInput(fileInput);
         return this;
     }
 
     public ContractDefinitionBuilder addConstraint(final String name, final String expression, final String explanation, final String... inputNames) {
-        final ConstraintDefinitionImpl constraintDefinition = new ConstraintDefinitionImpl(name, expression, explanation, ConstraintType.CUSTOM);
+        final ConstraintDefinition constraintDefinition = new ConstraintDefinition(name, expression, explanation, ConstraintType.CUSTOM);
         for (final String inputName : inputNames) {
             constraintDefinition.addInputName(inputName);
         }
@@ -94,7 +92,7 @@ public class ContractDefinitionBuilder extends FlowElementContainerBuilder {
         expression.append(inputName);
         expression.append(".toString().isEmpty()");
 
-        final ConstraintDefinitionImpl constraint = new ConstraintDefinitionImpl(inputName, expression.toString(), new StringBuilder().append("input ")
+        final ConstraintDefinition constraint = new ConstraintDefinition(inputName, expression.toString(), new StringBuilder().append("input ")
                 .append(inputName).append(" is mandatory").toString(), ConstraintType.MANDATORY);
         constraint.addInputName(inputName);
         contract.addConstraint(constraint);

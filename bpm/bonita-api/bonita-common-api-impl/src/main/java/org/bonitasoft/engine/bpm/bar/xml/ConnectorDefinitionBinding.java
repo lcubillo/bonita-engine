@@ -19,9 +19,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.bonitasoft.engine.bpm.connector.ConnectorDefinition;
 import org.bonitasoft.engine.bpm.connector.ConnectorEvent;
 import org.bonitasoft.engine.bpm.connector.FailAction;
-import org.bonitasoft.engine.bpm.connector.impl.ConnectorDefinitionImpl;
 import org.bonitasoft.engine.expression.Expression;
 import org.bonitasoft.engine.operation.Operation;
 
@@ -56,7 +56,7 @@ public class ConnectorDefinitionBinding extends NamedElementBinding {
 
     @Override
     public Object getObject() {
-        final ConnectorDefinitionImpl connectorDefinitionImpl = new ConnectorDefinitionImpl(name, connectorId, version, ConnectorEvent.valueOf(activationEvent));
+        final ConnectorDefinition connectorDefinitionImpl = new ConnectorDefinition(name, connectorId, version, ConnectorEvent.valueOf(activationEvent));
         // connectorDefinitionImpl.setId(id); TODO : Uncomment when generate id
         connectorDefinitionImpl.setFailAction(FailAction.valueOf(failAction));
         connectorDefinitionImpl.setErrorCode(errorCode);

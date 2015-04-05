@@ -10,13 +10,18 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.flownode;
 
 
 /**
  * @author Matthieu Chaffotte
  */
-public interface ThrowSignalEventTriggerDefinition extends SignalEventTriggerDefinition {
+public class ThrowSignalEventTriggerDefinition extends SignalEventTriggerDefinition {
 
+    private static final long serialVersionUID = 2L;
+
+    public ThrowSignalEventTriggerDefinition(String name) {
+        super(name);
+    }
 }

@@ -10,27 +10,90 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.flownode;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-
 
 
 /**
  * @author Elias Ricken de Medeiros
  * @author Matthieu Chaffotte
  */
-public interface CatchEventDefinition extends EventDefinition {
+public abstract class CatchEventDefinition extends EventDefinition {
+    private static final long serialVersionUID = 2L;
 
-    List<TimerEventTriggerDefinition> getTimerEventTriggerDefinitions();
+    private final List<TimerEventTriggerDefinition> timerEventTriggers;
 
-    List<CatchMessageEventTriggerDefinition> getMessageEventTriggerDefinitions();
+    private final List<CatchMessageEventTriggerDefinition> messageEventTriggers;
 
-    List<CatchSignalEventTriggerDefinition> getSignalEventTriggerDefinitions();
+    private final List<CatchSignalEventTriggerDefinition> signalEventTriggers;
 
-    List<CatchErrorEventTriggerDefinition> getErrorEventTriggerDefinitions();
+    private final List<CatchErrorEventTriggerDefinition> errorEventTriggers;
 
-    boolean isInterrupting();
+    private boolean isInterrupting = true;
+
+    public CatchEventDefinition(final String name) {
+        super(name);
+        timerEventTriggers = new ArrayList<>(1);
+        messageEventTriggers = new ArrayList<>(1);
+        signalEventTriggers = new ArrayList<>(1);
+        errorEventTriggers = new ArrayList<>(1);
+    }
+
+    public CatchEventDefinition(final long id, final String name) {
+        super(id, name);
+        timerEventTriggers = new ArrayList<>(1);
+        messageEventTriggers = new ArrayList<>(1);
+        signalEventTriggers = new ArrayList<>(1);
+        errorEventTriggers = new ArrayList<>(1);
+    }
+
+    public List<TimerEventTriggerDefinition> getTimerEventTriggerDefinitions() {
+        return Collections.unmodifiableList(timerEventTriggers);
+    }
+
+    public void addTimerEventTrigger(final TimerEventTriggerDefinition timerEventDefinition) {
+        timerEventTriggers.add(timerEventDefinition);
+        addEventTrigger(timerEventDefinition);
+    }
+
+    public List<CatchMessageEventTriggerDefinition> getMessageEventTriggerDefinitions() {
+        return Collections.unmodifiableList(messageEventTriggers);
+    }
+
+    public void addMessageEventTrigger(final CatchMessageEventTriggerDefinition messageEventTrigger) {
+        messageEventTriggers.add(messageEventTrigger);
+        addEventTrigger(messageEventTrigger);
+    }
+
+    public List<CatchSignalEventTriggerDefinition> getSignalEventTriggerDefinitions() {
+        return Collections.unmodifiableList(signalEventTriggers);
+    }
+
+    public void addSignalEventTrigger(final CatchSignalEventTriggerDefinition signalEventTrigger) {
+        signalEventTriggers.add(signalEventTrigger);
+        addEventTrigger(signalEventTrigger);
+    }
+
+    public void addErrorEventTrigger(final CatchErrorEventTriggerDefinition errorEventTrigger) {
+        errorEventTriggers.add(errorEventTrigger);
+        addEventTrigger(errorEventTrigger);
+    }
+
+    public List<CatchErrorEventTriggerDefinition> getErrorEventTriggerDefinitions() {
+        return Collections.unmodifiableList(errorEventTriggers);
+    }
+
+    public boolean isInterrupting() {
+        return isInterrupting;
+    }
+
+    public void setInterrupting(final boolean isInterrupting) {
+        this.isInterrupting = isInterrupting;
+    }
+
 
 }

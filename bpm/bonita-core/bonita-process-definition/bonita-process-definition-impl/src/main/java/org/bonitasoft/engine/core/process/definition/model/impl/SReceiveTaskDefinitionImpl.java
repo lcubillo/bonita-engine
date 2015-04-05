@@ -15,7 +15,7 @@ package org.bonitasoft.engine.core.process.definition.model.impl;
 
 import java.util.Map;
 
-import org.bonitasoft.engine.bpm.flownode.impl.internal.ReceiveTaskDefinitionImpl;
+import org.bonitasoft.engine.bpm.flownode.ReceiveTaskDefinition;
 import org.bonitasoft.engine.core.process.definition.model.SFlowNodeType;
 import org.bonitasoft.engine.core.process.definition.model.SReceiveTaskDefinition;
 import org.bonitasoft.engine.core.process.definition.model.STransitionDefinition;
@@ -32,7 +32,7 @@ public class SReceiveTaskDefinitionImpl extends SActivityDefinitionImpl implemen
 
     private final SCatchMessageEventTriggerDefinitionImpl trigger;
 
-    public SReceiveTaskDefinitionImpl(final ReceiveTaskDefinitionImpl activityDefinition,
+    public SReceiveTaskDefinitionImpl(final ReceiveTaskDefinition activityDefinition,
             final Map<String, STransitionDefinition> transitionsMap) {
         super(activityDefinition, transitionsMap);
         trigger = new SCatchMessageEventTriggerDefinitionImpl(activityDefinition.getTrigger());

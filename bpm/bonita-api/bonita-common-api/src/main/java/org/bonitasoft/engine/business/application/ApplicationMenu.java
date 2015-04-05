@@ -14,6 +14,7 @@
 package org.bonitasoft.engine.business.application;
 
 import org.bonitasoft.engine.bpm.BaseElement;
+import org.bonitasoft.engine.bpm.BaseElementInstance;
 
 
 /**
@@ -23,7 +24,7 @@ import org.bonitasoft.engine.bpm.BaseElement;
  * @since 6.4
  * @see Application
  */
-public interface ApplicationMenu extends BaseElement {
+public interface ApplicationMenu extends BaseElementInstance {
 
     /**
      * Retrieves the {@code ApplicationMenu} display name

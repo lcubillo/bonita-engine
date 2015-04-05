@@ -13,9 +13,9 @@
  **/
 package org.bonitasoft.engine.bpm.process.impl;
 
+import org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition;
+import org.bonitasoft.engine.bpm.flownode.GatewayDefinition;
 import org.bonitasoft.engine.bpm.flownode.GatewayType;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowElementContainerDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.GatewayDefinitionImpl;
 import org.bonitasoft.engine.expression.Expression;
 
 /**
@@ -26,12 +26,12 @@ import org.bonitasoft.engine.expression.Expression;
  */
 public class GatewayDefinitionBuilder extends FlowElementContainerBuilder implements DescriptionBuilder {
 
-    private final GatewayDefinitionImpl gateway;
+    private final GatewayDefinition gateway;
 
-    GatewayDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinitionImpl container, final String name,
+    GatewayDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinition container, final String name,
             final GatewayType gatewayType) {
         super(container, processDefinitionBuilder);
-        gateway = new GatewayDefinitionImpl(name, gatewayType);
+        gateway = new GatewayDefinition(name, gatewayType);
 
         if (!container.getGatewaysList().contains(gateway)) {
             container.addGateway(gateway);

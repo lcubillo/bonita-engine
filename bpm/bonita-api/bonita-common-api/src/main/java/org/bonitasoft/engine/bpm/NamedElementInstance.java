@@ -10,26 +10,24 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
-package org.bonitasoft.engine.bpm.flownode.impl.internal;
-
-import org.bonitasoft.engine.bpm.flownode.ManualTaskDefinition;
+ */
+package org.bonitasoft.engine.bpm;
 
 /**
+ * Interface <code>NamedElement</code> names a <code>BonitaObject</code>.
+ *
  * @author Baptiste Mesta
  * @author Matthieu Chaffotte
- * @author Celine Souchet
+ * @since 6.0.0
  */
-public class ManualTaskDefinitionImpl extends HumanTaskDefinitionImpl implements ManualTaskDefinition {
+public interface NamedElementInstance extends BaseElementInstance {
 
-    private static final long serialVersionUID = 8093587790066664247L;
+    /**
+     * Gets the element name.
+     *
+     * @return the element name
+     */
+    String getName();
 
-    public ManualTaskDefinitionImpl(final String name, final String actorName) {
-        super(name, actorName);
-    }
-
-    public ManualTaskDefinitionImpl(final long id, final String name, final String actorName) {
-        super(id, name, actorName);
-    }
 
 }

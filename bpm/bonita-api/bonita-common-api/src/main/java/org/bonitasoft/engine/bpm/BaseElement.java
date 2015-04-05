@@ -10,7 +10,7 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm;
 
 /**
@@ -21,13 +21,24 @@ package org.bonitasoft.engine.bpm;
  * @author Matthieu Chaffotte
  * @since 6.0.0
  */
-public interface BaseElement extends BonitaObject {
+public abstract class BaseElement implements BonitaObject {
+
+    private static final long serialVersionUID = 2L;
+
+    private long id;
 
     /**
      * Gets the unique object identifier.
      *
      * @return the unique object identifier
      */
-    long getId();
+    public long getId() {
+        return id;
+    }
+
+    public void setId(final long id) {
+        this.id = id;
+    }
+
 
 }

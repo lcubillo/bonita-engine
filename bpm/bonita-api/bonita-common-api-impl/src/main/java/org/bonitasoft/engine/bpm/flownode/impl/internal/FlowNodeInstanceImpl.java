@@ -13,16 +13,16 @@
  **/
 package org.bonitasoft.engine.bpm.flownode.impl.internal;
 
+import org.bonitasoft.engine.bpm.NamedElement;
 import org.bonitasoft.engine.bpm.flownode.FlowNodeInstance;
 import org.bonitasoft.engine.bpm.flownode.StateCategory;
-import org.bonitasoft.engine.bpm.internal.NamedElementImpl;
 
 /**
  * @author Elias Ricken de Medeiros
  * @author Baptiste Mesta
  * @author Celine Souchet
  */
-public abstract class FlowNodeInstanceImpl extends NamedElementImpl implements FlowNodeInstance {
+public abstract class FlowNodeInstanceImpl extends NamedElement implements FlowNodeInstance {
 
     private static final long serialVersionUID = -6573747806944970703L;
 

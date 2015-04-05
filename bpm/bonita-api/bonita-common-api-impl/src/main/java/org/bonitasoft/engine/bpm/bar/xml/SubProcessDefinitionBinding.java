@@ -15,8 +15,9 @@ package org.bonitasoft.engine.bpm.bar.xml;
 
 import java.util.Map;
 
-import org.bonitasoft.engine.bpm.flownode.impl.FlowElementContainerDefinition;
-import org.bonitasoft.engine.bpm.process.impl.internal.SubProcessDefinitionImpl;
+import org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition;
+import org.bonitasoft.engine.bpm.process.SubProcessDefinition;
+
 
 /**
  * @author Matthieu Chaffotte
@@ -45,7 +46,7 @@ public class SubProcessDefinitionBinding extends ActivityDefinitionBinding {
 
     @Override
     public Object getObject() {
-        final SubProcessDefinitionImpl subProcessDefinitionImpl = new SubProcessDefinitionImpl(id, name, triggeredByEvent);
+        final SubProcessDefinition subProcessDefinitionImpl = new SubProcessDefinition(id, name, triggeredByEvent);
         fillNode(subProcessDefinitionImpl);
         subProcessDefinitionImpl.setSubProcessContainer(container);
         return subProcessDefinitionImpl;

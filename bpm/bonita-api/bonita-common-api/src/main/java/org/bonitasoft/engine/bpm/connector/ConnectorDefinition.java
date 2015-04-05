@@ -10,9 +10,11 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.connector;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -22,45 +24,99 @@ import org.bonitasoft.engine.operation.Operation;
 
 /**
  * The connector definition associated to a process definition or a flow node definition
- * 
+ *
  * @author Baptiste Mesta
  * @author Celine Souchet
  */
-public interface ConnectorDefinition extends NamedElement {
+public class ConnectorDefinition extends NamedElement {
+
+
+    private static final long serialVersionUID = 1892648036453422626L;
+
+    private final String connectorId;
+
+    private final Map<String, Expression> inputs = new HashMap<String, Expression>();
+
+    private final List<Operation> outputs = new ArrayList<Operation>();
+
+    private final ConnectorEvent activationEvent;
+
+    private final String version;
+
+    private FailAction failAction = FailAction.FAIL;
+
+    private String errorCode;
+
+    public ConnectorDefinition(final String name, final String connectorId, final String version, final ConnectorEvent activationEvent) {
+        super(name);
+        this.connectorId = connectorId;
+        this.version = version;
+        this.activationEvent = activationEvent;
+    }
 
     /**
      * @return The identifier of the connector definition
      */
-    String getConnectorId();
+    public String getConnectorId() {
+        return connectorId;
+    }
 
     /**
      * @return The version of the connector
      */
-    String getVersion();
-
-    /**
-     * @return The event to activate the connector
-     */
-    ConnectorEvent getActivationEvent();
+    public String getVersion() {
+        return version;
+    }
 
     /**
      * @return The inputs of the connector
      */
-    Map<String, Expression> getInputs();
+    public Map<String, Expression> getInputs() {
+        return inputs;
+    }
 
     /**
      * @return The outputs of the connector
      */
-    List<Operation> getOutputs();
+    public List<Operation> getOutputs() {
+        return outputs;
+    }
+
+    public void addInput(final String name, final Expression expression) {
+        inputs.put(name, expression);
+    }
+
+    public void addOutput(final Operation operation) {
+        outputs.add(operation);
+    }
+
+    /**
+     * @return The event to activate the connector
+     */
+
+    public ConnectorEvent getActivationEvent() {
+        return activationEvent;
+    }
 
     /**
      * @return The fail action of the connector
      */
-    FailAction getFailAction();
+    public FailAction getFailAction() {
+        return failAction;
+    }
+
+    public void setFailAction(final FailAction failAction) {
+        this.failAction = failAction;
+    }
 
     /**
      * @return The error code of the connector
      */
-    String getErrorCode();
+    public String getErrorCode() {
+        return errorCode;
+    }
 
+    public void setErrorCode(final String errorCode) {
+        this.errorCode = errorCode;
+    }
 }

@@ -13,8 +13,8 @@
  **/
 package org.bonitasoft.engine.bpm.process.impl;
 
-import org.bonitasoft.engine.bpm.document.impl.DocumentListDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowElementContainerDefinitionImpl;
+import org.bonitasoft.engine.bpm.document.DocumentListDefinition;
+import org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition;
 import org.bonitasoft.engine.expression.Expression;
 
 /**
@@ -22,12 +22,12 @@ import org.bonitasoft.engine.expression.Expression;
  */
 public class DocumentListDefinitionBuilder extends FlowElementContainerBuilder {
 
-    private final DocumentListDefinitionImpl documentListDefinitionImpl;
+    private final DocumentListDefinition documentListDefinitionImpl;
 
-    public DocumentListDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinitionImpl container,
+    public DocumentListDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinition container,
             final String name) {
         super(container, processDefinitionBuilder);
-        documentListDefinitionImpl = new DocumentListDefinitionImpl(name);
+        documentListDefinitionImpl = new DocumentListDefinition(name);
         container.addDocumentListDefinition(documentListDefinitionImpl);
     }
 

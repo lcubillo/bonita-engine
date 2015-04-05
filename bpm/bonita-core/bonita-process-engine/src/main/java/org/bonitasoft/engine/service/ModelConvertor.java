@@ -44,25 +44,20 @@ import org.bonitasoft.engine.bpm.connector.ConnectorInstance;
 import org.bonitasoft.engine.bpm.connector.ConnectorInstanceWithFailureInfo;
 import org.bonitasoft.engine.bpm.connector.ConnectorState;
 import org.bonitasoft.engine.bpm.connector.impl.ArchivedConnectorInstanceImpl;
-import org.bonitasoft.engine.bpm.connector.impl.ConnectorDefinitionImpl;
 import org.bonitasoft.engine.bpm.connector.impl.ConnectorInstanceImpl;
 import org.bonitasoft.engine.bpm.connector.impl.ConnectorInstanceWithFailureInfoImpl;
 import org.bonitasoft.engine.bpm.contract.ComplexInputDefinition;
+import org.bonitasoft.engine.bpm.contract.ConstraintDefinition;
 import org.bonitasoft.engine.bpm.contract.ConstraintType;
 import org.bonitasoft.engine.bpm.contract.ContractDefinition;
 import org.bonitasoft.engine.bpm.contract.SimpleInputDefinition;
 import org.bonitasoft.engine.bpm.contract.Type;
-import org.bonitasoft.engine.bpm.contract.impl.ComplexInputDefinitionImpl;
-import org.bonitasoft.engine.bpm.contract.impl.ConstraintDefinitionImpl;
-import org.bonitasoft.engine.bpm.contract.impl.ContractDefinitionImpl;
-import org.bonitasoft.engine.bpm.contract.impl.SimpleInputDefinitionImpl;
 import org.bonitasoft.engine.bpm.data.ArchivedDataInstance;
 import org.bonitasoft.engine.bpm.data.DataDefinition;
 import org.bonitasoft.engine.bpm.data.DataInstance;
 import org.bonitasoft.engine.bpm.data.impl.ArchivedDataInstanceImpl;
 import org.bonitasoft.engine.bpm.data.impl.BlobDataInstanceImpl;
 import org.bonitasoft.engine.bpm.data.impl.BooleanDataInstanceImpl;
-import org.bonitasoft.engine.bpm.data.impl.DataDefinitionImpl;
 import org.bonitasoft.engine.bpm.data.impl.DataInstanceImpl;
 import org.bonitasoft.engine.bpm.data.impl.DateDataInstanceImpl;
 import org.bonitasoft.engine.bpm.data.impl.DoubleDataInstanceImpl;
@@ -145,7 +140,6 @@ import org.bonitasoft.engine.bpm.process.ProcessInstance;
 import org.bonitasoft.engine.bpm.process.ProcessInstanceState;
 import org.bonitasoft.engine.bpm.process.impl.ProcessInstanceBuilder;
 import org.bonitasoft.engine.bpm.process.impl.internal.ArchivedProcessInstanceImpl;
-import org.bonitasoft.engine.bpm.process.impl.internal.ProcessDefinitionImpl;
 import org.bonitasoft.engine.bpm.process.impl.internal.ProcessDeploymentInfoImpl;
 import org.bonitasoft.engine.bpm.supervisor.ProcessSupervisor;
 import org.bonitasoft.engine.bpm.supervisor.impl.ProcessSupervisorImpl;
@@ -540,10 +534,10 @@ public class ModelConvertor {
     }
 
     public static ProcessDefinition toProcessDefinition(final SProcessDefinition sDefinition) {
-        final ProcessDefinitionImpl processDefinitionImpl = new ProcessDefinitionImpl(sDefinition.getName(), sDefinition.getVersion());
-        processDefinitionImpl.setId(sDefinition.getId());
-        processDefinitionImpl.setDescription(sDefinition.getDescription());
-        return processDefinitionImpl;
+        final ProcessDefinition processDefinition = new ProcessDefinition(sDefinition.getName(), sDefinition.getVersion());
+        processDefinition.setId(sDefinition.getId());
+        processDefinition.setDescription(sDefinition.getDescription());
+        return processDefinition;
     }
 
     public static List<ProcessInstance> toProcessInstances(final List<SProcessInstance> sProcessInstances,
@@ -1277,9 +1271,9 @@ public class ModelConvertor {
     }
 
     public static DataDefinition toDataDefinition(final SDataDefinition sDataDefinition) {
-        DataDefinitionImpl dataDefinitionImpl = null;
+        DataDefinition dataDefinitionImpl = null;
         if (sDataDefinition != null) {
-            dataDefinitionImpl = new DataDefinitionImpl(sDataDefinition.getName(), toExpression(sDataDefinition.getDefaultValueExpression()));
+            dataDefinitionImpl = new DataDefinition(sDataDefinition.getName(), toExpression(sDataDefinition.getDefaultValueExpression()));
             dataDefinitionImpl.setClassName(sDataDefinition.getClassName());
             dataDefinitionImpl.setDescription(sDataDefinition.getDescription());
             dataDefinitionImpl.setTransientData(sDataDefinition.isTransientData());
@@ -1852,7 +1846,7 @@ public class ModelConvertor {
     }
 
     public static ConnectorDefinition toConnectorDefinition(final SConnectorDefinition connector) {
-        final ConnectorDefinitionImpl connectorDefinitionImpl = new ConnectorDefinitionImpl(connector.getName(), connector.getConnectorId(),
+        final ConnectorDefinition connectorDefinitionImpl = new ConnectorDefinition(connector.getName(), connector.getConnectorId(),
                 connector.getVersion(), connector.getActivationEvent());
         // connectorDefinitionImpl.setId(connector.getId());
         for (final Entry<String, SExpression> input : connector.getInputs().entrySet()) {
@@ -2134,7 +2128,7 @@ public class ModelConvertor {
         return clientObjects;
     }
     public static ContractDefinition toContract(final SContractDefinition sContract) {
-        final ContractDefinitionImpl contract = new ContractDefinitionImpl();
+        final ContractDefinition contract = new ContractDefinition();
         for (final SSimpleInputDefinition input : sContract.getSimpleInputs()) {
             contract.addSimpleInput(toSimpleInput(input));
         }
@@ -2142,7 +2136,7 @@ public class ModelConvertor {
             contract.addComplexInput(toComplexInput(input));
         }
         for (final SConstraintDefinition sConstraintDefinition : sContract.getConstraints()) {
-            final ConstraintDefinitionImpl constraint = new ConstraintDefinitionImpl(sConstraintDefinition.getName(), sConstraintDefinition.getExpression(),
+            final ConstraintDefinition constraint = new ConstraintDefinition(sConstraintDefinition.getName(), sConstraintDefinition.getExpression(),
                     sConstraintDefinition.getExplanation(), ConstraintType.valueOf(sConstraintDefinition.getConstraintType().toString()));
             for (final String inputName : sConstraintDefinition.getInputNames()) {
                 constraint.addInputName(inputName);
@@ -2153,7 +2147,7 @@ public class ModelConvertor {
     }
 
     private static SimpleInputDefinition toSimpleInput(final SSimpleInputDefinition input) {
-        return new SimpleInputDefinitionImpl(input.getName(), Type.valueOf(input.getType().toString()), input.getDescription(), input.isMultiple());
+        return new SimpleInputDefinition(input.getName(), Type.valueOf(input.getType().toString()), input.getDescription(), input.isMultiple());
     }
 
     private static ComplexInputDefinition toComplexInput(final SComplexInputDefinition input) {
@@ -2165,7 +2159,7 @@ public class ModelConvertor {
         for (final SComplexInputDefinition sComplexInputDefinition : input.getComplexInputDefinitions()) {
             complexInputDefinitions.add(toComplexInput(sComplexInputDefinition));
         }
-        return new ComplexInputDefinitionImpl(input.getName(), input.getDescription(), input.isMultiple(), simpleInputDefinitions, complexInputDefinitions);
+        return new ComplexInputDefinition(input.getName(), input.getDescription(), input.isMultiple(), simpleInputDefinitions, complexInputDefinitions);
 
     }
 }

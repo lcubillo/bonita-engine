@@ -10,18 +10,39 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.flownode;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-
-
 
 /**
  * @author Elias Ricken de Medeiros
  */
-public interface EventDefinition extends FlowNodeDefinition {
+public class EventDefinition extends FlowNodeDefinition {
 
-    List<EventTriggerDefinition> getEventTriggers();
+    private static final long serialVersionUID = 2L;
+
+    private final List<EventTriggerDefinition> eventTriggers;
+
+    public EventDefinition(final String name) {
+        super(name);
+        eventTriggers = new ArrayList<>();
+    }
+
+    public EventDefinition(final long id, final String name) {
+        super(id, name);
+        eventTriggers = new ArrayList<>();
+    }
+
+    public List<EventTriggerDefinition> getEventTriggers() {
+        return Collections.unmodifiableList(eventTriggers);
+    }
+
+    protected void addEventTrigger(final EventTriggerDefinition eventTrigger) {
+        eventTriggers.add(eventTrigger);
+    }
+
 
 }

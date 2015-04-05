@@ -13,13 +13,13 @@
  **/
 package org.bonitasoft.engine.bpm.flownode.impl.internal;
 
+import org.bonitasoft.engine.bpm.DescriptionElement;
 import org.bonitasoft.engine.bpm.flownode.ArchivedFlowElementInstance;
-import org.bonitasoft.engine.bpm.internal.NamedElementImpl;
 
 /**
  * @author Emmanuel Duchastenier
  */
-public abstract class ArchivedFlowElementInstanceImpl extends NamedElementImpl implements ArchivedFlowElementInstance {
+public abstract class ArchivedFlowElementInstanceImpl extends DescriptionElement implements ArchivedFlowElementInstance {
 
     private static final long serialVersionUID = -8382446613679794971L;
 

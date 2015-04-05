@@ -15,7 +15,7 @@ package org.bonitasoft.engine.bpm.bar.xml;
 
 import java.util.Map;
 
-import org.bonitasoft.engine.bpm.businessdata.impl.BusinessDataDefinitionImpl;
+import org.bonitasoft.engine.bpm.businessdata.BusinessDataDefinition;
 import org.bonitasoft.engine.expression.Expression;
 
 /**
@@ -53,8 +53,8 @@ public class BusinessDataDefinitionBinding extends NamedElementBinding {
     }
 
     @Override
-    public BusinessDataDefinitionImpl getObject() {
-        final BusinessDataDefinitionImpl businessDataDefinitionImpl = new BusinessDataDefinitionImpl(name, defaultValue);
+    public BusinessDataDefinition getObject() {
+        final BusinessDataDefinition businessDataDefinitionImpl = new BusinessDataDefinition(name, defaultValue);
         if (description != null) {
             businessDataDefinitionImpl.setDescription(description);
         }

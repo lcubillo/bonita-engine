@@ -10,16 +10,16 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.bar.xml;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.bonitasoft.engine.bpm.flownode.CatchErrorEventTriggerDefinition;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.CatchEventDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowNodeDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.StartEventDefinitionImpl;
+import org.bonitasoft.engine.bpm.flownode.CatchEventDefinition;
+import org.bonitasoft.engine.bpm.flownode.FlowNodeDefinition;
+import org.bonitasoft.engine.bpm.flownode.StartEventDefinition;
 
 /**
  * @author Baptiste Mesta
@@ -30,12 +30,12 @@ public class StartEventDefinitionBinding extends CatchEventDefinitionBinding {
     private final List<CatchErrorEventTriggerDefinition> errorEventTriggers;
 
     public StartEventDefinitionBinding() {
-        errorEventTriggers = new ArrayList<CatchErrorEventTriggerDefinition>(1);
+        errorEventTriggers = new ArrayList<>(1);
     }
 
     @Override
     public Object getObject() {
-        final StartEventDefinitionImpl startEventDefinitionImpl = new StartEventDefinitionImpl(id, name);
+        final StartEventDefinition startEventDefinitionImpl = new StartEventDefinition(id, name);
         fillNode(startEventDefinitionImpl);
         return startEventDefinitionImpl;
     }
@@ -49,9 +49,9 @@ public class StartEventDefinitionBinding extends CatchEventDefinitionBinding {
     }
 
     @Override
-    protected void fillNode(final FlowNodeDefinitionImpl flowNode) {
+    protected void fillNode(final FlowNodeDefinition flowNode) {
         super.fillNode(flowNode);
-        final CatchEventDefinitionImpl catchEventDefinition = (CatchEventDefinitionImpl) flowNode;
+        final CatchEventDefinition catchEventDefinition = (CatchEventDefinition) flowNode;
         for (final CatchErrorEventTriggerDefinition errorlEventTrigger : errorEventTriggers) {
             catchEventDefinition.addErrorEventTrigger(errorlEventTrigger);
         }

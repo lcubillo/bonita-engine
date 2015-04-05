@@ -16,6 +16,7 @@ package org.bonitasoft.engine.business.application;
 import java.util.Date;
 
 import org.bonitasoft.engine.bpm.BaseElement;
+import org.bonitasoft.engine.bpm.BaseElementInstance;
 import org.bonitasoft.engine.profile.Profile;
 
 /**
@@ -24,7 +25,7 @@ import org.bonitasoft.engine.profile.Profile;
  * @author Elias Ricken de Medeiros
  * @since 6.4.0
  */
-public interface Application extends BaseElement {
+public interface Application extends BaseElementInstance {
 
     /**
      * Retrieves the <code>Application</code> token

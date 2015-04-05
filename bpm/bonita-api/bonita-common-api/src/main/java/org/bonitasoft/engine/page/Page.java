@@ -16,6 +16,7 @@ package org.bonitasoft.engine.page;
 import java.util.Date;
 
 import org.bonitasoft.engine.bpm.BaseElement;
+import org.bonitasoft.engine.bpm.BaseElementInstance;
 
 /**
  * A Page is a way to store, amongst other things, a binary content.
@@ -24,7 +25,7 @@ import org.bonitasoft.engine.bpm.BaseElement;
  * @author Laurent Leseigneur
  * 
  */
-public interface Page extends BaseElement {
+public interface Page extends BaseElementInstance {
 
     /**
      * Gets the name of this <code>Page</code>.

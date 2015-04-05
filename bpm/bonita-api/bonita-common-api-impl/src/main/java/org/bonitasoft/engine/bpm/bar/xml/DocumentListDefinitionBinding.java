@@ -16,7 +16,6 @@ package org.bonitasoft.engine.bpm.bar.xml;
 import java.util.Map;
 
 import org.bonitasoft.engine.bpm.document.DocumentListDefinition;
-import org.bonitasoft.engine.bpm.document.impl.DocumentListDefinitionImpl;
 import org.bonitasoft.engine.expression.Expression;
 
 /**
@@ -50,7 +49,7 @@ public class DocumentListDefinitionBinding extends NamedElementBinding {
 
     @Override
     public DocumentListDefinition getObject() {
-        final DocumentListDefinitionImpl documentDefinitionImpl = new DocumentListDefinitionImpl(name);
+        final DocumentListDefinition documentDefinitionImpl = new DocumentListDefinition(name);
         if (description != null) {
             documentDefinitionImpl.setDescription(description);
         }

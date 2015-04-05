@@ -10,17 +10,24 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.flownode;
-
-import org.bonitasoft.engine.bpm.flownode.impl.HumanTaskDefinition;
 
 /**
  * A Manual Task is a Task that is not managed by any business process engine
  * It represent a work that is done outside of the system.
- * 
+ *
  * @author Baptiste Mesta
  */
-public interface ManualTaskDefinition extends HumanTaskDefinition {
+public class ManualTaskDefinition extends HumanTaskDefinition {
+    private static final long serialVersionUID = 8093587790066664247L;
+
+    public ManualTaskDefinition(final String name, final String actorName) {
+        super(name, actorName);
+    }
+
+    public ManualTaskDefinition(final long id, final String name, final String actorName) {
+        super(id, name, actorName);
+    }
 
 }

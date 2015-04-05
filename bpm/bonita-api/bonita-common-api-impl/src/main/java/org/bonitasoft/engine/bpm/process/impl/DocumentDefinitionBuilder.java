@@ -13,8 +13,9 @@
  **/
 package org.bonitasoft.engine.bpm.process.impl;
 
-import org.bonitasoft.engine.bpm.document.impl.DocumentDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowElementContainerDefinitionImpl;
+
+import org.bonitasoft.engine.bpm.document.DocumentDefinition;
+import org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition;
 
 /**
  * @author Baptiste Mesta
@@ -24,18 +25,18 @@ public class DocumentDefinitionBuilder extends FlowElementContainerBuilder {
 
     private static final String DEFAULT_MIME_TYPE = "application/octet-stream";
 
-    private final DocumentDefinitionImpl documentDefinitionImpl;
+    private final DocumentDefinition documentDefinitionImpl;
 
-    public DocumentDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinitionImpl container,
+    public DocumentDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinition container,
             final String name, final String fileName) {
         this(processDefinitionBuilder, container, fileName); // FIXME : filename must be replaced by name ??
         documentDefinitionImpl.setFileName(fileName);
     }
 
-    public DocumentDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinitionImpl container,
+    public DocumentDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinition container,
             final String name) {
         super(container, processDefinitionBuilder);
-        documentDefinitionImpl = new DocumentDefinitionImpl(name);
+        documentDefinitionImpl = new DocumentDefinition(name);
         documentDefinitionImpl.setMimeType(DEFAULT_MIME_TYPE);
         container.addDocumentDefinition(documentDefinitionImpl);
     }

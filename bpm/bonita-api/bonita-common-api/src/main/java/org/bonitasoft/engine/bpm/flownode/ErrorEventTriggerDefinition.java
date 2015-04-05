@@ -10,14 +10,22 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.flownode;
 
 /**
  * @author Elias Ricken de Medeiros
  */
-public interface ErrorEventTriggerDefinition extends EventTriggerDefinition {
+public class ErrorEventTriggerDefinition extends EventTriggerDefinition {
+    private static final long serialVersionUID = -8002085238119587513L;
 
-    String getErrorCode();
+    private final String errorCode;
 
+    public ErrorEventTriggerDefinition(final String errorCode) {
+        this.errorCode = errorCode;
+    }
+
+    public String getErrorCode() {
+        return errorCode;
+    }
 }

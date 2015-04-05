@@ -17,6 +17,9 @@ package org.bonitasoft.engine.bpm.flownode;
 /**
  * @author Matthieu Chaffotte
  */
-public interface CatchSignalEventTriggerDefinition extends SignalEventTriggerDefinition {
+public class CatchSignalEventTriggerDefinition extends SignalEventTriggerDefinition {
 
+    public CatchSignalEventTriggerDefinition(String name) {
+        super(name);
+    }
 }

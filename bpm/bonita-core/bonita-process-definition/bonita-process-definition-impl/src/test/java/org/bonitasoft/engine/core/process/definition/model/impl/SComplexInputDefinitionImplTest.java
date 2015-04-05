@@ -20,8 +20,6 @@ import java.util.Arrays;
 import org.bonitasoft.engine.bpm.contract.ComplexInputDefinition;
 import org.bonitasoft.engine.bpm.contract.SimpleInputDefinition;
 import org.bonitasoft.engine.bpm.contract.Type;
-import org.bonitasoft.engine.bpm.contract.impl.ComplexInputDefinitionImpl;
-import org.bonitasoft.engine.bpm.contract.impl.SimpleInputDefinitionImpl;
 import org.bonitasoft.engine.core.process.definition.model.SComplexInputDefinition;
 import org.bonitasoft.engine.core.process.definition.model.SSimpleInputDefinition;
 import org.bonitasoft.engine.core.process.definition.model.SType;
@@ -83,16 +81,16 @@ public class SComplexInputDefinitionImplTest {
     }
 
     private ComplexInputDefinition createComplexInputs() {
-        final SimpleInputDefinition name = new SimpleInputDefinitionImpl("name", Type.TEXT, DESCRIPTION);
-        final SimpleInputDefinition amount = new SimpleInputDefinitionImpl("amount", Type.DECIMAL, DESCRIPTION);
-        final SimpleInputDefinition date = new SimpleInputDefinitionImpl("date", Type.DATE, DESCRIPTION);
+        final SimpleInputDefinition name = new SimpleInputDefinition("name", Type.TEXT, DESCRIPTION);
+        final SimpleInputDefinition amount = new SimpleInputDefinition("amount", Type.DECIMAL, DESCRIPTION);
+        final SimpleInputDefinition date = new SimpleInputDefinition("date", Type.DATE, DESCRIPTION);
 
-        final SimpleInputDefinition city = new SimpleInputDefinitionImpl("city", Type.TEXT, DESCRIPTION);
-        final SimpleInputDefinition zip = new SimpleInputDefinitionImpl("zip", Type.INTEGER, DESCRIPTION);
+        final SimpleInputDefinition city = new SimpleInputDefinition("city", Type.TEXT, DESCRIPTION);
+        final SimpleInputDefinition zip = new SimpleInputDefinition("zip", Type.INTEGER, DESCRIPTION);
 
-        final ComplexInputDefinition adress = new ComplexInputDefinitionImpl("adress", DESCRIPTION, Arrays.asList(city, zip), null);
+        final ComplexInputDefinition adress = new ComplexInputDefinition("adress", DESCRIPTION, Arrays.asList(city, zip), null);
 
-        final ComplexInputDefinition expense = new ComplexInputDefinitionImpl("expense", DESCRIPTION, true, Arrays.asList(name, amount, date),
+        final ComplexInputDefinition expense = new ComplexInputDefinition("expense", DESCRIPTION, true, Arrays.asList(name, amount, date),
                 Arrays.asList(adress));
         return expense;
     }

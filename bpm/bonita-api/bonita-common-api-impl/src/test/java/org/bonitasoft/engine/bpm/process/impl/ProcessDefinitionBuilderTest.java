@@ -18,8 +18,6 @@ import java.util.Arrays;
 import org.bonitasoft.engine.bpm.contract.ComplexInputDefinition;
 import org.bonitasoft.engine.bpm.contract.SimpleInputDefinition;
 import org.bonitasoft.engine.bpm.contract.Type;
-import org.bonitasoft.engine.bpm.contract.impl.ComplexInputDefinitionImpl;
-import org.bonitasoft.engine.bpm.contract.impl.SimpleInputDefinitionImpl;
 import org.bonitasoft.engine.bpm.flownode.TimerType;
 import org.bonitasoft.engine.bpm.process.InvalidProcessDefinitionException;
 import org.bonitasoft.engine.expression.Expression;
@@ -452,11 +450,11 @@ public class ProcessDefinitionBuilderTest {
         builder.addActor("mainActor");
 
         //given
-        final SimpleInputDefinition badInput = new SimpleInputDefinitionImpl("bad input", Type.TEXT, "should fail");
-        final SimpleInputDefinition expenseType = new SimpleInputDefinitionImpl("expenseType", Type.TEXT, "describe expense type");
-        final SimpleInputDefinition expenseAmount = new SimpleInputDefinitionImpl("amount", Type.DECIMAL, "expense amount");
-        final SimpleInputDefinition expenseDate = new SimpleInputDefinitionImpl("date", Type.DATE, "expense date");
-        final ComplexInputDefinition complexSubIput = new ComplexInputDefinitionImpl("date", "expense date", Arrays.asList(expenseType, badInput), null);
+        final SimpleInputDefinition badInput = new SimpleInputDefinition("bad input", Type.TEXT, "should fail");
+        final SimpleInputDefinition expenseType = new SimpleInputDefinition("expenseType", Type.TEXT, "describe expense type");
+        final SimpleInputDefinition expenseAmount = new SimpleInputDefinition("amount", Type.DECIMAL, "expense amount");
+        final SimpleInputDefinition expenseDate = new SimpleInputDefinition("date", Type.DATE, "expense date");
+        final ComplexInputDefinition complexSubIput = new ComplexInputDefinition("date", "expense date", Arrays.asList(expenseType, badInput), null);
         builder.addUserTask("step1", "mainActor").addContract()
         .addComplexInput("expenseLine", "expense report line", Arrays.asList(expenseDate, expenseAmount), Arrays.asList(complexSubIput));
 

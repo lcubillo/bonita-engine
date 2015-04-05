@@ -15,6 +15,8 @@ package org.bonitasoft.engine.bpm.actor;
 
 import java.io.Serializable;
 
+import org.bonitasoft.engine.bpm.DescriptionElement;
+
 /**
  * It forms part of the {@link org.bonitasoft.engine.bpm.process.ProcessDefinition}. It is used to design an actor in the context of a process.
  *
@@ -26,27 +28,33 @@ import java.io.Serializable;
  * @since 6.0.0
  * @version 6.4.1
  */
-public interface ActorDefinition extends Serializable {
+public class ActorDefinition extends DescriptionElement {
+
+    private static final long serialVersionUID = 2L;
+
+    private boolean initiator;
 
     /**
-     * Get the name of the actor.
+     * Create a actor definition with his name that is not initiator
      *
-     * @return The name of the actor.
+     * @param name
      */
-    String getName();
-
-    /**
-     * Get the description of the actor.
-     *
-     * @return The description of the actor.
-     */
-    String getDescription();
+    public ActorDefinition(final String name) {
+        super(name);
+        initiator = false;
+    }
 
     /**
      * Can this actor start the process ?
      *
      * @return <code>true</code>} if this actor can start the process, <code>false</code> otherwise.
      */
-    boolean isInitiator();
+    public boolean isInitiator() {
+        return initiator;
+    }
+
+    public void setInitiator(final boolean initiator) {
+        this.initiator = initiator;
+    }
 
 }

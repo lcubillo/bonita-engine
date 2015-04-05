@@ -10,10 +10,9 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.process;
 
-import org.bonitasoft.engine.bpm.BaseElement;
 import org.bonitasoft.engine.bpm.NamedElement;
 
 /**
@@ -24,16 +23,43 @@ import org.bonitasoft.engine.bpm.NamedElement;
  * @author Baptiste Mesta
  * @author Matthieu Chaffotte
  */
-public interface ProcessDefinition extends NamedElement, BaseElement {
+public class ProcessDefinition extends NamedElement {
+
+    private static final long serialVersionUID = 2L;
+
+    private String version;
+
+    private String description;
+
+    public ProcessDefinition(String name) {
+        super(name);
+    }
+
+
+    public ProcessDefinition(final String name, final String version) {
+        super(name);
+        this.version = version;
+    }
+
 
     /**
      * @return The version of the process definition
      */
-    String getVersion();
+    public String getVersion() {
+        return version;
+    }
+
+    public void setDescription(final String description) {
+        this.description = description;
+    }
 
     /**
      * @return The description of the process definition, as set at design-time.
      */
-    String getDescription();
+    public String getDescription() {
+
+        return description;
+    }
+
 
 }

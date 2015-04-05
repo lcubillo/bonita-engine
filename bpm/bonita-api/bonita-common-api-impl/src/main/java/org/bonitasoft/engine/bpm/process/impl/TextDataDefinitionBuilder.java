@@ -13,10 +13,10 @@
  **/
 package org.bonitasoft.engine.bpm.process.impl;
 
-import org.bonitasoft.engine.bpm.data.impl.TextDataDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.ActivityDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.CatchMessageEventTriggerDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowElementContainerDefinitionImpl;
+import org.bonitasoft.engine.bpm.data.TextDataDefinition;
+import org.bonitasoft.engine.bpm.flownode.ActivityDefinition;
+import org.bonitasoft.engine.bpm.flownode.CatchMessageEventTriggerDefinition;
+import org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition;
 import org.bonitasoft.engine.expression.Expression;
 
 /**
@@ -26,26 +26,26 @@ import org.bonitasoft.engine.expression.Expression;
  */
 public class TextDataDefinitionBuilder extends DataDefinitionBuilder {
 
-    public TextDataDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinitionImpl process,
+    public TextDataDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinition process,
             final String name, final String className, final Expression defaultValue) {
         super(processDefinitionBuilder, process, getTextData(name, className, defaultValue));
         processDefinitionBuilder.checkExpression(toString(), defaultValue);
     }
 
-    public TextDataDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinitionImpl process,
-            final ActivityDefinitionImpl activity, final String name, final String className, final Expression defaultValue) {
+    public TextDataDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinition process,
+            final ActivityDefinition activity, final String name, final String className, final Expression defaultValue) {
         super(processDefinitionBuilder, process, activity, getTextData(name, className, defaultValue));
         processDefinitionBuilder.checkExpression(toString(), defaultValue);
     }
 
-    public TextDataDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinitionImpl container,
-            final CatchMessageEventTriggerDefinitionImpl messageEventTrigger, final String name, final String className, final Expression defaultValue) {
+    public TextDataDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinition container,
+            final CatchMessageEventTriggerDefinition messageEventTrigger, final String name, final String className, final Expression defaultValue) {
         super(processDefinitionBuilder, container, messageEventTrigger, getTextData(name, className, defaultValue));
         processDefinitionBuilder.checkExpression(toString(), defaultValue);
     }
 
-    private static TextDataDefinitionImpl getTextData(final String name, final String className, final Expression defaultValue) {
-        final TextDataDefinitionImpl text = new TextDataDefinitionImpl(name, defaultValue);
+    private static TextDataDefinition getTextData(final String name, final String className, final Expression defaultValue) {
+        final TextDataDefinition text = new TextDataDefinition(name, defaultValue);
         text.setClassName(className);
         return text;
     }
@@ -55,7 +55,7 @@ public class TextDataDefinitionBuilder extends DataDefinitionBuilder {
      * @return
      */
     public TextDataDefinitionBuilder isLongText() {
-        ((TextDataDefinitionImpl) getDataDefinition()).setLongText(true);
+        ((TextDataDefinition) getDataDefinition()).setLongText(true);
         return this;
     }
 

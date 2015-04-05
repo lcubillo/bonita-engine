@@ -45,7 +45,6 @@ import org.bonitasoft.engine.bpm.flownode.FlowNodeInstanceSearchDescriptor;
 import org.bonitasoft.engine.bpm.flownode.GatewayType;
 import org.bonitasoft.engine.bpm.flownode.HumanTaskInstance;
 import org.bonitasoft.engine.bpm.flownode.MultiInstanceActivityInstance;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowElementContainerDefinitionImpl;
 import org.bonitasoft.engine.bpm.process.ProcessDefinition;
 import org.bonitasoft.engine.bpm.process.ProcessInstance;
 import org.bonitasoft.engine.bpm.process.impl.ProcessDefinitionBuilder;
@@ -906,7 +905,7 @@ public class MultiInstanceIT extends TestWithTechnicalUser {
         final String exprListUserIds = "[" + john.getId() + "l," + jack.getId() + "l," + jenny.getId() + "l]";
         builder.addData(loopDataInputName, List.class.getName(),
                 new ExpressionBuilder().createGroovyScriptExpression("createListUserId", exprListUserIds, List.class.getName()));
-        final UserTaskDefinitionBuilder userTaskBuilder = new UserTaskDefinitionBuilder(builder, (FlowElementContainerDefinitionImpl) builder.getProcess()
+        final UserTaskDefinitionBuilder userTaskBuilder = new UserTaskDefinitionBuilder(builder, builder.getProcess()
                 .getProcessContainer(), "step1", ACTOR_NAME);
         userTaskBuilder.addUserFilter("test", "org.bonitasoft.engine.filter.user.testFilterWithAutoAssign", PROCESS_VERSION).addInput("userId",
                 new ExpressionBuilder().createDataExpression("userIdValue", Long.class.getName()));

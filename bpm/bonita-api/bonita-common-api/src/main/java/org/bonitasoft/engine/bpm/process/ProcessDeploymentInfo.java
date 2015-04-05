@@ -16,7 +16,9 @@ package org.bonitasoft.engine.bpm.process;
 import java.util.Date;
 
 import org.bonitasoft.engine.bpm.BaseElement;
+import org.bonitasoft.engine.bpm.BaseElementInstance;
 import org.bonitasoft.engine.bpm.DescriptionElement;
+import org.bonitasoft.engine.bpm.DescriptionElementInstance;
 
 /**
  * Gives access to the {@link ProcessDefinition} deployment information.<br>
@@ -35,7 +37,7 @@ import org.bonitasoft.engine.bpm.DescriptionElement;
  * @see ConfigurationState
  * @see ActivationState
  */
-public interface ProcessDeploymentInfo extends DescriptionElement, BaseElement {
+public interface ProcessDeploymentInfo extends DescriptionElementInstance, BaseElementInstance {
 
     /**
      * Retrieves the {@link ProcessDefinition} identifier

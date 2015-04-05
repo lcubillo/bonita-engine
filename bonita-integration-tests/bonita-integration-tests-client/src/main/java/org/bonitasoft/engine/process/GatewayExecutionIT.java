@@ -999,10 +999,6 @@ public class GatewayExecutionIT extends TestWithUser {
         builder.addEndEvent("end");
         builder.addTransition("sem", "step");
         builder.addTransition("step", "end");
-        final Set<TransitionDefinition> transitions = builder.done().getProcessContainer().getTransitions();
-        for (final TransitionDefinition transitionDefinition : transitions) {
-            System.out.println(transitionDefinition.getName());
-        }
         assertJohnHasGotTheExpectedTaskPending(ACTOR_NAME, builder.getProcess(), "step");
     }
 

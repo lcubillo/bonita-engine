@@ -13,10 +13,10 @@
  **/
 package org.bonitasoft.engine.bpm.process.impl;
 
+import org.bonitasoft.engine.bpm.flownode.ActivityDefinition;
+import org.bonitasoft.engine.bpm.flownode.BoundaryEventDefinition;
+import org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition;
 import org.bonitasoft.engine.bpm.flownode.TimerType;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.ActivityDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.BoundaryEventDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowElementContainerDefinitionImpl;
 import org.bonitasoft.engine.expression.Expression;
 
 /**
@@ -25,12 +25,12 @@ import org.bonitasoft.engine.expression.Expression;
  */
 public class BoundaryEventDefinitionBuilder extends FlowElementContainerBuilder implements DescriptionBuilder {
 
-    private final BoundaryEventDefinitionImpl boundaryEvent;
+    private final BoundaryEventDefinition boundaryEvent;
 
-    public BoundaryEventDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinitionImpl process,
-            final ActivityDefinitionImpl activity, final String name, final boolean isInterruptiong) {
+    public BoundaryEventDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinition process,
+            final ActivityDefinition activity, final String name, final boolean isInterruptiong) {
         super(process, processDefinitionBuilder);
-        boundaryEvent = new BoundaryEventDefinitionImpl(name);
+        boundaryEvent = new BoundaryEventDefinition(name);
         boundaryEvent.setInterrupting(isInterruptiong);
         activity.addBoundaryEventDefinition(boundaryEvent);
     }

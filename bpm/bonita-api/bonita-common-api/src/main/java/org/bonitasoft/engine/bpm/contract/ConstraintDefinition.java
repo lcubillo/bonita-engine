@@ -10,9 +10,10 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.contract;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.bonitasoft.engine.bpm.NamedElement;
@@ -25,7 +26,26 @@ import org.bonitasoft.engine.bpm.flownode.UserTaskInstance;
  * @author Laurent Leseigneur
  * @since 7.0
  */
-public interface ConstraintDefinition extends NamedElement {
+public class ConstraintDefinition extends NamedElement {
+
+    private static final long serialVersionUID = 2L;
+
+    private final String expression;
+    private final String explanation;
+    private final List<String> inputNames;
+    private final ConstraintType constraintType;
+
+    public ConstraintDefinition(final String name, final String expression, final String explanation) {
+        this(name, expression, explanation, ConstraintType.CUSTOM);
+    }
+
+    public ConstraintDefinition(final String name, final String expression, final String explanation, final ConstraintType constraintType) {
+        super(name);
+        this.constraintType = constraintType;
+        this.explanation = explanation;
+        this.expression = expression;
+        inputNames = new ArrayList<>();
+    }
 
     /**
      * Returns the boolean condition used to validate a part of the {@link ContractDefinition}.
@@ -34,27 +54,41 @@ public interface ConstraintDefinition extends NamedElement {
      *
      * @return the boolean condition
      */
-    String getExpression();
+    public String getExpression() {
+        return expression;
+    }
+
 
     /**
      * Returns the explanation of why the validation rule failed.
      *
      * @return the explanation of why the validation rule failed
      */
-    String getExplanation();
+    public String getExplanation() {
+        return explanation;
+    }
+
 
     /**
      * Returns the input names involved in the validation rule.
      *
      * @return the input names involved in the validation rule
      */
-    List<String> getInputNames();
+    public List<String> getInputNames() {
+        return inputNames;
+    }
+
+    public void addInputName(final String inputName) {
+        inputNames.add(inputName);
+    }
+
 
     /**
-     * Return the type of the of the constraint
+     * Return the type of the constraint
      *
      * @return the {@link ConstraintType} of the constraint
      */
-    ConstraintType getConstraintType();
-
+    public ConstraintType getConstraintType() {
+        return constraintType;
+    }
 }

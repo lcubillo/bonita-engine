@@ -13,16 +13,17 @@
  **/
 package org.bonitasoft.engine.bpm.process.impl;
 
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowElementContainerDefinitionImpl;
-import org.bonitasoft.engine.bpm.process.impl.internal.SubProcessDefinitionImpl;
+
+import org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition;
+import org.bonitasoft.engine.bpm.process.SubProcessDefinition;
 
 /**
  * @author Matthieu Chaffotte
  */
 public class SubProcessDefinitionBuilder extends FlowElementContainerBuilder implements ContainerBuilder {
 
-    SubProcessDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final SubProcessDefinitionImpl subProcessActivity) {
-        super(new FlowElementContainerDefinitionImpl(), processDefinitionBuilder);
+    SubProcessDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final SubProcessDefinition subProcessActivity) {
+        super(new FlowElementContainerDefinition(), processDefinitionBuilder);
         subProcessActivity.setSubProcessContainer(getContainer());
     }
 

@@ -10,7 +10,7 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.flownode;
 
 
@@ -18,7 +18,24 @@ package org.bonitasoft.engine.bpm.flownode;
  * @author Feng Hui
  * @author Baptiste Mesta
  */
-public interface GatewayDefinition extends FlowNodeDefinition {
+public class GatewayDefinition extends FlowNodeDefinition {
+    private static final long serialVersionUID = 2L;
 
-    GatewayType getGatewayType();
+    private final GatewayType gatewayType;
+
+    public GatewayDefinition(final String name, final GatewayType gatewayType) {
+        super(name);
+        this.gatewayType = gatewayType;
+    }
+
+    public GatewayDefinition(final long id, final String name, final GatewayType gatewayType) {
+        super(id, name);
+        this.gatewayType = gatewayType;
+    }
+
+    public GatewayType getGatewayType() {
+        return gatewayType;
+    }
+
+
 }

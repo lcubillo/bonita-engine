@@ -13,9 +13,9 @@
  **/
 package org.bonitasoft.engine.bpm.process.impl;
 
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowElementContainerDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.SendTaskDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.ThrowMessageEventTriggerDefinitionImpl;
+import org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition;
+import org.bonitasoft.engine.bpm.flownode.SendTaskDefinition;
+import org.bonitasoft.engine.bpm.flownode.ThrowMessageEventTriggerDefinition;
 import org.bonitasoft.engine.expression.Expression;
 
 /**
@@ -23,9 +23,9 @@ import org.bonitasoft.engine.expression.Expression;
  */
 public class SendTaskDefinitionBuilder extends ActivityDefinitionBuilder {
 
-    public SendTaskDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinitionImpl process,
+    public SendTaskDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinition process,
             final String taskName, final String messageName, final Expression targetProcess) {
-        super(process, processDefinitionBuilder, new SendTaskDefinitionImpl(taskName, messageName, targetProcess));
+        super(process, processDefinitionBuilder, new SendTaskDefinition(taskName, messageName, targetProcess));
         if (messageName == null || messageName.isEmpty()) {
             processDefinitionBuilder.addError("Message is not set on the send task " + taskName);
         }
@@ -50,7 +50,7 @@ public class SendTaskDefinitionBuilder extends ActivityDefinitionBuilder {
     public DataDefinitionBuilder addMessageContentExpression(final Expression displayName, final Expression messageContent) {
         final String dataName = displayName.getContent(); // FIXME evaluate the expression
         final String className = messageContent.getReturnType();
-        return new DataDefinitionBuilder(getProcessBuilder(), getContainer(), (ThrowMessageEventTriggerDefinitionImpl) getActivity().getMessageTrigger(),
+        return new DataDefinitionBuilder(getProcessBuilder(), getContainer(), (ThrowMessageEventTriggerDefinition) getActivity().getMessageTrigger(),
                 dataName, className, messageContent);
     }
 
@@ -66,7 +66,7 @@ public class SendTaskDefinitionBuilder extends ActivityDefinitionBuilder {
      * @return
      */
     public SendTaskDefinitionBuilder addCorrelation(final Expression correlationKey, final Expression value) {
-        final SendTaskDefinitionImpl sendTask = getActivity();
+        final SendTaskDefinition sendTask = getActivity();
         sendTask.addCorrelation(correlationKey, value);
         if (sendTask.getMessageTrigger().getCorrelations().size() > 5) {
             getProcessBuilder().addError("The limit of correlation keys are 5 on send task: " + sendTask.getName());
@@ -75,8 +75,8 @@ public class SendTaskDefinitionBuilder extends ActivityDefinitionBuilder {
     }
 
     @Override
-    SendTaskDefinitionImpl getActivity() {
-        return (SendTaskDefinitionImpl) super.getActivity();
+    SendTaskDefinition getActivity() {
+        return (SendTaskDefinition) super.getActivity();
     }
 
 }

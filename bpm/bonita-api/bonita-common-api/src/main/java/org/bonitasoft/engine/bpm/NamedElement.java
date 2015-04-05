@@ -10,7 +10,7 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm;
 
 /**
@@ -20,13 +20,28 @@ package org.bonitasoft.engine.bpm;
  * @author Matthieu Chaffotte
  * @since 6.0.0
  */
-public interface NamedElement extends BonitaObject {
+public abstract class NamedElement extends BaseElement {
+    private static final long serialVersionUID = 2L;
+
+    private String name;
+
+    public NamedElement(final String name) {
+        this.name = name;
+    }
+
 
     /**
      * Gets the element name.
      *
      * @return the element name
      */
-    String getName();
+    public String getName() {
+        return name;
+    }
+
+    public void setName(final String name) {
+        this.name = name;
+    }
+
 
 }

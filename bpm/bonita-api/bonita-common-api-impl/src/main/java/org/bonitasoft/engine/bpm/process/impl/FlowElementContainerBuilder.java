@@ -17,8 +17,8 @@ import java.io.Serializable;
 import java.util.Date;
 
 import org.bonitasoft.engine.bpm.connector.ConnectorEvent;
+import org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition;
 import org.bonitasoft.engine.bpm.flownode.GatewayType;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowElementContainerDefinitionImpl;
 import org.bonitasoft.engine.bpm.process.DesignProcessDefinition;
 import org.bonitasoft.engine.bpm.process.InvalidProcessDefinitionException;
 import org.bonitasoft.engine.expression.Expression;
@@ -28,11 +28,11 @@ import org.bonitasoft.engine.expression.Expression;
  */
 public class FlowElementContainerBuilder implements FlowElementBuilder {
 
-    private final FlowElementContainerDefinitionImpl container;
+    private final FlowElementContainerDefinition container;
 
     private final ProcessDefinitionBuilder processDefinitionBuilder;
 
-    public FlowElementContainerBuilder(final FlowElementContainerDefinitionImpl container, final ProcessDefinitionBuilder processDefinitionBuilder) {
+    public FlowElementContainerBuilder(final FlowElementContainerDefinition container, final ProcessDefinitionBuilder processDefinitionBuilder) {
         super();
         this.container = container;
         this.processDefinitionBuilder = processDefinitionBuilder;
@@ -195,7 +195,7 @@ public class FlowElementContainerBuilder implements FlowElementBuilder {
         return new DataDefinitionBuilder(processDefinitionBuilder, container, name, className, defaultValue);
     }
 
-    protected FlowElementContainerDefinitionImpl getContainer() {
+    protected FlowElementContainerDefinition getContainer() {
         return container;
     }
 

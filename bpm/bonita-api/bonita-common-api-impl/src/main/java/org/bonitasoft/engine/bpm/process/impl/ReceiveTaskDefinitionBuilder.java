@@ -13,8 +13,8 @@
  **/
 package org.bonitasoft.engine.bpm.process.impl;
 
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowElementContainerDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.ReceiveTaskDefinitionImpl;
+import org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition;
+import org.bonitasoft.engine.bpm.flownode.ReceiveTaskDefinition;
 import org.bonitasoft.engine.expression.Expression;
 import org.bonitasoft.engine.operation.Operation;
 
@@ -24,9 +24,9 @@ import org.bonitasoft.engine.operation.Operation;
  */
 public class ReceiveTaskDefinitionBuilder extends ActivityDefinitionBuilder {
 
-    public ReceiveTaskDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinitionImpl process,
+    public ReceiveTaskDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinition process,
             final String name, final String messageName) {
-        super(process, processDefinitionBuilder, new ReceiveTaskDefinitionImpl(name, messageName));
+        super(process, processDefinitionBuilder, new ReceiveTaskDefinition(name, messageName));
     }
 
     /**
@@ -42,7 +42,7 @@ public class ReceiveTaskDefinitionBuilder extends ActivityDefinitionBuilder {
      * @return
      */
     public ReceiveTaskDefinitionBuilder addCorrelation(final Expression correlationKey, final Expression value) {
-        final ReceiveTaskDefinitionImpl receiveTask = getActivity();
+        final ReceiveTaskDefinition receiveTask = getActivity();
         receiveTask.addCorrelation(correlationKey, value);
         if (receiveTask.getTrigger().getCorrelations().size() > 5) {
             getProcessBuilder().addError("The limit of correlation keys are 5 on receive task: " + receiveTask.getName());
@@ -63,8 +63,8 @@ public class ReceiveTaskDefinitionBuilder extends ActivityDefinitionBuilder {
     }
 
     @Override
-    ReceiveTaskDefinitionImpl getActivity() {
-        return (ReceiveTaskDefinitionImpl) super.getActivity();
+    ReceiveTaskDefinition getActivity() {
+        return (ReceiveTaskDefinition) super.getActivity();
     }
 
 }

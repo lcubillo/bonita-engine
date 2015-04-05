@@ -10,9 +10,10 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.contract;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.bonitasoft.engine.bpm.BonitaObject;
@@ -27,27 +28,62 @@ import org.bonitasoft.engine.bpm.flownode.UserTaskInstance;
  * @author Matthieu Chaffotte
  * @since 7.0
  */
-public interface ContractDefinition extends BonitaObject {
+public class ContractDefinition implements BonitaObject {
 
-    /**
-     * Lists the simpleInputs of the contract.
-     *
-     * @return the simple inputs of the contract
-     */
-    List<SimpleInputDefinition> getSimpleInputs();
 
-    /**
-     * Lists the complex inputs of the contract.
-     *
-     * @return the complex inputs of the contract
-     */
-    List<ComplexInputDefinition> getComplexInputs();
+    private static final long serialVersionUID = 786706819903231008L;
+
+    private final List<ConstraintDefinition> constraints;
+
+    private final List<ComplexInputDefinition> complexInputs;
+
+    private final List<SimpleInputDefinition> simpleInputs;
+
+    public ContractDefinition() {
+        simpleInputs = new ArrayList<>();
+        complexInputs = new ArrayList<>();
+        constraints = new ArrayList<>();
+    }
+
+    public void addSimpleInput(final SimpleInputDefinition input) {
+        simpleInputs.add(input);
+    }
+
+    public void addConstraint(final ConstraintDefinition constraint) {
+        constraints.add(constraint);
+    }
+
+    public void addComplexInput(final ComplexInputDefinition complexInput) {
+        complexInputs.add(complexInput);
+    }
+
 
     /**
      * Lists the validation rules of the contract.
      *
      * @return the validation rules of the contract
      */
-    List<ConstraintDefinition> getConstraints();
+    public List<ConstraintDefinition> getConstraints() {
+        return constraints;
+    }
 
+
+    /**
+     * Lists the simpleInputs of the contract.
+     *
+     * @return the simple inputs of the contract
+     */
+    public List<SimpleInputDefinition> getSimpleInputs() {
+        return simpleInputs;
+    }
+
+
+    /**
+     * Lists the complex inputs of the contract.
+     *
+     * @return the complex inputs of the contract
+     */
+    public List<ComplexInputDefinition> getComplexInputs() {
+        return complexInputs;
+    }
 }

@@ -25,26 +25,24 @@ import java.util.Set;
 import org.bonitasoft.engine.bpm.businessdata.BusinessDataDefinition;
 import org.bonitasoft.engine.bpm.connector.ConnectorDefinition;
 import org.bonitasoft.engine.bpm.connector.ConnectorEvent;
-import org.bonitasoft.engine.bpm.contract.ContractDefinition;
 import org.bonitasoft.engine.bpm.data.DataDefinition;
 import org.bonitasoft.engine.bpm.document.DocumentDefinition;
 import org.bonitasoft.engine.bpm.document.DocumentListDefinition;
 import org.bonitasoft.engine.bpm.flownode.ActivityDefinition;
+import org.bonitasoft.engine.bpm.flownode.AutomaticTaskDefinition;
 import org.bonitasoft.engine.bpm.flownode.CallActivityDefinition;
 import org.bonitasoft.engine.bpm.flownode.EndEventDefinition;
+import org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition;
 import org.bonitasoft.engine.bpm.flownode.GatewayDefinition;
+import org.bonitasoft.engine.bpm.flownode.HumanTaskDefinition;
 import org.bonitasoft.engine.bpm.flownode.IntermediateCatchEventDefinition;
 import org.bonitasoft.engine.bpm.flownode.IntermediateThrowEventDefinition;
+import org.bonitasoft.engine.bpm.flownode.ManualTaskDefinition;
+import org.bonitasoft.engine.bpm.flownode.ReceiveTaskDefinition;
+import org.bonitasoft.engine.bpm.flownode.SendTaskDefinition;
 import org.bonitasoft.engine.bpm.flownode.StartEventDefinition;
 import org.bonitasoft.engine.bpm.flownode.TransitionDefinition;
 import org.bonitasoft.engine.bpm.flownode.UserTaskDefinition;
-import org.bonitasoft.engine.bpm.flownode.impl.FlowElementContainerDefinition;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.AutomaticTaskDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.HumanTaskDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.ManualTaskDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.ReceiveTaskDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.SendTaskDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.UserTaskDefinitionImpl;
 import org.bonitasoft.engine.bpm.process.SubProcessDefinition;
 import org.bonitasoft.engine.bpm.userfilter.UserFilterDefinition;
 import org.bonitasoft.engine.core.process.definition.model.SActivityDefinition;
@@ -233,15 +231,15 @@ public class SFlowElementContainerDefinitionImpl extends SBaseElementImpl implem
         while (iterator.hasNext()) {
             final ActivityDefinition activityDefinition = iterator.next();
             final SActivityDefinitionImpl activity;
-            if (activityDefinition instanceof AutomaticTaskDefinitionImpl) {
+            if (activityDefinition instanceof AutomaticTaskDefinition) {
                 activity = new SAutomaticTaskDefinitionImpl(activityDefinition, transitionsMap);
-            } else if (activityDefinition instanceof HumanTaskDefinitionImpl) {
-                if (activityDefinition instanceof UserTaskDefinitionImpl) {
+            } else if (activityDefinition instanceof HumanTaskDefinition) {
+                if (activityDefinition instanceof UserTaskDefinition) {
                     activity = new SUserTaskDefinitionImpl((UserTaskDefinition) activityDefinition, transitionsMap);
                 } else {
-                    activity = new SManualTaskDefinitionImpl((ManualTaskDefinitionImpl) activityDefinition, transitionsMap);
+                    activity = new SManualTaskDefinitionImpl((ManualTaskDefinition) activityDefinition, transitionsMap);
                 }
-                final HumanTaskDefinitionImpl humanTaskDefinitionImpl = (HumanTaskDefinitionImpl) activityDefinition;
+                final HumanTaskDefinition humanTaskDefinitionImpl = (HumanTaskDefinition) activityDefinition;
                 final UserFilterDefinition userFilter = humanTaskDefinitionImpl.getUserFilter();
                 final SHumanTaskDefinitionImpl sHumanTaskDefinitionImpl = (SHumanTaskDefinitionImpl) activity;
                 if (userFilter != null) {
@@ -249,10 +247,10 @@ public class SFlowElementContainerDefinitionImpl extends SBaseElementImpl implem
                 }
                 sHumanTaskDefinitionImpl.setPriority(humanTaskDefinitionImpl.getPriority());
                 sHumanTaskDefinitionImpl.setExpectedDuration(humanTaskDefinitionImpl.getExpectedDuration());
-            } else if (activityDefinition instanceof ReceiveTaskDefinitionImpl) {
-                activity = new SReceiveTaskDefinitionImpl((ReceiveTaskDefinitionImpl) activityDefinition, transitionsMap);
-            } else if (activityDefinition instanceof SendTaskDefinitionImpl) {
-                activity = new SSendTaskDefinitionImpl((SendTaskDefinitionImpl) activityDefinition, transitionsMap);
+            } else if (activityDefinition instanceof ReceiveTaskDefinition) {
+                activity = new SReceiveTaskDefinitionImpl((ReceiveTaskDefinition) activityDefinition, transitionsMap);
+            } else if (activityDefinition instanceof SendTaskDefinition) {
+                activity = new SSendTaskDefinitionImpl((SendTaskDefinition) activityDefinition, transitionsMap);
             } else if (activityDefinition instanceof CallActivityDefinition) {
                 activity = new SCallActivityDefinitionImpl((CallActivityDefinition) activityDefinition, transitionsMap);
             } else if (activityDefinition instanceof SubProcessDefinition) {

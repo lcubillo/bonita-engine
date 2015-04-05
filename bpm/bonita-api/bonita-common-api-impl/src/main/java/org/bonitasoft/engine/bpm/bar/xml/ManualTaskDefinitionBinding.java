@@ -13,7 +13,8 @@
  **/
 package org.bonitasoft.engine.bpm.bar.xml;
 
-import org.bonitasoft.engine.bpm.flownode.impl.internal.ManualTaskDefinitionImpl;
+
+import org.bonitasoft.engine.bpm.flownode.ManualTaskDefinition;
 
 /**
  * @author Baptiste Mesta
@@ -28,7 +29,7 @@ public class ManualTaskDefinitionBinding extends HumanTaskDefinitionBinding {
 
     @Override
     public Object getObject() {
-        final ManualTaskDefinitionImpl manualTaskDefinitionImpl = new ManualTaskDefinitionImpl(id, name, actorName);
+        final ManualTaskDefinition manualTaskDefinitionImpl = new ManualTaskDefinition(id, name, actorName);
         fillNode(manualTaskDefinitionImpl);
         return manualTaskDefinitionImpl;
     }

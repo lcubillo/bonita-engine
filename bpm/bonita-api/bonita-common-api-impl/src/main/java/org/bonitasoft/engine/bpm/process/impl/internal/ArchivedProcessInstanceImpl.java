@@ -15,7 +15,7 @@ package org.bonitasoft.engine.bpm.process.impl.internal;
 
 import java.util.Date;
 
-import org.bonitasoft.engine.bpm.internal.NamedElementImpl;
+import org.bonitasoft.engine.bpm.NamedElement;
 import org.bonitasoft.engine.bpm.process.ArchivedProcessInstance;
 
 /**
@@ -25,7 +25,7 @@ import org.bonitasoft.engine.bpm.process.ArchivedProcessInstance;
  * @author Elias Ricken de Medeiros
  * @author Celine Souchet
  */
-public class ArchivedProcessInstanceImpl extends NamedElementImpl implements ArchivedProcessInstance {
+public class ArchivedProcessInstanceImpl extends NamedElement implements ArchivedProcessInstance {
 
     private static final long serialVersionUID = -1924361771241157184L;
 

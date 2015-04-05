@@ -10,10 +10,10 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.flownode;
 
-import org.bonitasoft.engine.bpm.NamedElement;
+import org.bonitasoft.engine.bpm.BaseElement;
 import org.bonitasoft.engine.expression.Expression;
 
 /**
@@ -22,28 +22,58 @@ import org.bonitasoft.engine.expression.Expression;
  * @author Baptiste Mesta
  * @author Celine Souchet
  */
-public interface TransitionDefinition extends NamedElement {
+public class TransitionDefinition extends BaseElement {
 
-    /**
-     * @deprecated from 6.5.0 on, name is not used anymore on TransitionDefinition. It is kept for retro-compatibility.
-     */
-    @Override
-    @Deprecated
-    public String getName();
+
+    private static final long serialVersionUID = -5629473055955264480L;
+
+    private long source;
+
+    private long target;
+
+    private Expression expression;
+
+    public TransitionDefinition() {
+        this(-1, -1);
+    }
+
+    public TransitionDefinition(final long source, final long target) {
+        this.source = source;
+        this.target = target;
+    }
 
     /**
      * @return The source of the transition
      */
-    long getSource();
+    public long getSource() {
+        return source;
+    }
+
+    public void setSource(final long source) {
+        this.source = source;
+    }
 
     /**
      * @return The target of the transition
      */
-    long getTarget();
+    public long getTarget() {
+        return target;
+    }
+
+    public void setTarget(final long target) {
+        this.target = target;
+    }
 
     /**
      * @return The condition of the transition
      */
-    Expression getCondition();
+    public Expression getCondition() {
+        return expression;
+    }
+
+    public void setCondition(final Expression expression) {
+        this.expression = expression;
+    }
+
 
 }

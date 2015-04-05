@@ -17,7 +17,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.bonitasoft.engine.bpm.contract.ConstraintDefinition;
 import org.bonitasoft.engine.bpm.contract.ConstraintType;
-import org.bonitasoft.engine.bpm.contract.impl.ConstraintDefinitionImpl;
 import org.bonitasoft.engine.core.process.definition.model.SConstraintDefinition;
 import org.bonitasoft.engine.core.process.definition.model.SConstraintType;
 import org.junit.Test;
@@ -65,7 +64,7 @@ public class SConstraintDefinitionImplTest {
 
     private void check_constructor_from_constraintDefinition(final ConstraintType constraintType) {
         //given
-        final ConstraintDefinition constraintDefinition = new ConstraintDefinitionImpl("name", "expression", "explanation", constraintType);
+        final ConstraintDefinition constraintDefinition = new ConstraintDefinition("name", "expression", "explanation", constraintType);
         constraintDefinition.getInputNames().add("inputName");
 
         //when

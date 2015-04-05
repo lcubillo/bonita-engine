@@ -10,11 +10,10 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.flownode;
 
 import org.bonitasoft.engine.bpm.contract.ContractDefinition;
-import org.bonitasoft.engine.bpm.flownode.impl.HumanTaskDefinition;
 
 /**
  * A User Task is a typical “workflow” Task where a human performer performs the Task with the assistance of a
@@ -23,7 +22,20 @@ import org.bonitasoft.engine.bpm.flownode.impl.HumanTaskDefinition;
  * @author Baptiste Mesta
  * @author Matthieu Chaffotte
  */
-public interface UserTaskDefinition extends HumanTaskDefinition {
+public class UserTaskDefinition extends HumanTaskDefinition {
+
+
+    private static final long serialVersionUID = -8168685139931497082L;
+
+    private ContractDefinition contract;
+
+    public UserTaskDefinition(final String name, final String actorName) {
+        super(name, actorName);
+    }
+
+    public UserTaskDefinition(final long id, final String name, final String actorName) {
+        super(id, name, actorName);
+    }
 
     /**
      * Contract that must be respected when executing an instance of this user task
@@ -31,6 +43,13 @@ public interface UserTaskDefinition extends HumanTaskDefinition {
      * @return
      *         the user task execution contract
      */
-    ContractDefinition getContract();
+    public ContractDefinition getContract() {
+        return contract;
+    }
+
+    public void setContract(final ContractDefinition contract) {
+        this.contract = contract;
+    }
+
 
 }

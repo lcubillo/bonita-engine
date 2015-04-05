@@ -13,9 +13,9 @@
  **/
 package org.bonitasoft.engine.bpm.process.impl;
 
-import org.bonitasoft.engine.bpm.flownode.impl.internal.CatchEventDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.CatchMessageEventTriggerDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowElementContainerDefinitionImpl;
+import org.bonitasoft.engine.bpm.flownode.CatchEventDefinition;
+import org.bonitasoft.engine.bpm.flownode.CatchMessageEventTriggerDefinition;
+import org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition;
 import org.bonitasoft.engine.expression.Expression;
 import org.bonitasoft.engine.operation.Operation;
 
@@ -25,12 +25,12 @@ import org.bonitasoft.engine.operation.Operation;
  */
 public class CatchMessageEventTriggerDefinitionBuilder extends FlowElementContainerBuilder {
 
-    protected final CatchMessageEventTriggerDefinitionImpl messageTrigger;
+    protected final CatchMessageEventTriggerDefinition messageTrigger;
 
     public CatchMessageEventTriggerDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder,
-            final FlowElementContainerDefinitionImpl container, final CatchEventDefinitionImpl event, final String messageName) {
+            final FlowElementContainerDefinition container, final CatchEventDefinition event, final String messageName) {
         super(container, processDefinitionBuilder);
-        messageTrigger = new CatchMessageEventTriggerDefinitionImpl(messageName);
+        messageTrigger = new CatchMessageEventTriggerDefinition(messageName);
         event.addMessageEventTrigger(messageTrigger);
     }
 

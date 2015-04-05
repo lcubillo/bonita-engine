@@ -13,7 +13,7 @@
  **/
 package org.bonitasoft.engine.bpm.process.impl;
 
-import org.bonitasoft.engine.bpm.flownode.impl.internal.ActivityDefinitionImpl;
+import org.bonitasoft.engine.bpm.flownode.ActivityDefinition;
 import org.bonitasoft.engine.bpm.flownode.impl.internal.MultiInstanceLoopCharacteristics;
 import org.bonitasoft.engine.expression.Expression;
 
@@ -27,9 +27,9 @@ public class MultiInstanceLoopCharacteristicsBuilder {
 
     private final ProcessDefinitionBuilder builder;
 
-    private final ActivityDefinitionImpl activityDefinition;
+    private final ActivityDefinition activityDefinition;
 
-    public MultiInstanceLoopCharacteristicsBuilder(final ProcessDefinitionBuilder builder, final ActivityDefinitionImpl activityDefinition,
+    public MultiInstanceLoopCharacteristicsBuilder(final ProcessDefinitionBuilder builder, final ActivityDefinition activityDefinition,
             final boolean isSequential, final Expression loopCardinality) {
         this.activityDefinition = activityDefinition;
         this.builder = builder;
@@ -40,7 +40,7 @@ public class MultiInstanceLoopCharacteristicsBuilder {
         }
     }
 
-    public MultiInstanceLoopCharacteristicsBuilder(final ProcessDefinitionBuilder builder, final ActivityDefinitionImpl activityDefinition,
+    public MultiInstanceLoopCharacteristicsBuilder(final ProcessDefinitionBuilder builder, final ActivityDefinition activityDefinition,
             final boolean isSequential, final String loopDataInputRef) {
         this.activityDefinition = activityDefinition;
         this.builder = builder;

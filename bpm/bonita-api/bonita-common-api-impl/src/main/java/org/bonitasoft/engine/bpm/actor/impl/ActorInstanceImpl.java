@@ -13,13 +13,13 @@
  **/
 package org.bonitasoft.engine.bpm.actor.impl;
 
+import org.bonitasoft.engine.bpm.DescriptionElement;
 import org.bonitasoft.engine.bpm.actor.ActorInstance;
-import org.bonitasoft.engine.bpm.internal.DescriptionElementImpl;
 
 /**
  * @author Matthieu Chaffotte
  */
-public class ActorInstanceImpl extends DescriptionElementImpl implements ActorInstance {
+public class ActorInstanceImpl extends DescriptionElement implements ActorInstance {
 
     private static final long serialVersionUID = 8251013663118023803L;
 

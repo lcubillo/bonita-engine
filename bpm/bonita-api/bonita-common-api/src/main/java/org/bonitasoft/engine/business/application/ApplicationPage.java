@@ -14,6 +14,7 @@
 package org.bonitasoft.engine.business.application;
 
 import org.bonitasoft.engine.bpm.BaseElement;
+import org.bonitasoft.engine.bpm.BaseElementInstance;
 import org.bonitasoft.engine.page.Page;
 
 /**
@@ -21,7 +22,7 @@ import org.bonitasoft.engine.page.Page;
  *
  * @author Elias Ricken de Medeiros
  */
-public interface ApplicationPage extends BaseElement {
+public interface ApplicationPage extends BaseElementInstance {
 
     /**
      * Retrieves the {@link Application} identifier

@@ -95,7 +95,7 @@ import org.bonitasoft.engine.bpm.bar.xml.TransitionDefinitionBinding;
 import org.bonitasoft.engine.bpm.bar.xml.UserFilterDefinitionBinding;
 import org.bonitasoft.engine.bpm.bar.xml.UserTaskDefinitionBinding;
 import org.bonitasoft.engine.bpm.bar.xml.XMLProcessDefinition;
-import org.bonitasoft.engine.bpm.flownode.impl.FlowElementContainerDefinition;
+import org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition;
 import org.bonitasoft.engine.bpm.process.DesignProcessDefinition;
 import org.bonitasoft.engine.exception.BonitaRuntimeException;
 import org.bonitasoft.engine.io.IOUtil;
@@ -117,7 +117,7 @@ public class ProcessDefinitionBARContribution implements BusinessArchiveContribu
     private XMLHandler handler;
 
     public ProcessDefinitionBARContribution() {
-        final List<Class<? extends ElementBinding>> bindings = new ArrayList<Class<? extends ElementBinding>>();
+        final List<Class<? extends ElementBinding>> bindings = new ArrayList<>();
         bindings.add(ProcessDefinitionBinding.class);
         bindings.add(ActorDefinitionBinding.class);
         bindings.add(ActorInitiatorDefinitionBinding.class);

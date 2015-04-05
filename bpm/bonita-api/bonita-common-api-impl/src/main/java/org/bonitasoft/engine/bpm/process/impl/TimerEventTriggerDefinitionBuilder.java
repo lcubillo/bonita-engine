@@ -13,10 +13,10 @@
  **/
 package org.bonitasoft.engine.bpm.process.impl;
 
+import org.bonitasoft.engine.bpm.flownode.CatchEventDefinition;
+import org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition;
+import org.bonitasoft.engine.bpm.flownode.TimerEventTriggerDefinition;
 import org.bonitasoft.engine.bpm.flownode.TimerType;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.CatchEventDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowElementContainerDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.TimerEventTriggerDefinitionImpl;
 import org.bonitasoft.engine.expression.Expression;
 
 /**
@@ -26,10 +26,10 @@ import org.bonitasoft.engine.expression.Expression;
  */
 public class TimerEventTriggerDefinitionBuilder extends FlowElementContainerBuilder {
 
-    public TimerEventTriggerDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinitionImpl container,
-            final CatchEventDefinitionImpl catchEvent, final TimerType timerType, final Expression timerValue) {
+    public TimerEventTriggerDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinition container,
+            final CatchEventDefinition catchEvent, final TimerType timerType, final Expression timerValue) {
         super(container, processDefinitionBuilder);
-        final TimerEventTriggerDefinitionImpl timerEventTrigger = new TimerEventTriggerDefinitionImpl(timerType, timerValue);
+        final TimerEventTriggerDefinition timerEventTrigger = new TimerEventTriggerDefinition(timerType, timerValue);
         catchEvent.addTimerEventTrigger(timerEventTrigger);
     }
 }

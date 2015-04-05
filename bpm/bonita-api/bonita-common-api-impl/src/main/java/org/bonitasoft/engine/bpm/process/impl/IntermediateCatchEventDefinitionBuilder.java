@@ -13,9 +13,9 @@
  **/
 package org.bonitasoft.engine.bpm.process.impl;
 
+import org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition;
+import org.bonitasoft.engine.bpm.flownode.IntermediateCatchEventDefinition;
 import org.bonitasoft.engine.bpm.flownode.TimerType;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowElementContainerDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.IntermediateCatchEventDefinitionImpl;
 import org.bonitasoft.engine.expression.Expression;
 
 /**
@@ -25,12 +25,12 @@ import org.bonitasoft.engine.expression.Expression;
  */
 public class IntermediateCatchEventDefinitionBuilder extends FlowElementContainerBuilder implements DescriptionBuilder {
 
-    private final IntermediateCatchEventDefinitionImpl event;
+    private final IntermediateCatchEventDefinition event;
 
-    public IntermediateCatchEventDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinitionImpl container,
+    public IntermediateCatchEventDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinition container,
             final String eventName) {
         super(container, processDefinitionBuilder);
-        event = new IntermediateCatchEventDefinitionImpl(eventName);
+        event = new IntermediateCatchEventDefinition(eventName);
         container.addIntermediateCatchEvent(event);
     }
 

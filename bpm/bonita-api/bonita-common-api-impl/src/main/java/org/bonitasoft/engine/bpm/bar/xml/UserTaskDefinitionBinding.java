@@ -14,8 +14,8 @@
 package org.bonitasoft.engine.bpm.bar.xml;
 
 import org.bonitasoft.engine.bpm.contract.ContractDefinition;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowNodeDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.UserTaskDefinitionImpl;
+import org.bonitasoft.engine.bpm.flownode.FlowNodeDefinition;
+import org.bonitasoft.engine.bpm.flownode.UserTaskDefinition;
 
 /**
  * @author Baptiste Mesta
@@ -40,16 +40,16 @@ public class UserTaskDefinitionBinding extends HumanTaskDefinitionBinding {
     }
 
     @Override
-    protected void fillNode(final FlowNodeDefinitionImpl flowNode) {
+    protected void fillNode(final FlowNodeDefinition flowNode) {
         super.fillNode(flowNode);
         if (contract != null) {
-            ((UserTaskDefinitionImpl) flowNode).setContract(contract);
+            ((UserTaskDefinition) flowNode).setContract(contract);
         }
     }
 
     @Override
     public Object getObject() {
-        final UserTaskDefinitionImpl userTaskDefinitionImpl = new UserTaskDefinitionImpl(id, name, actorName);
+        final UserTaskDefinition userTaskDefinitionImpl = new UserTaskDefinition(id, name, actorName);
         fillNode(userTaskDefinitionImpl);
         return userTaskDefinitionImpl;
     }

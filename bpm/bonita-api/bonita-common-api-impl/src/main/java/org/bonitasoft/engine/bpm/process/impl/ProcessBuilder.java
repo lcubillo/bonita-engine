@@ -13,18 +13,19 @@
  **/
 package org.bonitasoft.engine.bpm.process.impl;
 
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowElementContainerDefinitionImpl;
-import org.bonitasoft.engine.bpm.process.impl.internal.DesignProcessDefinitionImpl;
+
+import org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition;
+import org.bonitasoft.engine.bpm.process.DesignProcessDefinition;
 
 /**
  * @author Matthieu Chaffotte
  */
 public class ProcessBuilder extends FlowElementContainerBuilder {
 
-    protected final DesignProcessDefinitionImpl process;
+    protected final DesignProcessDefinition process;
 
-    protected ProcessBuilder(final DesignProcessDefinitionImpl process, final ProcessDefinitionBuilder processDefinitionBuilder) {
-        super((FlowElementContainerDefinitionImpl) process.getProcessContainer(), processDefinitionBuilder);
+    protected ProcessBuilder(final DesignProcessDefinition process, final ProcessDefinitionBuilder processDefinitionBuilder) {
+        super(process.getProcessContainer(), processDefinitionBuilder);
         this.process = process;
     }
 
@@ -67,7 +68,7 @@ public class ProcessBuilder extends FlowElementContainerBuilder {
      * @return
      */
     public DocumentDefinitionBuilder addDocumentDefinition(final String name, final String fileName) {
-        return new DocumentDefinitionBuilder(getProcessBuilder(), (FlowElementContainerDefinitionImpl) process.getProcessContainer(), name, fileName);
+        return new DocumentDefinitionBuilder(getProcessBuilder(), (FlowElementContainerDefinition) process.getProcessContainer(), name, fileName);
     }
 
     /**
@@ -83,7 +84,7 @@ public class ProcessBuilder extends FlowElementContainerBuilder {
         return new ParameterDefinitionBuilder(getProcessBuilder(), process, parameterName, type);
     }
 
-    DesignProcessDefinitionImpl getProcessDefinition() {
+    DesignProcessDefinition getProcessDefinition() {
         return process;
     }
 

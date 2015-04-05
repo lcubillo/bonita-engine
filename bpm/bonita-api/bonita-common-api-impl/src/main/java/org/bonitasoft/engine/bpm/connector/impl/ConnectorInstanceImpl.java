@@ -13,15 +13,15 @@
  **/
 package org.bonitasoft.engine.bpm.connector.impl;
 
+import org.bonitasoft.engine.bpm.NamedElement;
 import org.bonitasoft.engine.bpm.connector.ConnectorEvent;
 import org.bonitasoft.engine.bpm.connector.ConnectorInstance;
 import org.bonitasoft.engine.bpm.connector.ConnectorState;
-import org.bonitasoft.engine.bpm.internal.NamedElementImpl;
 
 /**
  * @author Baptiste Mesta
  */
-public class ConnectorInstanceImpl extends NamedElementImpl implements ConnectorInstance {
+public class ConnectorInstanceImpl extends NamedElement implements ConnectorInstance {
 
     private static final long serialVersionUID = 2148709030350403891L;
 

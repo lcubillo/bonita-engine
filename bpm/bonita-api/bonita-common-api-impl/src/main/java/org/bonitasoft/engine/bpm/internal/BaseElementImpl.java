@@ -18,50 +18,8 @@ import org.bonitasoft.engine.bpm.BaseElement;
 /**
  * @author Baptiste Mesta
  */
-public abstract class BaseElementImpl implements BaseElement {
+public abstract class BaseElementImpl extends BaseElement {
 
-    private static final long serialVersionUID = -5094021692278906536L;
 
-    private long id;
-
-    @Override
-    public long getId() {
-        return id;
-    }
-
-    public void setId(final long id) {
-        this.id = id;
-    }
-
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + (int) (id ^ (id >>> 32));
-        return result;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (!(obj instanceof BaseElementImpl)) {
-            return false;
-        }
-        BaseElementImpl other = (BaseElementImpl) obj;
-        if (id != other.id) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "id: " + id + "\n";
-    }
 
 }

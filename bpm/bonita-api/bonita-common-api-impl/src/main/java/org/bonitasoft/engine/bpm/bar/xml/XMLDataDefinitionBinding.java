@@ -15,8 +15,8 @@ package org.bonitasoft.engine.bpm.bar.xml;
 
 import java.util.Map;
 
-import org.bonitasoft.engine.bpm.data.impl.DataDefinitionImpl;
-import org.bonitasoft.engine.bpm.data.impl.XMLDataDefinitionImpl;
+import org.bonitasoft.engine.bpm.data.DataDefinition;
+import org.bonitasoft.engine.bpm.data.XMLDataDefinition;
 
 /**
  * @author Matthieu Chaffotte
@@ -39,8 +39,8 @@ public class XMLDataDefinitionBinding extends DataDefinitionBinding {
     }
 
     @Override
-    public DataDefinitionImpl getObject() {
-        final XMLDataDefinitionImpl dataDefinitionImpl = new XMLDataDefinitionImpl(name, defaultValue);
+    public DataDefinition getObject() {
+        final XMLDataDefinition dataDefinitionImpl = new XMLDataDefinition(name, defaultValue);
         dataDefinitionImpl.setNamespace(namespace);
         dataDefinitionImpl.setElement(element);
         if (description != null) {

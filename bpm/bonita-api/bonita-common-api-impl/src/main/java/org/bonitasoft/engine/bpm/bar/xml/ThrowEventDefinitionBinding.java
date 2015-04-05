@@ -16,10 +16,10 @@ package org.bonitasoft.engine.bpm.bar.xml;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bonitasoft.engine.bpm.flownode.FlowNodeDefinition;
+import org.bonitasoft.engine.bpm.flownode.ThrowEventDefinition;
 import org.bonitasoft.engine.bpm.flownode.ThrowMessageEventTriggerDefinition;
 import org.bonitasoft.engine.bpm.flownode.ThrowSignalEventTriggerDefinition;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowNodeDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.ThrowEventDefinitionImpl;
 
 /**
  * @author Elias Ricken de Medeiros
@@ -48,9 +48,9 @@ public abstract class ThrowEventDefinitionBinding extends FlowNodeDefinitionBind
     }
 
     @Override
-    protected void fillNode(final FlowNodeDefinitionImpl flowNode) {
+    protected void fillNode(final FlowNodeDefinition flowNode) {
         super.fillNode(flowNode);
-        final ThrowEventDefinitionImpl throwEventDefinition = (ThrowEventDefinitionImpl) flowNode;
+        final ThrowEventDefinition throwEventDefinition = (ThrowEventDefinition) flowNode;
         for (final ThrowMessageEventTriggerDefinition messageEventTrigger : messageEventTriggers) {
             throwEventDefinition.addMessageEventTriggerDefinition(messageEventTrigger);
         }

@@ -10,7 +10,7 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.data;
 
 import org.bonitasoft.engine.bpm.DescriptionElement;
@@ -23,10 +23,37 @@ import org.bonitasoft.engine.expression.Expression;
  * @author Matthieu Chaffotte
  * @author Feng Hui
  * @author Celine Souchet
- * @since 6.0.0
  * @version 6.4.1
+ * @since 6.0.0
  */
-public interface DataDefinition extends DescriptionElement {
+public class DataDefinition extends DescriptionElement {
+
+
+    private static final long serialVersionUID = -4126105713210029929L;
+
+    private String description;
+
+    private String type;
+
+    private boolean transientData;
+
+    private String className;
+
+    private Expression defaultValueExpression;
+
+    public DataDefinition(final String name, final Expression defaultValueExpression) {
+        super(name);
+        this.defaultValueExpression = defaultValueExpression;
+    }
+
+    @Override
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(final String description) {
+        this.description = description;
+    }
 
     /**
      * Get the class name of the type of the data.
@@ -34,7 +61,21 @@ public interface DataDefinition extends DescriptionElement {
      * @return The class name of the type of the data.
      * @since 6.0.0
      */
-    String getClassName();
+    public String getClassName() {
+        return className;
+    }
+
+    public void setClassName(final String className) {
+        this.className = className;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(final String type) {
+        this.type = type;
+    }
 
     /**
      * Is it transient?
@@ -42,7 +83,13 @@ public interface DataDefinition extends DescriptionElement {
      * @return <code>true</code> if the data is transient, <code>false</code> otherwise.
      * @since 6.0.0
      */
-    boolean isTransientData();
+    public boolean isTransientData() {
+        return transientData;
+    }
+
+    public void setTransientData(final boolean transientData) {
+        this.transientData = transientData;
+    }
 
     /**
      * Get the expression representing the default value of the data.
@@ -50,6 +97,13 @@ public interface DataDefinition extends DescriptionElement {
      * @return The default value of the data.
      * @since 6.0.0
      */
-    Expression getDefaultValueExpression();
+    public Expression getDefaultValueExpression() {
+        return defaultValueExpression;
+    }
+
+    public void setDefaultValueExpression(final Expression defaultValueExpression) {
+        this.defaultValueExpression = defaultValueExpression;
+    }
+
 
 }

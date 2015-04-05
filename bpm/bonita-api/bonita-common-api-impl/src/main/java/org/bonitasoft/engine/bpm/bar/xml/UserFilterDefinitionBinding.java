@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.bonitasoft.engine.bpm.userfilter.impl.UserFilterDefinitionImpl;
+import org.bonitasoft.engine.bpm.userfilter.UserFilterDefinition;
 import org.bonitasoft.engine.expression.Expression;
 
 /**
@@ -40,7 +40,7 @@ public class UserFilterDefinitionBinding extends NamedElementBinding {
 
     @Override
     public Object getObject() {
-        final UserFilterDefinitionImpl userFilterDefinitionImpl = new UserFilterDefinitionImpl(name, userFilterId, version);
+        final UserFilterDefinition userFilterDefinitionImpl = new UserFilterDefinition(name, userFilterId, version);
         for (final Entry<String, Expression> entry : inputs.entrySet()) {
             userFilterDefinitionImpl.addInput(entry.getKey(), entry.getValue());
         }

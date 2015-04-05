@@ -13,6 +13,7 @@
  **/
 package org.bonitasoft.engine.bpm.userfilter;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.bonitasoft.engine.bpm.NamedElement;
@@ -27,21 +28,47 @@ import org.bonitasoft.engine.expression.Expression;
  * @author Baptiste Mesta
  * @see org.bonitasoft.engine.bpm.connector.ConnectorDefinition
  */
-public interface UserFilterDefinition extends NamedElement {
+public class UserFilterDefinition extends NamedElement {
+
+
+    private static final long serialVersionUID = -6045216424839658552L;
+
+    private final String filterId;
+
+    private final String version;
+
+    private final Map<String, Expression> inputs = new HashMap<>();
+
+    public UserFilterDefinition(final String name, final String filterId, final String version) {
+        super(name);
+        this.filterId = filterId;
+        this.version = version;
+    }
 
     /**
      * @return the ID of its definition.
      */
-    String getUserFilterId();
-
-    /**
-     * @return the version of its definition.
-     */
-    String getVersion();
+    public String getUserFilterId() {
+        return filterId;
+    }
 
     /**
      * @return the map of expressions that serves as input for the execution of the user filter.
      */
-    Map<String, Expression> getInputs();
+    public Map<String, Expression> getInputs() {
+        return inputs;
+    }
+
+    public void addInput(final String name, final Expression expression) {
+        inputs.put(name, expression);
+    }
+
+    /**
+     * @return the version of its definition.
+     */
+    public String getVersion() {
+        return version;
+    }
+
 
 }

@@ -14,8 +14,7 @@
 package org.bonitasoft.engine.bpm.process.impl;
 
 import org.bonitasoft.engine.bpm.businessdata.BusinessDataDefinition;
-import org.bonitasoft.engine.bpm.businessdata.impl.BusinessDataDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowElementContainerDefinitionImpl;
+import org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition;
 import org.bonitasoft.engine.expression.Expression;
 
 /**
@@ -23,22 +22,22 @@ import org.bonitasoft.engine.expression.Expression;
  */
 public class BusinessDataDefinitionBuilder extends FlowElementContainerBuilder implements DescriptionBuilder {
 
-    private final BusinessDataDefinitionImpl businessDataDefinition;
+    private final BusinessDataDefinition businessDataDefinition;
 
-    protected BusinessDataDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinitionImpl container,
-            final BusinessDataDefinitionImpl businessDataDefinition) {
+    protected BusinessDataDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinition container,
+            final BusinessDataDefinition businessDataDefinition) {
         super(container, processDefinitionBuilder);
         this.businessDataDefinition = businessDataDefinition;
         container.addBusinessDataDefinition(businessDataDefinition);
     }
 
-    private static BusinessDataDefinitionImpl getBusinessData(final String name, final String className, final Expression defaultValue) {
-        final BusinessDataDefinitionImpl businessData = new BusinessDataDefinitionImpl(name, defaultValue);
+    private static BusinessDataDefinition getBusinessData(final String name, final String className, final Expression defaultValue) {
+        final BusinessDataDefinition businessData = new BusinessDataDefinition(name, defaultValue);
         businessData.setClassName(className);
         return businessData;
     }
 
-    public BusinessDataDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinitionImpl container,
+    public BusinessDataDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinition container,
             final String name, final String className, final Expression defaultValue) {
         this(processDefinitionBuilder, container, getBusinessData(name, className, defaultValue));
         processDefinitionBuilder.checkExpression(toString(), defaultValue);

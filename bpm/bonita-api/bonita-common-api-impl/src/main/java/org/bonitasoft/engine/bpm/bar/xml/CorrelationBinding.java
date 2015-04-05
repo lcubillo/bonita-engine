@@ -15,7 +15,7 @@ package org.bonitasoft.engine.bpm.bar.xml;
 
 import java.util.Map;
 
-import org.bonitasoft.engine.bpm.flownode.impl.internal.CorrelationDefinitionImpl;
+import org.bonitasoft.engine.bpm.flownode.CorrelationDefinition;
 import org.bonitasoft.engine.expression.Expression;
 import org.bonitasoft.engine.io.xml.ElementBinding;
 
@@ -57,7 +57,7 @@ public class CorrelationBinding extends ElementBinding {
 
     @Override
     public Object getObject() {
-        return new CorrelationDefinitionImpl(key, value);
+        return new CorrelationDefinition(key, value);
     }
 
 }

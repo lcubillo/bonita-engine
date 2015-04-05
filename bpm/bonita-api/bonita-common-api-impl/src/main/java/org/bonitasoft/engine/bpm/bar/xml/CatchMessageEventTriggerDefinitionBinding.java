@@ -16,7 +16,7 @@ package org.bonitasoft.engine.bpm.bar.xml;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.bonitasoft.engine.bpm.flownode.impl.internal.CatchMessageEventTriggerDefinitionImpl;
+import org.bonitasoft.engine.bpm.flownode.CatchMessageEventTriggerDefinition;
 import org.bonitasoft.engine.operation.Operation;
 
 /**
@@ -28,7 +28,7 @@ public class CatchMessageEventTriggerDefinitionBinding extends MessageEventTrigg
 
     @Override
     public Object getObject() {
-        final CatchMessageEventTriggerDefinitionImpl messageEventTrigger = new CatchMessageEventTriggerDefinitionImpl(getMessageName());
+        final CatchMessageEventTriggerDefinition messageEventTrigger = new CatchMessageEventTriggerDefinition(getMessageName());
         fillNode(messageEventTrigger);
         return messageEventTrigger;
     }
@@ -38,7 +38,7 @@ public class CatchMessageEventTriggerDefinitionBinding extends MessageEventTrigg
         return XMLProcessDefinition.CATCH_MESSAGE_EVENT_TRIGGER_NODE;
     }
 
-    protected void fillNode(final CatchMessageEventTriggerDefinitionImpl messageEventTrigger) {
+    protected void fillNode(final CatchMessageEventTriggerDefinition messageEventTrigger) {
         super.fillNode(messageEventTrigger);
         for (final Operation operation : operations) {
             messageEventTrigger.addOperation(operation);

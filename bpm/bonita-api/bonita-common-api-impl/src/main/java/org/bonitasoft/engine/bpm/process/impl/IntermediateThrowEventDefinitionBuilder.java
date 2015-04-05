@@ -13,8 +13,8 @@
  **/
 package org.bonitasoft.engine.bpm.process.impl;
 
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowElementContainerDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.IntermediateThrowEventDefinitionImpl;
+import org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition;
+import org.bonitasoft.engine.bpm.flownode.IntermediateThrowEventDefinition;
 import org.bonitasoft.engine.expression.Expression;
 
 /**
@@ -24,12 +24,12 @@ import org.bonitasoft.engine.expression.Expression;
  */
 public class IntermediateThrowEventDefinitionBuilder extends FlowElementContainerBuilder implements DescriptionBuilder {
 
-    private final IntermediateThrowEventDefinitionImpl event;
+    private final IntermediateThrowEventDefinition event;
 
-    public IntermediateThrowEventDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinitionImpl container,
+    public IntermediateThrowEventDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinition container,
             final String eventName) {
         super(container, processDefinitionBuilder);
-        event = new IntermediateThrowEventDefinitionImpl(eventName);
+        event = new IntermediateThrowEventDefinition(eventName);
         container.addIntermediateThrowEvent(event);
     }
 

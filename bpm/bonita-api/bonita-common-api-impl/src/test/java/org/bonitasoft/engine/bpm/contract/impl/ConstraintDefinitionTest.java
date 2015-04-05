@@ -19,12 +19,12 @@ import org.bonitasoft.engine.bpm.contract.ConstraintDefinition;
 import org.bonitasoft.engine.bpm.contract.ConstraintType;
 import org.junit.Test;
 
-public class ConstraintDefinitionImplTest {
+public class ConstraintDefinitionTest {
 
     @Test
     public void should_custom_type_be_default_constraint_type() throws Exception {
         //given
-        final ConstraintDefinition constraintDefinition = new ConstraintDefinitionImpl("name", "expression", "explanation");
+        final ConstraintDefinition constraintDefinition = new ConstraintDefinition("name", "expression", "explanation");
 
         //then
         assertThat(constraintDefinition.getConstraintType()).isEqualTo(ConstraintType.CUSTOM);
@@ -33,7 +33,7 @@ public class ConstraintDefinitionImplTest {
     @Test
     public void should_retrieve_constraint_type() throws Exception {
         //given
-        final ConstraintDefinition constraintDefinition = new ConstraintDefinitionImpl("name", "expression", "explanation", ConstraintType.CUSTOM);
+        final ConstraintDefinition constraintDefinition = new ConstraintDefinition("name", "expression", "explanation", ConstraintType.CUSTOM);
 
         //then
         assertThat(constraintDefinition.getConstraintType()).isEqualTo(ConstraintType.CUSTOM);
@@ -49,7 +49,7 @@ public class ConstraintDefinitionImplTest {
     @Test
     public void should_add_input_name() throws Exception {
         //given
-        final ConstraintDefinitionImpl constraintDefinition = new ConstraintDefinitionImpl("name", "expression", "explanation", ConstraintType.CUSTOM);
+        final ConstraintDefinition constraintDefinition = new ConstraintDefinition("name", "expression", "explanation", ConstraintType.CUSTOM);
 
         //when
         constraintDefinition.addInputName("inputName");

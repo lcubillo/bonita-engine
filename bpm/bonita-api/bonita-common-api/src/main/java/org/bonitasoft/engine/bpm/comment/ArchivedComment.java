@@ -18,6 +18,7 @@ import java.util.Date;
 import org.bonitasoft.engine.bpm.ArchivedElement;
 import org.bonitasoft.engine.bpm.BaseElement;
 import org.bonitasoft.engine.bpm.NamedElement;
+import org.bonitasoft.engine.bpm.NamedElementInstance;
 
 /**
  * The archived comment associated to a process instance
@@ -26,7 +27,7 @@ import org.bonitasoft.engine.bpm.NamedElement;
  * @author Matthieu Chaffotte
  * @author Celine Souchet
  */
-public interface ArchivedComment extends NamedElement, BaseElement, ArchivedElement {
+public interface ArchivedComment extends NamedElementInstance, ArchivedElement {
 
     /**
      * @return The identifier of the user that posted the comment

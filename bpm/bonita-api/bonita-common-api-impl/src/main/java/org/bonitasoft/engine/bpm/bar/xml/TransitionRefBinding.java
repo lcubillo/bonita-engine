@@ -15,7 +15,7 @@ package org.bonitasoft.engine.bpm.bar.xml;
 
 import java.util.Map;
 
-import org.bonitasoft.engine.bpm.flownode.impl.internal.TransitionDefinitionImpl;
+import org.bonitasoft.engine.bpm.flownode.TransitionDefinition;
 
 /**
  * @author Baptiste Mesta
@@ -36,7 +36,7 @@ public abstract class TransitionRefBinding extends NamedElementBinding {
 
     @Override
     public Object getObject() {
-        final TransitionDefinitionImpl transitionDefinitionImpl = new TransitionDefinitionImpl(idRef);
+        final TransitionDefinition transitionDefinitionImpl = new TransitionDefinition();
         transitionDefinitionImpl.setId(Long.valueOf(idRef));
         return transitionDefinitionImpl;
     }

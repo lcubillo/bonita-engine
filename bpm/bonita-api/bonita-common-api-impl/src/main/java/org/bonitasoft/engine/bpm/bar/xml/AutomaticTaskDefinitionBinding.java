@@ -13,7 +13,7 @@
  **/
 package org.bonitasoft.engine.bpm.bar.xml;
 
-import org.bonitasoft.engine.bpm.flownode.impl.internal.AutomaticTaskDefinitionImpl;
+import org.bonitasoft.engine.bpm.flownode.AutomaticTaskDefinition;
 
 /**
  * @author Baptiste Mesta
@@ -23,7 +23,7 @@ public class AutomaticTaskDefinitionBinding extends ActivityDefinitionBinding {
 
     @Override
     public Object getObject() {
-        final AutomaticTaskDefinitionImpl automaticTaskDefinitionImpl = new AutomaticTaskDefinitionImpl(id, name);
+        final AutomaticTaskDefinition automaticTaskDefinitionImpl = new AutomaticTaskDefinition(id, name);
         fillNode(automaticTaskDefinitionImpl);
         return automaticTaskDefinitionImpl;
     }

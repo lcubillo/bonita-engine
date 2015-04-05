@@ -13,10 +13,10 @@
  **/
 package org.bonitasoft.engine.bpm.process.impl;
 
-import org.bonitasoft.engine.bpm.flownode.impl.internal.EndEventDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowElementContainerDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.ThrowErrorEventTriggerDefinitionImpl;
 
+import org.bonitasoft.engine.bpm.flownode.EndEventDefinition;
+import org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition;
+import org.bonitasoft.engine.bpm.flownode.ThrowErrorEventTriggerDefinition;
 
 /**
  * @author Matthieu Chaffotte
@@ -24,10 +24,10 @@ import org.bonitasoft.engine.bpm.flownode.impl.internal.ThrowErrorEventTriggerDe
  */
 public class ThrowErrorEventTriggerBuilder extends FlowElementContainerBuilder {
 
-    ThrowErrorEventTriggerBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinitionImpl container,
-            final EndEventDefinitionImpl event, final String errorCode) {
+    ThrowErrorEventTriggerBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinition container,
+            final EndEventDefinition event, final String errorCode) {
         super(container, processDefinitionBuilder);
-        final ThrowErrorEventTriggerDefinitionImpl errorEventTrigger = new ThrowErrorEventTriggerDefinitionImpl(errorCode);
+        final ThrowErrorEventTriggerDefinition errorEventTrigger = new ThrowErrorEventTriggerDefinition(errorCode);
         event.addErrorEventTriggerDefinition(errorEventTrigger);
         if (errorCode == null || errorCode.length() == 0) {
             processDefinitionBuilder.addError("The error code cannot be empty in a throw error event: " + event.getName());

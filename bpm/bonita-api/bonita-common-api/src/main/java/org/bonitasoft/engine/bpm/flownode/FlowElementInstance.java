@@ -10,16 +10,16 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.flownode;
 
-import org.bonitasoft.engine.bpm.NamedElement;
+import org.bonitasoft.engine.bpm.NamedElementInstance;
 
 /**
  * @author Emmanuel Duchastenier
  * @author Matthieu Chaffotte
  */
-public interface FlowElementInstance extends NamedElement {
+public interface FlowElementInstance extends NamedElementInstance {
 
     long getRootContainerId();
 
@@ -27,7 +27,7 @@ public interface FlowElementInstance extends NamedElement {
 
     /**
      * Is this flow element instance currently aborting?
-     * 
+     *
      * @return true if this flow element instance is currently aborting, false otherwise
      * @since 6.0
      */

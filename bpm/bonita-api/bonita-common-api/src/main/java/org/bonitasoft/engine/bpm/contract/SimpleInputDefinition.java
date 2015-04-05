@@ -10,7 +10,7 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.contract;
 
 
@@ -20,13 +20,29 @@ package org.bonitasoft.engine.bpm.contract;
  * @author Laurent Leseigneur
  * @since 7.0
  */
-public interface SimpleInputDefinition extends InputDefinition {
+public class SimpleInputDefinition extends InputDefinition {
+
+    private static final long serialVersionUID = 2L;
+
+    private final Type type;
+
+    public SimpleInputDefinition(final String name, final Type type, final String description, final boolean multiple) {
+        super(name, description, multiple);
+        this.type = type;
+    }
+
+    public SimpleInputDefinition(final String name, final Type type, final String description) {
+        super(name, description, false);
+        this.type = type;
+    }
 
     /**
      * Gets the type of the input.
      *
      * @return the input {@link Type}
      */
-    Type getType();
+    public Type getType() {
+        return type;
+    }
 
 }

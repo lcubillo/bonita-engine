@@ -13,9 +13,9 @@
  **/
 package org.bonitasoft.engine.bpm.process.impl;
 
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowElementContainerDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.HumanTaskDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.UserTaskDefinitionImpl;
+import org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition;
+import org.bonitasoft.engine.bpm.flownode.HumanTaskDefinition;
+import org.bonitasoft.engine.bpm.flownode.UserTaskDefinition;
 
 /**
  * @author Baptiste Mesta
@@ -25,13 +25,13 @@ import org.bonitasoft.engine.bpm.flownode.impl.internal.UserTaskDefinitionImpl;
  */
 public class UserTaskDefinitionBuilder extends ActivityDefinitionBuilder {
 
-    public UserTaskDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinitionImpl container,
+    public UserTaskDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinition container,
             final String name, final String actorName) {
         super(container, processDefinitionBuilder, getUserTaskActivity(name, actorName));
     }
 
-    private static UserTaskDefinitionImpl getUserTaskActivity(final String name, final String actorName) {
-        return new UserTaskDefinitionImpl(name, actorName);
+    private static UserTaskDefinition getUserTaskActivity(final String name, final String actorName) {
+        return new UserTaskDefinition(name, actorName);
     }
 
     /**
@@ -42,7 +42,7 @@ public class UserTaskDefinitionBuilder extends ActivityDefinitionBuilder {
      * @return
      */
     public UserFilterDefinitionBuilder addUserFilter(final String name, final String userFilterId, final String version) {
-        return new UserFilterDefinitionBuilder(getProcessBuilder(), getContainer(), name, userFilterId, version, (HumanTaskDefinitionImpl) getActivity());
+        return new UserFilterDefinitionBuilder(getProcessBuilder(), getContainer(), name, userFilterId, version, (HumanTaskDefinition) getActivity());
     }
 
     /**
@@ -51,7 +51,7 @@ public class UserTaskDefinitionBuilder extends ActivityDefinitionBuilder {
      * @return
      */
     public UserTaskDefinitionBuilder addExpectedDuration(final long time) {
-        ((UserTaskDefinitionImpl) getActivity()).setExpectedDuration(time);
+        ((UserTaskDefinition) getActivity()).setExpectedDuration(time);
         return this;
     }
 
@@ -61,12 +61,12 @@ public class UserTaskDefinitionBuilder extends ActivityDefinitionBuilder {
      * @return
      */
     public UserTaskDefinitionBuilder addPriority(final String priority) {
-        ((UserTaskDefinitionImpl) getActivity()).setPriority(priority);
+        ((UserTaskDefinition) getActivity()).setPriority(priority);
         return this;
     }
 
     public ContractDefinitionBuilder addContract() {
-        return new ContractDefinitionBuilder(getProcessBuilder(), getContainer(), (UserTaskDefinitionImpl) getActivity());
+        return new ContractDefinitionBuilder(getProcessBuilder(), getContainer(), (UserTaskDefinition) getActivity());
     }
 
 }

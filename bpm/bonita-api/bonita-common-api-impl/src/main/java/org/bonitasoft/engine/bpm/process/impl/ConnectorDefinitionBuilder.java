@@ -13,11 +13,11 @@
  **/
 package org.bonitasoft.engine.bpm.process.impl;
 
+import org.bonitasoft.engine.bpm.connector.ConnectorDefinition;
 import org.bonitasoft.engine.bpm.connector.ConnectorEvent;
 import org.bonitasoft.engine.bpm.connector.FailAction;
-import org.bonitasoft.engine.bpm.connector.impl.ConnectorDefinitionImpl;
 import org.bonitasoft.engine.bpm.flownode.ActivityDefinition;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowElementContainerDefinitionImpl;
+import org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition;
 import org.bonitasoft.engine.expression.Expression;
 import org.bonitasoft.engine.operation.LeftOperand;
 import org.bonitasoft.engine.operation.Operation;
@@ -30,23 +30,23 @@ import org.bonitasoft.engine.operation.OperatorType;
  */
 public class ConnectorDefinitionBuilder extends FlowElementContainerBuilder {
 
-    private final ConnectorDefinitionImpl connectorDefinition;
+    private final ConnectorDefinition connectorDefinition;
 
     private final ProcessDefinitionBuilder processDefinitionBuilder;
 
-    ConnectorDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinitionImpl container, final String name,
+    ConnectorDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinition container, final String name,
             final String connectorId, final String version, final ConnectorEvent activationEvent) {
         super(container, processDefinitionBuilder);
         this.processDefinitionBuilder = processDefinitionBuilder;
-        connectorDefinition = new ConnectorDefinitionImpl(name, connectorId, version, activationEvent);
+        connectorDefinition = new ConnectorDefinition(name, connectorId, version, activationEvent);
         container.addConnector(connectorDefinition);
     }
 
-    ConnectorDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinitionImpl container, final String name,
+    ConnectorDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinition container, final String name,
             final String connectorId, final String version, final ConnectorEvent activationEvent, final ActivityDefinition activity) {
         super(container, processDefinitionBuilder);
         this.processDefinitionBuilder = processDefinitionBuilder;
-        connectorDefinition = new ConnectorDefinitionImpl(name, connectorId, version, activationEvent);
+        connectorDefinition = new ConnectorDefinition(name, connectorId, version, activationEvent);
         activity.addConnector(connectorDefinition);
     }
 

@@ -16,7 +16,9 @@ package org.bonitasoft.engine.bpm.data;
 import java.io.Serializable;
 
 import org.bonitasoft.engine.bpm.BaseElement;
+import org.bonitasoft.engine.bpm.BaseElementInstance;
 import org.bonitasoft.engine.bpm.NamedElement;
+import org.bonitasoft.engine.bpm.NamedElementInstance;
 
 /**
  * This object represents this instance of {@link DataDefinition} generated when the associated {@link org.bonitasoft.engine.bpm.process.ProcessInstance} or
@@ -27,7 +29,7 @@ import org.bonitasoft.engine.bpm.NamedElement;
  * @since 6.0.0
  * @version 6.4.1
  */
-public interface DataInstance extends NamedElement, BaseElement {
+public interface DataInstance extends NamedElementInstance, BaseElementInstance {
 
     /**
      * Get the description of the data defined in {@link DataDefinition}.

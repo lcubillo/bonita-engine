@@ -16,6 +16,15 @@ package org.bonitasoft.engine.bpm.flownode;
 /**
  * @author Elias Ricken de Medeiros
  */
-public interface BoundaryEventDefinition extends CatchEventDefinition {
+public class BoundaryEventDefinition extends CatchEventDefinition {
 
+    private static final long serialVersionUID = 2L;
+
+    public BoundaryEventDefinition(String name) {
+        super(name);
+    }
+
+    public BoundaryEventDefinition(long id, String name) {
+        super(id, name);
+    }
 }

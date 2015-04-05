@@ -10,7 +10,7 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.flownode;
 
 import org.bonitasoft.engine.expression.Expression;
@@ -18,10 +18,26 @@ import org.bonitasoft.engine.expression.Expression;
 /**
  * @author Elias Ricken de Medeiros
  */
-public interface TimerEventTriggerDefinition extends EventTriggerDefinition {
+public class TimerEventTriggerDefinition extends EventTriggerDefinition {
 
-    TimerType getTimerType();
+    private static final long serialVersionUID = -1000995843357026775L;
 
-    Expression getTimerExpression();
+    private final TimerType timerType;
+
+    private final Expression timerValue;
+
+    public TimerEventTriggerDefinition(final TimerType timerType, final Expression timerExpression) {
+        this.timerType = timerType;
+        timerValue = timerExpression;
+    }
+
+    public TimerType getTimerType() {
+        return timerType;
+    }
+
+    public Expression getTimerExpression() {
+        return timerValue;
+    }
+
 
 }

@@ -10,8 +10,10 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.data;
+
+import org.bonitasoft.engine.expression.Expression;
 
 /**
  * Represents a {@link DataDefinition} of text type.
@@ -21,7 +23,14 @@ package org.bonitasoft.engine.bpm.data;
  * @since 6.0.0
  * @version 6.4.1
  */
-public interface TextDataDefinition extends DataDefinition {
+public class TextDataDefinition extends DataDefinition {
+    private static final long serialVersionUID = 2L;
+
+    private boolean longText;
+
+    public TextDataDefinition(final String name, final Expression defaultValueExpression) {
+        super(name, defaultValueExpression);
+    }
 
     /**
      * Is it a long text?
@@ -29,6 +38,13 @@ public interface TextDataDefinition extends DataDefinition {
      * @return <code>true</code> if the data is a long text, <code>false</code> otherwise.
      * @since 6.0.0
      */
-    boolean isLongText();
+    public boolean isLongText() {
+        return longText;
+    }
+
+    public void setLongText(final boolean longText) {
+        this.longText = longText;
+    }
+
 
 }

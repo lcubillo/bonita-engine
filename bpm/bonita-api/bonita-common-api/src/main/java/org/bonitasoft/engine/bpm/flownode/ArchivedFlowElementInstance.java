@@ -15,13 +15,15 @@ package org.bonitasoft.engine.bpm.flownode;
 
 import org.bonitasoft.engine.bpm.ArchivedElement;
 import org.bonitasoft.engine.bpm.BaseElement;
+import org.bonitasoft.engine.bpm.BaseElementInstance;
 import org.bonitasoft.engine.bpm.DescriptionElement;
+import org.bonitasoft.engine.bpm.DescriptionElementInstance;
 
 /**
  * @author Emmanuel Duchastenier
  * @author Matthieu Chaffotte
  */
-public interface ArchivedFlowElementInstance extends DescriptionElement, BaseElement, ArchivedElement {
+public interface ArchivedFlowElementInstance extends DescriptionElementInstance, BaseElementInstance, ArchivedElement {
 
     long getRootContainerId();
 

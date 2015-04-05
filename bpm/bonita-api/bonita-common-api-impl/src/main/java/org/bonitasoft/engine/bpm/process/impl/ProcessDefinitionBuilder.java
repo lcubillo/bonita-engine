@@ -50,13 +50,10 @@ import org.bonitasoft.engine.bpm.flownode.TimerEventTriggerDefinition;
 import org.bonitasoft.engine.bpm.flownode.TimerType;
 import org.bonitasoft.engine.bpm.flownode.TransitionDefinition;
 import org.bonitasoft.engine.bpm.flownode.UserTaskDefinition;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowElementContainerDefinitionImpl;
 import org.bonitasoft.engine.bpm.flownode.impl.internal.MultiInstanceLoopCharacteristics;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.UserTaskDefinitionImpl;
 import org.bonitasoft.engine.bpm.process.DesignProcessDefinition;
 import org.bonitasoft.engine.bpm.process.InvalidProcessDefinitionException;
 import org.bonitasoft.engine.bpm.process.SubProcessDefinition;
-import org.bonitasoft.engine.bpm.process.impl.internal.DesignProcessDefinitionImpl;
 import org.bonitasoft.engine.expression.Expression;
 import org.bonitasoft.engine.operation.LeftOperand;
 import org.bonitasoft.engine.operation.Operation;
@@ -78,7 +75,7 @@ public class ProcessDefinitionBuilder implements DescriptionBuilder, ContainerBu
 
     private static final int MAX_CHARACTER_FILENAME = 255;
 
-    protected DesignProcessDefinitionImpl process;
+    protected DesignProcessDefinition process;
 
     private List<String> designErrors;
 
@@ -98,8 +95,8 @@ public class ProcessDefinitionBuilder implements DescriptionBuilder, ContainerBu
         if (name == null || name.isEmpty()) {
             designErrors.add("name of the process is null or empty");
         }
-        process = new DesignProcessDefinitionImpl(name, version);
-        process.setProcessContainer(new FlowElementContainerDefinitionImpl());
+        process = new DesignProcessDefinition(name, version);
+        process.setProcessContainer(new FlowElementContainerDefinition());
         return this;
     }
 
@@ -141,7 +138,7 @@ public class ProcessDefinitionBuilder implements DescriptionBuilder, ContainerBu
      * @return The {@link BusinessDataDefinitionBuilder} containing the new {@link BusinessDataDefinition}
      */
     public BusinessDataDefinitionBuilder addBusinessData(final String name, final String className, final Expression defaultValue) {
-        return new BusinessDataDefinitionBuilder(this, (FlowElementContainerDefinitionImpl) process.getProcessContainer(), name, className, defaultValue);
+        return new BusinessDataDefinitionBuilder(this, (FlowElementContainerDefinition) process.getProcessContainer(), name, className, defaultValue);
     }
 
     protected void validateBusinessData() {
@@ -527,12 +524,12 @@ public class ProcessDefinitionBuilder implements DescriptionBuilder, ContainerBu
 
     @Override
     public DocumentDefinitionBuilder addDocumentDefinition(final String name) {
-        return new DocumentDefinitionBuilder(this, (FlowElementContainerDefinitionImpl) process.getProcessContainer(), name);
+        return new DocumentDefinitionBuilder(this, (FlowElementContainerDefinition) process.getProcessContainer(), name);
     }
 
     @Override
     public DocumentListDefinitionBuilder addDocumentListDefinition(final String name) {
-        return new DocumentListDefinitionBuilder(this, (FlowElementContainerDefinitionImpl) process.getProcessContainer(), name);
+        return new DocumentListDefinitionBuilder(this, (FlowElementContainerDefinition) process.getProcessContainer(), name);
     }
 
     @Override
@@ -597,144 +594,144 @@ public class ProcessDefinitionBuilder implements DescriptionBuilder, ContainerBu
 
     @Override
     public ConnectorDefinitionBuilder addConnector(final String name, final String connectorId, final String version, final ConnectorEvent activationEvent) {
-        return new ConnectorDefinitionBuilder(this, (FlowElementContainerDefinitionImpl) process.getProcessContainer(), name, connectorId, version,
+        return new ConnectorDefinitionBuilder(this, process.getProcessContainer(), name, connectorId, version,
                 activationEvent);
     }
 
     @Override
     public UserTaskDefinitionBuilder addUserTask(final String taskName, final String actorName) {
-        return new UserTaskDefinitionBuilder(this, (FlowElementContainerDefinitionImpl) process.getProcessContainer(), taskName, actorName);
+        return new UserTaskDefinitionBuilder(this, process.getProcessContainer(), taskName, actorName);
     }
 
     @Override
     public AutomaticTaskDefinitionBuilder addAutomaticTask(final String taskName) {
-        return new AutomaticTaskDefinitionBuilder(this, (FlowElementContainerDefinitionImpl) process.getProcessContainer(), taskName);
+        return new AutomaticTaskDefinitionBuilder(this, (FlowElementContainerDefinition) process.getProcessContainer(), taskName);
     }
 
     @Override
     public ReceiveTaskDefinitionBuilder addReceiveTask(final String taskName, final String messageName) {
-        return new ReceiveTaskDefinitionBuilder(this, (FlowElementContainerDefinitionImpl) process.getProcessContainer(), taskName, messageName);
+        return new ReceiveTaskDefinitionBuilder(this, process.getProcessContainer(), taskName, messageName);
     }
 
     @Override
     public SendTaskDefinitionBuilder addSendTask(final String taskName, final String messageName, final Expression targetProcess) {
-        return new SendTaskDefinitionBuilder(this, (FlowElementContainerDefinitionImpl) process.getProcessContainer(), taskName, messageName, targetProcess);
+        return new SendTaskDefinitionBuilder(this, process.getProcessContainer(), taskName, messageName, targetProcess);
     }
 
     @Override
     public ManualTaskDefinitionBuilder addManualTask(final String name, final String actorName) {
-        return new ManualTaskDefinitionBuilder(this, (FlowElementContainerDefinitionImpl) process.getProcessContainer(), name, actorName);
+        return new ManualTaskDefinitionBuilder(this, (FlowElementContainerDefinition) process.getProcessContainer(), name, actorName);
     }
 
     @Override
     public TransitionDefinitionBuilder addTransition(final String source, final String target) {
-        return new TransitionDefinitionBuilder(this, (FlowElementContainerDefinitionImpl) process.getProcessContainer(), source, target, false);
+        return new TransitionDefinitionBuilder(this, process.getProcessContainer(), source, target, false);
     }
 
     @Override
     public TransitionDefinitionBuilder addTransition(final String source, final String target, final Expression condition) {
-        return new TransitionDefinitionBuilder(this, (FlowElementContainerDefinitionImpl) process.getProcessContainer(), source, target, condition, false);
+        return new TransitionDefinitionBuilder(this, process.getProcessContainer(), source, target, condition, false);
     }
 
     @Override
     public GatewayDefinitionBuilder addGateway(final String name, final GatewayType gatewayType) {
-        return new GatewayDefinitionBuilder(this, (FlowElementContainerDefinitionImpl) process.getProcessContainer(), name, gatewayType);
+        return new GatewayDefinitionBuilder(this, (FlowElementContainerDefinition) process.getProcessContainer(), name, gatewayType);
     }
 
     @Override
     public StartEventDefinitionBuilder addStartEvent(final String name) {
-        return new StartEventDefinitionBuilder(this, (FlowElementContainerDefinitionImpl) process.getProcessContainer(), name);
+        return new StartEventDefinitionBuilder(this, process.getProcessContainer(), name);
     }
 
     @Override
     public EndEventDefinitionBuilder addEndEvent(final String name) {
-        return new EndEventDefinitionBuilder(this, (FlowElementContainerDefinitionImpl) process.getProcessContainer(), name);
+        return new EndEventDefinitionBuilder(this, (FlowElementContainerDefinition) process.getProcessContainer(), name);
     }
 
     @Override
     public IntermediateCatchEventDefinitionBuilder addIntermediateCatchEvent(final String name) {
-        return new IntermediateCatchEventDefinitionBuilder(this, (FlowElementContainerDefinitionImpl) process.getProcessContainer(), name);
+        return new IntermediateCatchEventDefinitionBuilder(this, (FlowElementContainerDefinition) process.getProcessContainer(), name);
     }
 
     @Override
     public IntermediateThrowEventDefinitionBuilder addIntermediateThrowEvent(final String name) {
-        return new IntermediateThrowEventDefinitionBuilder(this, (FlowElementContainerDefinitionImpl) process.getProcessContainer(), name);
+        return new IntermediateThrowEventDefinitionBuilder(this, (FlowElementContainerDefinition) process.getProcessContainer(), name);
     }
 
     @Override
     public CallActivityBuilder addCallActivity(final String name, final Expression callableElement, final Expression callableElementVersion) {
-        return new CallActivityBuilder(this, (FlowElementContainerDefinitionImpl) process.getProcessContainer(), name, callableElement, callableElementVersion);
+        return new CallActivityBuilder(this, (FlowElementContainerDefinition) process.getProcessContainer(), name, callableElement, callableElementVersion);
     }
 
     @Override
     public SubProcessActivityDefinitionBuilder addSubProcess(final String name, final boolean triggeredByEvent) {
-        return new SubProcessActivityDefinitionBuilder(this, (FlowElementContainerDefinitionImpl) process.getProcessContainer(), name, triggeredByEvent);
+        return new SubProcessActivityDefinitionBuilder(this, process.getProcessContainer(), name, triggeredByEvent);
     }
 
     @Override
     public DataDefinitionBuilder addIntegerData(final String name, final Expression defaultValue) {
         final String className = Integer.class.getName();
-        return new DataDefinitionBuilder(this, (FlowElementContainerDefinitionImpl) process.getProcessContainer(), name, className, defaultValue);
+        return new DataDefinitionBuilder(this, process.getProcessContainer(), name, className, defaultValue);
     }
 
     @Override
     public DataDefinitionBuilder addLongData(final String name, final Expression defaultValue) {
         final String className = Long.class.getName();
-        return new DataDefinitionBuilder(this, (FlowElementContainerDefinitionImpl) process.getProcessContainer(), name, className, defaultValue);
+        return new DataDefinitionBuilder(this, process.getProcessContainer(), name, className, defaultValue);
     }
 
     @Override
     public DataDefinitionBuilder addShortTextData(final String name, final Expression defaultValue) {
         final String className = String.class.getName();
-        return new TextDataDefinitionBuilder(this, (FlowElementContainerDefinitionImpl) process.getProcessContainer(), name, className, defaultValue);
+        return new TextDataDefinitionBuilder(this, process.getProcessContainer(), name, className, defaultValue);
     }
 
     @Override
     public TextDataDefinitionBuilder addLongTextData(final String name, final Expression defaultValue) {
         final String className = String.class.getName();
-        return new TextDataDefinitionBuilder(this, (FlowElementContainerDefinitionImpl) process.getProcessContainer(), name, className, defaultValue)
+        return new TextDataDefinitionBuilder(this, process.getProcessContainer(), name, className, defaultValue)
         .isLongText();
     }
 
     @Override
     public DataDefinitionBuilder addDoubleData(final String name, final Expression defaultValue) {
         final String className = Double.class.getName();
-        return new DataDefinitionBuilder(this, (FlowElementContainerDefinitionImpl) process.getProcessContainer(), name, className, defaultValue);
+        return new DataDefinitionBuilder(this, process.getProcessContainer(), name, className, defaultValue);
     }
 
     @Override
     public DataDefinitionBuilder addFloatData(final String name, final Expression defaultValue) {
         final String className = Float.class.getName();
-        return new DataDefinitionBuilder(this, (FlowElementContainerDefinitionImpl) process.getProcessContainer(), name, className, defaultValue);
+        return new DataDefinitionBuilder(this, process.getProcessContainer(), name, className, defaultValue);
     }
 
     @Override
     public DataDefinitionBuilder addDateData(final String name, final Expression defaultValue) {
         final String className = Date.class.getName();
-        return new DataDefinitionBuilder(this, (FlowElementContainerDefinitionImpl) process.getProcessContainer(), name, className, defaultValue);
+        return new DataDefinitionBuilder(this, process.getProcessContainer(), name, className, defaultValue);
     }
 
     @Override
     public XMLDataDefinitionBuilder addXMLData(final String name, final Expression defaultValue) {
         final String className = String.class.getName();
-        return new XMLDataDefinitionBuilder(this, (FlowElementContainerDefinitionImpl) process.getProcessContainer(), name, className, defaultValue);
+        return new XMLDataDefinitionBuilder(this, process.getProcessContainer(), name, className, defaultValue);
     }
 
     @Override
     public DataDefinitionBuilder addBlobData(final String name, final Expression defaultValue) {
         final String className = Serializable.class.getName();
-        return new DataDefinitionBuilder(this, (FlowElementContainerDefinitionImpl) process.getProcessContainer(), name, className, defaultValue);
+        return new DataDefinitionBuilder(this, process.getProcessContainer(), name, className, defaultValue);
     }
 
     @Override
     public DataDefinitionBuilder addBooleanData(final String name, final Expression defaultValue) {
         final String className = Boolean.class.getName();
-        return new DataDefinitionBuilder(this, (FlowElementContainerDefinitionImpl) process.getProcessContainer(), name, className, defaultValue);
+        return new DataDefinitionBuilder(this, process.getProcessContainer(), name, className, defaultValue);
     }
 
     @Override
     public DataDefinitionBuilder addData(final String name, final String className, final Expression defaultValue) {
-        return new DataDefinitionBuilder(this, (FlowElementContainerDefinitionImpl) process.getProcessContainer(), name, className, defaultValue);
+        return new DataDefinitionBuilder(this, process.getProcessContainer(), name, className, defaultValue);
     }
 
     /**
@@ -773,7 +770,7 @@ public class ProcessDefinitionBuilder implements DescriptionBuilder, ContainerBu
 
     @Override
     public TransitionDefinitionBuilder addDefaultTransition(final String source, final String target) {
-        return new TransitionDefinitionBuilder(this, (FlowElementContainerDefinitionImpl) process.getProcessContainer(), source, target, null, true);
+        return new TransitionDefinitionBuilder(this, process.getProcessContainer(), source, target, null, true);
     }
 
     /**

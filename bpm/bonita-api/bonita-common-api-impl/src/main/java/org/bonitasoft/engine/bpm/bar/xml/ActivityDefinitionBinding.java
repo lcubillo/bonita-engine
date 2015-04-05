@@ -18,10 +18,10 @@ import java.util.List;
 
 import org.bonitasoft.engine.bpm.businessdata.BusinessDataDefinition;
 import org.bonitasoft.engine.bpm.data.DataDefinition;
+import org.bonitasoft.engine.bpm.flownode.ActivityDefinition;
 import org.bonitasoft.engine.bpm.flownode.BoundaryEventDefinition;
+import org.bonitasoft.engine.bpm.flownode.FlowNodeDefinition;
 import org.bonitasoft.engine.bpm.flownode.LoopCharacteristics;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.ActivityDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowNodeDefinitionImpl;
 import org.bonitasoft.engine.operation.Operation;
 
 /**
@@ -67,10 +67,10 @@ public abstract class ActivityDefinitionBinding extends FlowNodeDefinitionBindin
     }
 
     @Override
-    protected void fillNode(final FlowNodeDefinitionImpl flowNode) {
+    protected void fillNode(final FlowNodeDefinition flowNode) {
         super.fillNode(flowNode);
-        if (flowNode instanceof ActivityDefinitionImpl) {
-            final ActivityDefinitionImpl activity = (ActivityDefinitionImpl) flowNode;
+        if (flowNode instanceof ActivityDefinition) {
+            final ActivityDefinition activity = (ActivityDefinition) flowNode;
             for (final DataDefinition dataDefinition : dataDefinitions) {
                 activity.addDataDefinition(dataDefinition);
             }

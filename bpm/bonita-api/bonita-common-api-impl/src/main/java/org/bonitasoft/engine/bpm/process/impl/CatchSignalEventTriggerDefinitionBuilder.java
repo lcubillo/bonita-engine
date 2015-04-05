@@ -13,10 +13,10 @@
  **/
 package org.bonitasoft.engine.bpm.process.impl;
 
-import org.bonitasoft.engine.bpm.flownode.impl.internal.CatchEventDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.CatchSignalEventTriggerDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowElementContainerDefinitionImpl;
 
+import org.bonitasoft.engine.bpm.flownode.CatchEventDefinition;
+import org.bonitasoft.engine.bpm.flownode.CatchSignalEventTriggerDefinition;
+import org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition;
 
 /**
  * @author Matthieu Chaffotte
@@ -24,9 +24,9 @@ import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowElementContainerDefi
 public class CatchSignalEventTriggerDefinitionBuilder extends FlowElementContainerBuilder {
 
     protected CatchSignalEventTriggerDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder,
-            final FlowElementContainerDefinitionImpl container, final CatchEventDefinitionImpl event, final String signalName) {
+            final FlowElementContainerDefinition container, final CatchEventDefinition event, final String signalName) {
         super(container, processDefinitionBuilder);
-        final CatchSignalEventTriggerDefinitionImpl signalTrigger = new CatchSignalEventTriggerDefinitionImpl(signalName);
+        final CatchSignalEventTriggerDefinition signalTrigger = new CatchSignalEventTriggerDefinition(signalName);
         event.addSignalEventTrigger(signalTrigger);
     }
 

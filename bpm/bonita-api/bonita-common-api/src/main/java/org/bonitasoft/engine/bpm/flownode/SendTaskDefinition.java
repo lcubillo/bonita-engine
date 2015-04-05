@@ -10,16 +10,48 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.flownode;
 
 
+import org.bonitasoft.engine.bpm.data.DataDefinition;
+import org.bonitasoft.engine.expression.Expression;
 
 /**
  * @author Matthieu Chaffotte
  */
-public interface SendTaskDefinition extends TaskDefinition {
+public class SendTaskDefinition extends TaskDefinition {
 
-    ThrowMessageEventTriggerDefinition getMessageTrigger();
+    private static final long serialVersionUID = -3069440054837402115L;
+
+    private final ThrowMessageEventTriggerDefinition trigger;
+
+    public SendTaskDefinition(final String name, final String messageName, final Expression targetProcess) {
+        super(name);
+        trigger = new ThrowMessageEventTriggerDefinition(messageName);
+        trigger.setTargetProcess(targetProcess);
+    }
+
+    public SendTaskDefinition(final long id, final String name, final ThrowMessageEventTriggerDefinition trigger) {
+        super(id, name);
+        this.trigger = new ThrowMessageEventTriggerDefinition(trigger);
+    }
+
+    public void setTargetFlowNode(final Expression targetFlowNode) {
+        trigger.setTargetFlowNode(targetFlowNode);
+    }
+
+    public void addMessageData(final DataDefinition datadefiniton) {
+        trigger.addDataDefinition(datadefiniton);
+    }
+
+    public void addCorrelation(final Expression key, final Expression value) {
+        trigger.addCorrelation(key, value);
+    }
+
+    public ThrowMessageEventTriggerDefinition getMessageTrigger() {
+        return trigger;
+    }
+
 
 }

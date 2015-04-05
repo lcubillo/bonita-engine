@@ -10,8 +10,10 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.data;
+
+import org.bonitasoft.engine.expression.Expression;
 
 /**
  * Represents a {@link DataDefinition} of XML type.
@@ -21,7 +23,18 @@ package org.bonitasoft.engine.bpm.data;
  * @since 6.0.0
  * @version 6.4.1
  */
-public interface XMLDataDefinition extends DataDefinition {
+public class XMLDataDefinition extends DataDefinition {
+
+
+    private static final long serialVersionUID = 3614847378996945363L;
+
+    private String namespace;
+
+    private String element;
+
+    public XMLDataDefinition(final String name, final Expression defaultValueExpression) {
+        super(name, defaultValueExpression);
+    }
 
     /**
      * Get the namespace for the XML format of the data
@@ -29,7 +42,14 @@ public interface XMLDataDefinition extends DataDefinition {
      * @return The namespace for the XML format of the data.
      * @since 6.0.0
      */
-    String getNamespace();
+
+    public String getNamespace() {
+        return namespace;
+    }
+
+    public void setNamespace(final String namespace) {
+        this.namespace = namespace;
+    }
 
     /**
      * Get the element for the XML format of the data
@@ -37,6 +57,14 @@ public interface XMLDataDefinition extends DataDefinition {
      * @return The element for the XML format of the data.
      * @since 6.0.0
      */
-    String getElement();
+
+    public String getElement() {
+        return element;
+    }
+
+    public void setElement(final String element) {
+        this.element = element;
+    }
+
 
 }

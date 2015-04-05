@@ -17,8 +17,8 @@ import java.util.Map;
 
 import org.bonitasoft.engine.bpm.contract.ComplexInputDefinition;
 import org.bonitasoft.engine.bpm.contract.ConstraintDefinition;
+import org.bonitasoft.engine.bpm.contract.ContractDefinition;
 import org.bonitasoft.engine.bpm.contract.SimpleInputDefinition;
-import org.bonitasoft.engine.bpm.contract.impl.ContractDefinitionImpl;
 import org.bonitasoft.engine.io.xml.ElementBinding;
 import org.bonitasoft.engine.io.xml.XMLParseException;
 
@@ -27,10 +27,10 @@ import org.bonitasoft.engine.io.xml.XMLParseException;
  */
 public class ContractDefinitionBinding extends ElementBinding {
 
-    private final ContractDefinitionImpl contract;
+    private final ContractDefinition contract;
 
     public ContractDefinitionBinding() {
-        contract = new ContractDefinitionImpl();
+        contract = new ContractDefinition();
     }
 
     @Override

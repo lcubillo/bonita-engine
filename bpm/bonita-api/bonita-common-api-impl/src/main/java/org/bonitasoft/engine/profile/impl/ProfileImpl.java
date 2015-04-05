@@ -15,13 +15,13 @@ package org.bonitasoft.engine.profile.impl;
 
 import java.util.Date;
 
-import org.bonitasoft.engine.bpm.internal.NamedElementImpl;
+import org.bonitasoft.engine.bpm.NamedElement;
 import org.bonitasoft.engine.profile.Profile;
 
 /**
  * @author Celine Souchet
  */
-public class ProfileImpl extends NamedElementImpl implements Profile {
+public class ProfileImpl extends NamedElement implements Profile {
 
     private static final long serialVersionUID = 9223087187374465662L;
 

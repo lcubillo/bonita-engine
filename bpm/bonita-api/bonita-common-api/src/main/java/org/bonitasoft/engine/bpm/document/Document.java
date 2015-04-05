@@ -16,13 +16,15 @@ package org.bonitasoft.engine.bpm.document;
 import java.util.Date;
 
 import org.bonitasoft.engine.bpm.BaseElement;
+import org.bonitasoft.engine.bpm.BaseElementInstance;
 import org.bonitasoft.engine.bpm.NamedElement;
+import org.bonitasoft.engine.bpm.NamedElementInstance;
 
 /**
  * @author Nicolas Chabanoles
  * @author Matthieu Chaffotte
  */
-public interface Document extends NamedElement, BaseElement {
+public interface Document extends NamedElementInstance, BaseElementInstance {
 
     /**
      * Id of the process instance the document is attached to.

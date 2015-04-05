@@ -13,9 +13,9 @@
  **/
 package org.bonitasoft.engine.bpm.process.impl;
 
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowElementContainerDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.HumanTaskDefinitionImpl;
-import org.bonitasoft.engine.bpm.userfilter.impl.UserFilterDefinitionImpl;
+import org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition;
+import org.bonitasoft.engine.bpm.flownode.HumanTaskDefinition;
+import org.bonitasoft.engine.bpm.userfilter.UserFilterDefinition;
 import org.bonitasoft.engine.expression.Expression;
 
 /**
@@ -24,15 +24,15 @@ import org.bonitasoft.engine.expression.Expression;
  */
 public class UserFilterDefinitionBuilder extends FlowElementContainerBuilder {
 
-    private final UserFilterDefinitionImpl userFilterDefinition;
+    private final UserFilterDefinition userFilterDefinition;
 
     private final ProcessDefinitionBuilder processDefinitionBuilder;
 
-    UserFilterDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinitionImpl container, final String name,
-            final String filterId, final String version, final HumanTaskDefinitionImpl humanTaskDefinition) {
+    UserFilterDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinition container, final String name,
+            final String filterId, final String version, final HumanTaskDefinition humanTaskDefinition) {
         super(container, processDefinitionBuilder);
         this.processDefinitionBuilder = processDefinitionBuilder;
-        userFilterDefinition = new UserFilterDefinitionImpl(name, filterId, version);
+        userFilterDefinition = new UserFilterDefinition(name, filterId, version);
         if (humanTaskDefinition.getUserFilter() != null) {
             final StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.append("Unable to add a user filter on ");

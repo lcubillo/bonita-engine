@@ -24,14 +24,13 @@ import org.bonitasoft.engine.bpm.document.DocumentDefinition;
 import org.bonitasoft.engine.bpm.document.DocumentListDefinition;
 import org.bonitasoft.engine.bpm.flownode.ActivityDefinition;
 import org.bonitasoft.engine.bpm.flownode.EndEventDefinition;
+import org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition;
+import org.bonitasoft.engine.bpm.flownode.FlowNodeDefinition;
 import org.bonitasoft.engine.bpm.flownode.GatewayDefinition;
 import org.bonitasoft.engine.bpm.flownode.IntermediateCatchEventDefinition;
 import org.bonitasoft.engine.bpm.flownode.IntermediateThrowEventDefinition;
 import org.bonitasoft.engine.bpm.flownode.StartEventDefinition;
 import org.bonitasoft.engine.bpm.flownode.TransitionDefinition;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowElementContainerDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowNodeDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.TransitionDefinitionImpl;
 import org.bonitasoft.engine.io.xml.ElementBinding;
 
 /**
@@ -103,7 +102,7 @@ public class FlowElementBinding extends ElementBinding {
 
     @Override
     public Object getObject() {
-        final FlowElementContainerDefinitionImpl container = new FlowElementContainerDefinitionImpl();
+        final FlowElementContainerDefinition container = new FlowElementContainerDefinition();
         for (final TransitionDefinition transition : transitions) {
             container.addTransition(transition);
         }
@@ -149,18 +148,18 @@ public class FlowElementBinding extends ElementBinding {
         return XMLProcessDefinition.FLOW_ELEMENTS_NODE;
     }
 
-    private void addTransitionOnFlowNodes(final FlowElementContainerDefinitionImpl container) {
+    private void addTransitionOnFlowNodes(final FlowElementContainerDefinition container) {
         for (final TransitionDefinition transition : transitions) {
             final long source = transition.getSource();
-            final FlowNodeDefinitionImpl sourceNode = (FlowNodeDefinitionImpl) container.getFlowNode(source);
+            final FlowNodeDefinition sourceNode = container.getFlowNode(source);
             if (sourceNode != null) {
                 final TransitionDefinition defaultTransition = sourceNode.getDefaultTransition();
-                if (defaultTransition != null && ((TransitionDefinitionImpl) defaultTransition).getId() == ((TransitionDefinitionImpl) transition).getId()) {
+                if (defaultTransition != null && defaultTransition.getId() == transition.getId()) {
                     sourceNode.setDefaultTransition(transition);
                 } else {
                     final List<TransitionDefinition> outgoingTransitionsForSourceNode = sourceNode.getOutgoingTransitions();
                     for (final TransitionDefinition transitionRef : outgoingTransitionsForSourceNode) {
-                        if (((TransitionDefinitionImpl) transitionRef).getId() == ((TransitionDefinitionImpl) transition).getId()) {
+                        if (transitionRef.getId() == transition.getId()) {
                             final int indexOfSTransitionRef = outgoingTransitionsForSourceNode.indexOf(transitionRef);
                             sourceNode.removeOutgoingTransition(transitionRef);
                             sourceNode.addOutgoingTransition(indexOfSTransitionRef, transition);
@@ -170,11 +169,11 @@ public class FlowElementBinding extends ElementBinding {
                 }
             }
             final long target = transition.getTarget();
-            final FlowNodeDefinitionImpl targetNode = (FlowNodeDefinitionImpl) container.getFlowNode(target);
+            final FlowNodeDefinition targetNode = container.getFlowNode(target);
             if (targetNode != null) {
                 final List<TransitionDefinition> incomingTransitionsForTargetNode = targetNode.getIncomingTransitions();
                 for (final TransitionDefinition transitionRef : incomingTransitionsForTargetNode) {
-                    if (((TransitionDefinitionImpl) transitionRef).getId() == ((TransitionDefinitionImpl) transition).getId()) {
+                    if (transitionRef.getId() == transition.getId()) {
                         final int indexOfSTransitionRef = incomingTransitionsForTargetNode.indexOf(transitionRef);
                         targetNode.removeIncomingTransition(transitionRef);
                         targetNode.addIncomingTransition(indexOfSTransitionRef, transition);

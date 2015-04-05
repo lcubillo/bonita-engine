@@ -15,7 +15,7 @@ package org.bonitasoft.engine.bpm.process.impl.internal;
 
 import java.util.Date;
 
-import org.bonitasoft.engine.bpm.internal.NamedElementImpl;
+import org.bonitasoft.engine.bpm.DescriptionElement;
 import org.bonitasoft.engine.bpm.process.ActivationState;
 import org.bonitasoft.engine.bpm.process.ConfigurationState;
 import org.bonitasoft.engine.bpm.process.ProcessDeploymentInfo;
@@ -25,7 +25,7 @@ import org.bonitasoft.engine.bpm.process.ProcessDeploymentInfo;
  * @author Hongwen Zang
  * @author Celine Souchet
  */
-public class ProcessDeploymentInfoImpl extends NamedElementImpl implements ProcessDeploymentInfo {
+public class ProcessDeploymentInfoImpl extends DescriptionElement implements ProcessDeploymentInfo {
 
     private static final long serialVersionUID = 1138141364845684630L;
 
@@ -49,14 +49,12 @@ public class ProcessDeploymentInfoImpl extends NamedElementImpl implements Proce
 
     private final String iconPath;
 
-    private final String description;
 
     public ProcessDeploymentInfoImpl(final long id, final long processId, final String name, final String version, final String description,
             final Date deploymentDate, final long deployedBy, final ActivationState activationState, final ConfigurationState configurationState,
             final String displayName, final Date lastUpdateDate, final String iconPath,
             final String displayDescription) {
-        super(name);
-        this.description = description;
+        super(name, description);
         this.displayDescription = displayDescription;
         setId(id);
         this.processId = processId;
@@ -108,11 +106,6 @@ public class ProcessDeploymentInfoImpl extends NamedElementImpl implements Proce
     @Override
     public String getIconPath() {
         return iconPath;
-    }
-
-    @Override
-    public String getDescription() {
-        return description;
     }
 
     @Override

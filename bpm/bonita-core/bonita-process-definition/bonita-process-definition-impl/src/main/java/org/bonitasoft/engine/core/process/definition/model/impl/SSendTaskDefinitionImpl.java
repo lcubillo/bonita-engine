@@ -15,7 +15,7 @@ package org.bonitasoft.engine.core.process.definition.model.impl;
 
 import java.util.Map;
 
-import org.bonitasoft.engine.bpm.flownode.impl.internal.SendTaskDefinitionImpl;
+import org.bonitasoft.engine.bpm.flownode.SendTaskDefinition;
 import org.bonitasoft.engine.core.process.definition.model.SFlowNodeType;
 import org.bonitasoft.engine.core.process.definition.model.SSendTaskDefinition;
 import org.bonitasoft.engine.core.process.definition.model.STransitionDefinition;
@@ -32,7 +32,7 @@ public class SSendTaskDefinitionImpl extends SActivityDefinitionImpl implements 
 
     private final SThrowMessageEventTriggerDefinition trigger;
 
-    public SSendTaskDefinitionImpl(final SendTaskDefinitionImpl activityDefinition,
+    public SSendTaskDefinitionImpl(final SendTaskDefinition activityDefinition,
             final Map<String, STransitionDefinition> transitionsMap) {
         super(activityDefinition, transitionsMap);
         trigger = new SThrowMessageEventTriggerDefinitionImpl(activityDefinition.getMessageTrigger());

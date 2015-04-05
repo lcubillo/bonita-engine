@@ -24,12 +24,11 @@ import java.util.Map;
 import org.bonitasoft.engine.bpm.contract.ComplexInputDefinition;
 import org.bonitasoft.engine.bpm.contract.ConstraintDefinition;
 import org.bonitasoft.engine.bpm.contract.ConstraintType;
+import org.bonitasoft.engine.bpm.contract.ContractDefinition;
 import org.bonitasoft.engine.bpm.contract.SimpleInputDefinition;
 import org.bonitasoft.engine.bpm.contract.Type;
-import org.bonitasoft.engine.bpm.contract.impl.ContractDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowElementContainerDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.UserTaskDefinitionImpl;
-import org.bonitasoft.engine.bpm.process.impl.internal.DesignProcessDefinitionImpl;
+import org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition;
+import org.bonitasoft.engine.bpm.flownode.UserTaskDefinition;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -49,21 +48,21 @@ public class ContractDefinitionBuilderTest {
     private static final String actorName = "actor name";
 
     @Mock
-    ContractDefinitionImpl contractDefinitionImpl;
+    ContractDefinition contractDefinitionImpl;
 
     @Mock
     private ProcessDefinitionBuilder processDefinitionBuilder;
 
     @Mock
-    private FlowElementContainerDefinitionImpl container;
+    private FlowElementContainerDefinition container;
 
-    private UserTaskDefinitionImpl activity;
+    private UserTaskDefinition activity;
 
     private ContractDefinitionBuilder contractDefinitionBuilder;
 
     @Before
     public void before() throws Exception {
-        activity = new UserTaskDefinitionImpl(name, actorName);
+        activity = new UserTaskDefinition(name, actorName);
         contractDefinitionBuilder = new ContractDefinitionBuilder(processDefinitionBuilder, container, activity);
 
     }
@@ -183,7 +182,7 @@ public class ContractDefinitionBuilderTest {
     @Test
     public void addMandatoryConstraint_should_fail() throws Exception {
         //given
-        final List<Object> failingValues = new ArrayList<Object>();
+        final List<Object> failingValues = new ArrayList<>();
         failingValues.add(null);
         failingValues.add("");
 
@@ -194,7 +193,7 @@ public class ContractDefinitionBuilderTest {
     @Test
     public void addMandatoryConstraint_should_success() throws Exception {
         //given
-        final List<Object> successValues = new ArrayList<Object>();
+        final List<Object> successValues = new ArrayList<>();
         successValues.add("not null value");
         successValues.add(0);
         successValues.add(new Date());
@@ -205,7 +204,7 @@ public class ContractDefinitionBuilderTest {
 
     private void checkConstraintShouldGiveExpectedResult(final List<Object> values, final Boolean expectedResult) {
         for (final Object failingValue : values) {
-            final Map<String, Object> variables = new HashMap<String, Object>();
+            final Map<String, Object> variables = new HashMap<>();
             variables.put("inputName", failingValue);
 
             //when

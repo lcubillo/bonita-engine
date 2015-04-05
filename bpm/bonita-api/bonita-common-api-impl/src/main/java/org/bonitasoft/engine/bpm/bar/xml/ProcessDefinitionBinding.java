@@ -19,13 +19,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.bonitasoft.engine.bpm.actor.impl.ActorDefinitionImpl;
+import org.bonitasoft.engine.bpm.actor.ActorDefinition;
 import org.bonitasoft.engine.bpm.contract.ContractDefinition;
-import org.bonitasoft.engine.bpm.flownode.impl.FlowElementContainerDefinition;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.UserTaskDefinitionImpl;
+import org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition;
 import org.bonitasoft.engine.bpm.parameter.ParameterDefinition;
 import org.bonitasoft.engine.bpm.process.DesignProcessDefinition;
-import org.bonitasoft.engine.bpm.process.impl.internal.DesignProcessDefinitionImpl;
 
 /**
  * @author Baptiste Mesta
@@ -36,13 +34,13 @@ public class ProcessDefinitionBinding extends NamedElementBinding {
 
     private String version;
 
-    private final List<ActorDefinitionImpl> actors = new ArrayList<ActorDefinitionImpl>();
+    private final List<ActorDefinition> actors = new ArrayList<>();
 
     private String actorInitiatorName;
 
-    private final Set<ParameterDefinition> parameters = new HashSet<ParameterDefinition>();
+    private final Set<ParameterDefinition> parameters = new HashSet<>();
 
-    private DesignProcessDefinitionImpl processDefinitionImpl;
+    private DesignProcessDefinition processDefinitionImpl;
 
     private String displayDescription;
 
@@ -68,7 +66,7 @@ public class ProcessDefinitionBinding extends NamedElementBinding {
     @Override
     public void setChildObject(final String name, final Object value) {
         if (XMLProcessDefinition.ACTOR_NODE.equals(name)) {
-            actors.add((ActorDefinitionImpl) value);
+            actors.add((ActorDefinition) value);
         } else if (XMLProcessDefinition.INITIATOR_NODE.equals(name)) {
             actorInitiatorName = (String) value;
         } else if (XMLProcessDefinition.PARAMETER_NODE.equals(name)) {
@@ -85,14 +83,14 @@ public class ProcessDefinitionBinding extends NamedElementBinding {
     @Override
     public DesignProcessDefinition getObject() {
         if (processDefinitionImpl == null) {
-            processDefinitionImpl = new DesignProcessDefinitionImpl(name, version);
+            processDefinitionImpl = new DesignProcessDefinition(name, version);
             processDefinitionImpl.setDescription(description);
             processDefinitionImpl.setDisplayName(displayName);
             processDefinitionImpl.setDisplayDescription(displayDescription);
             for (final StringIndex stringIndex : stringIndexes) {
                 processDefinitionImpl.setStringIndex(stringIndex.getIndex(), stringIndex.getLabel(), stringIndex.getValue());
             }
-            for (final ActorDefinitionImpl actor : actors) {
+            for (final ActorDefinition actor : actors) {
                 if (actorInitiatorName != null && actorInitiatorName.equals(actor.getName())) {
                     actor.setInitiator(true);
                     processDefinitionImpl.setActorInitiator(actor);

@@ -37,7 +37,7 @@ public class STransitionDefinitionImpl extends SNamedElementImpl implements STra
     private SExpression condition;
 
     public STransitionDefinitionImpl(final TransitionDefinition transition) {
-        this(transition.getName(), transition.getSource(), transition.getTarget());
+        this(String.valueOf(transition.getId()), transition.getSource(), transition.getTarget());
         final Expression exp = transition.getCondition();
         if (transition.getCondition() != null) {
             final SExpression sExpression = ServerModelConvertor.convertExpression(exp);

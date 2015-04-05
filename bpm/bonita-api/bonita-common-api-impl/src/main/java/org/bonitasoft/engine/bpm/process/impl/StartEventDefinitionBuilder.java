@@ -13,9 +13,9 @@
  **/
 package org.bonitasoft.engine.bpm.process.impl;
 
+import org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition;
+import org.bonitasoft.engine.bpm.flownode.StartEventDefinition;
 import org.bonitasoft.engine.bpm.flownode.TimerType;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowElementContainerDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.StartEventDefinitionImpl;
 import org.bonitasoft.engine.expression.Expression;
 
 /**
@@ -25,12 +25,12 @@ import org.bonitasoft.engine.expression.Expression;
  */
 public class StartEventDefinitionBuilder extends FlowElementContainerBuilder implements DescriptionBuilder {
 
-    private final StartEventDefinitionImpl startEvent;
+    private final StartEventDefinition startEvent;
 
-    StartEventDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinitionImpl container,
+    StartEventDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinition container,
             final String eventName) {
         super(container, processDefinitionBuilder);
-        startEvent = new StartEventDefinitionImpl(eventName);
+        startEvent = new StartEventDefinition(eventName);
         container.addStartEvent(startEvent);
     }
 

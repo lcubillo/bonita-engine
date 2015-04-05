@@ -15,7 +15,7 @@ package org.bonitasoft.engine.bpm.bar.xml;
 
 import java.util.Map;
 
-import org.bonitasoft.engine.bpm.parameter.impl.ParameterDefinitionImpl;
+import org.bonitasoft.engine.bpm.parameter.ParameterDefinition;
 
 /**
  * @author Baptiste Mesta
@@ -34,7 +34,7 @@ public class ParameterDefinitionBinding extends NamedElementBinding {
 
     @Override
     public Object getObject() {
-        final ParameterDefinitionImpl parameterDefinitionImpl = new ParameterDefinitionImpl(name, type);
+        final ParameterDefinition parameterDefinitionImpl = new ParameterDefinition(name, type);
         parameterDefinitionImpl.setDescription(description);
         return parameterDefinitionImpl;
     }

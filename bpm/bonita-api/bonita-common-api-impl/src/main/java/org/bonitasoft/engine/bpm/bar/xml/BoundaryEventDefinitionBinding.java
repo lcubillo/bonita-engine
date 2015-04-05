@@ -16,10 +16,10 @@ package org.bonitasoft.engine.bpm.bar.xml;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bonitasoft.engine.bpm.flownode.BoundaryEventDefinition;
 import org.bonitasoft.engine.bpm.flownode.CatchErrorEventTriggerDefinition;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.BoundaryEventDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.CatchEventDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowNodeDefinitionImpl;
+import org.bonitasoft.engine.bpm.flownode.CatchEventDefinition;
+import org.bonitasoft.engine.bpm.flownode.FlowNodeDefinition;
 
 /**
  * @author Elias Ricken de Medeiros
@@ -31,12 +31,12 @@ public class BoundaryEventDefinitionBinding extends CatchEventDefinitionBinding 
 
     public BoundaryEventDefinitionBinding() {
         super();
-        errorEventTriggers = new ArrayList<CatchErrorEventTriggerDefinition>(1);
+        errorEventTriggers = new ArrayList<>(1);
     }
 
     @Override
     public Object getObject() {
-        final BoundaryEventDefinitionImpl boundaryEventDefinitionImpl = new BoundaryEventDefinitionImpl(id, name);
+        final BoundaryEventDefinition boundaryEventDefinitionImpl = new BoundaryEventDefinition(id, name);
         fillNode(boundaryEventDefinitionImpl);
         return boundaryEventDefinitionImpl;
     }
@@ -50,9 +50,9 @@ public class BoundaryEventDefinitionBinding extends CatchEventDefinitionBinding 
     }
 
     @Override
-    protected void fillNode(final FlowNodeDefinitionImpl flowNode) {
+    protected void fillNode(final FlowNodeDefinition flowNode) {
         super.fillNode(flowNode);
-        final CatchEventDefinitionImpl catchEventDefinition = (CatchEventDefinitionImpl) flowNode;
+        final CatchEventDefinition catchEventDefinition = (CatchEventDefinition) flowNode;
         for (final CatchErrorEventTriggerDefinition errorlEventTrigger : errorEventTriggers) {
             catchEventDefinition.addErrorEventTrigger(errorlEventTrigger);
         }

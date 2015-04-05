@@ -13,8 +13,8 @@
  **/
 package org.bonitasoft.engine.bpm.process.impl;
 
-import org.bonitasoft.engine.bpm.parameter.impl.ParameterDefinitionImpl;
-import org.bonitasoft.engine.bpm.process.impl.internal.DesignProcessDefinitionImpl;
+import org.bonitasoft.engine.bpm.parameter.ParameterDefinition;
+import org.bonitasoft.engine.bpm.process.DesignProcessDefinition;
 
 /**
  * Definition builder for Parameter (specific Bonita BPM Subscription Edition feature).
@@ -28,7 +28,7 @@ import org.bonitasoft.engine.bpm.process.impl.internal.DesignProcessDefinitionIm
  */
 public class ParameterDefinitionBuilder extends ProcessBuilder implements DescriptionBuilder {
 
-    private final ParameterDefinitionImpl parameter;
+    private final ParameterDefinition parameter;
 
     /**
      * Default Constructor.
@@ -45,13 +45,13 @@ public class ParameterDefinitionBuilder extends ProcessBuilder implements Descri
      * @param type
      *        The type of the new {@link org.bonitasoft.engine.bpm.parameter.ParameterDefinition}
      */
-    protected ParameterDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final DesignProcessDefinitionImpl designProcessDefinitionImpl,
+    protected ParameterDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final DesignProcessDefinition designProcessDefinitionImpl,
                                          final String parameterName, final String type) {
         super(designProcessDefinitionImpl, processDefinitionBuilder);
-        parameter = new ParameterDefinitionImpl(parameterName, type);
+        parameter = new ParameterDefinition(parameterName, type);
         designProcessDefinitionImpl.addParameter(parameter);
     }
-    protected ParameterDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final DesignProcessDefinitionImpl designProcessDefinitionImpl){
+    protected ParameterDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final DesignProcessDefinition designProcessDefinitionImpl){
         super(designProcessDefinitionImpl, processDefinitionBuilder);
         parameter = null;
     }

@@ -22,6 +22,15 @@ package org.bonitasoft.engine.bpm.flownode;
  * 
  * @author Baptiste Mesta
  */
-public interface TaskDefinition extends ActivityDefinition {
+public abstract class TaskDefinition extends ActivityDefinition {
 
+    private static final long serialVersionUID = 2L;
+
+    public TaskDefinition(final String name) {
+        super(name);
+    }
+
+    public TaskDefinition(final long id, final String name) {
+        super(id, name);
+    }
 }

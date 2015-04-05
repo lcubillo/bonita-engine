@@ -14,7 +14,7 @@
 package org.bonitasoft.engine.bpm.bar.xml;
 
 import org.bonitasoft.engine.bpm.flownode.CatchMessageEventTriggerDefinition;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.ReceiveTaskDefinitionImpl;
+import org.bonitasoft.engine.bpm.flownode.ReceiveTaskDefinition;
 
 /**
  * @author Julien Molinaro
@@ -25,7 +25,7 @@ public class ReceiveTaskDefinitionBinding extends ActivityDefinitionBinding {
 
     @Override
     public Object getObject() {
-        final ReceiveTaskDefinitionImpl receiveTaskDefinitionImpl = new ReceiveTaskDefinitionImpl(id, name, catchMessageEventTriggerDefinition);
+        final ReceiveTaskDefinition receiveTaskDefinitionImpl = new ReceiveTaskDefinition(id, name, catchMessageEventTriggerDefinition);
         fillNode(receiveTaskDefinitionImpl);
         return receiveTaskDefinitionImpl;
     }

@@ -10,13 +10,22 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.flownode;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.bonitasoft.engine.bpm.BaseElement;
+import org.bonitasoft.engine.bpm.NamedElement;
+import org.bonitasoft.engine.bpm.ObjectSeeker;
 import org.bonitasoft.engine.bpm.businessdata.BusinessDataDefinition;
 import org.bonitasoft.engine.bpm.connector.ConnectorDefinition;
 import org.bonitasoft.engine.bpm.data.DataDefinition;
@@ -25,59 +34,236 @@ import org.bonitasoft.engine.bpm.document.DocumentListDefinition;
 
 /**
  * Allows to access all flow elements (activities, gateways, events and transitions) of a process or sub-process.
+ *
  * @author Matthieu Chaffotte
  * @author Celine Souchet
  */
-public interface FlowElementContainerDefinition extends BaseElement {
+public class FlowElementContainerDefinition extends BaseElement {
 
-    List<ActivityDefinition> getActivities();
 
-    ActivityDefinition getActivity(String name);
+    private static final long serialVersionUID = 1L;
 
-    Set<TransitionDefinition> getTransitions();
+    private final List<ActivityDefinition> activities;
+
+    private final Set<TransitionDefinition> transitions;
+
+    private final List<GatewayDefinition> gateways;
+
+    private final List<StartEventDefinition> startEvents;
+
+    private final List<IntermediateCatchEventDefinition> intermediateCatchEvents;
+
+    private final List<IntermediateThrowEventDefinition> intermediateThrowEvents;
+
+    private final List<EndEventDefinition> endEvents;
+
+    private final List<DataDefinition> dataDefinitions;
+
+    private final List<BusinessDataDefinition> businessDataDefinitions;
+
+    private final List<DocumentDefinition> documentDefinitions;
+
+    private final List<DocumentListDefinition> documentListDefinitions;
+
+    private final List<ConnectorDefinition> connectors;
+
+    private final Map<String, FlowNodeDefinition> flowNodes;
+
+    public FlowElementContainerDefinition() {
+        activities = new ArrayList<>();
+        transitions = new HashSet<>();
+        gateways = new ArrayList<>();
+        startEvents = new ArrayList<>(1);
+        intermediateCatchEvents = new ArrayList<>(4);
+        endEvents = new ArrayList<>(4);
+        intermediateThrowEvents = new ArrayList<>(4);
+        dataDefinitions = new ArrayList<>();
+        businessDataDefinitions = new ArrayList<>();
+        documentDefinitions = new ArrayList<>();
+        documentListDefinitions = new ArrayList<>();
+        connectors = new ArrayList<>();
+        flowNodes = new HashMap<>();
+    }
+
+    public FlowNodeDefinition getFlowNode(final long sourceId) {
+        final Set<FlowNodeDefinition> flowNodes = getFlowNodes();
+        return getElementById(flowNodes, sourceId);
+    }
+
+    public FlowNodeDefinition getFlowNode(final String sourceName) {
+        final Set<FlowNodeDefinition> flowNodes = getFlowNodes();
+        return getElementByName(flowNodes, sourceName);
+    }
+
+    private Set<FlowNodeDefinition> getFlowNodes() {
+        final Set<FlowNodeDefinition> flowNodes = new HashSet<FlowNodeDefinition>();
+        flowNodes.addAll(gateways);
+        flowNodes.addAll(activities);
+        flowNodes.addAll(startEvents);
+        flowNodes.addAll(intermediateCatchEvents);
+        flowNodes.addAll(intermediateThrowEvents);
+        flowNodes.addAll(endEvents);
+        flowNodes.addAll(getBoundaryEvents());
+        return Collections.unmodifiableSet(flowNodes);
+    }
+
+    private List<BoundaryEventDefinition> getBoundaryEvents() {
+        final List<BoundaryEventDefinition> boundaryEvents = new ArrayList<BoundaryEventDefinition>(3);
+        for (final ActivityDefinition activity : activities) {
+            boundaryEvents.addAll(activity.getBoundaryEventDefinitions());
+        }
+        return boundaryEvents;
+    }
+
+    public List<ActivityDefinition> getActivities() {
+        return Collections.unmodifiableList(activities);
+    }
+
+    public ActivityDefinition getActivity(final String name) {
+        return getElementByName(activities, name);
+    }
+
+    public Set<TransitionDefinition> getTransitions() {
+        return Collections.unmodifiableSet(transitions);
+    }
 
     /**
-     *
-     * @return A set of GatewayDefinition
-     * @see #getGatewaysList()
-     * @since 6.0
-     * @deprecated As of release 6.1, replaced by {@link #getGatewaysList()}
-     */
-    @Deprecated
-    Set<GatewayDefinition> getGateways();
-
-    /**
-     *
      * @return A list of GatewayDefinition
      * @since 6.1
      */
-    List<GatewayDefinition> getGatewaysList();
+    public List<GatewayDefinition> getGatewaysList() {
+        return Collections.unmodifiableList(gateways);
+    }
 
-    GatewayDefinition getGateway(String name);
+    public GatewayDefinition getGateway(final String name) {
+        return getElementByName(gateways, name);
+    }
 
-    List<StartEventDefinition> getStartEvents();
+    private <T extends BaseElement> T getElementById(final Collection<T> elements, final long id) {
+        T element = null;
+        boolean found = false;
+        final Iterator<T> iterator = elements.iterator();
+        while (!found && iterator.hasNext()) {
+            final T next = iterator.next();
+            if (next.getId() == id) {
+                found = true;
+                element = next;
+            }
+        }
+        return element;
+    }
 
-    List<IntermediateCatchEventDefinition> getIntermediateCatchEvents();
+    private <T extends NamedElement> T getElementByName(final Collection<T> elements, final String name) {
+        T element = null;
+        boolean found = false;
+        final Iterator<T> iterator = elements.iterator();
+        while (!found && iterator.hasNext()) {
+            final T next = iterator.next();
+            if (name.equals(next.getName())) {
+                found = true;
+                element = next;
+            }
+        }
+        return element;
+    }
 
-    List<IntermediateThrowEventDefinition> getIntermediateThrowEvents();
+    public List<StartEventDefinition> getStartEvents() {
+        return Collections.unmodifiableList(startEvents);
+    }
 
-    List<EndEventDefinition> getEndEvents();
+    public List<IntermediateCatchEventDefinition> getIntermediateCatchEvents() {
+        return Collections.unmodifiableList(intermediateCatchEvents);
+    }
 
-    List<DataDefinition> getDataDefinitions();
+    public List<IntermediateThrowEventDefinition> getIntermediateThrowEvents() {
+        return Collections.unmodifiableList(intermediateThrowEvents);
+    }
 
-    DataDefinition getDataDefinition(String name);
+    public List<EndEventDefinition> getEndEvents() {
+        return Collections.unmodifiableList(endEvents);
+    }
 
-    List<DocumentDefinition> getDocumentDefinitions();
+    public List<BusinessDataDefinition> getBusinessDataDefinitions() {
+        return Collections.unmodifiableList(businessDataDefinitions);
+    }
 
-    List<ConnectorDefinition> getConnectors();
+    public List<DataDefinition> getDataDefinitions() {
+        return Collections.unmodifiableList(dataDefinitions);
+    }
 
-    FlowNodeDefinition getFlowNode(long sourceId);
+    public List<DocumentDefinition> getDocumentDefinitions() {
+        return Collections.unmodifiableList(documentDefinitions);
+    }
 
-    FlowNodeDefinition getFlowNode(String sourceName);
+    public List<DocumentListDefinition> getDocumentListDefinitions() {
+        return Collections.unmodifiableList(documentListDefinitions);
+    }
 
-    List<BusinessDataDefinition> getBusinessDataDefinitions();
+    public List<ConnectorDefinition> getConnectors() {
+        return Collections.unmodifiableList(connectors);
+    }
 
-    BusinessDataDefinition getBusinessDataDefinition(String name);
+    public void addActivity(final ActivityDefinition activity) {
+        activities.add(activity);
+        flowNodes.put(activity.getName(), activity);
+    }
 
-    List<DocumentListDefinition> getDocumentListDefinitions();
+    public void addTransition(final TransitionDefinition transition) {
+        transitions.add(transition);
+    }
+
+    public void addGateway(final GatewayDefinition gateway) {
+        gateways.add(gateway);
+        flowNodes.put(gateway.getName(), gateway);
+    }
+
+    public void addStartEvent(final StartEventDefinition startEvent) {
+        startEvents.add(startEvent);
+        flowNodes.put(startEvent.getName(), startEvent);
+    }
+
+    public void addIntermediateCatchEvent(final IntermediateCatchEventDefinition event) {
+        intermediateCatchEvents.add(event);
+        flowNodes.put(event.getName(), event);
+    }
+
+    public void addIntermediateThrowEvent(final IntermediateThrowEventDefinition intermediateThrowEvent) {
+        intermediateThrowEvents.add(intermediateThrowEvent);
+        flowNodes.put(intermediateThrowEvent.getName(), intermediateThrowEvent);
+    }
+
+    public void addEndEvent(final EndEventDefinition endEvent) {
+        endEvents.add(endEvent);
+        flowNodes.put(endEvent.getName(), endEvent);
+    }
+
+    public void addBusinessDataDefinition(final BusinessDataDefinition businessDataDefinition) {
+        businessDataDefinitions.add(businessDataDefinition);
+    }
+
+    public void addDataDefinition(final DataDefinition dataDefinition) {
+        dataDefinitions.add(dataDefinition);
+    }
+
+    public void addDocumentDefinition(final DocumentDefinition documentDefinition) {
+        documentDefinitions.add(documentDefinition);
+    }
+
+    public void addDocumentListDefinition(final DocumentListDefinition documentListDefinition) {
+        documentListDefinitions.add(documentListDefinition);
+    }
+
+    public void addConnector(final ConnectorDefinition connectorDefinition) {
+        connectors.add(connectorDefinition);
+    }
+
+
+    public BusinessDataDefinition getBusinessDataDefinition(final String name) {
+        return ObjectSeeker.getNamedElement(businessDataDefinitions, name);
+    }
+
+    public DataDefinition getDataDefinition(final String name) {
+        return ObjectSeeker.getNamedElement(dataDefinitions, name);
+    }
+
 }

@@ -21,7 +21,7 @@ import org.junit.Test;
 
 
 
-public class SimpleInputDefinitionImplTest {
+public class SimpleInputDefinitionTest {
 
     private static final String DESCRIPTION = "description";
     private static final String NAME = "name";
@@ -30,7 +30,7 @@ public class SimpleInputDefinitionImplTest {
 
     @Test
     public void constructor_multiple() throws Exception {
-        simpleInputDefinition = new SimpleInputDefinitionImpl(NAME, Type.TEXT, DESCRIPTION, true);
+        simpleInputDefinition = new SimpleInputDefinition(NAME, Type.TEXT, DESCRIPTION, true);
 
         //then
         assertThat(simpleInputDefinition.isMultiple()).as("should be multiple").isTrue();
@@ -42,7 +42,7 @@ public class SimpleInputDefinitionImplTest {
     @Test
     public void constructor_not_multiple() throws Exception {
         //given
-        simpleInputDefinition = new SimpleInputDefinitionImpl(NAME, Type.TEXT, DESCRIPTION, false);
+        simpleInputDefinition = new SimpleInputDefinition(NAME, Type.TEXT, DESCRIPTION, false);
 
         //then
         assertThat(simpleInputDefinition.isMultiple()).as("should not be multiple").isFalse();
@@ -51,7 +51,7 @@ public class SimpleInputDefinitionImplTest {
     @Test
     public void constructor_without_multiple() throws Exception {
         //given
-        simpleInputDefinition = new SimpleInputDefinitionImpl(NAME, Type.TEXT, DESCRIPTION);
+        simpleInputDefinition = new SimpleInputDefinition(NAME, Type.TEXT, DESCRIPTION);
 
         //then
         assertThat(simpleInputDefinition.isMultiple()).as("should not be multiple").isFalse();
@@ -61,7 +61,7 @@ public class SimpleInputDefinitionImplTest {
     @Test
     public void toString_should_mention_multiple() throws Exception {
         //given
-        simpleInputDefinition = new SimpleInputDefinitionImpl(NAME, Type.TEXT, DESCRIPTION);
+        simpleInputDefinition = new SimpleInputDefinition(NAME, Type.TEXT, DESCRIPTION);
 
         //then
         assertThat(simpleInputDefinition.toString()).containsIgnoringCase("multiple");
@@ -72,8 +72,8 @@ public class SimpleInputDefinitionImplTest {
     @Test
     public void equal_test() throws Exception {
         //given
-        simpleInputDefinition = new SimpleInputDefinitionImpl(NAME, Type.TEXT, DESCRIPTION);
-        simpleInputDefinition2 = new SimpleInputDefinitionImpl(NAME, Type.TEXT, DESCRIPTION);
+        simpleInputDefinition = new SimpleInputDefinition(NAME, Type.TEXT, DESCRIPTION);
+        simpleInputDefinition2 = new SimpleInputDefinition(NAME, Type.TEXT, DESCRIPTION);
 
         //then
         assertThat(simpleInputDefinition).isEqualTo(simpleInputDefinition2);
@@ -82,8 +82,8 @@ public class SimpleInputDefinitionImplTest {
     @Test
     public void not_equal_test() throws Exception {
         //given
-        simpleInputDefinition = new SimpleInputDefinitionImpl(NAME, Type.TEXT, DESCRIPTION);
-        simpleInputDefinition2 = new SimpleInputDefinitionImpl(NAME, Type.TEXT, DESCRIPTION, true);
+        simpleInputDefinition = new SimpleInputDefinition(NAME, Type.TEXT, DESCRIPTION);
+        simpleInputDefinition2 = new SimpleInputDefinition(NAME, Type.TEXT, DESCRIPTION, true);
 
         //then
         assertThat(simpleInputDefinition).isNotEqualTo(simpleInputDefinition2);

@@ -10,19 +10,19 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.flownode.impl.internal;
 
 import java.util.Date;
 
+import org.bonitasoft.engine.bpm.DescriptionElement;
 import org.bonitasoft.engine.bpm.flownode.ArchivedFlowNodeInstance;
-import org.bonitasoft.engine.bpm.internal.NamedElementImpl;
 
 /**
  * @author Elias Ricken de Medeiros
  * @author Celine Souchet
  */
-public abstract class ArchivedFlowNodeInstanceImpl extends NamedElementImpl implements ArchivedFlowNodeInstance {
+public abstract class ArchivedFlowNodeInstanceImpl extends DescriptionElement implements ArchivedFlowNodeInstance {
 
     private static final long serialVersionUID = -6573747806944970703L;
 
@@ -45,8 +45,6 @@ public abstract class ArchivedFlowNodeInstanceImpl extends NamedElementImpl impl
     private String displayDescription;
 
     private long sourceObjectId;
-
-    private String description;
 
     private long executedBy;
 
@@ -151,15 +149,6 @@ public abstract class ArchivedFlowNodeInstanceImpl extends NamedElementImpl impl
     }
 
     @Override
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    @Override
     public long getExecutedBy() {
         return executedBy;
     }
@@ -204,113 +193,6 @@ public abstract class ArchivedFlowNodeInstanceImpl extends NamedElementImpl impl
 
     public void setTerminal(boolean terminal) {
         this.terminal = terminal;
-    }
-
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = super.hashCode();
-        result = prime * result + (archiveDate == null ? 0 : archiveDate.hashCode());
-        result = prime * result + (description == null ? 0 : description.hashCode());
-        result = prime * result + (displayDescription == null ? 0 : displayDescription.hashCode());
-        result = prime * result + (displayName == null ? 0 : displayName.hashCode());
-        result = prime * result + (int) (executedBy ^ executedBy >>> 32);
-        result = prime * result + (int) (executedBySubstitute ^ executedBySubstitute >>> 32);
-        result = prime * result + (int) (flownodeDefinitionId ^ flownodeDefinitionId >>> 32);
-        result = prime * result + (int) (parentContainerId ^ parentContainerId >>> 32);
-        result = prime * result + (int) (processDefinitionId ^ processDefinitionId >>> 32);
-        result = prime * result + (int) (processInstanceId ^ processInstanceId >>> 32);
-        result = prime * result + (int) (rootContainerId ^ rootContainerId >>> 32);
-        result = prime * result + (int) (sourceObjectId ^ sourceObjectId >>> 32);
-        result = prime * result + (state == null ? 0 : state.hashCode());
-        result = prime * result + (terminal ? 1231 : 1237);
-        return result;
-    }
-
-    @Override
-    public boolean equals(final Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (!super.equals(obj)) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final ArchivedFlowNodeInstanceImpl other = (ArchivedFlowNodeInstanceImpl) obj;
-        if (archiveDate == null) {
-            if (other.archiveDate != null) {
-                return false;
-            }
-        } else if (!archiveDate.equals(other.archiveDate)) {
-            return false;
-        }
-        if (description == null) {
-            if (other.description != null) {
-                return false;
-            }
-        } else if (!description.equals(other.description)) {
-            return false;
-        }
-        if (displayDescription == null) {
-            if (other.displayDescription != null) {
-                return false;
-            }
-        } else if (!displayDescription.equals(other.displayDescription)) {
-            return false;
-        }
-        if (displayName == null) {
-            if (other.displayName != null) {
-                return false;
-            }
-        } else if (!displayName.equals(other.displayName)) {
-            return false;
-        }
-        if (executedBy != other.executedBy) {
-            return false;
-        }
-        if (executedBySubstitute != other.executedBySubstitute) {
-            return false;
-        }
-        if (flownodeDefinitionId != other.flownodeDefinitionId) {
-            return false;
-        }
-        if (parentContainerId != other.parentContainerId) {
-            return false;
-        }
-        if (processDefinitionId != other.processDefinitionId) {
-            return false;
-        }
-        if (processInstanceId != other.processInstanceId) {
-            return false;
-        }
-        if (rootContainerId != other.rootContainerId) {
-            return false;
-        }
-        if (sourceObjectId != other.sourceObjectId) {
-            return false;
-        }
-        if (state == null) {
-            if (other.state != null) {
-                return false;
-            }
-        } else if (!state.equals(other.state)) {
-            return false;
-        }
-        if (terminal != other.terminal) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "ArchivedFlowNodeInstanceImpl [parentContainerId=" + parentContainerId + ", archiveDate=" + archiveDate + ", state=" + state
-                + ", rootContainerId=" + rootContainerId + ", processDefinitionId=" + processDefinitionId + ", processInstanceId=" + processInstanceId
-                + ", displayName=" + displayName + ", displayDescription=" + displayDescription + ", sourceObjectId=" + sourceObjectId + ", description="
-                + description + ", executedBy=" + executedBy + ", flownodeDefinitionId=" + flownodeDefinitionId + ", terminal=" + terminal + ", getName()="
-                + getName() + ", getId()=" + getId() + "]";
     }
 
 }

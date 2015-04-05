@@ -13,10 +13,9 @@
  **/
 package org.bonitasoft.engine.bpm.process.impl;
 
+import org.bonitasoft.engine.bpm.flownode.EndEventDefinition;
+import org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition;
 import org.bonitasoft.engine.bpm.flownode.TerminateEventTriggerDefinition;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.EndEventDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowElementContainerDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.TerminateEventTriggerDefinitionImpl;
 import org.bonitasoft.engine.expression.Expression;
 
 /**
@@ -26,11 +25,11 @@ import org.bonitasoft.engine.expression.Expression;
  */
 public class EndEventDefinitionBuilder extends FlowElementContainerBuilder implements DescriptionBuilder {
 
-    private final EndEventDefinitionImpl endEvent;
+    private final EndEventDefinition endEvent;
 
-    EndEventDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinitionImpl container, final String name) {
+    EndEventDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinition container, final String name) {
         super(container, processDefinitionBuilder);
-        endEvent = new EndEventDefinitionImpl(name);
+        endEvent = new EndEventDefinition(name);
         container.addEndEvent(endEvent);
     }
 
@@ -78,7 +77,7 @@ public class EndEventDefinitionBuilder extends FlowElementContainerBuilder imple
      * @return
      */
     public EndEventDefinitionBuilder addTerminateEventTrigger() {
-        final TerminateEventTriggerDefinition triggerDefinition = new TerminateEventTriggerDefinitionImpl();
+        final TerminateEventTriggerDefinition triggerDefinition = new TerminateEventTriggerDefinition();
         endEvent.setTerminateEventTriggerDefinition(triggerDefinition);
         return this;
     }

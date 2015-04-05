@@ -10,15 +10,15 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.profile;
 
-import org.bonitasoft.engine.bpm.BaseElement;
+import org.bonitasoft.engine.bpm.BaseElementInstance;
 
 /**
  * @author Celine Souchet
  */
-public interface ProfileMember extends BaseElement {
+public interface ProfileMember extends BaseElementInstance {
 
     long getProfileId();
 

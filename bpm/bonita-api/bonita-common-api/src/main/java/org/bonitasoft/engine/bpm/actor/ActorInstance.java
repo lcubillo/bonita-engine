@@ -14,7 +14,9 @@
 package org.bonitasoft.engine.bpm.actor;
 
 import org.bonitasoft.engine.bpm.BaseElement;
+import org.bonitasoft.engine.bpm.BaseElementInstance;
 import org.bonitasoft.engine.bpm.DescriptionElement;
+import org.bonitasoft.engine.bpm.DescriptionElementInstance;
 
 /**
  * Once the {@link org.bonitasoft.engine.bpm.process.ProcessDefinition} is deployed, the associated {@link ActorDefinition}s are instantiated.
@@ -26,7 +28,7 @@ import org.bonitasoft.engine.bpm.DescriptionElement;
  * @since 6.0.0
  * @version 6.4.1
  */
-public interface ActorInstance extends DescriptionElement, BaseElement {
+public interface ActorInstance extends DescriptionElementInstance, BaseElementInstance {
 
     /**
      * Get the identifier of the process definition where this actor is defined.

@@ -13,8 +13,8 @@
  **/
 package org.bonitasoft.engine.bpm.process.impl;
 
-import org.bonitasoft.engine.bpm.actor.impl.ActorDefinitionImpl;
-import org.bonitasoft.engine.bpm.process.impl.internal.DesignProcessDefinitionImpl;
+import org.bonitasoft.engine.bpm.actor.ActorDefinition;
+import org.bonitasoft.engine.bpm.process.DesignProcessDefinition;
 
 /**
  * @author Matthieu Chaffotte
@@ -22,12 +22,12 @@ import org.bonitasoft.engine.bpm.process.impl.internal.DesignProcessDefinitionIm
  */
 public class ActorDefinitionBuilder extends ProcessBuilder implements DescriptionBuilder {
 
-    private final ActorDefinitionImpl actor;
+    private final ActorDefinition actor;
 
-    ActorDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final DesignProcessDefinitionImpl process, final String actorName,
+    ActorDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final DesignProcessDefinition process, final String actorName,
             final boolean initiator) {
         super(process, processDefinitionBuilder);
-        actor = new ActorDefinitionImpl(actorName);
+        actor = new ActorDefinition(actorName);
         actor.setInitiator(initiator);
         if (initiator) {
             process.setActorInitiator(actor);

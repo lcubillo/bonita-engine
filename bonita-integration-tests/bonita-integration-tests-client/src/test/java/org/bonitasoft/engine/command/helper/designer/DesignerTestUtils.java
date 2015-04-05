@@ -48,7 +48,7 @@ public class DesignerTestUtils {
             public String stringify(GatewayDefinition gateway) {
                 String text = gateway.getName();
                 if (gateway.getDefaultTransition() != null) {
-                    text += " (" + gateway.getDefaultTransition().getName() + ")";
+                    text += " (" + gateway.getDefaultTransition().getId() + ")";
                 }
                 return text;
             }
@@ -61,7 +61,7 @@ public class DesignerTestUtils {
             public String stringify(ActivityDefinition activity) {
                 String text = activity.getName();
                 if (activity.getDefaultTransition() != null) {
-                    text += " (" + activity.getDefaultTransition().getName() + ")";
+                    text += " (" + activity.getDefaultTransition().getId() + ")";
                 }
                 return text;
             }
@@ -72,7 +72,7 @@ public class DesignerTestUtils {
         return stringify(design.getProcessContainer().getTransitions(), new Stringifier<TransitionDefinition>() {
             @Override
             public String stringify(TransitionDefinition transition) {
-                String text = transition.getName();
+                String text = String.valueOf(transition.getId());
                 if (transition.getCondition() != null) {
                     text += " (" + transition.getCondition().getName() + ")";
                 }

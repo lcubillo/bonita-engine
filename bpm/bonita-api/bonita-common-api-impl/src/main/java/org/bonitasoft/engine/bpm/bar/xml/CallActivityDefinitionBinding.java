@@ -17,8 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.bonitasoft.engine.bpm.flownode.CallActivityDefinition;
 import org.bonitasoft.engine.bpm.flownode.CallableElementType;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.CallActivityDefinitionImpl;
 import org.bonitasoft.engine.expression.Expression;
 import org.bonitasoft.engine.operation.Operation;
 
@@ -32,7 +32,7 @@ public class CallActivityDefinitionBinding extends ActivityDefinitionBinding {
 
     private Expression callableElementVersion;
 
-    private final List<Operation> dataInputOperations = new ArrayList<Operation>(3);
+    private final List<Operation> dataInputOperations = new ArrayList<>(3);
 
     private final List<Operation> dataOutOperations = new ArrayList<Operation>(3);
 
@@ -40,7 +40,7 @@ public class CallActivityDefinitionBinding extends ActivityDefinitionBinding {
 
     @Override
     public Object getObject() {
-        final CallActivityDefinitionImpl callActivityDefinitionImpl = new CallActivityDefinitionImpl(id, name);
+        final CallActivityDefinition callActivityDefinitionImpl = new CallActivityDefinition(id, name);
         fillNode(callActivityDefinitionImpl);
         return callActivityDefinitionImpl;
     }
@@ -70,7 +70,7 @@ public class CallActivityDefinitionBinding extends ActivityDefinitionBinding {
         callableElementType = CallableElementType.valueOf(attributes.get(XMLProcessDefinition.CALLABLE_ELEMENT_TYPE));
     }
 
-    protected void fillNode(final CallActivityDefinitionImpl callActivity) {
+    protected void fillNode(final CallActivityDefinition callActivity) {
         super.fillNode(callActivity);
         callActivity.setCallableElement(callableElement);
         callActivity.setCallableElementVersion(callableElementVersion);

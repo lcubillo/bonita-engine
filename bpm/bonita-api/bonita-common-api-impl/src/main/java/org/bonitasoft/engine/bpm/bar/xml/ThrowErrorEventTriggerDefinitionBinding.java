@@ -13,7 +13,8 @@
  **/
 package org.bonitasoft.engine.bpm.bar.xml;
 
-import org.bonitasoft.engine.bpm.flownode.impl.internal.ThrowErrorEventTriggerDefinitionImpl;
+
+import org.bonitasoft.engine.bpm.flownode.ThrowErrorEventTriggerDefinition;
 
 /**
  * @author Elias Ricken de Medeiros
@@ -23,7 +24,7 @@ public class ThrowErrorEventTriggerDefinitionBinding extends ErrorEventTriggerDe
     @Override
     public Object getObject() {
         final String errorCode = getErrorCode();
-        return new ThrowErrorEventTriggerDefinitionImpl(errorCode);
+        return new ThrowErrorEventTriggerDefinition(errorCode);
     }
 
     @Override

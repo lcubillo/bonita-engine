@@ -13,7 +13,8 @@
  **/
 package org.bonitasoft.engine.bpm.bar.xml;
 
-import org.bonitasoft.engine.bpm.flownode.impl.internal.ThrowSignalEventTriggerDefinitionImpl;
+
+import org.bonitasoft.engine.bpm.flownode.ThrowSignalEventTriggerDefinition;
 
 /**
  * @author Matthieu Chaffotte
@@ -23,7 +24,7 @@ public class ThrowSignalEventTriggerDefinitionBinding extends SignalEventTrigger
     @Override
     public Object getObject() {
         final String signalName = getSignalName();
-        return new ThrowSignalEventTriggerDefinitionImpl(signalName);
+        return new ThrowSignalEventTriggerDefinition(signalName);
     }
 
     @Override

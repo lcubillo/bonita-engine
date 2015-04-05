@@ -42,8 +42,10 @@ import org.bonitasoft.engine.bpm.flownode.CatchMessageEventTriggerDefinition;
 import org.bonitasoft.engine.bpm.flownode.CatchSignalEventTriggerDefinition;
 import org.bonitasoft.engine.bpm.flownode.CorrelationDefinition;
 import org.bonitasoft.engine.bpm.flownode.EndEventDefinition;
+import org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition;
 import org.bonitasoft.engine.bpm.flownode.FlowNodeDefinition;
 import org.bonitasoft.engine.bpm.flownode.GatewayDefinition;
+import org.bonitasoft.engine.bpm.flownode.HumanTaskDefinition;
 import org.bonitasoft.engine.bpm.flownode.IntermediateCatchEventDefinition;
 import org.bonitasoft.engine.bpm.flownode.IntermediateThrowEventDefinition;
 import org.bonitasoft.engine.bpm.flownode.LoopCharacteristics;
@@ -59,14 +61,11 @@ import org.bonitasoft.engine.bpm.flownode.ThrowSignalEventTriggerDefinition;
 import org.bonitasoft.engine.bpm.flownode.TimerEventTriggerDefinition;
 import org.bonitasoft.engine.bpm.flownode.TransitionDefinition;
 import org.bonitasoft.engine.bpm.flownode.UserTaskDefinition;
-import org.bonitasoft.engine.bpm.flownode.impl.FlowElementContainerDefinition;
-import org.bonitasoft.engine.bpm.flownode.impl.HumanTaskDefinition;
 import org.bonitasoft.engine.bpm.flownode.impl.internal.MultiInstanceLoopCharacteristics;
 import org.bonitasoft.engine.bpm.flownode.impl.internal.StandardLoopCharacteristics;
 import org.bonitasoft.engine.bpm.parameter.ParameterDefinition;
 import org.bonitasoft.engine.bpm.process.DesignProcessDefinition;
 import org.bonitasoft.engine.bpm.process.SubProcessDefinition;
-import org.bonitasoft.engine.bpm.process.impl.internal.SubProcessDefinitionImpl;
 import org.bonitasoft.engine.bpm.userfilter.UserFilterDefinition;
 import org.bonitasoft.engine.exception.BonitaRuntimeException;
 import org.bonitasoft.engine.expression.Expression;
@@ -665,7 +664,7 @@ public class XMLProcessDefinition {
             xmlNodeName = MANUAL_TASK_NODE;
         } else if (activity instanceof UserTaskDefinition) {
             xmlNodeName = USER_TASK_NODE;
-        } else if (activity instanceof SubProcessDefinitionImpl) {
+        } else if (activity instanceof SubProcessDefinition) {
             xmlNodeName = SUB_PROCESS;
         }
         // TODO else throw exception
@@ -1152,7 +1151,6 @@ public class XMLProcessDefinition {
     }
 
     private void fillTransitionNode(final XMLNode transitionNode, final TransitionDefinition transition) {
-        transitionNode.addAttribute(NAME, transition.getName());
         transitionNode.addAttribute(TRANSITION_SOURCE, String.valueOf(transition.getSource()));
         transitionNode.addAttribute(TRANSITION_TARGET, String.valueOf(transition.getTarget()));
         if (transition.getCondition() != null) {

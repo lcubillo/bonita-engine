@@ -13,14 +13,14 @@
  **/
 package org.bonitasoft.engine.bpm.parameter.impl;
 
-import org.bonitasoft.engine.bpm.internal.NamedElementImpl;
+import org.bonitasoft.engine.bpm.NamedElement;
 import org.bonitasoft.engine.bpm.parameter.ParameterInstance;
 
 
 /**
  * @author Matthieu Chaffotte
  */
-public class ParameterImpl extends NamedElementImpl implements ParameterInstance {
+public class ParameterImpl extends NamedElement implements ParameterInstance {
 
     private static final long serialVersionUID = 4096607590317516470L;
 

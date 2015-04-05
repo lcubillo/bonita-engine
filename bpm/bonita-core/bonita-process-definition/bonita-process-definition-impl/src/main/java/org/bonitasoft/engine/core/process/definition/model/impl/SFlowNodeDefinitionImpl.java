@@ -70,7 +70,7 @@ public abstract class SFlowNodeDefinitionImpl extends SNamedElementImpl implemen
         incomings = buildIncomingTransitions(flowNodeDefinition, sTransitionsMap);
         outgoings = buildOutGoingTransitions(flowNodeDefinition, sTransitionsMap);
         if (flowNodeDefinition.getDefaultTransition() != null) {
-            defaultTransition = sTransitionsMap.get(flowNodeDefinition.getDefaultTransition().getName());
+            defaultTransition = sTransitionsMap.get(String.valueOf(flowNodeDefinition.getDefaultTransition().getId()));
         }
         final List<ConnectorDefinition> connectors2 = flowNodeDefinition.getConnectors();
         final ArrayList<SConnectorDefinition> mConnectors = new ArrayList<SConnectorDefinition>(connectors2.size());
@@ -121,7 +121,7 @@ public abstract class SFlowNodeDefinitionImpl extends SNamedElementImpl implemen
         iterator = outgoingTransitions.iterator();
         while (iterator.hasNext()) {
             final TransitionDefinition sTransition = iterator.next();
-            final STransitionDefinition outgoing = sTransitionsMap.get(sTransition.getName());
+            final STransitionDefinition outgoing = sTransitionsMap.get(sTransition.getId());
             outgoings.add(outgoing);
         }
         return outgoings;
@@ -134,7 +134,7 @@ public abstract class SFlowNodeDefinitionImpl extends SNamedElementImpl implemen
         final Iterator<TransitionDefinition> iterator = incomingTransitions.iterator();
         while (iterator.hasNext()) {
             final TransitionDefinition sTransition = iterator.next();
-            final STransitionDefinition incoming = sTransitionsMap.get(sTransition.getName());
+            final STransitionDefinition incoming = sTransitionsMap.get(sTransition.getId());
             incomings.add(incoming);
         }
         return incomings;

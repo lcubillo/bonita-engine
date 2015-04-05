@@ -16,7 +16,6 @@ package org.bonitasoft.engine.bpm.bar.xml;
 import java.util.Map;
 
 import org.bonitasoft.engine.bpm.document.DocumentDefinition;
-import org.bonitasoft.engine.bpm.document.impl.DocumentDefinitionImpl;
 
 /**
  * @author Baptiste Mesta
@@ -62,7 +61,7 @@ public class DocumentDefinitionBinding extends NamedElementBinding {
 
     @Override
     public DocumentDefinition getObject() {
-        final DocumentDefinitionImpl documentDefinitionImpl = new DocumentDefinitionImpl(name);
+        final DocumentDefinition documentDefinitionImpl = new DocumentDefinition(name);
         documentDefinitionImpl.setMimeType(mimeType);
         if (description != null) {
             documentDefinitionImpl.setDescription(description);

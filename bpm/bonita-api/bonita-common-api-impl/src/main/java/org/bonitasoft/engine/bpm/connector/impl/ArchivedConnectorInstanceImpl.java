@@ -15,15 +15,15 @@ package org.bonitasoft.engine.bpm.connector.impl;
 
 import java.util.Date;
 
+import org.bonitasoft.engine.bpm.NamedElement;
 import org.bonitasoft.engine.bpm.connector.ArchivedConnectorInstance;
 import org.bonitasoft.engine.bpm.connector.ConnectorEvent;
 import org.bonitasoft.engine.bpm.connector.ConnectorState;
-import org.bonitasoft.engine.bpm.internal.NamedElementImpl;
 
 /**
  * @author Baptiste Mesta
  */
-public class ArchivedConnectorInstanceImpl extends NamedElementImpl implements ArchivedConnectorInstance {
+public class ArchivedConnectorInstanceImpl extends NamedElement implements ArchivedConnectorInstance {
 
     private static final long serialVersionUID = 1740487116886845229L;
 

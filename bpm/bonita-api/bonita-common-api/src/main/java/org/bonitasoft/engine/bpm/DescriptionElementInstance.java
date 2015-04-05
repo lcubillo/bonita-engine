@@ -10,28 +10,22 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
-package org.bonitasoft.engine.bpm.internal;
-
-import org.bonitasoft.engine.bpm.DescriptionElement;
+ */
+package org.bonitasoft.engine.bpm;
 
 /**
+ * Interface <code>BaseElement</code> describes a <code>NamedElement</code>.
+ *
  * @author Matthieu Chaffotte
+ * @since 6.0.0
  */
-public class DescriptionElementImpl extends NamedElementImpl implements DescriptionElement {
+public interface DescriptionElementInstance extends NamedElementInstance {
 
-    private static final long serialVersionUID = 9005761084270734316L;
-
-    private final String description;
-
-    public DescriptionElementImpl(final String name, final String description) {
-        super(name);
-        this.description = description;
-    }
-
-    @Override
-    public String getDescription() {
-        return description;
-    }
+    /**
+     * Gets the element description.
+     *
+     * @return the element description
+     */
+    String getDescription();
 
 }

@@ -13,10 +13,10 @@
  **/
 package org.bonitasoft.engine.bpm.process.impl;
 
-import org.bonitasoft.engine.bpm.data.impl.XMLDataDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.ActivityDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.CatchMessageEventTriggerDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowElementContainerDefinitionImpl;
+import org.bonitasoft.engine.bpm.data.XMLDataDefinition;
+import org.bonitasoft.engine.bpm.flownode.ActivityDefinition;
+import org.bonitasoft.engine.bpm.flownode.CatchMessageEventTriggerDefinition;
+import org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition;
 import org.bonitasoft.engine.expression.Expression;
 
 /**
@@ -25,26 +25,26 @@ import org.bonitasoft.engine.expression.Expression;
  */
 public class XMLDataDefinitionBuilder extends DataDefinitionBuilder {
 
-    public XMLDataDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinitionImpl process,
+    public XMLDataDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinition process,
             final String name, final String className, final Expression defaultValue) {
         super(processDefinitionBuilder, process, getTextData(name, className, defaultValue));
         processDefinitionBuilder.checkExpression(toString(), defaultValue);
     }
 
-    public XMLDataDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinitionImpl process,
-            final ActivityDefinitionImpl activity, final String name, final String className, final Expression defaultValue) {
+    public XMLDataDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinition process,
+            final ActivityDefinition activity, final String name, final String className, final Expression defaultValue) {
         super(processDefinitionBuilder, process, activity, getTextData(name, className, defaultValue));
         processDefinitionBuilder.checkExpression(toString(), defaultValue);
     }
 
-    public XMLDataDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinitionImpl container,
-            final CatchMessageEventTriggerDefinitionImpl messageEventTrigger, final String name, final String className, final Expression defaultValue) {
+    public XMLDataDefinitionBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinition container,
+            final CatchMessageEventTriggerDefinition messageEventTrigger, final String name, final String className, final Expression defaultValue) {
         super(processDefinitionBuilder, container, messageEventTrigger, getTextData(name, className, defaultValue));
         processDefinitionBuilder.checkExpression(toString(), defaultValue);
     }
 
-    private static XMLDataDefinitionImpl getTextData(final String name, final String className, final Expression defaultValue) {
-        final XMLDataDefinitionImpl xml = new XMLDataDefinitionImpl(name, defaultValue);
+    private static XMLDataDefinition getTextData(final String name, final String className, final Expression defaultValue) {
+        final XMLDataDefinition xml = new XMLDataDefinition(name, defaultValue);
         xml.setClassName(className);
         return xml;
     }
@@ -55,7 +55,7 @@ public class XMLDataDefinitionBuilder extends DataDefinitionBuilder {
      * @return
      */
     public XMLDataDefinitionBuilder setNamespace(final String nameSpace) {
-        ((XMLDataDefinitionImpl) getDataDefinition()).setNamespace(nameSpace);
+        ((XMLDataDefinition) getDataDefinition()).setNamespace(nameSpace);
         return this;
     }
 
@@ -65,7 +65,7 @@ public class XMLDataDefinitionBuilder extends DataDefinitionBuilder {
      * @return
      */
     public XMLDataDefinitionBuilder setElement(final String element) {
-        ((XMLDataDefinitionImpl) getDataDefinition()).setElement(element);
+        ((XMLDataDefinition) getDataDefinition()).setElement(element);
         return this;
     }
 

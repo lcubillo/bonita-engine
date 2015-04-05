@@ -10,26 +10,24 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
-package org.bonitasoft.engine.bpm.flownode.impl.internal;
-
-import org.bonitasoft.engine.bpm.flownode.TaskDefinition;
+ */
+package org.bonitasoft.engine.bpm;
 
 /**
+ * Interface <code>BaseElement</code> identifies a <code>BonitaObject</code>.
+ *
  * @author Baptiste Mesta
- * @author Matthieu Chaffotte
- * @author Celine Souchet
  */
-public abstract class TaskDefinitionImpl extends ActivityDefinitionImpl implements TaskDefinition {
+public interface BaseElementInstance extends BonitaObject {
 
-    private static final long serialVersionUID = -3525871456523308720L;
 
-    public TaskDefinitionImpl(final String name) {
-        super(name);
-    }
+    /**
+     * Gets the unique object identifier.
+     *
+     * @return the unique object identifier
+     */
+    long getId();
 
-    public TaskDefinitionImpl(final long id, final String name) {
-        super(id, name);
-    }
+
 
 }

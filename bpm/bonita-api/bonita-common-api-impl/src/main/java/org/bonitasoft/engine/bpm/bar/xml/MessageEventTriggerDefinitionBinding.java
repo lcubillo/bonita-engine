@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.bonitasoft.engine.bpm.flownode.CorrelationDefinition;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.MessageEventTriggerDefinitionImpl;
+import org.bonitasoft.engine.bpm.flownode.MessageEventTriggerDefinition;
 import org.bonitasoft.engine.io.xml.ElementBinding;
 
 /**
@@ -46,7 +46,7 @@ public abstract class MessageEventTriggerDefinitionBinding extends ElementBindin
         }
     }
 
-    protected void fillNode(final MessageEventTriggerDefinitionImpl messageEventTrigger) {
+    protected void fillNode(final MessageEventTriggerDefinition messageEventTrigger) {
         for (final CorrelationDefinition correlation : correlations) {
             messageEventTrigger.addCorrelation(correlation.getKey(), correlation.getValue());
         }

@@ -13,7 +13,8 @@
  **/
 package org.bonitasoft.engine.bpm.bar.xml;
 
-import org.bonitasoft.engine.bpm.flownode.impl.internal.IntermediateCatchEventDefinitionImpl;
+
+import org.bonitasoft.engine.bpm.flownode.IntermediateCatchEventDefinition;
 
 /**
  * @author Elias Ricken de Medeiros
@@ -23,7 +24,7 @@ public class IntermediateCatchEventBinding extends CatchEventDefinitionBinding {
 
     @Override
     public Object getObject() {
-        final IntermediateCatchEventDefinitionImpl intermediateCatchEventDefinitionImpl = new IntermediateCatchEventDefinitionImpl(id, name);
+        final IntermediateCatchEventDefinition intermediateCatchEventDefinitionImpl = new IntermediateCatchEventDefinition(id, name);
         fillNode(intermediateCatchEventDefinitionImpl);
         return intermediateCatchEventDefinitionImpl;
     }

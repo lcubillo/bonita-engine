@@ -13,8 +13,8 @@
  **/
 package org.bonitasoft.engine.bpm.bar.xml;
 
+import org.bonitasoft.engine.bpm.flownode.SendTaskDefinition;
 import org.bonitasoft.engine.bpm.flownode.ThrowMessageEventTriggerDefinition;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.SendTaskDefinitionImpl;
 
 /**
  * @author Matthieu Chaffotte
@@ -25,7 +25,7 @@ public class SendTaskDefinitionBinding extends ActivityDefinitionBinding {
 
     @Override
     public Object getObject() {
-        final SendTaskDefinitionImpl sendTask = new SendTaskDefinitionImpl(id, name, trigger);
+        final SendTaskDefinition sendTask = new SendTaskDefinition(id, name, trigger);
         fillNode(sendTask);
         return sendTask;
     }

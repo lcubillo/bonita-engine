@@ -17,7 +17,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.bonitasoft.engine.bpm.contract.SimpleInputDefinition;
 import org.bonitasoft.engine.bpm.contract.Type;
-import org.bonitasoft.engine.bpm.contract.impl.SimpleInputDefinitionImpl;
 import org.bonitasoft.engine.core.process.definition.model.SType;
 import org.junit.Test;
 
@@ -38,7 +37,7 @@ public class SSimpleInputDefinitionImplTest {
     @Test
     public void constructor_with_input_definition() throws Exception {
         //given
-        final SimpleInputDefinition simpleInput = new SimpleInputDefinitionImpl(NAME, Type.TEXT, DESCRIPTION, true);
+        final SimpleInputDefinition simpleInput = new SimpleInputDefinition(NAME, Type.TEXT, DESCRIPTION, true);
 
         //when
         final SSimpleInputDefinitionImpl sSimpleInputDefinitionImpl = new SSimpleInputDefinitionImpl(simpleInput);

@@ -10,31 +10,41 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.document;
 
-import org.bonitasoft.engine.bpm.NamedElement;
+import org.bonitasoft.engine.bpm.DescriptionElement;
 import org.bonitasoft.engine.expression.Expression;
 
 /**
  * A document list is a named element that define a list of document on a process
  * It contains 0 or more document and have a name to reference it in the process instance
  * It is initialized when the process start using the {@link #getExpression()} expression
- * 
+ *
  * @author Baptiste Mesta
  * @author Matthieu Chaffotte
  * @author Celine Souchet
  */
-public interface DocumentListDefinition extends NamedElement {
+public class DocumentListDefinition extends DescriptionElement {
 
-    /**
-     * @return The description of the document
-     */
-    String getDescription();
+    private static final long serialVersionUID = 2L;
+
+    private Expression expression;
+
+    public DocumentListDefinition(final String name) {
+        super(name);
+    }
 
     /**
      * @return thr initial value of the document list
      */
-    Expression getExpression();
+    public Expression getExpression() {
+        return expression;
+    }
+
+    public void setExpression(Expression expression) {
+        this.expression = expression;
+    }
+
 
 }

@@ -13,13 +13,13 @@
  **/
 package org.bonitasoft.engine.profile.impl;
 
-import org.bonitasoft.engine.bpm.internal.NamedElementImpl;
+import org.bonitasoft.engine.bpm.NamedElement;
 import org.bonitasoft.engine.profile.ProfileEntry;
 
 /**
  * @author Celine Souchet
  */
-public class ProfileEntryImpl extends NamedElementImpl implements ProfileEntry {
+public class ProfileEntryImpl extends NamedElement implements ProfileEntry {
 
     private static final long serialVersionUID = -6338293070515058067L;
 

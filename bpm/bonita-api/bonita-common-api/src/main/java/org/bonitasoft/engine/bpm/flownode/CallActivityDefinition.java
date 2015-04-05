@@ -10,9 +10,11 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.flownode;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.bonitasoft.engine.expression.Expression;
@@ -22,16 +24,65 @@ import org.bonitasoft.engine.operation.Operation;
  * @author Elias Ricken de Medeiros
  *
  */
-public interface CallActivityDefinition extends ActivityDefinition {
+public class CallActivityDefinition extends ActivityDefinition {
+    private static final long serialVersionUID = 2L;
+    private final List<Operation> dataInputOperations;
+    private final List<Operation> dataOutputOperations;
+    private Expression callableElement;
+    private Expression callableElementVersion;
+    private CallableElementType callableElementType;
 
-    Expression getCallableElement();
+    public CallActivityDefinition(final String name) {
+        super(name);
+        dataInputOperations = new ArrayList<>(3);
+        dataOutputOperations = new ArrayList<>(3);
+    }
 
-    Expression getCallableElementVersion();
+    public CallActivityDefinition(final long id, final String name) {
+        super(id, name);
+        dataInputOperations = new ArrayList<>(3);
+        dataOutputOperations = new ArrayList<>(3);
+    }
 
-    List<Operation> getDataInputOperations();
+    public Expression getCallableElement() {
+        return callableElement;
+    }
 
-    List<Operation> getDataOutputOperations();
+    public void setCallableElement(final Expression callableElement) {
+        this.callableElement = callableElement;
+    }
 
-    CallableElementType getCallableElementType();
+    public Expression getCallableElementVersion() {
+        return callableElementVersion;
+    }
+
+    public void setCallableElementVersion(final Expression callableElementVersion) {
+        this.callableElementVersion = callableElementVersion;
+    }
+
+    public List<Operation> getDataInputOperations() {
+        return Collections.unmodifiableList(dataInputOperations);
+    }
+
+    public void addDataInputOperation(final Operation dataInputOperation) {
+        dataInputOperations.add(dataInputOperation);
+    }
+
+    public List<Operation> getDataOutputOperations() {
+        return Collections.unmodifiableList(dataOutputOperations);
+    }
+
+    public void addDataOutputOperation(final Operation dataOutputOperation) {
+        dataOutputOperations.add(dataOutputOperation);
+    }
+
+    public CallableElementType getCallableElementType() {
+        return callableElementType;
+    }
+
+    public void setCallableElementType(final CallableElementType callableElementType) {
+        this.callableElementType = callableElementType;
+    }
+
 
 }

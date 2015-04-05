@@ -15,8 +15,8 @@ package org.bonitasoft.engine.bpm.bar.xml;
 
 import java.util.Map;
 
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowNodeDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.HumanTaskDefinitionImpl;
+import org.bonitasoft.engine.bpm.flownode.FlowNodeDefinition;
+import org.bonitasoft.engine.bpm.flownode.HumanTaskDefinition;
 import org.bonitasoft.engine.bpm.userfilter.UserFilterDefinition;
 
 /**
@@ -54,16 +54,16 @@ public abstract class HumanTaskDefinitionBinding extends ActivityDefinitionBindi
     }
 
     @Override
-    protected void fillNode(final FlowNodeDefinitionImpl flowNode) {
+    protected void fillNode(final FlowNodeDefinition flowNode) {
         super.fillNode(flowNode);
         if (userFilter != null) {
-            ((HumanTaskDefinitionImpl) flowNode).setUserFilter(userFilter);
+            ((HumanTaskDefinition) flowNode).setUserFilter(userFilter);
         }
         if (priority != null) {
-            ((HumanTaskDefinitionImpl) flowNode).setPriority(priority);
+            ((HumanTaskDefinition) flowNode).setPriority(priority);
         }
         if (expectedDuration != null) {
-            ((HumanTaskDefinitionImpl) flowNode).setExpectedDuration(expectedDuration);
+            ((HumanTaskDefinition) flowNode).setExpectedDuration(expectedDuration);
         }
     }
 

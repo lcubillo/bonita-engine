@@ -14,7 +14,9 @@
 package org.bonitasoft.engine.profile;
 
 import org.bonitasoft.engine.bpm.BaseElement;
+import org.bonitasoft.engine.bpm.BaseElementInstance;
 import org.bonitasoft.engine.bpm.NamedElement;
+import org.bonitasoft.engine.bpm.NamedElementInstance;
 
 /**
  * A <code>ProfileEntry</code> represents a menu entry (inside the main top menu bar) in the Bonita BPM Portal. It can be a container (that contains other
@@ -24,7 +26,7 @@ import org.bonitasoft.engine.bpm.NamedElement;
  * @author Emmanuel Duchastenier
  * @author Julien Mege
  */
-public interface ProfileEntry extends NamedElement, BaseElement {
+public interface ProfileEntry extends NamedElementInstance, BaseElementInstance {
 
     /**
      * @return the ID of the parent ProfileEntry.

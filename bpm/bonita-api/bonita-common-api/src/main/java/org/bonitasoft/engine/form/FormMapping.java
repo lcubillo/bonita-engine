@@ -10,17 +10,17 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.form;
 
 import java.util.Date;
 
-import org.bonitasoft.engine.bpm.BaseElement;
+import org.bonitasoft.engine.bpm.BaseElementInstance;
 
 /**
  * @author Baptiste Mesta
  */
-public class FormMapping implements BaseElement {
+public class FormMapping implements BaseElementInstance {
 
     private static final long serialVersionUID = 1L;
 

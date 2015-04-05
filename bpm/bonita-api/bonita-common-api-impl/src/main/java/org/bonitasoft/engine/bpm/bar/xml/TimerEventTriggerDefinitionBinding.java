@@ -15,8 +15,8 @@ package org.bonitasoft.engine.bpm.bar.xml;
 
 import java.util.Map;
 
+import org.bonitasoft.engine.bpm.flownode.TimerEventTriggerDefinition;
 import org.bonitasoft.engine.bpm.flownode.TimerType;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.TimerEventTriggerDefinitionImpl;
 import org.bonitasoft.engine.expression.Expression;
 import org.bonitasoft.engine.io.xml.ElementBinding;
 
@@ -51,7 +51,7 @@ public class TimerEventTriggerDefinitionBinding extends ElementBinding {
 
     @Override
     public Object getObject() {
-        return new TimerEventTriggerDefinitionImpl(timerType, timerExpression);
+        return new TimerEventTriggerDefinition(timerType, timerExpression);
     }
 
     @Override

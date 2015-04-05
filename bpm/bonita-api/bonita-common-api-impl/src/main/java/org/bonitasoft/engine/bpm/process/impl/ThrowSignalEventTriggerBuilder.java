@@ -13,10 +13,10 @@
  **/
 package org.bonitasoft.engine.bpm.process.impl;
 
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowElementContainerDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.ThrowEventDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.ThrowSignalEventTriggerDefinitionImpl;
 
+import org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition;
+import org.bonitasoft.engine.bpm.flownode.ThrowEventDefinition;
+import org.bonitasoft.engine.bpm.flownode.ThrowSignalEventTriggerDefinition;
 
 /**
  * @author Matthieu Chaffotte
@@ -24,10 +24,10 @@ import org.bonitasoft.engine.bpm.flownode.impl.internal.ThrowSignalEventTriggerD
  */
 public class ThrowSignalEventTriggerBuilder extends FlowElementContainerBuilder {
 
-    ThrowSignalEventTriggerBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinitionImpl container,
-            final ThrowEventDefinitionImpl event, final String signalName) {
+    ThrowSignalEventTriggerBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinition container,
+            final ThrowEventDefinition event, final String signalName) {
         super(container, processDefinitionBuilder);
-        final ThrowSignalEventTriggerDefinitionImpl signalEventTrigger = new ThrowSignalEventTriggerDefinitionImpl(signalName);
+        final ThrowSignalEventTriggerDefinition signalEventTrigger = new ThrowSignalEventTriggerDefinition(signalName);
         event.addSignalEventTriggerDefinition(signalEventTrigger);
     }
 

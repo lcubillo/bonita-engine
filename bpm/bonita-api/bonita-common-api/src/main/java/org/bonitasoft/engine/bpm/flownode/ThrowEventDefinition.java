@@ -10,21 +10,55 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.flownode;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-
 
 
 /**
  * @author Elias Ricken de Medeiros
  * @author Matthieu Chaffotte
  */
-public interface ThrowEventDefinition extends EventDefinition {
+public abstract class ThrowEventDefinition extends EventDefinition {
 
-    List<ThrowMessageEventTriggerDefinition> getMessageEventTriggerDefinitions();
 
-    List<ThrowSignalEventTriggerDefinition> getSignalEventTriggerDefinitions();
+    private static final long serialVersionUID = -3142554305988571206L;
+
+    private final List<ThrowMessageEventTriggerDefinition> messageEventTriggerDefinitions;
+
+    private final List<ThrowSignalEventTriggerDefinition> signalEventTriggerDefinitions;
+
+    public ThrowEventDefinition(final String name) {
+        super(name);
+        messageEventTriggerDefinitions = new ArrayList<>(1);
+        signalEventTriggerDefinitions = new ArrayList<>(1);
+    }
+
+    public ThrowEventDefinition(final long id, final String name) {
+        super(id, name);
+        messageEventTriggerDefinitions = new ArrayList<>(1);
+        signalEventTriggerDefinitions = new ArrayList<>(1);
+    }
+
+    public List<ThrowMessageEventTriggerDefinition> getMessageEventTriggerDefinitions() {
+        return Collections.unmodifiableList(messageEventTriggerDefinitions);
+    }
+
+    public void addMessageEventTriggerDefinition(final ThrowMessageEventTriggerDefinition messageEventTriggerDefinition) {
+        messageEventTriggerDefinitions.add(messageEventTriggerDefinition);
+        addEventTrigger(messageEventTriggerDefinition);
+    }
+
+    public List<ThrowSignalEventTriggerDefinition> getSignalEventTriggerDefinitions() {
+        return Collections.unmodifiableList(signalEventTriggerDefinitions);
+    }
+
+    public void addSignalEventTriggerDefinition(final ThrowSignalEventTriggerDefinition signalEventTrigger) {
+        signalEventTriggerDefinitions.add(signalEventTrigger);
+        addEventTrigger(signalEventTrigger);
+    }
 
 }

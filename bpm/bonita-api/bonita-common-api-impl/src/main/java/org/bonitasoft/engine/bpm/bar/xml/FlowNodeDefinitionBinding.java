@@ -18,8 +18,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.bonitasoft.engine.bpm.connector.ConnectorDefinition;
+import org.bonitasoft.engine.bpm.flownode.FlowNodeDefinition;
 import org.bonitasoft.engine.bpm.flownode.TransitionDefinition;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowNodeDefinitionImpl;
 import org.bonitasoft.engine.expression.Expression;
 
 /**
@@ -70,7 +70,7 @@ public abstract class FlowNodeDefinitionBinding extends NamedElementBinding {
         }
     }
 
-    protected void fillNode(final FlowNodeDefinitionImpl flowNode) {
+    protected void fillNode(final FlowNodeDefinition flowNode) {
         flowNode.setDescription(description);
         flowNode.setDisplayName(displayName);
         flowNode.setDisplayDescriptionAfterCompletion(displayDescriptionAfterCompletion);

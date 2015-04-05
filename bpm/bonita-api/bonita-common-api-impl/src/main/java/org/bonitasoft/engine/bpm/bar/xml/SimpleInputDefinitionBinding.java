@@ -15,8 +15,8 @@ package org.bonitasoft.engine.bpm.bar.xml;
 
 import java.util.Map;
 
+import org.bonitasoft.engine.bpm.contract.SimpleInputDefinition;
 import org.bonitasoft.engine.bpm.contract.Type;
-import org.bonitasoft.engine.bpm.contract.impl.SimpleInputDefinitionImpl;
 import org.bonitasoft.engine.io.xml.XMLParseException;
 
 /**
@@ -42,7 +42,7 @@ public class SimpleInputDefinitionBinding extends InputDefinitionBinding{
 
     @Override
     public Object getObject() {
-        return new SimpleInputDefinitionImpl(name, type, description,multiple);
+        return new SimpleInputDefinition(name, type, description,multiple);
     }
 
     @Override

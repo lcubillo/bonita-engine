@@ -10,17 +10,43 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.flownode;
 
 
+import org.bonitasoft.engine.expression.Expression;
+import org.bonitasoft.engine.operation.Operation;
 
 /**
  * @author Julien Molinaro
  * @author Matthieu Chaffotte
  */
-public interface ReceiveTaskDefinition extends TaskDefinition {
+public class ReceiveTaskDefinition extends TaskDefinition {
+    private static final long serialVersionUID = 2L;
 
-    CatchMessageEventTriggerDefinition getTrigger();
+    private final CatchMessageEventTriggerDefinition trigger;
+
+    public ReceiveTaskDefinition(final String name, final String messageName) {
+        super(name);
+        trigger = new CatchMessageEventTriggerDefinition(messageName);
+    }
+
+    public ReceiveTaskDefinition(final long id, final String name, final CatchMessageEventTriggerDefinition catchMessageEventTriggerDefinition) {
+        super(id, name);
+        trigger = new CatchMessageEventTriggerDefinition(catchMessageEventTriggerDefinition);
+    }
+
+    public void addCorrelation(final Expression key, final Expression value) {
+        trigger.addCorrelation(key, value);
+    }
+
+    public void addMessageOperation(final Operation operation) {
+        trigger.addOperation(operation);
+    }
+
+    public CatchMessageEventTriggerDefinition getTrigger() {
+        return trigger;
+    }
+
 
 }

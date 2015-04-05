@@ -17,11 +17,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.bonitasoft.engine.bpm.flownode.CatchEventDefinition;
 import org.bonitasoft.engine.bpm.flownode.CatchMessageEventTriggerDefinition;
 import org.bonitasoft.engine.bpm.flownode.CatchSignalEventTriggerDefinition;
+import org.bonitasoft.engine.bpm.flownode.FlowNodeDefinition;
 import org.bonitasoft.engine.bpm.flownode.TimerEventTriggerDefinition;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.CatchEventDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowNodeDefinitionImpl;
 
 /**
  * @author Baptiste Mesta
@@ -39,9 +39,9 @@ public abstract class CatchEventDefinitionBinding extends FlowNodeDefinitionBind
 
     public CatchEventDefinitionBinding() {
         super();
-        timerEventTriggers = new ArrayList<TimerEventTriggerDefinition>();
-        messageEventTriggers = new ArrayList<CatchMessageEventTriggerDefinition>();
-        signalEventTriggers = new ArrayList<CatchSignalEventTriggerDefinition>();
+        timerEventTriggers = new ArrayList<>();
+        messageEventTriggers = new ArrayList<>();
+        signalEventTriggers = new ArrayList<>();
     }
 
     @Override
@@ -70,9 +70,9 @@ public abstract class CatchEventDefinitionBinding extends FlowNodeDefinitionBind
     }
 
     @Override
-    protected void fillNode(final FlowNodeDefinitionImpl flowNode) {
+    protected void fillNode(final FlowNodeDefinition flowNode) {
         super.fillNode(flowNode);
-        final CatchEventDefinitionImpl catchEventDefinition = (CatchEventDefinitionImpl) flowNode;
+        final CatchEventDefinition catchEventDefinition = (CatchEventDefinition) flowNode;
         for (final TimerEventTriggerDefinition timerEventTrigger : timerEventTriggers) {
             catchEventDefinition.addTimerEventTrigger(timerEventTrigger);
         }

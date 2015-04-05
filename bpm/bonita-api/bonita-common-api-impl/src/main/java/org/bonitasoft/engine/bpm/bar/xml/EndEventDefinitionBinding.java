@@ -16,9 +16,9 @@ package org.bonitasoft.engine.bpm.bar.xml;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bonitasoft.engine.bpm.flownode.EndEventDefinition;
 import org.bonitasoft.engine.bpm.flownode.TerminateEventTriggerDefinition;
 import org.bonitasoft.engine.bpm.flownode.ThrowErrorEventTriggerDefinition;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.EndEventDefinitionImpl;
 
 /**
  * @author Baptiste Mesta
@@ -33,7 +33,7 @@ public class EndEventDefinitionBinding extends ThrowEventDefinitionBinding {
 
     public EndEventDefinitionBinding() {
         super();
-        errorEventTriggers = new ArrayList<ThrowErrorEventTriggerDefinition>(1);
+        errorEventTriggers = new ArrayList<>(1);
     }
 
     @Override
@@ -49,13 +49,13 @@ public class EndEventDefinitionBinding extends ThrowEventDefinitionBinding {
 
     @Override
     public Object getObject() {
-        final EndEventDefinitionImpl endEventDefinitionImpl = new EndEventDefinitionImpl(id, name);
-        fillNode(endEventDefinitionImpl);
-        endEventDefinitionImpl.setTerminateEventTriggerDefinition(terminateEventTrigger);
+        final EndEventDefinition endEventDefinition = new EndEventDefinition(id, name);
+        fillNode(endEventDefinition);
+        endEventDefinition.setTerminateEventTriggerDefinition(terminateEventTrigger);
         for (final ThrowErrorEventTriggerDefinition errorEventTrigger : errorEventTriggers) {
-            endEventDefinitionImpl.addErrorEventTriggerDefinition(errorEventTrigger);
+            endEventDefinition.addErrorEventTriggerDefinition(errorEventTrigger);
         }
-        return endEventDefinitionImpl;
+        return endEventDefinition;
     }
 
     @Override

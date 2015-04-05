@@ -16,12 +16,14 @@ package org.bonitasoft.engine.profile;
 import java.util.Date;
 
 import org.bonitasoft.engine.bpm.BaseElement;
+import org.bonitasoft.engine.bpm.BaseElementInstance;
 import org.bonitasoft.engine.bpm.NamedElement;
+import org.bonitasoft.engine.bpm.NamedElementInstance;
 
 /**
  * @author Celine Souchet
  */
-public interface Profile extends NamedElement, BaseElement {
+public interface Profile extends NamedElementInstance, BaseElementInstance {
 
     boolean isDefault();
 

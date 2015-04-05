@@ -13,9 +13,9 @@
  **/
 package org.bonitasoft.engine.bpm.process.impl;
 
+import org.bonitasoft.engine.bpm.flownode.CallActivityDefinition;
 import org.bonitasoft.engine.bpm.flownode.CallableElementType;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.CallActivityDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowElementContainerDefinitionImpl;
+import org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition;
 import org.bonitasoft.engine.expression.Expression;
 import org.bonitasoft.engine.operation.Operation;
 
@@ -25,13 +25,13 @@ import org.bonitasoft.engine.operation.Operation;
  */
 public class CallActivityBuilder extends ActivityDefinitionBuilder {
 
-    public CallActivityBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinitionImpl container, final String name,
+    public CallActivityBuilder(final ProcessDefinitionBuilder processDefinitionBuilder, final FlowElementContainerDefinition container, final String name,
             final Expression callableElement, final Expression callableElementVersion) {
         super(container, processDefinitionBuilder, createNewCallActivity(name, callableElement, callableElementVersion));
     }
 
-    private static CallActivityDefinitionImpl createNewCallActivity(final String name, final Expression callableElement, final Expression callableElementVersion) {
-        final CallActivityDefinitionImpl activity = new CallActivityDefinitionImpl(name);
+    private static CallActivityDefinition createNewCallActivity(final String name, final Expression callableElement, final Expression callableElementVersion) {
+        final CallActivityDefinition activity = new CallActivityDefinition(name);
         activity.setCallableElement(callableElement);
         activity.setCallableElementVersion(callableElementVersion);
         activity.setCallableElementType(CallableElementType.PROCESS);
@@ -46,7 +46,7 @@ public class CallActivityBuilder extends ActivityDefinitionBuilder {
      * @return
      */
     public CallActivityBuilder setCallableElement(final Expression callableElement) {
-        ((CallActivityDefinitionImpl) getActivity()).setCallableElement(callableElement);
+        ((CallActivityDefinition) getActivity()).setCallableElement(callableElement);
         return this;
     }
 
@@ -58,7 +58,7 @@ public class CallActivityBuilder extends ActivityDefinitionBuilder {
      * @return
      */
     public CallActivityBuilder setCallableElementVersion(final Expression callableElementVersion) {
-        ((CallActivityDefinitionImpl) getActivity()).setCallableElementVersion(callableElementVersion);
+        ((CallActivityDefinition) getActivity()).setCallableElementVersion(callableElementVersion);
         return this;
     }
 
@@ -71,7 +71,7 @@ public class CallActivityBuilder extends ActivityDefinitionBuilder {
      * @return
      */
     public CallActivityBuilder addDataInputOperation(final Operation dataInputOperation) {
-        ((CallActivityDefinitionImpl) getActivity()).addDataInputOperation(dataInputOperation);
+        ((CallActivityDefinition) getActivity()).addDataInputOperation(dataInputOperation);
         return this;
     }
 
@@ -83,7 +83,7 @@ public class CallActivityBuilder extends ActivityDefinitionBuilder {
      * @return
      */
     public CallActivityBuilder addDataOutputOperation(final Operation dataOutputOperation) {
-        ((CallActivityDefinitionImpl) getActivity()).addDataOutputOperation(dataOutputOperation);
+        ((CallActivityDefinition) getActivity()).addDataOutputOperation(dataOutputOperation);
         return this;
     }
 

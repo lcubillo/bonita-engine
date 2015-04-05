@@ -10,11 +10,10 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.flownode;
 
-import org.bonitasoft.engine.bpm.BaseElement;
-import org.bonitasoft.engine.bpm.DescriptionElement;
+import org.bonitasoft.engine.bpm.DescriptionElementInstance;
 
 /**
  * @author Baptiste Mesta
@@ -23,7 +22,7 @@ import org.bonitasoft.engine.bpm.DescriptionElement;
  * @since 6.0.0
  * @version 6.4.1
  */
-public interface FlowNodeInstance extends DescriptionElement, BaseElement {
+public interface FlowNodeInstance extends DescriptionElementInstance {
 
     /**
      * Returns the task's direct container ID. For a sub-task or CallActivity, would point to the containing activity ID of the current element.

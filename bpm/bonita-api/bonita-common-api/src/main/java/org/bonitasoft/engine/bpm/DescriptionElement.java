@@ -19,13 +19,31 @@ package org.bonitasoft.engine.bpm;
  * @author Matthieu Chaffotte
  * @since 6.0.0
  */
-public interface DescriptionElement extends NamedElement {
+public abstract class DescriptionElement extends NamedElement {
+
+    private static final long serialVersionUID = 9005761084270734316L;
+
+    private String description;
+
+    public DescriptionElement(final String name, final String description) {
+        super(name);
+        this.description = description;
+    }
+
+    public DescriptionElement(final String name) {
+        super(name);
+    }
 
     /**
      * Gets the element description.
      *
      * @return the element description
      */
-    String getDescription();
+    public String getDescription() {
+        return description;
+    }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

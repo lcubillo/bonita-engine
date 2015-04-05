@@ -13,7 +13,7 @@
  **/
 package org.bonitasoft.engine.bpm.bar.xml;
 
-import org.bonitasoft.engine.bpm.flownode.impl.internal.CatchErrorEventTriggerDefinitionImpl;
+import org.bonitasoft.engine.bpm.flownode.CatchErrorEventTriggerDefinition;
 
 /**
  * @author Elias Ricken de Medeiros
@@ -23,7 +23,7 @@ public class CatchErrorEventTriggerDefinitionBinding extends ErrorEventTriggerDe
     @Override
     public Object getObject() {
         final String errorCode = getErrorCode();
-        return new CatchErrorEventTriggerDefinitionImpl(errorCode);
+        return new CatchErrorEventTriggerDefinition(errorCode);
     }
 
     @Override

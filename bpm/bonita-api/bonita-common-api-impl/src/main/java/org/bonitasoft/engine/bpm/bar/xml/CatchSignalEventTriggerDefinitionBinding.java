@@ -13,7 +13,7 @@
  **/
 package org.bonitasoft.engine.bpm.bar.xml;
 
-import org.bonitasoft.engine.bpm.flownode.impl.internal.CatchSignalEventTriggerDefinitionImpl;
+import org.bonitasoft.engine.bpm.flownode.CatchSignalEventTriggerDefinition;
 
 /**
  * @author Matthieu Chaffotte
@@ -23,7 +23,7 @@ public class CatchSignalEventTriggerDefinitionBinding extends SignalEventTrigger
     @Override
     public Object getObject() {
         final String signalName = getSignalName();
-        return new CatchSignalEventTriggerDefinitionImpl(signalName);
+        return new CatchSignalEventTriggerDefinition(signalName);
     }
 
     @Override

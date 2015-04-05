@@ -10,26 +10,65 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.flownode;
 
 import org.bonitasoft.engine.bpm.userfilter.UserFilterDefinition;
 
 /**
  * A Human task is a task having an actor and that can be assigned.
- * 
+ *
  * @author Baptiste Mesta
  * @author Celine Souchet
  */
-public interface HumanTaskDefinition extends TaskDefinition {
+public class HumanTaskDefinition extends TaskDefinition {
+    private static final long serialVersionUID = 2L;
 
-    String getActorName();
+    private final String actorName;
 
-    void setUserFilter(UserFilterDefinition userFilterDefinition);
+    private UserFilterDefinition userFilterDefinition;
 
-    UserFilterDefinition getUserFilter();
+    private Long expectedDuration;
 
-    Long getExpectedDuration();
+    private String priority;
 
-    String getPriority();
+    public HumanTaskDefinition(final String name, final String actorName) {
+        super(name);
+        this.actorName = actorName;
+    }
+
+    public HumanTaskDefinition(final long id, final String name, final String actorName) {
+        super(id, name);
+        this.actorName = actorName;
+    }
+
+    public String getActorName() {
+        return actorName;
+    }
+
+    public UserFilterDefinition getUserFilter() {
+        return userFilterDefinition;
+    }
+
+    public void setUserFilter(final UserFilterDefinition userFilterDefinition) {
+        this.userFilterDefinition = userFilterDefinition;
+    }
+
+    public Long getExpectedDuration() {
+        return expectedDuration;
+    }
+
+    public void setExpectedDuration(final long expectedDuration) {
+        this.expectedDuration = expectedDuration;
+    }
+
+    public String getPriority() {
+        return priority;
+    }
+
+    public void setPriority(final String priority) {
+        this.priority = priority;
+    }
+
+
 }

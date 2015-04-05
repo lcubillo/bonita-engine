@@ -16,7 +16,6 @@ package org.bonitasoft.engine.bpm.bar.xml;
 import java.util.Map;
 
 import org.bonitasoft.engine.bpm.actor.ActorDefinition;
-import org.bonitasoft.engine.bpm.actor.impl.ActorDefinitionImpl;
 
 /**
  * @author Baptiste Mesta
@@ -39,9 +38,9 @@ public class ActorDefinitionBinding extends NamedElementBinding {
 
     @Override
     public ActorDefinition getObject() {
-        final ActorDefinitionImpl actorDefintionImpl = new ActorDefinitionImpl(name);
-        actorDefintionImpl.setDescription(description);
-        return actorDefintionImpl;
+        final ActorDefinition actorDefinition = new ActorDefinition(name);
+        actorDefinition.setDescription(description);
+        return actorDefinition;
     }
 
     @Override

@@ -10,12 +10,14 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.flownode;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.UUID;
 
-import org.bonitasoft.engine.bpm.BaseElement;
 import org.bonitasoft.engine.bpm.DescriptionElement;
 import org.bonitasoft.engine.bpm.connector.ConnectorDefinition;
 import org.bonitasoft.engine.expression.Expression;
@@ -24,33 +26,132 @@ import org.bonitasoft.engine.expression.Expression;
  * @author Zhao Na
  * @author Matthieu Chaffotte
  * @author Celine Souchet
+ * @author Baptiste Mesta
  */
-public interface FlowNodeDefinition extends BaseElement, DescriptionElement {
+public abstract class FlowNodeDefinition extends DescriptionElement {
+
+
+    private static final long serialVersionUID = 2L;
+
+    private final List<TransitionDefinition> incomings;
+
+    private final List<TransitionDefinition> outgoings;
+
+    private final List<ConnectorDefinition> connectors;
+
+    private Expression displayDescription;
+
+    private Expression displayName;
+
+    private Expression displayDescriptionAfterCompletion;
+
+    private TransitionDefinition defaultTransition;
+
+    public FlowNodeDefinition(final long id, final String name) {
+        super(name);
+        incomings = new ArrayList<>();
+        outgoings = new ArrayList<>();
+        connectors = new ArrayList<>();
+        setId(id);
+    }
+
+    public FlowNodeDefinition(final String name) {
+        this(UUID.randomUUID().getLeastSignificantBits(), name);
+    }
+
+
+    public TransitionDefinition getDefaultTransition() {
+        return defaultTransition;
+    }
+
+    public void setDefaultTransition(final TransitionDefinition defaultTransition) {
+        this.defaultTransition = defaultTransition;
+    }
 
     /**
      * Gets the outgoing transitions of the activity.
      *
      * @return the outgoing transitions of the activity
      */
-    List<TransitionDefinition> getOutgoingTransitions();
 
-    TransitionDefinition getDefaultTransition();
+    public List<TransitionDefinition> getOutgoingTransitions() {
+        return Collections.unmodifiableList(outgoings);
+    }
 
     /**
      * Gets the incoming transitions of the activity.
      *
      * @return the incoming transitions of the activity
      */
-    List<TransitionDefinition> getIncomingTransitions();
+    public List<TransitionDefinition> getIncomingTransitions() {
+        return Collections.unmodifiableList(incomings);
+    }
 
-    List<ConnectorDefinition> getConnectors();
 
-    void addConnector(ConnectorDefinition connectorDefinition);
+    public List<ConnectorDefinition> getConnectors() {
+        return Collections.unmodifiableList(connectors);
+    }
 
-    Expression getDisplayDescription();
+    public void addIncomingTransition(final TransitionDefinition transition) {
+        if (!incomings.contains(transition)) {
+            incomings.add(transition);
+        }
+    }
 
-    Expression getDisplayName();
+    public void addIncomingTransition(int index, TransitionDefinition transition) {
+        if (!incomings.contains(transition)) {
+            incomings.add(index, transition);
+        }
+    }
 
-    Expression getDisplayDescriptionAfterCompletion();
+    public void removeIncomingTransition(final TransitionDefinition transition) {
+        incomings.remove(transition);
+    }
+
+    public void addOutgoingTransition(final TransitionDefinition transition) {
+        if (!outgoings.contains(transition)) {
+            outgoings.add(transition);
+        }
+    }
+
+    public void addOutgoingTransition(final int index, final TransitionDefinition transition) {
+        if (!outgoings.contains(transition)) {
+            outgoings.add(index, transition);
+        }
+    }
+
+    public void removeOutgoingTransition(final TransitionDefinition transition) {
+        outgoings.remove(transition);
+    }
+
+
+    public void addConnector(final ConnectorDefinition connectorDefinition) {
+        connectors.add(connectorDefinition);
+    }
+
+    public Expression getDisplayDescription() {
+        return displayDescription;
+    }
+
+    public void setDisplayDescription(final Expression displayDescription) {
+        this.displayDescription = displayDescription;
+    }
+
+    public Expression getDisplayName() {
+        return displayName;
+    }
+
+    public void setDisplayName(final Expression displayName) {
+        this.displayName = displayName;
+    }
+
+    public Expression getDisplayDescriptionAfterCompletion() {
+        return displayDescriptionAfterCompletion;
+    }
+
+    public void setDisplayDescriptionAfterCompletion(final Expression displayDescriptionAfterCompletion) {
+        this.displayDescriptionAfterCompletion = displayDescriptionAfterCompletion;
+    }
+
 
 }

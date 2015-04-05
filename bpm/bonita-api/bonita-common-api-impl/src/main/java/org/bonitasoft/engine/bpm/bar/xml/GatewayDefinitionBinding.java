@@ -15,8 +15,8 @@ package org.bonitasoft.engine.bpm.bar.xml;
 
 import java.util.Map;
 
+import org.bonitasoft.engine.bpm.flownode.GatewayDefinition;
 import org.bonitasoft.engine.bpm.flownode.GatewayType;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.GatewayDefinitionImpl;
 
 /**
  * @author Baptiste Mesta
@@ -34,7 +34,7 @@ public class GatewayDefinitionBinding extends FlowNodeDefinitionBinding {
 
     @Override
     public Object getObject() {
-        final GatewayDefinitionImpl gatewayDefinitionImpl = new GatewayDefinitionImpl(id, name, type);
+        final GatewayDefinition gatewayDefinitionImpl = new GatewayDefinition(id, name, type);
         fillNode(gatewayDefinitionImpl);
         return gatewayDefinitionImpl;
     }

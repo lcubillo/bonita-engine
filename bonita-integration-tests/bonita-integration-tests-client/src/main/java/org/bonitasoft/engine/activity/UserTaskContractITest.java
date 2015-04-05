@@ -36,8 +36,6 @@ import org.bonitasoft.engine.bpm.contract.ContractDefinition;
 import org.bonitasoft.engine.bpm.contract.ContractViolationException;
 import org.bonitasoft.engine.bpm.contract.SimpleInputDefinition;
 import org.bonitasoft.engine.bpm.contract.Type;
-import org.bonitasoft.engine.bpm.contract.impl.ComplexInputDefinitionImpl;
-import org.bonitasoft.engine.bpm.contract.impl.SimpleInputDefinitionImpl;
 import org.bonitasoft.engine.bpm.data.ArchivedDataInstance;
 import org.bonitasoft.engine.bpm.data.DataInstance;
 import org.bonitasoft.engine.bpm.flownode.FlowNodeExecutionException;
@@ -150,10 +148,10 @@ public class UserTaskContractITest extends CommonAPIIT {
     public void should_getUserTaskContract_return_contract_with_complex_inputs() throws Exception {
         final ProcessDefinitionBuilder builder = new ProcessDefinitionBuilder().createNewInstance("contract", "1.0");
         builder.addActor(ACTOR_NAME);
-        final SimpleInputDefinition expenseType = new SimpleInputDefinitionImpl("expenseType", Type.TEXT, "describe expense type");
-        final SimpleInputDefinition expenseAmount = new SimpleInputDefinitionImpl("amount", Type.DECIMAL, "expense amount");
-        final SimpleInputDefinition expenseDate = new SimpleInputDefinitionImpl("date", Type.DATE, "expense date");
-        final ComplexInputDefinition complexSubIput = new ComplexInputDefinitionImpl("date", "expense date", Arrays.asList(expenseType), null);
+        final SimpleInputDefinition expenseType = new SimpleInputDefinition("expenseType", Type.TEXT, "describe expense type");
+        final SimpleInputDefinition expenseAmount = new SimpleInputDefinition("amount", Type.DECIMAL, "expense amount");
+        final SimpleInputDefinition expenseDate = new SimpleInputDefinition("date", Type.DATE, "expense date");
+        final ComplexInputDefinition complexSubIput = new ComplexInputDefinition("date", "expense date", Arrays.asList(expenseType), null);
         //given
         builder.addUserTask(TASK1, ACTOR_NAME).addContract()
                 .addComplexInput("expenseLine", "expense report line", true, Arrays.asList(expenseDate, expenseAmount), Arrays.asList(complexSubIput));
@@ -267,10 +265,10 @@ public class UserTaskContractITest extends CommonAPIIT {
     public void use_a_multiple_complex_input_in_user_tasks() throws Exception {
         final ProcessDefinitionBuilder builder = new ProcessDefinitionBuilder().createNewInstance("contract", "1.0");
         builder.addActor(ACTOR_NAME);
-        final SimpleInputDefinition expenseType = new SimpleInputDefinitionImpl("expenseType", Type.TEXT, "describe expense type");
-        final SimpleInputDefinition expenseAmount = new SimpleInputDefinitionImpl("expenseAmount", Type.DECIMAL, "expense amount");
-        final SimpleInputDefinition expenseDate = new SimpleInputDefinitionImpl("expenseDate", Type.DATE, "expense date");
-        final SimpleInputDefinition expenseProof = new SimpleInputDefinitionImpl("expenseProof", Type.BYTE_ARRAY, "expense proof");
+        final SimpleInputDefinition expenseType = new SimpleInputDefinition("expenseType", Type.TEXT, "describe expense type");
+        final SimpleInputDefinition expenseAmount = new SimpleInputDefinition("expenseAmount", Type.DECIMAL, "expense amount");
+        final SimpleInputDefinition expenseDate = new SimpleInputDefinition("expenseDate", Type.DATE, "expense date");
+        final SimpleInputDefinition expenseProof = new SimpleInputDefinition("expenseProof", Type.BYTE_ARRAY, "expense proof");
 
         //given
         final UserTaskDefinitionBuilder userTaskDefinitionBuilder = builder.addUserTask(TASK1, ACTOR_NAME);

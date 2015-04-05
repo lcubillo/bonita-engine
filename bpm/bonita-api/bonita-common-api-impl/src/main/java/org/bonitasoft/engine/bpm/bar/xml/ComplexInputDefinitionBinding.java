@@ -15,7 +15,7 @@ package org.bonitasoft.engine.bpm.bar.xml;
 
 import java.util.Map;
 
-import org.bonitasoft.engine.bpm.contract.impl.ComplexInputDefinitionImpl;
+import org.bonitasoft.engine.bpm.contract.ComplexInputDefinition;
 import org.bonitasoft.engine.io.xml.XMLParseException;
 
 /**
@@ -38,7 +38,7 @@ public class ComplexInputDefinitionBinding extends InputDefinitionBinding {
 
     @Override
     public Object getObject() {
-        return new ComplexInputDefinitionImpl(name, description, multiple);
+        return new ComplexInputDefinition(name, description, multiple);
     }
 
     @Override

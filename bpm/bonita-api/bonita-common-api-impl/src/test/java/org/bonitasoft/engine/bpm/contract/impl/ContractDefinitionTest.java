@@ -19,14 +19,15 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.bonitasoft.engine.bpm.contract.ComplexInputDefinition;
+import org.bonitasoft.engine.bpm.contract.ContractDefinition;
 import org.bonitasoft.engine.bpm.contract.SimpleInputDefinition;
 import org.bonitasoft.engine.bpm.contract.Type;
 import org.junit.Before;
 import org.junit.Test;
 
-public class ContractDefinitionImplTest {
+public class ContractDefinitionTest {
 
-    private ContractDefinitionImpl contractDefinitionImpl;
+    private ContractDefinition contractDefinitionImpl;
     private SimpleInputDefinition expenseType;
     private SimpleInputDefinition expenseAmount;
     private SimpleInputDefinition expenseDate;
@@ -34,12 +35,12 @@ public class ContractDefinitionImplTest {
 
     @Before
     public void Before() {
-        contractDefinitionImpl = new ContractDefinitionImpl();
-        expenseType = new SimpleInputDefinitionImpl("expenseType", Type.TEXT, "describe expense type");
-        expenseAmount = new SimpleInputDefinitionImpl("amount", Type.DECIMAL, "expense amount");
-        expenseDate = new SimpleInputDefinitionImpl("date", Type.DATE, "expense date");
+        contractDefinitionImpl = new ContractDefinition();
+        expenseType = new SimpleInputDefinition("expenseType", Type.TEXT, "describe expense type");
+        expenseAmount = new SimpleInputDefinition("amount", Type.DECIMAL, "expense amount");
+        expenseDate = new SimpleInputDefinition("date", Type.DATE, "expense date");
 
-        complexInput = new ComplexInputDefinitionImpl("expense item", "description", Arrays.asList(expenseType, expenseDate, expenseAmount), null);
+        complexInput = new ComplexInputDefinition("expense item", "description", Arrays.asList(expenseType, expenseDate, expenseAmount), null);
 
     }
 

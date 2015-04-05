@@ -10,21 +10,21 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.flownode;
 
-import org.bonitasoft.engine.bpm.BaseElement;
+import org.bonitasoft.engine.bpm.BaseElementInstance;
 
 /**
  * @author Celine Souchet
  * @version 6.4.0
  * @since 6.4.0
  */
-public interface EventTriggerInstance extends BaseElement {
+public interface EventTriggerInstance extends BaseElementInstance {
 
     /**
      * Return the identifier of the {@link EventInstance} which it is attached.
-     * 
+     *
      * @return The identifier of the {@link EventInstance}
      * @since 6.4.0
      */

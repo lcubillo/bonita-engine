@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.bonitasoft.engine.bpm.data.DataDefinition;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.ThrowMessageEventTriggerDefinitionImpl;
+import org.bonitasoft.engine.bpm.flownode.ThrowMessageEventTriggerDefinition;
 import org.bonitasoft.engine.expression.Expression;
 
 /**
@@ -31,11 +31,11 @@ public class ThrowMessageEventTriggerDefinitionBinding extends MessageEventTrigg
 
     private Expression targetFlowNode;
 
-    private final List<DataDefinition> dataDefinitions = new ArrayList<DataDefinition>(5);
+    private final List<DataDefinition> dataDefinitions = new ArrayList<>(5);
 
     @Override
     public Object getObject() {
-        final ThrowMessageEventTriggerDefinitionImpl messageEventTrigger = new ThrowMessageEventTriggerDefinitionImpl(getMessageName());
+        final ThrowMessageEventTriggerDefinition messageEventTrigger = new ThrowMessageEventTriggerDefinition(getMessageName());
         fillNode(messageEventTrigger);
         return messageEventTrigger;
     }
@@ -65,7 +65,7 @@ public class ThrowMessageEventTriggerDefinitionBinding extends MessageEventTrigg
         }
     }
 
-    protected void fillNode(final ThrowMessageEventTriggerDefinitionImpl messageEventTrigger) {
+    protected void fillNode(final ThrowMessageEventTriggerDefinition messageEventTrigger) {
         super.fillNode(messageEventTrigger);
         messageEventTrigger.setTargetProcess(targetProcess);
         messageEventTrigger.setTargetFlowNode(targetFlowNode);

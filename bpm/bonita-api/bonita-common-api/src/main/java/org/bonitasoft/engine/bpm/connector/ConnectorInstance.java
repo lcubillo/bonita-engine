@@ -10,28 +10,27 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.connector;
 
-import org.bonitasoft.engine.bpm.BaseElement;
-import org.bonitasoft.engine.bpm.NamedElement;
+import org.bonitasoft.engine.bpm.NamedElementInstance;
 
 /**
- * Represents a connector, once instanciated by the containinig activity or process at runtime.
- * 
+ * Represents a connector, once instantiated by the containing activity or process at runtime.
+ *
  * @author Baptiste Mesta
  * @author Matthieu Chaffotte
  * @author Celine Souchet
  */
-public interface ConnectorInstance extends NamedElement, BaseElement {
+public interface ConnectorInstance extends NamedElementInstance {
 
     /**
-     * 
+     *
      */
     String FLOWNODE_TYPE = "flowNode";
 
     /**
-     * 
+     *
      */
     String PROCESS_TYPE = "process";
 

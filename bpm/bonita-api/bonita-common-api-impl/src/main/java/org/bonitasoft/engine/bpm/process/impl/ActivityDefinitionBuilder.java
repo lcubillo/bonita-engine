@@ -16,10 +16,10 @@ package org.bonitasoft.engine.bpm.process.impl;
 import java.io.Serializable;
 import java.util.Date;
 
-import org.bonitasoft.engine.bpm.businessdata.impl.BusinessDataDefinitionImpl;
+import org.bonitasoft.engine.bpm.businessdata.BusinessDataDefinition;
 import org.bonitasoft.engine.bpm.connector.ConnectorEvent;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.ActivityDefinitionImpl;
-import org.bonitasoft.engine.bpm.flownode.impl.internal.FlowElementContainerDefinitionImpl;
+import org.bonitasoft.engine.bpm.flownode.ActivityDefinition;
+import org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition;
 import org.bonitasoft.engine.bpm.flownode.impl.internal.StandardLoopCharacteristics;
 import org.bonitasoft.engine.expression.Expression;
 import org.bonitasoft.engine.operation.LeftOperand;
@@ -32,16 +32,16 @@ import org.bonitasoft.engine.operation.OperatorType;
  */
 public class ActivityDefinitionBuilder extends FlowElementContainerBuilder implements DescriptionBuilder {
 
-    private final ActivityDefinitionImpl activity;
+    private final ActivityDefinition activity;
 
-    public ActivityDefinitionBuilder(final FlowElementContainerDefinitionImpl container, final ProcessDefinitionBuilder processDefinitionBuilder,
-            final ActivityDefinitionImpl activity) {
+    public ActivityDefinitionBuilder(final FlowElementContainerDefinition container, final ProcessDefinitionBuilder processDefinitionBuilder,
+            final ActivityDefinition activity) {
         super(container, processDefinitionBuilder);
         this.activity = activity;
         getContainer().addActivity(activity);
     }
 
-    ActivityDefinitionImpl getActivity() {
+    ActivityDefinition getActivity() {
         return activity;
     }
 
@@ -310,7 +310,7 @@ public class ActivityDefinitionBuilder extends FlowElementContainerBuilder imple
      * @return
      */
     public ActivityDefinitionBuilder addBusinessData(final String name, final String className) {
-        final BusinessDataDefinitionImpl businessData = new BusinessDataDefinitionImpl(name, null);
+        final BusinessDataDefinition businessData = new BusinessDataDefinition(name, null);
         businessData.setClassName(className);
         activity.addBusinessDataDefinition(businessData);
         return this;
