@@ -10,7 +10,7 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.process.impl.internal;
 
 import java.util.Date;
@@ -51,9 +51,9 @@ public class ProcessDeploymentInfoImpl extends DescriptionElement implements Pro
 
 
     public ProcessDeploymentInfoImpl(final long id, final long processId, final String name, final String version, final String description,
-            final Date deploymentDate, final long deployedBy, final ActivationState activationState, final ConfigurationState configurationState,
-            final String displayName, final Date lastUpdateDate, final String iconPath,
-            final String displayDescription) {
+                                     final Date deploymentDate, final long deployedBy, final ActivationState activationState, final ConfigurationState configurationState,
+                                     final String displayName, final Date lastUpdateDate, final String iconPath,
+                                     final String displayDescription) {
         super(name, description);
         this.displayDescription = displayDescription;
         setId(id);

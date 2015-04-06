@@ -10,7 +10,7 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.flownode.impl.internal;
 
 import org.bonitasoft.engine.bpm.flownode.FlowNodeType;
@@ -42,8 +42,8 @@ public class MultiInstanceActivityInstanceImpl extends ActivityInstanceImpl impl
     private final int loopCardinality;
 
     public MultiInstanceActivityInstanceImpl(final String name, final long flownodeDefinitionId, final boolean sequential, final String loopDataInputRef,
-            final String loopDataOutputRef, final String dataInputItemRef, final String dataOutputItemRef, final int numberOfActiveInstances,
-            final int numberOfCompletedInstances, final int numberOfTerminatedInstances, final int loopCardinality) {
+                                             final String loopDataOutputRef, final String dataInputItemRef, final String dataOutputItemRef, final int numberOfActiveInstances,
+                                             final int numberOfCompletedInstances, final int numberOfTerminatedInstances, final int loopCardinality) {
         super(name, flownodeDefinitionId);
         this.sequential = sequential;
         this.loopDataInputRef = loopDataInputRef;

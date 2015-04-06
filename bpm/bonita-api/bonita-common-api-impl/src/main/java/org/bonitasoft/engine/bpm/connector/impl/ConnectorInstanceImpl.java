@@ -10,7 +10,7 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.connector.impl;
 
 import org.bonitasoft.engine.bpm.NamedElement;
@@ -38,7 +38,7 @@ public class ConnectorInstanceImpl extends NamedElement implements ConnectorInst
     private final ConnectorEvent activationEvent;
 
     public ConnectorInstanceImpl(final String name, final long containerId, final String containerType, final String connectorId, final String version,
-            final ConnectorState state, final ConnectorEvent activationEvent) {
+                                 final ConnectorState state, final ConnectorEvent activationEvent) {
         super(name);
         this.containerId = containerId;
         this.containerType = containerType;

@@ -15,6 +15,7 @@ package org.bonitasoft.engine.bpm.contract;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * An <code>ComplexInputDefinition</code> defines
@@ -65,5 +66,20 @@ public class ComplexInputDefinition extends InputDefinition {
 
     public List<ComplexInputDefinition> getComplexInputs() {
         return complexInputDefinitions;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ComplexInputDefinition)) return false;
+        if (!super.equals(o)) return false;
+        ComplexInputDefinition that = (ComplexInputDefinition) o;
+        return Objects.equals(simpleInputDefinitions, that.simpleInputDefinitions) &&
+                Objects.equals(complexInputDefinitions, that.complexInputDefinitions);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), simpleInputDefinitions, complexInputDefinitions);
     }
 }

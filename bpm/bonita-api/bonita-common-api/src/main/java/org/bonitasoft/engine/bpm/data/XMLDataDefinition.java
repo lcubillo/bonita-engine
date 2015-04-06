@@ -13,6 +13,8 @@
  */
 package org.bonitasoft.engine.bpm.data;
 
+import java.util.Objects;
+
 import org.bonitasoft.engine.expression.Expression;
 
 /**
@@ -66,5 +68,18 @@ public class XMLDataDefinition extends DataDefinition {
         this.element = element;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof XMLDataDefinition)) return false;
+        if (!super.equals(o)) return false;
+        XMLDataDefinition that = (XMLDataDefinition) o;
+        return Objects.equals(namespace, that.namespace) &&
+                Objects.equals(element, that.element);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), namespace, element);
+    }
 }

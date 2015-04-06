@@ -13,6 +13,8 @@
  */
 package org.bonitasoft.engine.bpm.contract;
 
+import java.util.Objects;
+
 import org.bonitasoft.engine.bpm.DescriptionElement;
 
 /**
@@ -35,5 +37,25 @@ public abstract class InputDefinition extends DescriptionElement {
 
     public boolean isMultiple() {
         return multiple;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof InputDefinition)) return false;
+        InputDefinition that = (InputDefinition) o;
+        return Objects.equals(multiple, that.multiple);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(multiple);
+    }
+
+    @Override
+    public String toString() {
+        return "InputDefinition{" +
+                "multiple=" + multiple +
+                "} " + super.toString();
     }
 }

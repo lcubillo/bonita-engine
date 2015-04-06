@@ -10,8 +10,10 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.profile.impl;
+
+import java.util.Objects;
 
 import org.bonitasoft.engine.bpm.NamedElement;
 import org.bonitasoft.engine.profile.ProfileEntry;
@@ -110,72 +112,22 @@ public class ProfileEntryImpl extends NamedElement implements ProfileEntry {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ProfileEntryImpl)) return false;
+        if (!super.equals(o)) return false;
+        ProfileEntryImpl that = (ProfileEntryImpl) o;
+        return Objects.equals(profileId, that.profileId) &&
+                Objects.equals(parentId, that.parentId) &&
+                Objects.equals(index, that.index) &&
+                Objects.equals(custom, that.custom) &&
+                Objects.equals(description, that.description) &&
+                Objects.equals(type, that.type) &&
+                Objects.equals(page, that.page);
+    }
+
+    @Override
     public int hashCode() {
-        final int prime = 31;
-        int result = super.hashCode();
-        result = prime * result + (custom ? 1231 : 1237);
-        result = prime * result + (description == null ? 0 : description.hashCode());
-        result = prime * result + (int) (index ^ index >>> 32);
-        result = prime * result + (page == null ? 0 : page.hashCode());
-        result = prime * result + (int) (parentId ^ parentId >>> 32);
-        result = prime * result + (int) (profileId ^ profileId >>> 32);
-        result = prime * result + (type == null ? 0 : type.hashCode());
-        return result;
+        return Objects.hash(super.hashCode(), profileId, parentId, description, index, type, page, custom);
     }
-
-    @Override
-    public boolean equals(final Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (!super.equals(obj)) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        ProfileEntryImpl other = (ProfileEntryImpl) obj;
-        if (custom != other.custom) {
-            return false;
-        }
-        if (description == null) {
-            if (other.description != null) {
-                return false;
-            }
-        } else if (!description.equals(other.description)) {
-            return false;
-        }
-        if (index != other.index) {
-            return false;
-        }
-        if (page == null) {
-            if (other.page != null) {
-                return false;
-            }
-        } else if (!page.equals(other.page)) {
-            return false;
-        }
-        if (parentId != other.parentId) {
-            return false;
-        }
-        if (profileId != other.profileId) {
-            return false;
-        }
-        if (type == null) {
-            if (other.type != null) {
-                return false;
-            }
-        } else if (!type.equals(other.type)) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "ProfileEntryImpl [name=" + getName() + ", profileId=" + profileId + ", parentId=" + parentId + ", description=" + description + ", index="
-                + index + ", type=" + type
-                + ", page=" + page + ", custom=" + custom + "]";
-    }
-
 }

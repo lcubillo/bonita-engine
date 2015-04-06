@@ -10,10 +10,11 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.profile.impl;
 
 import java.util.Date;
+import java.util.Objects;
 
 import org.bonitasoft.engine.bpm.NamedElement;
 import org.bonitasoft.engine.profile.Profile;
@@ -60,14 +61,14 @@ public class ProfileImpl extends NamedElement implements Profile {
     }
 
     @Deprecated
-    public void setIconPath(final String iconPath) {
-        // nothing to do
-    }
-
-    @Deprecated
     @Override
     public String getIconPath() {
         return null;
+    }
+
+    @Deprecated
+    public void setIconPath(final String iconPath) {
+        // nothing to do
     }
 
     @Override
@@ -107,65 +108,21 @@ public class ProfileImpl extends NamedElement implements Profile {
     }
 
     @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = super.hashCode();
-        result = prime * result + (isDefault ? 1231 : 1237);
-        result = prime * result + (description == null ? 0 : description.hashCode());
-        result = prime * result + (creationDate == null ? 0 : creationDate.hashCode());
-        result = prime * result + (int) (createdBy ^ createdBy >>> 32);
-        result = prime * result + (lastUpdateDate == null ? 0 : lastUpdateDate.hashCode());
-        result = prime * result + (int) (lastUpdatedBy ^ lastUpdatedBy >>> 32);
-        return result;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ProfileImpl)) return false;
+        if (!super.equals(o)) return false;
+        ProfileImpl profile = (ProfileImpl) o;
+        return Objects.equals(isDefault, profile.isDefault) &&
+                Objects.equals(createdBy, profile.createdBy) &&
+                Objects.equals(lastUpdatedBy, profile.lastUpdatedBy) &&
+                Objects.equals(description, profile.description) &&
+                Objects.equals(creationDate, profile.creationDate) &&
+                Objects.equals(lastUpdateDate, profile.lastUpdateDate);
     }
 
     @Override
-    public boolean equals(final Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        if (!super.equals(obj)) {
-            return false;
-        }
-        final ProfileImpl other = (ProfileImpl) obj;
-        if (isDefault != other.isDefault) {
-            return false;
-        }
-        if (description == null) {
-            if (other.description != null) {
-                return false;
-            }
-        } else if (!description.equals(other.description)) {
-            return false;
-        }
-        if (creationDate == null) {
-            if (other.creationDate != null) {
-                return false;
-            }
-        } else if (!creationDate.equals(other.creationDate)) {
-            return false;
-        }
-        if (createdBy != other.createdBy) {
-            return false;
-        }
-        if (lastUpdateDate == null) {
-            if (other.lastUpdateDate != null) {
-                return false;
-            }
-        } else if (!lastUpdateDate.equals(other.lastUpdateDate)) {
-            return false;
-        }
-        if (lastUpdatedBy != other.lastUpdatedBy) {
-            return false;
-        }
-
-        return true;
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), isDefault, description, creationDate, createdBy, lastUpdateDate, lastUpdatedBy);
     }
-
 }

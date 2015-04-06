@@ -14,6 +14,8 @@
 package org.bonitasoft.engine.bpm.contract;
 
 
+import java.util.Objects;
+
 /**
  * An <code>ComplexInputDefinition</code> defines
  *
@@ -45,4 +47,24 @@ public class SimpleInputDefinition extends InputDefinition {
         return type;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof SimpleInputDefinition)) return false;
+        if (!super.equals(o)) return false;
+        SimpleInputDefinition that = (SimpleInputDefinition) o;
+        return Objects.equals(type, that.type);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), type);
+    }
+
+    @Override
+    public String toString() {
+        return "SimpleInputDefinition{" +
+                "type=" + type +
+                "} " + super.toString();
+    }
 }

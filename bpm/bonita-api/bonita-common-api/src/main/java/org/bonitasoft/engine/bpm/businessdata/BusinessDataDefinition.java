@@ -13,6 +13,8 @@
  */
 package org.bonitasoft.engine.bpm.businessdata;
 
+import java.util.Objects;
+
 import org.bonitasoft.engine.bpm.DescriptionElement;
 import org.bonitasoft.engine.expression.Expression;
 
@@ -86,4 +88,20 @@ public class BusinessDataDefinition extends DescriptionElement {
     }
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof BusinessDataDefinition)) return false;
+        if (!super.equals(o)) return false;
+        BusinessDataDefinition that = (BusinessDataDefinition) o;
+        return Objects.equals(multiple, that.multiple) &&
+                Objects.equals(description, that.description) &&
+                Objects.equals(className, that.className) &&
+                Objects.equals(defaultValueExpression, that.defaultValueExpression);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), description, className, multiple, defaultValueExpression);
+    }
 }

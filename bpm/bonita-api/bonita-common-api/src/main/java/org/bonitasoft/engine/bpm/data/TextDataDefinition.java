@@ -13,6 +13,8 @@
  */
 package org.bonitasoft.engine.bpm.data;
 
+import java.util.Objects;
+
 import org.bonitasoft.engine.expression.Expression;
 
 /**
@@ -46,5 +48,17 @@ public class TextDataDefinition extends DataDefinition {
         this.longText = longText;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof TextDataDefinition)) return false;
+        if (!super.equals(o)) return false;
+        TextDataDefinition that = (TextDataDefinition) o;
+        return Objects.equals(longText, that.longText);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), longText);
+    }
 }

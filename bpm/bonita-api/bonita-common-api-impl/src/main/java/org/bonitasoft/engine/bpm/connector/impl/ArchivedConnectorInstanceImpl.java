@@ -10,7 +10,7 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.connector.impl;
 
 import java.util.Date;
@@ -44,7 +44,7 @@ public class ArchivedConnectorInstanceImpl extends NamedElement implements Archi
     private final long sourceObjectId;
 
     public ArchivedConnectorInstanceImpl(final String name, final Date archiveDate, final long containerId, final String containerType,
-            final String connectorId, final String version, final ConnectorEvent activationEvent, final ConnectorState state, final long sourceObjectId) {
+                                         final String connectorId, final String version, final ConnectorEvent activationEvent, final ConnectorState state, final long sourceObjectId) {
         super(name);
         this.archiveDate = archiveDate;
         this.containerId = containerId;

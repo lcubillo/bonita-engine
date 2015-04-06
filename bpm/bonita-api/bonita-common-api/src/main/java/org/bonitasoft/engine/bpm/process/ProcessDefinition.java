@@ -13,15 +13,17 @@
  */
 package org.bonitasoft.engine.bpm.process;
 
+import java.util.Objects;
+
 import org.bonitasoft.engine.bpm.NamedElement;
 
 /**
  * Represents the Definition of a process. Gives access to basic information of the process, whereas it is deployed or not.
  * For information about deployment information, use {@link ProcessDeploymentInfo}.
  *
- * @see ProcessDeploymentInfo
  * @author Baptiste Mesta
  * @author Matthieu Chaffotte
+ * @see ProcessDeploymentInfo
  */
 public class ProcessDefinition extends NamedElement {
 
@@ -49,10 +51,6 @@ public class ProcessDefinition extends NamedElement {
         return version;
     }
 
-    public void setDescription(final String description) {
-        this.description = description;
-    }
-
     /**
      * @return The description of the process definition, as set at design-time.
      */
@@ -61,5 +59,22 @@ public class ProcessDefinition extends NamedElement {
         return description;
     }
 
+    public void setDescription(final String description) {
+        this.description = description;
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ProcessDefinition)) return false;
+        if (!super.equals(o)) return false;
+        ProcessDefinition that = (ProcessDefinition) o;
+        return Objects.equals(version, that.version) &&
+                Objects.equals(description, that.description);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), version, description);
+    }
 }

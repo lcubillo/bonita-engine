@@ -16,6 +16,7 @@ package org.bonitasoft.engine.bpm.flownode;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 import org.bonitasoft.engine.bpm.DescriptionElement;
@@ -153,5 +154,23 @@ public abstract class FlowNodeDefinition extends DescriptionElement {
         this.displayDescriptionAfterCompletion = displayDescriptionAfterCompletion;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof FlowNodeDefinition)) return false;
+        if (!super.equals(o)) return false;
+        FlowNodeDefinition that = (FlowNodeDefinition) o;
+        return Objects.equals(incomings, that.incomings) &&
+                Objects.equals(outgoings, that.outgoings) &&
+                Objects.equals(connectors, that.connectors) &&
+                Objects.equals(displayDescription, that.displayDescription) &&
+                Objects.equals(displayName, that.displayName) &&
+                Objects.equals(displayDescriptionAfterCompletion, that.displayDescriptionAfterCompletion) &&
+                Objects.equals(defaultTransition, that.defaultTransition);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), incomings, outgoings, connectors, displayDescription, displayName, displayDescriptionAfterCompletion, defaultTransition);
+    }
 }

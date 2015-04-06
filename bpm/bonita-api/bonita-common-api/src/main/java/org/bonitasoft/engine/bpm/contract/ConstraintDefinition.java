@@ -15,6 +15,7 @@ package org.bonitasoft.engine.bpm.contract;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import org.bonitasoft.engine.bpm.NamedElement;
 import org.bonitasoft.engine.bpm.flownode.UserTaskInstance;
@@ -49,7 +50,7 @@ public class ConstraintDefinition extends NamedElement {
 
     /**
      * Returns the boolean condition used to validate a part of the {@link ContractDefinition}.
-     * <p>
+     * <p/>
      * This expression will be evaluated at runtime when executing the {@link UserTaskInstance}.
      *
      * @return the boolean condition
@@ -90,5 +91,22 @@ public class ConstraintDefinition extends NamedElement {
      */
     public ConstraintType getConstraintType() {
         return constraintType;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ConstraintDefinition)) return false;
+        if (!super.equals(o)) return false;
+        ConstraintDefinition that = (ConstraintDefinition) o;
+        return Objects.equals(expression, that.expression) &&
+                Objects.equals(explanation, that.explanation) &&
+                Objects.equals(inputNames, that.inputNames) &&
+                Objects.equals(constraintType, that.constraintType);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), expression, explanation, inputNames, constraintType);
     }
 }

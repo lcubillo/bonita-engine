@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import org.bonitasoft.engine.bpm.NamedElement;
 import org.bonitasoft.engine.expression.Expression;
@@ -118,5 +119,25 @@ public class ConnectorDefinition extends NamedElement {
 
     public void setErrorCode(final String errorCode) {
         this.errorCode = errorCode;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ConnectorDefinition)) return false;
+        if (!super.equals(o)) return false;
+        ConnectorDefinition that = (ConnectorDefinition) o;
+        return Objects.equals(connectorId, that.connectorId) &&
+                Objects.equals(inputs, that.inputs) &&
+                Objects.equals(outputs, that.outputs) &&
+                Objects.equals(activationEvent, that.activationEvent) &&
+                Objects.equals(version, that.version) &&
+                Objects.equals(failAction, that.failAction) &&
+                Objects.equals(errorCode, that.errorCode);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), connectorId, inputs, outputs, activationEvent, version, failAction, errorCode);
     }
 }

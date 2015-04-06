@@ -10,10 +10,10 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.actor;
 
-import java.io.Serializable;
+import java.util.Objects;
 
 import org.bonitasoft.engine.bpm.DescriptionElement;
 
@@ -57,4 +57,17 @@ public class ActorDefinition extends DescriptionElement {
         this.initiator = initiator;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ActorDefinition)) return false;
+        if (!super.equals(o)) return false;
+        ActorDefinition that = (ActorDefinition) o;
+        return Objects.equals(initiator, that.initiator);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), initiator);
+    }
 }

@@ -10,11 +10,12 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.userfilter;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 import org.bonitasoft.engine.bpm.NamedElement;
 import org.bonitasoft.engine.expression.Expression;
@@ -70,5 +71,19 @@ public class UserFilterDefinition extends NamedElement {
         return version;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof UserFilterDefinition)) return false;
+        if (!super.equals(o)) return false;
+        UserFilterDefinition that = (UserFilterDefinition) o;
+        return Objects.equals(filterId, that.filterId) &&
+                Objects.equals(version, that.version) &&
+                Objects.equals(inputs, that.inputs);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), filterId, version, inputs);
+    }
 }

@@ -13,6 +13,8 @@
  */
 package org.bonitasoft.engine.bpm;
 
+import java.util.Objects;
+
 /**
  * Interface <code>BaseElement</code> identifies a <code>BonitaObject</code>.
  *
@@ -40,5 +42,16 @@ public abstract class BaseElement implements BonitaObject {
         this.id = id;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof BaseElement)) return false;
+        BaseElement that = (BaseElement) o;
+        return Objects.equals(id, that.id);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

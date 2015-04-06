@@ -13,6 +13,8 @@
  */
 package org.bonitasoft.engine.bpm;
 
+import java.util.Objects;
+
 /**
  * Interface <code>NamedElement</code> names a <code>BonitaObject</code>.
  *
@@ -44,4 +46,16 @@ public abstract class NamedElement extends BaseElement {
     }
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof NamedElement)) return false;
+        NamedElement that = (NamedElement) o;
+        return Objects.equals(name, that.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
 }

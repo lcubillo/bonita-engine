@@ -10,8 +10,10 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm;
+
+import java.util.Objects;
 
 /**
  * Interface <code>BaseElement</code> describes a <code>NamedElement</code>.
@@ -45,5 +47,25 @@ public abstract class DescriptionElement extends NamedElement {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof DescriptionElement)) return false;
+        DescriptionElement that = (DescriptionElement) o;
+        return Objects.equals(description, that.description);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(description);
+    }
+
+    @Override
+    public String toString() {
+        return "DescriptionElement{" +
+                "description='" + description + '\'' +
+                "} " + super.toString();
     }
 }

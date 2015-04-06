@@ -127,10 +127,11 @@ public class FlowElementContainerDefinition extends BaseElement {
         return Collections.unmodifiableSet(transitions);
     }
 
-    /**
-     * @return A list of GatewayDefinition
-     * @since 6.1
-     */
+    @Deprecated
+    public Set<GatewayDefinition> getGateways() {
+        return Collections.unmodifiableSet(new HashSet<GatewayDefinition>(gateways));
+    }
+
     public List<GatewayDefinition> getGatewaysList() {
         return Collections.unmodifiableList(gateways);
     }
@@ -194,7 +195,6 @@ public class FlowElementContainerDefinition extends BaseElement {
     public List<DocumentDefinition> getDocumentDefinitions() {
         return Collections.unmodifiableList(documentDefinitions);
     }
-
     public List<DocumentListDefinition> getDocumentListDefinitions() {
         return Collections.unmodifiableList(documentListDefinitions);
     }
@@ -248,7 +248,6 @@ public class FlowElementContainerDefinition extends BaseElement {
     public void addDocumentDefinition(final DocumentDefinition documentDefinition) {
         documentDefinitions.add(documentDefinition);
     }
-
     public void addDocumentListDefinition(final DocumentListDefinition documentListDefinition) {
         documentListDefinitions.add(documentListDefinition);
     }
@@ -265,5 +264,4 @@ public class FlowElementContainerDefinition extends BaseElement {
     public DataDefinition getDataDefinition(final String name) {
         return ObjectSeeker.getNamedElement(dataDefinitions, name);
     }
-
 }

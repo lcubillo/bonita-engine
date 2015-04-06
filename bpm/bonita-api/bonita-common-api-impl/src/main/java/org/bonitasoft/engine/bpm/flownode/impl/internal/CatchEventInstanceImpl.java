@@ -10,7 +10,7 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.flownode.impl.internal;
 
 import org.bonitasoft.engine.bpm.flownode.CatchEventInstance;
@@ -58,10 +58,7 @@ public abstract class CatchEventInstanceImpl extends EventInstanceImpl implement
             return false;
         }
         final CatchEventInstanceImpl other = (CatchEventInstanceImpl) obj;
-        if (interrupting != other.interrupting) {
-            return false;
-        }
-        return true;
+        return interrupting == other.interrupting;
     }
 
 }

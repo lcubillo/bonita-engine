@@ -13,6 +13,8 @@
  */
 package org.bonitasoft.engine.bpm.document;
 
+import java.util.Objects;
+
 import org.bonitasoft.engine.bpm.DescriptionElement;
 import org.bonitasoft.engine.expression.Expression;
 
@@ -46,5 +48,17 @@ public class DocumentListDefinition extends DescriptionElement {
         this.expression = expression;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof DocumentListDefinition)) return false;
+        if (!super.equals(o)) return false;
+        DocumentListDefinition that = (DocumentListDefinition) o;
+        return Objects.equals(expression, that.expression);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), expression);
+    }
 }

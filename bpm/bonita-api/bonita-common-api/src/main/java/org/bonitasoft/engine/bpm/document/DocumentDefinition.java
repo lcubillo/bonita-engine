@@ -13,6 +13,8 @@
  */
 package org.bonitasoft.engine.bpm.document;
 
+import java.util.Objects;
+
 import org.bonitasoft.engine.bpm.DescriptionElement;
 
 /**
@@ -35,8 +37,7 @@ public class DocumentDefinition extends DescriptionElement {
     private String fileName;
 
     /**
-     * @param name
-     * the name of the document
+     * @param name the name of the document
      */
     public DocumentDefinition(final String name) {
         super(name);
@@ -91,4 +92,20 @@ public class DocumentDefinition extends DescriptionElement {
         this.fileName = fileName;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof DocumentDefinition)) return false;
+        if (!super.equals(o)) return false;
+        DocumentDefinition that = (DocumentDefinition) o;
+        return Objects.equals(url, that.url) &&
+                Objects.equals(file, that.file) &&
+                Objects.equals(mimeType, that.mimeType) &&
+                Objects.equals(fileName, that.fileName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), url, file, mimeType, fileName);
+    }
 }

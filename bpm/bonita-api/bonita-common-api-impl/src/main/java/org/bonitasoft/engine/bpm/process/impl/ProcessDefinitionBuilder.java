@@ -13,6 +13,7 @@
  **/
 package org.bonitasoft.engine.bpm.process.impl;
 
+import javax.lang.model.SourceVersion;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -20,8 +21,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.lang.model.SourceVersion;
 
 import org.bonitasoft.engine.bpm.actor.ActorDefinition;
 import org.bonitasoft.engine.bpm.businessdata.BusinessDataDefinition;
@@ -138,7 +137,7 @@ public class ProcessDefinitionBuilder implements DescriptionBuilder, ContainerBu
      * @return The {@link BusinessDataDefinitionBuilder} containing the new {@link BusinessDataDefinition}
      */
     public BusinessDataDefinitionBuilder addBusinessData(final String name, final String className, final Expression defaultValue) {
-        return new BusinessDataDefinitionBuilder(this, (FlowElementContainerDefinition) process.getProcessContainer(), name, className, defaultValue);
+        return new BusinessDataDefinitionBuilder(this, process.getProcessContainer(), name, className, defaultValue);
     }
 
     protected void validateBusinessData() {
@@ -524,12 +523,12 @@ public class ProcessDefinitionBuilder implements DescriptionBuilder, ContainerBu
 
     @Override
     public DocumentDefinitionBuilder addDocumentDefinition(final String name) {
-        return new DocumentDefinitionBuilder(this, (FlowElementContainerDefinition) process.getProcessContainer(), name);
+        return new DocumentDefinitionBuilder(this, process.getProcessContainer(), name);
     }
 
     @Override
     public DocumentListDefinitionBuilder addDocumentListDefinition(final String name) {
-        return new DocumentListDefinitionBuilder(this, (FlowElementContainerDefinition) process.getProcessContainer(), name);
+        return new DocumentListDefinitionBuilder(this, process.getProcessContainer(), name);
     }
 
     @Override
@@ -605,7 +604,7 @@ public class ProcessDefinitionBuilder implements DescriptionBuilder, ContainerBu
 
     @Override
     public AutomaticTaskDefinitionBuilder addAutomaticTask(final String taskName) {
-        return new AutomaticTaskDefinitionBuilder(this, (FlowElementContainerDefinition) process.getProcessContainer(), taskName);
+        return new AutomaticTaskDefinitionBuilder(this, process.getProcessContainer(), taskName);
     }
 
     @Override
@@ -620,7 +619,7 @@ public class ProcessDefinitionBuilder implements DescriptionBuilder, ContainerBu
 
     @Override
     public ManualTaskDefinitionBuilder addManualTask(final String name, final String actorName) {
-        return new ManualTaskDefinitionBuilder(this, (FlowElementContainerDefinition) process.getProcessContainer(), name, actorName);
+        return new ManualTaskDefinitionBuilder(this, process.getProcessContainer(), name, actorName);
     }
 
     @Override
@@ -635,7 +634,7 @@ public class ProcessDefinitionBuilder implements DescriptionBuilder, ContainerBu
 
     @Override
     public GatewayDefinitionBuilder addGateway(final String name, final GatewayType gatewayType) {
-        return new GatewayDefinitionBuilder(this, (FlowElementContainerDefinition) process.getProcessContainer(), name, gatewayType);
+        return new GatewayDefinitionBuilder(this, process.getProcessContainer(), name, gatewayType);
     }
 
     @Override
@@ -645,22 +644,22 @@ public class ProcessDefinitionBuilder implements DescriptionBuilder, ContainerBu
 
     @Override
     public EndEventDefinitionBuilder addEndEvent(final String name) {
-        return new EndEventDefinitionBuilder(this, (FlowElementContainerDefinition) process.getProcessContainer(), name);
+        return new EndEventDefinitionBuilder(this, process.getProcessContainer(), name);
     }
 
     @Override
     public IntermediateCatchEventDefinitionBuilder addIntermediateCatchEvent(final String name) {
-        return new IntermediateCatchEventDefinitionBuilder(this, (FlowElementContainerDefinition) process.getProcessContainer(), name);
+        return new IntermediateCatchEventDefinitionBuilder(this, process.getProcessContainer(), name);
     }
 
     @Override
     public IntermediateThrowEventDefinitionBuilder addIntermediateThrowEvent(final String name) {
-        return new IntermediateThrowEventDefinitionBuilder(this, (FlowElementContainerDefinition) process.getProcessContainer(), name);
+        return new IntermediateThrowEventDefinitionBuilder(this, process.getProcessContainer(), name);
     }
 
     @Override
     public CallActivityBuilder addCallActivity(final String name, final Expression callableElement, final Expression callableElementVersion) {
-        return new CallActivityBuilder(this, (FlowElementContainerDefinition) process.getProcessContainer(), name, callableElement, callableElementVersion);
+        return new CallActivityBuilder(this, process.getProcessContainer(), name, callableElement, callableElementVersion);
     }
 
     @Override

@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 import org.bonitasoft.engine.bpm.actor.ActorDefinition;
@@ -269,5 +270,33 @@ public class DesignProcessDefinition extends ProcessDefinition {
         }
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof DesignProcessDefinition)) return false;
+        if (!super.equals(o)) return false;
+        DesignProcessDefinition that = (DesignProcessDefinition) o;
+        return Objects.equals(parameters, that.parameters) &&
+                Objects.equals(actors, that.actors) &&
+                Objects.equals(displayName, that.displayName) &&
+                Objects.equals(displayDescription, that.displayDescription) &&
+                Objects.equals(actorInitiator, that.actorInitiator) &&
+                Objects.equals(flowElementContainer, that.flowElementContainer) &&
+                Objects.equals(stringIndexLabel1, that.stringIndexLabel1) &&
+                Objects.equals(stringIndexLabel2, that.stringIndexLabel2) &&
+                Objects.equals(stringIndexLabel3, that.stringIndexLabel3) &&
+                Objects.equals(stringIndexLabel4, that.stringIndexLabel4) &&
+                Objects.equals(stringIndexLabel5, that.stringIndexLabel5) &&
+                Objects.equals(stringIndexValue1, that.stringIndexValue1) &&
+                Objects.equals(stringIndexValue2, that.stringIndexValue2) &&
+                Objects.equals(stringIndexValue3, that.stringIndexValue3) &&
+                Objects.equals(stringIndexValue4, that.stringIndexValue4) &&
+                Objects.equals(stringIndexValue5, that.stringIndexValue5) &&
+                Objects.equals(contract, that.contract);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), parameters, actors, displayName, displayDescription, actorInitiator, flowElementContainer, stringIndexLabel1, stringIndexLabel2, stringIndexLabel3, stringIndexLabel4, stringIndexLabel5, stringIndexValue1, stringIndexValue2, stringIndexValue3, stringIndexValue4, stringIndexValue5, contract);
+    }
 }

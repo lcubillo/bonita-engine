@@ -13,6 +13,8 @@
  */
 package org.bonitasoft.engine.bpm.data;
 
+import java.util.Objects;
+
 import org.bonitasoft.engine.bpm.DescriptionElement;
 import org.bonitasoft.engine.expression.Expression;
 
@@ -105,5 +107,21 @@ public class DataDefinition extends DescriptionElement {
         this.defaultValueExpression = defaultValueExpression;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof DataDefinition)) return false;
+        if (!super.equals(o)) return false;
+        DataDefinition that = (DataDefinition) o;
+        return Objects.equals(transientData, that.transientData) &&
+                Objects.equals(description, that.description) &&
+                Objects.equals(type, that.type) &&
+                Objects.equals(className, that.className) &&
+                Objects.equals(defaultValueExpression, that.defaultValueExpression);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), description, type, transientData, className, defaultValueExpression);
+    }
 }

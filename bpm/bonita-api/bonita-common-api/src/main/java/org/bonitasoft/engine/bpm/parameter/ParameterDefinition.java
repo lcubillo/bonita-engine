@@ -10,8 +10,10 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.parameter;
+
+import java.util.Objects;
 
 import org.bonitasoft.engine.bpm.DescriptionElement;
 
@@ -32,5 +34,19 @@ public class ParameterDefinition extends DescriptionElement {
 
     public String getType() {
         return type;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ParameterDefinition)) return false;
+        if (!super.equals(o)) return false;
+        ParameterDefinition that = (ParameterDefinition) o;
+        return Objects.equals(type, that.type);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), type);
     }
 }

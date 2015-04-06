@@ -10,7 +10,7 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.connector.impl;
 
 import org.bonitasoft.engine.bpm.connector.ConnectorEvent;
@@ -20,23 +20,21 @@ import org.bonitasoft.engine.bpm.connector.ConnectorState;
 
 /**
  * @author Elias Ricken de Medeiros
- * 
+ *
  */
 public class ConnectorInstanceWithFailureInfoImpl extends ConnectorInstanceImpl implements ConnectorInstanceWithFailureInfo {
 
     private static final long serialVersionUID = 7158777025106286625L;
+    private final String exceptionMessage;
+    private final String stackTrace;
 
     public ConnectorInstanceWithFailureInfoImpl(final String name, final long containerId, final String containerType, final String connectorId,
-            String version, ConnectorState state,
-            final ConnectorEvent activationEvent, final String exceptionMessage, final String stackTrace) {
+                                                String version, ConnectorState state,
+                                                final ConnectorEvent activationEvent, final String exceptionMessage, final String stackTrace) {
         super(name, containerId, containerType, connectorId, version, state, activationEvent);
         this.exceptionMessage = exceptionMessage;
         this.stackTrace = stackTrace;
     }
-
-    private final String exceptionMessage;
-
-    private final String stackTrace;
 
     @Override
     public String getExceptionMessage() {

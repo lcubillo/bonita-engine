@@ -10,8 +10,10 @@
  * You should have received a copy of the GNU Lesser General Public License along with this
  * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
  * Floor, Boston, MA 02110-1301, USA.
- **/
+ */
 package org.bonitasoft.engine.bpm.flownode.impl.internal;
+
+import java.util.Objects;
 
 import org.bonitasoft.engine.bpm.NamedElement;
 import org.bonitasoft.engine.bpm.flownode.FlowElementInstance;
@@ -63,17 +65,18 @@ public abstract class FlowElementInstanceImpl extends NamedElement implements Fl
     }
 
     @Override
-    public String toString() {
-        final StringBuilder stb = new StringBuilder(super.toString());
-        stb.append("parentContainerId: ");
-        stb.append(parentContainerId);
-        stb.append("\n");
-        stb.append("rootContainerId: ");
-        stb.append(rootContainerId);
-        stb.append("\n");
-        stb.append("aborting: ");
-        stb.append(aborting);
-        stb.append("\n");
-        return stb.toString();
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof FlowElementInstanceImpl)) return false;
+        if (!super.equals(o)) return false;
+        FlowElementInstanceImpl that = (FlowElementInstanceImpl) o;
+        return Objects.equals(parentContainerId, that.parentContainerId) &&
+                Objects.equals(rootContainerId, that.rootContainerId) &&
+                Objects.equals(aborting, that.aborting);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), parentContainerId, rootContainerId, aborting);
     }
 }
