@@ -66,7 +66,7 @@ public class ProcessDefinition extends NamedElement {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof ProcessDefinition)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         ProcessDefinition that = (ProcessDefinition) o;
         return Objects.equals(version, that.version) &&

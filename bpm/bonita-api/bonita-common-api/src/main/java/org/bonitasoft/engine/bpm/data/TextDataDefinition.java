@@ -51,7 +51,7 @@ public class TextDataDefinition extends DataDefinition {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof TextDataDefinition)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         TextDataDefinition that = (TextDataDefinition) o;
         return Objects.equals(longText, that.longText);

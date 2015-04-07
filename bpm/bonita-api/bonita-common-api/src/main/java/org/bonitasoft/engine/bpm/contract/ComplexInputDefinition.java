@@ -71,7 +71,7 @@ public class ComplexInputDefinition extends InputDefinition {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof ComplexInputDefinition)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         ComplexInputDefinition that = (ComplexInputDefinition) o;
         return Objects.equals(simpleInputDefinitions, that.simpleInputDefinitions) &&

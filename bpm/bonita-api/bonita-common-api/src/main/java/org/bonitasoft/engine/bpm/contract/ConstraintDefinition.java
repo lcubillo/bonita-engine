@@ -96,7 +96,7 @@ public class ConstraintDefinition extends NamedElement {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof ConstraintDefinition)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         ConstraintDefinition that = (ConstraintDefinition) o;
         return Objects.equals(expression, that.expression) &&

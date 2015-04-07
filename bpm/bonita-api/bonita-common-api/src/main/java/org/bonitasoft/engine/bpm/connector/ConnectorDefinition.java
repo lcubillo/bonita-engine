@@ -124,7 +124,7 @@ public class ConnectorDefinition extends NamedElement {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof ConnectorDefinition)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         ConnectorDefinition that = (ConnectorDefinition) o;
         return Objects.equals(connectorId, that.connectorId) &&

@@ -13,6 +13,8 @@
  */
 package org.bonitasoft.engine.bpm.flownode;
 
+import java.util.Objects;
+
 import org.bonitasoft.engine.bpm.contract.ContractDefinition;
 
 /**
@@ -51,5 +53,17 @@ public class UserTaskDefinition extends HumanTaskDefinition {
         this.contract = contract;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        UserTaskDefinition that = (UserTaskDefinition) o;
+        return Objects.equals(contract, that.contract);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), contract);
+    }
 }

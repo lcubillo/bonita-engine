@@ -15,6 +15,7 @@ package org.bonitasoft.engine.expression.impl;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 import org.bonitasoft.engine.expression.Expression;
 
@@ -116,73 +117,20 @@ public class ExpressionImpl implements Expression {
     }
 
     @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + (content == null ? 0 : content.hashCode());
-        result = prime * result + (dependencies == null ? 0 : dependencies.hashCode());
-        result = prime * result + (expressionType == null ? 0 : expressionType.hashCode());
-        result = prime * result + (interpreter == null ? 0 : interpreter.hashCode());
-        result = prime * result + (name == null ? 0 : name.hashCode());
-        result = prime * result + (returnType == null ? 0 : returnType.hashCode());
-        return result;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ExpressionImpl that = (ExpressionImpl) o;
+        return Objects.equals(name, that.name) &&
+                Objects.equals(content, that.content) &&
+                Objects.equals(expressionType, that.expressionType) &&
+                Objects.equals(returnType, that.returnType) &&
+                Objects.equals(interpreter, that.interpreter) &&
+                Objects.equals(dependencies, that.dependencies);
     }
 
     @Override
-    public boolean equals(final Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final ExpressionImpl other = (ExpressionImpl) obj;
-        if (content == null) {
-            if (other.content != null) {
-                return false;
-            }
-        } else if (!content.equals(other.content)) {
-            return false;
-        }
-        if (dependencies == null) {
-            if (other.dependencies != null) {
-                return false;
-            }
-        } else if (!dependencies.equals(other.dependencies)) {
-            return false;
-        }
-        if (expressionType == null) {
-            if (other.expressionType != null) {
-                return false;
-            }
-        } else if (!expressionType.equals(other.expressionType)) {
-            return false;
-        }
-        if (interpreter == null) {
-            if (other.interpreter != null) {
-                return false;
-            }
-        } else if (!interpreter.equals(other.interpreter)) {
-            return false;
-        }
-        if (name == null) {
-            if (other.name != null) {
-                return false;
-            }
-        } else if (!name.equals(other.name)) {
-            return false;
-        }
-        if (returnType == null) {
-            if (other.returnType != null) {
-                return false;
-            }
-        } else if (!returnType.equals(other.returnType)) {
-            return false;
-        }
-        return true;
+    public int hashCode() {
+        return Objects.hash(name, content, expressionType, returnType, interpreter, dependencies);
     }
-
 }

@@ -16,6 +16,7 @@ package org.bonitasoft.engine.bpm.flownode;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 
 /**
@@ -57,5 +58,18 @@ public class EndEventDefinition extends ThrowEventDefinition {
         addEventTrigger(errorEventTrigger);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        EndEventDefinition that = (EndEventDefinition) o;
+        return Objects.equals(errorEventTriggerDefinitions, that.errorEventTriggerDefinitions) &&
+                Objects.equals(terminateEventTriggerDefinition, that.terminateEventTriggerDefinition);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), errorEventTriggerDefinitions, terminateEventTriggerDefinition);
+    }
 }

@@ -60,7 +60,7 @@ public class ActorDefinition extends DescriptionElement {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof ActorDefinition)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         ActorDefinition that = (ActorDefinition) o;
         return Objects.equals(initiator, that.initiator);

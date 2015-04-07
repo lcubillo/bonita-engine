@@ -16,6 +16,7 @@ package org.bonitasoft.engine.bpm.flownode;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 import org.bonitasoft.engine.expression.Expression;
 import org.bonitasoft.engine.operation.Operation;
@@ -84,5 +85,21 @@ public class CallActivityDefinition extends ActivityDefinition {
         this.callableElementType = callableElementType;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        CallActivityDefinition that = (CallActivityDefinition) o;
+        return Objects.equals(dataInputOperations, that.dataInputOperations) &&
+                Objects.equals(dataOutputOperations, that.dataOutputOperations) &&
+                Objects.equals(callableElement, that.callableElement) &&
+                Objects.equals(callableElementVersion, that.callableElementVersion) &&
+                Objects.equals(callableElementType, that.callableElementType);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), dataInputOperations, dataOutputOperations, callableElement, callableElementVersion, callableElementType);
+    }
 }

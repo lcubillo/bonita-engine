@@ -42,14 +42,15 @@ public abstract class InputDefinition extends DescriptionElement {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof InputDefinition)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
         InputDefinition that = (InputDefinition) o;
         return Objects.equals(multiple, that.multiple);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(multiple);
+        return Objects.hash(super.hashCode(), multiple);
     }
 
     @Override

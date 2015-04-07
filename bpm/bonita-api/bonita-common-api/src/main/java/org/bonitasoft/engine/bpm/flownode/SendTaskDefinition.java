@@ -14,6 +14,8 @@
 package org.bonitasoft.engine.bpm.flownode;
 
 
+import java.util.Objects;
+
 import org.bonitasoft.engine.bpm.data.DataDefinition;
 import org.bonitasoft.engine.expression.Expression;
 
@@ -53,5 +55,17 @@ public class SendTaskDefinition extends TaskDefinition {
         return trigger;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        SendTaskDefinition that = (SendTaskDefinition) o;
+        return Objects.equals(trigger, that.trigger);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), trigger);
+    }
 }

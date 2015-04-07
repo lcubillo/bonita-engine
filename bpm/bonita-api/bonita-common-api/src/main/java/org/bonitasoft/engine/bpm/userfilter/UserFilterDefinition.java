@@ -74,7 +74,7 @@ public class UserFilterDefinition extends NamedElement {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof UserFilterDefinition)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         UserFilterDefinition that = (UserFilterDefinition) o;
         return Objects.equals(filterId, that.filterId) &&

@@ -39,7 +39,7 @@ public class ParameterDefinition extends DescriptionElement {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof ParameterDefinition)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         ParameterDefinition that = (ParameterDefinition) o;
         return Objects.equals(type, that.type);

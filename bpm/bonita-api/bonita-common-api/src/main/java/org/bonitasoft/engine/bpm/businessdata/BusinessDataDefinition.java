@@ -91,7 +91,7 @@ public class BusinessDataDefinition extends DescriptionElement {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof BusinessDataDefinition)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         BusinessDataDefinition that = (BusinessDataDefinition) o;
         return Objects.equals(multiple, that.multiple) &&

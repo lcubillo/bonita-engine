@@ -95,7 +95,7 @@ public class DocumentDefinition extends DescriptionElement {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof DocumentDefinition)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         DocumentDefinition that = (DocumentDefinition) o;
         return Objects.equals(url, that.url) &&

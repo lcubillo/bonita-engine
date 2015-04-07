@@ -16,6 +16,7 @@ package org.bonitasoft.engine.bpm.flownode;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 import org.bonitasoft.engine.bpm.ObjectSeeker;
 import org.bonitasoft.engine.bpm.businessdata.BusinessDataDefinition;
@@ -128,4 +129,21 @@ public abstract class ActivityDefinition extends FlowNodeDefinition {
         return ObjectSeeker.getNamedElement(dataDefinitions, name);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        ActivityDefinition that = (ActivityDefinition) o;
+        return Objects.equals(dataDefinitions, that.dataDefinitions) &&
+                Objects.equals(businessDataDefinitions, that.businessDataDefinitions) &&
+                Objects.equals(operations, that.operations) &&
+                Objects.equals(boundaryEventDefinitions, that.boundaryEventDefinitions) &&
+                Objects.equals(loopCharacteristics, that.loopCharacteristics);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), dataDefinitions, businessDataDefinitions, operations, boundaryEventDefinitions, loopCharacteristics);
+    }
 }

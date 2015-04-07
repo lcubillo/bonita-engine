@@ -301,7 +301,7 @@
 
 	<xs:complexType name="TransitionDefinition">
 		<xs:complexContent>
-			<xs:extension base="definition:NamedElement">
+			<xs:extension base="definition:BaseElement">
 				<xs:sequence>
 					<xs:element name="condition" type="definition:Expression" minOccurs="0" />
 				</xs:sequence>

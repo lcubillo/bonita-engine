@@ -13,6 +13,8 @@
  */
 package org.bonitasoft.engine.bpm.process;
 
+import java.util.Objects;
+
 import org.bonitasoft.engine.bpm.flownode.ActivityDefinition;
 import org.bonitasoft.engine.bpm.flownode.FlowElementContainerDefinition;
 
@@ -62,5 +64,18 @@ public class SubProcessDefinition extends ActivityDefinition {
         return triggeredByEvent;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        SubProcessDefinition that = (SubProcessDefinition) o;
+        return Objects.equals(triggeredByEvent, that.triggeredByEvent) &&
+                Objects.equals(subProcessContainer, that.subProcessContainer);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), triggeredByEvent, subProcessContainer);
+    }
 }

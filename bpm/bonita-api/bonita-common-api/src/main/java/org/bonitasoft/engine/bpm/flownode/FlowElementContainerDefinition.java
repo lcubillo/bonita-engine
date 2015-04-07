@@ -21,6 +21,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 import org.bonitasoft.engine.bpm.BaseElement;
@@ -263,5 +264,31 @@ public class FlowElementContainerDefinition extends BaseElement {
 
     public DataDefinition getDataDefinition(final String name) {
         return ObjectSeeker.getNamedElement(dataDefinitions, name);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        FlowElementContainerDefinition that = (FlowElementContainerDefinition) o;
+        return Objects.equals(activities, that.activities) &&
+                Objects.equals(transitions, that.transitions) &&
+                Objects.equals(gateways, that.gateways) &&
+                Objects.equals(startEvents, that.startEvents) &&
+                Objects.equals(intermediateCatchEvents, that.intermediateCatchEvents) &&
+                Objects.equals(intermediateThrowEvents, that.intermediateThrowEvents) &&
+                Objects.equals(endEvents, that.endEvents) &&
+                Objects.equals(dataDefinitions, that.dataDefinitions) &&
+                Objects.equals(businessDataDefinitions, that.businessDataDefinitions) &&
+                Objects.equals(documentDefinitions, that.documentDefinitions) &&
+                Objects.equals(documentListDefinitions, that.documentListDefinitions) &&
+                Objects.equals(connectors, that.connectors) &&
+                Objects.equals(flowNodes, that.flowNodes);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), activities, transitions, gateways, startEvents, intermediateCatchEvents, intermediateThrowEvents, endEvents, dataDefinitions, businessDataDefinitions, documentDefinitions, documentListDefinitions, connectors, flowNodes);
     }
 }

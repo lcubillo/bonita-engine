@@ -13,6 +13,8 @@
  */
 package org.bonitasoft.engine.bpm.flownode;
 
+import java.util.Objects;
+
 import org.bonitasoft.engine.bpm.userfilter.UserFilterDefinition;
 
 /**
@@ -70,5 +72,20 @@ public class HumanTaskDefinition extends TaskDefinition {
         this.priority = priority;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        HumanTaskDefinition that = (HumanTaskDefinition) o;
+        return Objects.equals(actorName, that.actorName) &&
+                Objects.equals(userFilterDefinition, that.userFilterDefinition) &&
+                Objects.equals(expectedDuration, that.expectedDuration) &&
+                Objects.equals(priority, that.priority);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), actorName, userFilterDefinition, expectedDuration, priority);
+    }
 }

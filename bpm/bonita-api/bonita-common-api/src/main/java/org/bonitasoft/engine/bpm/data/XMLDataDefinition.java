@@ -71,7 +71,7 @@ public class XMLDataDefinition extends DataDefinition {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof XMLDataDefinition)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         XMLDataDefinition that = (XMLDataDefinition) o;
         return Objects.equals(namespace, that.namespace) &&

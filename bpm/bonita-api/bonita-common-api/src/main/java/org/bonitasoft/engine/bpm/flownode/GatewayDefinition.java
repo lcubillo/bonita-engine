@@ -14,6 +14,8 @@
 package org.bonitasoft.engine.bpm.flownode;
 
 
+import java.util.Objects;
+
 /**
  * @author Feng Hui
  * @author Baptiste Mesta
@@ -37,5 +39,17 @@ public class GatewayDefinition extends FlowNodeDefinition {
         return gatewayType;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        GatewayDefinition that = (GatewayDefinition) o;
+        return Objects.equals(gatewayType, that.gatewayType);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), gatewayType);
+    }
 }

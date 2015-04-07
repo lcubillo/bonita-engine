@@ -16,6 +16,7 @@ package org.bonitasoft.engine.bpm.flownode;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @author Elias Ricken de Medeiros
@@ -44,5 +45,17 @@ public class EventDefinition extends FlowNodeDefinition {
         eventTriggers.add(eventTrigger);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        EventDefinition that = (EventDefinition) o;
+        return Objects.equals(eventTriggers, that.eventTriggers);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), eventTriggers);
+    }
 }

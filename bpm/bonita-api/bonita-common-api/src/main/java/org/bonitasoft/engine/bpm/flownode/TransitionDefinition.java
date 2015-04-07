@@ -13,6 +13,8 @@
  */
 package org.bonitasoft.engine.bpm.flownode;
 
+import java.util.Objects;
+
 import org.bonitasoft.engine.bpm.BaseElement;
 import org.bonitasoft.engine.expression.Expression;
 
@@ -75,5 +77,19 @@ public class TransitionDefinition extends BaseElement {
         this.expression = expression;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        TransitionDefinition that = (TransitionDefinition) o;
+        return Objects.equals(source, that.source) &&
+                Objects.equals(target, that.target) &&
+                Objects.equals(expression, that.expression);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), source, target, expression);
+    }
 }
