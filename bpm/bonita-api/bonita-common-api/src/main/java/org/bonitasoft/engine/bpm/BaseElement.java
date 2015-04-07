@@ -47,7 +47,7 @@ public abstract class BaseElement implements BonitaObject {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         BaseElement that = (BaseElement) o;
-        return Objects.equals(id, that.id);
+        return true;
     }
 
     @Override

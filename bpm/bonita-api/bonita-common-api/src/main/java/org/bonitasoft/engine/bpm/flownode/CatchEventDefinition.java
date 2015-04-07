@@ -16,6 +16,7 @@ package org.bonitasoft.engine.bpm.flownode;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 
 /**
@@ -95,5 +96,21 @@ public abstract class CatchEventDefinition extends EventDefinition {
         this.isInterrupting = isInterrupting;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        CatchEventDefinition that = (CatchEventDefinition) o;
+        return Objects.equals(isInterrupting, that.isInterrupting) &&
+                Objects.equals(timerEventTriggers, that.timerEventTriggers) &&
+                Objects.equals(messageEventTriggers, that.messageEventTriggers) &&
+                Objects.equals(signalEventTriggers, that.signalEventTriggers) &&
+                Objects.equals(errorEventTriggers, that.errorEventTriggers);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), timerEventTriggers, messageEventTriggers, signalEventTriggers, errorEventTriggers, isInterrupting);
+    }
 }

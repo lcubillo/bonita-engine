@@ -81,7 +81,6 @@ public class TransitionDefinition extends BaseElement {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
         TransitionDefinition that = (TransitionDefinition) o;
         return Objects.equals(source, that.source) &&
                 Objects.equals(target, that.target) &&

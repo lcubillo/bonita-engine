@@ -28,4 +28,6 @@ public class IntermediateThrowEventDefinition extends ThrowEventDefinition {
         super(id, name);
     }
 
+
+
 }
