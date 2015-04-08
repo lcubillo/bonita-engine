@@ -1,12 +1,7 @@
 package org.bonitasoft.engine;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-
 import javax.naming.Context;
+import java.util.*;
 
 import org.bonitasoft.engine.exception.BonitaException;
 import org.bonitasoft.engine.test.APITestUtil;
@@ -75,7 +70,7 @@ public class TestsInitializer {
         final ArrayList<Thread> list = new ArrayList<Thread>();
         while (iterator.hasNext()) {
             final Thread thread = iterator.next();
-            if (isEngine(thread) && !thread.getName().startsWith("net.sf.ehcache.CacheManager")) {
+            if (isEngine(thread) && !thread.getName().startsWith("net.sf.ehcache.CacheManager") && !(thread.getName().contains("derby"))) {
                 // wait for the thread to die
                 thread.join(10000);
                 // if still alive print it
