@@ -17,20 +17,50 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Test;
 
+import java.io.File;
+
 public class StringUtilsTest {
 
     @Test
-    public void uniformizePathPatternShouldChangeAllSlashesToSystemDependentSeparator() {
+    public void uniformizePathPatternShouldChangeAllSlashesToSystemDependentSeparator_On_Linux() {
         final String uniformized = StringUtils.uniformizePathPattern("C:\\toto\\my path\\my\\/file.bak.txt");
         assertThat(uniformized)
                 .isEqualTo("C:/toto/my path/my/file.bak.txt");
     }
 
     @Test
-    public void uniformizePathPatternShouldLeaveNoDoubleSeparator() {
+     public void uniformizePathPatternShouldChangeAllSlashesToSystemDependentSeparator_On_Windows() {
+        StringUtils.IS_OS_UNIX = false;
+        final String uniformized = StringUtils.uniformizePathPattern("C:\\toto\\my path\\my\\/file.bak.txt");
+        assertThat(uniformized)
+                .isEqualTo("C:\\toto\\my path\\my\\file.bak.txt");
+    }
+
+    @Test
+    public void uniformizePathPatternShouldLeaveNoDoubleSeparator_On_Linux() {
         final String uniformized = StringUtils.uniformizePathPattern("C:///toto//my path/////full_slashes/my file.bak.txt");
+        assertThat(uniformized).isEqualTo("C://toto/my path/full_slashes/my file.bak.txt");
+    }
+
+    @Test
+    public void uniformizePathPatternShouldLeaveNoDoubleSeparator_On_Windows() {
+        StringUtils.IS_OS_UNIX = false;
+        final String uniformized = StringUtils.uniformizePathPattern("C:///toto//my path/////full_slashes/my file.bak.txt");
+        assertThat(uniformized).isEqualTo("C:\\\\toto\\my path\\full_slashes\\my file.bak.txt");
+    }
+
+    @Test
+    public void uniformizePathPatternOnNetworkDriveShouldWork() {
+        StringUtils.IS_OS_UNIX = false;
+        final String uniformized = StringUtils.uniformizePathPattern("\\\\server\\shareddir\\bonita");
         assertThat(uniformized).isEqualTo(
-                "C:/toto/my path/full_slashes/my file.bak.txt");
+                "\\\\server\\shareddir\\bonita");
+    }
+
+    @Test
+    public void uniformizePathPatternShouldDoNothingOnSimpleString() {
+        final String uniformized = StringUtils.uniformizePathPattern("test");
+        assertThat(uniformized).isEqualTo("test");
     }
 
 }

@@ -13,6 +13,13 @@
  **/
 package org.bonitasoft.engine.commons;
 
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang3.SystemUtils;
+
+import java.io.File;
+import java.net.URISyntaxException;
+import java.util.regex.Pattern;
+
 /**
  * String manipulation utilitary class.
  *
@@ -20,13 +27,15 @@ package org.bonitasoft.engine.commons;
  */
 public class StringUtils {
 
+    protected static boolean IS_OS_UNIX = SystemUtils.IS_OS_UNIX;
+
     /**
-     * Replaces all "\" character with "/" character, and ensures that there is no double "/".
+     * Replaces all "\" character with {@code File.separator character}, and ensures that there is no double "/".
      *
      * @param path the path-like string to clean.
      * @return the cleaned path-like string.
      */
     public static String uniformizePathPattern(final String path) {
-        return path.replaceAll("\\\\", "/").replaceAll("/{2,}", "/");
+        return FilenameUtils.normalize(path, IS_OS_UNIX);
     }
 }
